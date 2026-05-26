@@ -1,6 +1,75 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  @media screen and (min-width: 990px) {
+    /* Adjust grid areas to allow announcements to align center-left and localization/location to align far right */
+    .utility-bar__grid {
+      grid-template-columns: auto 1fr auto !important;
+      grid-template-areas: 'social-icons announcements language-currency' !important;
+      align-items: center;
+    }
+
+    .utility-bar__grid .announcement-bar-slider {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: flex !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+    }
+
+    .announcement-bar-slider slideshow-component {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .announcement-bar-slider .slider--everywhere {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+      width: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      transform: none !important;
+      gap: 0 !important;
+      scroll-snap-type: none !important;
+    }
+
+    .announcement-bar-slider .slideshow__slide {
+      width: auto !important;
+      max-width: none !important;
+      flex-shrink: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    /* Pipe separator between announcements */
+    .announcement-bar-slider .slideshow__slide:not(:last-child)::after {
+      content: "|";
+      margin: 0 2.5rem;
+      color: rgba(var(--color-foreground), 0.3);
+      font-size: 1.4rem;
+      font-weight: 300;
+      pointer-events: none;
+    }
+
+    /* Hide next/prev arrows on desktop */
+    .announcement-bar-slider .slider-button {
+      display: none !important;
+    }
+  }
+
+  /* Utility disclosure button paddings */
+  .utility-bar .disclosure .localization-form__select {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+{%- endstyle -%}
+
 {%- liquid
   assign social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -40,6 +109,33 @@
             >
           {%- endif -%}
           <p class="announcement-bar__message h5">
+            {%- if section.blocks.first.settings.icon != 'none' -%}
+              <span class="announcement-bar__icon-span" style="display: inline-flex; align-items: center; justify-content: center; margin-right: 0.8rem; vertical-align: middle;">
+                {%- case section.blocks.first.settings.icon -%}
+                  {%- when 'shipping' -%}
+                    <svg class="icon icon-shipping" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
+                      <line x1="2" y1="8" x2="6" y2="8"></line>
+                      <line x1="1" y1="12" x2="5" y2="12"></line>
+                      <line x1="3" y1="16" x2="7" y2="16"></line>
+                      <path d="M12 2L20 6.5V15.5L12 20L4 15.5V6.5L12 2Z"></path>
+                      <path d="M12 20V11"></path>
+                      <path d="M12 11L20 6.5"></path>
+                      <path d="M12 11L4 6.5"></path>
+                    </svg>
+                  {%- when 'payment' -%}
+                    <svg class="icon icon-payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
+                      <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="2" y1="10" x2="22" y2="10"></line>
+                      <path d="M16 14l2 2 4-4"></path>
+                    </svg>
+                  {%- when 'warranty' -%}
+                    <svg class="icon icon-warranty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      <path d="M9 11l2 2 4-4"></path>
+                    </svg>
+                {%- endcase -%}
+              </span>
+            {%- endif -%}
             <span>{{ section.blocks.first.settings.text | escape }}</span>
             {%- if section.blocks.first.settings.link != blank -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -100,6 +196,33 @@
                       >
                     {%- endif -%}
                     <p class="announcement-bar__message h5">
+                      {%- if block.settings.icon != 'none' -%}
+                        <span class="announcement-bar__icon-span" style="display: inline-flex; align-items: center; justify-content: center; margin-right: 0.8rem; vertical-align: middle;">
+                          {%- case block.settings.icon -%}
+                            {%- when 'shipping' -%}
+                              <svg class="icon icon-shipping" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
+                                <line x1="2" y1="8" x2="6" y2="8"></line>
+                                <line x1="1" y1="12" x2="5" y2="12"></line>
+                                <line x1="3" y1="16" x2="7" y2="16"></line>
+                                <path d="M12 2L20 6.5V15.5L12 20L4 15.5V6.5L12 2Z"></path>
+                                <path d="M12 20V11"></path>
+                                <path d="M12 11L20 6.5"></path>
+                                <path d="M12 11L4 6.5"></path>
+                              </svg>
+                            {%- when 'payment' -%}
+                              <svg class="icon icon-payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
+                                <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="2" y1="10" x2="22" y2="10"></line>
+                                <path d="M16 14l2 2 4-4"></path>
+                              </svg>
+                            {%- when 'warranty' -%}
+                              <svg class="icon icon-warranty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 11l2 2 4-4"></path>
+                              </svg>
+                          {%- endcase -%}
+                        </span>
+                      {%- endif -%}
                       <span>{{ block.settings.text | escape }}</span>
                       {%- if block.settings.link != blank -%}
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -136,7 +259,7 @@
         </style>
       {%- endif -%}
     {%- endif -%}
-    <div class="localization-wrapper">
+    <div class="localization-wrapper" style="display: flex; align-items: center; gap: 2rem;">
       {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
         <localization-form class="small-hide medium-hide">
           {%- form 'localization', id: 'AnnouncementCountryForm', class: 'localization-form' -%}
@@ -157,6 +280,24 @@
             </div>
           {%- endform -%}
         </localization-form>
+      {%- endif -%}
+
+      {%- if section.settings.store_location_label != blank -%}
+        <a 
+          {% if section.settings.store_location_link != blank %}href="{{ section.settings.store_location_link }}"{% else %}href="#"{% endif %}
+          class="announcement-bar__store-location-link link link--text caption-large"
+          style="display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; font-size: 1.3rem; font-weight: 500; color: rgba(var(--color-foreground), 0.85); transition: color var(--duration-short) ease;"
+          onmouseover="this.style.color='rgb(var(--color-foreground))'"
+          onmouseout="this.style.color='rgba(var(--color-foreground), 0.85)'"
+        >
+          <span style="display: inline-flex; align-items: center; justify-content: center;">
+            <svg class="icon icon-map-pin" viewBox="0 0 20 20" fill="currentColor" style="width: 1.6rem; height: 1.6rem; display: block;">
+              <path fill-rule="evenodd" d="m9.91 18.59 5.036-8.78c2.228-3.886-.525-8.777-4.942-8.777-4.385 0-7.147 4.822-4.992 8.713zM10.004 0C4.845 0 1.593 5.673 4.13 10.255l5.212 9.41a.64.64 0 0 0 1.12.009l5.358-9.342C18.445 5.755 15.202 0 10.004 0"/>
+              <path d="M13 6.796c0 1.76-1.399 3.187-3.124 3.187S6.752 8.556 6.752 6.796s1.399-3.187 3.124-3.187S13 5.036 13 6.796M9.876 8.949c1.166 0 2.11-.964 2.11-2.153s-.944-2.153-2.11-2.153-2.11.964-2.11 2.153.944 2.153 2.11 2.153"/>
+            </svg>
+          </span>
+          <span>{{ section.settings.store_location_label | escape }}</span>
+        </a>
       {%- endif -%}
     </div>
   </div>
@@ -227,6 +368,21 @@
       "default": false,
       "label": "t:sections.announcement-bar.settings.enable_language_selector.label",
       "info": "t:sections.announcement-bar.settings.enable_language_selector.info"
+    },
+    {
+      "type": "header",
+      "content": "Store Location Settings"
+    },
+    {
+      "type": "text",
+      "id": "store_location_label",
+      "label": "Store Location Label",
+      "default": "Store location"
+    },
+    {
+      "type": "url",
+      "id": "store_location_link",
+      "label": "Store Location Link"
     }
   ],
   "blocks": [
@@ -244,6 +400,18 @@
           "type": "url",
           "id": "link",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "shipping", "label": "Shipping / Box" },
+            { "value": "payment", "label": "Payment / Card" },
+            { "value": "warranty", "label": "Warranty / Shield" }
+          ],
+          "default": "none",
+          "label": "Icon"
         }
       ]
     }

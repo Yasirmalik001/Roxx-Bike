@@ -33,11 +33,18 @@
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
-      {{ localization.country.currency.symbol -}}
-    </span>
+    {% if localPosition == 'AnnouncementCountry' %}
+      <span style="display: inline-flex; align-items: center; gap: 0.6rem;">
+        <img src="https://flagcdn.com/w40/{{ localization.country.iso_code | downcase }}.png" width="20" height="15" alt="" class="country-flag" style="border-radius: 2px; object-fit: cover; aspect-ratio: 4/3;">
+        <span style="font-weight: 500;">{{ localization.country.iso_code }}</span>
+      </span>
+    {% else %}
+      <span>
+        {{- localization.country.name }} |
+        {{ localization.country.currency.iso_code }}
+        {{ localization.country.currency.symbol -}}
+      </span>
+    {% endif %}
     {{ 'icon-caret.svg' | inline_asset_content }}
   </button>
   <div class="disclosure__list-wrapper country-selector" hidden>
@@ -111,7 +118,10 @@
                 >
                   {{- 'icon-checkmark.svg' | inline_asset_content -}}
                 </span>
-                <span class="country">{{- country.name }}</span>
+                <span class="country">
+                  <img src="https://flagcdn.com/w40/{{ country.iso_code | downcase }}.png" width="16" height="12" alt="" class="country-flag" style="margin-right: 8px; vertical-align: middle; border-radius: 1px; object-fit: cover; display: inline-block;">
+                  {{- country.name -}}
+                </span>
                 <span class="localization-form__currency motion-reduce{% unless show_currencies %} hidden{% endunless %}">
                   {{ country.currency.iso_code }}
                   {{ country.currency.symbol -}}
@@ -140,7 +150,10 @@
               >
                 {{- 'icon-checkmark.svg' | inline_asset_content -}}
               </span>
-              <span class="country">{{- country.name }}</span>
+              <span class="country">
+              <img src="https://flagcdn.com/w40/{{ country.iso_code | downcase }}.png" width="16" height="12" alt="" class="country-flag" style="margin-right: 8px; vertical-align: middle; border-radius: 1px; object-fit: cover; display: inline-block;">
+              {{- country.name -}}
+            </span>
               <span class="localization-form__currency motion-reduce{% unless show_currencies %} hidden{% endunless %}">
                 {{ country.currency.iso_code }}
                 {{ country.currency.symbol -}}
