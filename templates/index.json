@@ -110,7 +110,7 @@
         "autoplay_interval": 3,
         "enable_loop": false,
         "image_ratio": "square",
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "badge_position": "top-left",
         "show_rating": false,
         "card_image_bg": "#f5f1eb",
