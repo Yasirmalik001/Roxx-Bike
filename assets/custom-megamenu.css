@@ -1,13 +1,7 @@
 
-/* ==========================================================================
-   Tabbed Megamenu Layout
-   ========================================================================== */
-
 .megamenu-tabbed-container {
   display: flex;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   padding: 3rem 1.5rem;
   gap: 3rem;
   align-items: stretch;
