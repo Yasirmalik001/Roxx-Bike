@@ -1834,14 +1834,6 @@ a.product__text {
     grid-row: 2;
   }
 
-  /* Price and right-side elements */
-  .product__info-wrapper [id^="price-"] {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: flex-end;
-    text-align: right;
-    margin-bottom: 0;
-  }
 
   .product__info-wrapper .installment {
     grid-column: 2;
