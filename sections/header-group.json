@@ -59,6 +59,24 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "megamenu_Q9K8aE": {
+          "type": "megamenu",
+          "settings": {
+            "column_size": "25%",
+            "title": "",
+            "widget": "menu",
+            "menu_heading": "",
+            "menu_link_list_child": "",
+            "banner_title": "",
+            "banner_button": "",
+            "banner_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_Q9K8aE"
+      ],
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
