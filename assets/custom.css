@@ -757,25 +757,37 @@
   display: flex !important;
   justify-content: space-between !important;
   align-items: flex-start !important;
-  flex-wrap: wrap !important;
-  gap: 3rem !important;
+  flex-wrap: nowrap !important;
+  gap: 4rem !important;
   padding-bottom: 5rem !important;
 }
 
 .footer .footer__blocks-wrapper {
   display: flex !important;
   flex-direction: row !important;
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
   flex-grow: 1 !important;
-  flex-basis: 50% !important;
+  flex-basis: auto !important;
   margin: 0 !important;
-  gap: 2rem !important;
+  gap: 4rem !important;
+}
+
+@media screen and (max-width: 749px) {
+  .footer .footer__content-top {
+    flex-wrap: wrap !important;
+    gap: 3rem !important;
+  }
+  .footer .footer__blocks-wrapper {
+    flex-wrap: wrap !important;
+    gap: 2rem !important;
+  }
 }
 
 .footer .footer-block {
-  flex: 1 1 20% !important;
+  flex: 0 0 auto !important;
   margin: 0 !important;
   padding: 0 !important;
+  min-width: max-content !important;
 }
 
 .footer .footer-block__heading {
@@ -803,10 +815,18 @@
 
 /* Newsletter Styles */
 .footer .footer-block--newsletter {
-  flex: 0 0 35% !important;
+  flex: 0 0 auto !important;
+  width: 450px !important;
   max-width: 450px !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+@media screen and (max-width: 749px) {
+  .footer .footer-block--newsletter {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 .footer .footer-block__newsletter {
@@ -873,16 +893,12 @@
 }
 
 .footer .footer-block__newsletter .newsletter-form__button::after {
-  content: "Submit →" !important;
-  font-size: 1.4rem !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  display: inline-block !important;
+  display: none !important;
 }
 
 .footer .footer-block__newsletter .newsletter-form__button span,
 .footer .footer-block__newsletter .newsletter-form__button svg {
-  display: none !important;
+  display: inline-flex !important;
 }
 
 .footer .newsletter-subtext {
