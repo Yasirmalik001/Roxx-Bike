@@ -12,7 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-<<<<<<< HEAD
         "gallery_badges_X1": {
           "type": "gallery_badges",
           "settings": {
@@ -33,26 +32,6 @@
             "label_3": "Max Range",
             "value_3": "80-90 km",
             "icon_3": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h4l3 8 5-16 3 8h5\"></path></svg>"
-=======
-        "title_and_price_miVkLd": {
-          "type": "title_and_price",
-          "settings": {
-            "show_discount_badge": true,
-            "review_text": "4.9 (22 Reviews)"
-          }
-        },
-        "product_reviews_XX9YT4": {
-          "type": "product-reviews",
-          "settings": {
-            "flow_text": "Heavy periods",
-            "flow_bg_color": "#fff2f6",
-            "star_width": 70,
-            "review_text": "4.7 (92 Reviews)",
-            "link_url": "",
-            "text_color": "#2b2b2b",
-            "margin_top": 0,
-            "margin_bottom": 10
->>>>>>> parent of 24910af (do)
           }
         },
         "title": {
@@ -63,63 +42,11 @@
           "type": "price",
           "settings": {}
         },
-<<<<<<< HEAD
         "klarna_installments_X3": {
           "type": "klarna_installments",
           "settings": {}
         },
         "description_X4": {
-          "type": "text",
-          "settings": {
-            "text": "A fully connected e-bike built for modern life — powerful, intelligent, and effortlessly smooth.",
-            "text_style": "body"
-          }
-        },
-        "inventory": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
-          }
-        },
-        "payment_icons_X5": {
-          "type": "payment_icons",
-          "settings": {}
-        },
-        "insurance_upsell_X6": {
-          "type": "insurance_upsell",
-          "settings": {
-            "title": "Roxx insurance",
-            "text": "Lorem ipsum dolor sit amet consectetur. In etiam donec purus vel fermentum morbi sed ut."
-          }
-        },
-        "review_avatars_X7": {
-          "type": "review_avatars",
-=======
-        "pills_xFGRwJ": {
-          "type": "pills",
-          "settings": {
-            "title": "Why you will love it:",
-            "text_color": "#c8a97e",
-            "icon_color": "#111111",
-            "custom_svg": "",
-            "benefit_1": "Waterproof",
-            "benefit_2": "2 Year Warranty",
-            "benefit_3": "Swiss Movement",
-            "benefit_4": "Premium Leather",
-            "benefit_5": "",
-            "benefit_6": ""
-          }
-        },
-        "text_YJpJae": {
           "type": "text",
           "settings": {
             "text": "Feel safe and comfortable all day with Nora High Waist.A soft, stretchy fit with built-in protection that absorbs flow while staying breathable and discreet.",
@@ -129,12 +56,15 @@
         "multi_icon_xn8fhg": {
           "type": "multi-icon",
           "settings": {
+            "icon-1": "shopify://shop_images/Group_1413372244_1.svg",
             "icon_size_1": 46,
             "icon_size_m_1": 30,
             "text-1": "Absorbs equivalent of 5 tampons",
+            "icon-2": "shopify://shop_images/Group_1413372203.svg",
             "icon_size_2": 46,
             "icon_size_m_2": 30,
             "text-2": "Absorbs equivalent of 5 tampons",
+            "icon-3": "shopify://shop_images/Group_1413372205.svg",
             "icon_size_3": 46,
             "icon_size_m_3": 30,
             "text-3": "Absorbs equivalent of 5 tampons",
@@ -147,13 +77,14 @@
             "picker_type": "button",
             "swatch_shape": "circle",
             "show_variant_images_in_swatches": false,
-            "size_guide_page": false,
+            "size_guide_page": true,
             "trigger_tag": "størrelse",
             "trigger_label": "Size Guide",
             "color_primary": "#8a2468",
             "color_secondary": "#fb499b",
             "color_tertiary": "#fceced",
             "title": "Size Guide",
+            "avatar_image": "shopify://shop_images/hugeicons_tape-measure_1e87abb3-f8e9-47c7-9231-bdd211d9ea0c.svg",
             "show_xs": true,
             "val_xs_int": "34 - 36",
             "val_xs_cm": "88 - 93",
@@ -176,7 +107,8 @@
             "bullet_1": "Stand naturally and measure around your hips at the widest point, where your body is fullest.",
             "bullet_2": "Keep the measuring tape snug but not tight, and make sure it's level all the way around.",
             "bullet_3": "For best accuracy, measure directly on your body or over thin clothing, and measure twice to be sure.",
-            "note_text": "If you come between the two sizes, choose the small one."
+            "note_text": "If you come between the two sizes, choose the small one.",
+            "illustration_image": "shopify://shop_images/273a1e4e69c294daf57dd3c454855697f92de761.png"
           }
         },
         "buy_buttons": {
@@ -193,49 +125,41 @@
             "margin_bottom": 16
           }
         },
+        "pills_xFGRwJ": {
+          "type": "pills",
+          "settings": {
+            "text_color": "#962071",
+            "custom_svg": "",
+            "benefit_1": "Waterproof",
+            "benefit_2": "2 Year Warranty",
+            "benefit_3": "Swiss Movement",
+            "benefit_4": "Premium Leather",
+            "benefit_5": "",
+            "benefit_6": ""
+          }
+        },
         "text_e49ryr": {
           "type": "text",
->>>>>>> parent of 24910af (do)
           "settings": {
             "text": "<em><strong>Note: </strong></em><em>The 60-day guarantee applies to new customers and covers one pair only.</em>",
             "text_style": "subtitle"
           }
         },
-<<<<<<< HEAD
-        "feature_icons_row_X8": {
-          "type": "feature_icons_row",
-=======
         "faq_blocks_NkWNgc": {
           "type": "faq-blocks",
           "name": "Product Description",
->>>>>>> parent of 24910af (do)
           "settings": {
+            "custom_image": "shopify://shop_images/material-symbols-light_description-outline-rounded.svg",
             "question": "Product Description",
             "faq_content_type": "product_description",
             "answer": ""
           }
-<<<<<<< HEAD
-        }
-      },
-      "block_order": [
-        "gallery_badges_X1",
-        "gallery_specs_X2",
-        "title",
-        "price",
-        "klarna_installments_X3",
-        "description_X4",
-        "inventory",
-        "buy_buttons",
-        "payment_icons_X5",
-        "insurance_upsell_X6",
-        "review_avatars_X7",
-        "feature_icons_row_X8"
-=======
         },
         "faq_blocks_CkKVjD": {
           "type": "faq-blocks",
           "name": "Materials & Care",
           "settings": {
+            "custom_image": "shopify://shop_images/material-symbols-light_info-outline.svg",
             "question": "Materials & Care",
             "faq_content_type": "manual",
             "answer": ""
@@ -245,96 +169,50 @@
           "type": "faq-blocks",
           "name": "Shipping",
           "settings": {
+            "custom_image": "shopify://shop_images/Group_15.svg",
             "question": "Shipping",
             "faq_content_type": "manual",
             "answer": ""
           }
         },
-        "faq_blocks_k8EnCc": {
-          "type": "faq-blocks",
-          "name": "Size Guide",
+        "review_avatars_X7": {
+          "type": "review_avatars",
           "settings": {
-            "question": "Size Guide",
-            "faq_content_type": "manual",
-            "answer": ""
+            "title": "Real people reviews"
           }
         },
-        "upsell_product_jgWVE7": {
-          "type": "upsell_product",
+        "feature_icons_row_X8": {
+          "type": "feature_icons_row",
           "settings": {
-            "upsell__heading": "Complete your look",
-            "drawer_mobile_arrows": false,
-            "drawer_enable_autoplay": false,
-            "drawer_autoplay_interval": 3,
-            "drawer_mobile_slides": 1.5,
-            "drawer_tablet_slides": 2,
-            "drawer_desktop_slides": 2,
-            "drawer_mobile_spacing": 10,
-            "drawer_desktop_spacing": 10
+            "title_1": "Free Shipping",
+            "sub_1": "from $79.95",
+            "title_2": "2-Year Warranty",
+            "title_3": "14 days money",
+            "sub_3": "back guarantee"
           }
-        },
-        "trust_card_D4xBC6": {
-          "type": "trust-card",
-          "settings": {
-            "rating_1": 5,
-            "verified_1": true,
-            "title_1": "The quality is unreal for this price point.",
-            "text_1": "Looks just like it does on the website, which is always a relief!",
-            "author_1": "Caleb T.",
-            "rating_2": 5,
-            "verified_2": true,
-            "title_2": "",
-            "text_2": "",
-            "author_2": "Caleb T.",
-            "rating_3": 5,
-            "verified_3": true,
-            "title_3": "",
-            "text_3": "",
-            "author_3": "Caleb T.",
-            "rating_4": 5,
-            "verified_4": true,
-            "title_4": "",
-            "text_4": "",
-            "author_4": "",
-            "rating_5": 5,
-            "verified_5": true,
-            "title_5": "",
-            "text_5": "",
-            "author_5": ""
-          }
+<<<<<<< HEAD
         }
       },
       "block_order": [
-        "title_and_price_miVkLd",
         "product_reviews_XX9YT4",
         "title",
         "price",
-        "pills_xFGRwJ",
         "text_YJpJae",
         "multi_icon_xn8fhg",
         "variant_picker",
         "buy_buttons",
-        "delivery_payment_mB6BTN",
-        "text_e49ryr",
-        "faq_blocks_NkWNgc",
-        "faq_blocks_CkKVjD",
-        "faq_blocks_FN9CnF",
-        "faq_blocks_k8EnCc",
-        "upsell_product_jgWVE7",
-        "trust_card_D4xBC6"
->>>>>>> parent of 24910af (do)
+        "payment_icons_X5",
+        "insurance_upsell_X6",
+        "review_avatars_X7",
+        "feature_icons_row_X8"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-4",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "cover",
-<<<<<<< HEAD
         "gallery_layout": "thumbnail_left",
-=======
-        "gallery_layout": "stacked",
->>>>>>> parent of 24910af (do)
         "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "full_popup",
