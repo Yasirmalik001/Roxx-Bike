@@ -1032,13 +1032,6 @@
   }
 }
 
-<<<<<<< Updated upstream
-=======
-/* ==========================================================================
-   Cart Drawer — Complete Custom Styles (1-to-1 Mockup Match)
-   ========================================================================== */
-
-/* --- Drawer Container (side panel with upsell left panel) --- */
 .drawer__container {
   display: flex;
   flex-direction: row;
