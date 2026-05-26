@@ -307,6 +307,54 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "keep_discovering_nqKjzK": {
+      "type": "keep-discovering",
+      "blocks": {
+        "external_link_yB3Jmg": {
+          "type": "external_link",
+          "settings": {
+            "title": "BOOK TEST DRIVE",
+            "link": ""
+          }
+        },
+        "avatar_badge_ir4NtT": {
+          "type": "avatar_badge",
+          "settings": {
+            "title": "ACCESSORIES",
+            "link": "",
+            "initial": "J"
+          }
+        },
+        "standard_card_KbdMAC": {
+          "type": "standard_card",
+          "settings": {
+            "title": "SHOP BIKES",
+            "link": ""
+          }
+        },
+        "avatar_badge_EFEGjJ": {
+          "type": "avatar_badge",
+          "settings": {
+            "title": "SUPPORT",
+            "link": "",
+            "initial": "J"
+          }
+        }
+      },
+      "block_order": [
+        "external_link_yB3Jmg",
+        "avatar_badge_ir4NtT",
+        "standard_card_KbdMAC",
+        "avatar_badge_EFEGjJ"
+      ],
+      "name": "Keep Discovering Hero",
+      "settings": {
+        "heading": "KEEP DISCOVERING",
+        "heading_size": "h1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -315,6 +363,7 @@
     "hero_banner_features_7JX3dk",
     "trust_badges_4dfJAk",
     "partner_testimonials_TYE8nf",
-    "hero_slideshow_6ejY9C"
+    "hero_slideshow_6ejY9C",
+    "keep_discovering_nqKjzK"
   ]
 }
