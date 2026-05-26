@@ -12,19 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "product_reviews_XX9YT4": {
-          "type": "product-reviews",
-          "settings": {
-            "flow_text": "Heavy periods",
-            "flow_bg_color": "#fff2f6",
-            "star_width": 70,
-            "review_text": "4.7 (92 Reviews)",
-            "link_url": "",
-            "text_color": "#962071",
-            "margin_top": 0,
-            "margin_bottom": 10
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -179,7 +166,6 @@
         }
       },
       "block_order": [
-        "product_reviews_XX9YT4",
         "title",
         "price",
         "text_YJpJae",
