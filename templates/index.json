@@ -41,7 +41,7 @@
       ],
       "name": "Image Custom Banner",
       "settings": {
-        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+        "color_scheme": "scheme-1",
         "media_type": "image",
         "overlay_opacity": 0,
         "heading_size_desktop": 48,
