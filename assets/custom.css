@@ -577,7 +577,6 @@
 
 /* Title and Price Alignment */
 .collection-tabs .card-product-tabs__title {
-  font-family: "Suisse Int'l Trial", sans-serif;
   font-size: 2.2rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -768,7 +767,6 @@
 .footer {
   background-color: #000000 !important;
   color: #ffffff !important;
-  font-family: "Suisse Int'l Trial", sans-serif !important;
 }
 
 .footer a {
@@ -947,7 +945,6 @@
 }
 
 .footer__brand-logo-text {
-  font-family: "Suisse Int'l Trial", sans-serif !important;
   font-size: 6.4rem !important;
   font-weight: 900 !important;
   letter-spacing: -0.02em !important;
