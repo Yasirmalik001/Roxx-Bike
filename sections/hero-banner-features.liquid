@@ -38,11 +38,13 @@
   }
 
   .hero-features__media img,
-  .hero-features__media svg {
+  .hero-features__media svg,
+  .hero-features__media video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: {{ section.settings.image.presentation.focal_point | default: 'center' }};
+    pointer-events: none;
   }
 
   .hero-features__overlay {
@@ -54,6 +56,7 @@
     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 100%);
     opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     z-index: 2;
+    pointer-events: none;
   }
 
   .hero-features__container {
@@ -157,7 +160,16 @@
 <div id="Banner-{{ section.id }}" class="hero-features section-{{ section.id }}-padding">
   
   <div class="hero-features__media">
-    {%- if section.settings.image != blank -%}
+    {%- if section.settings.video != null -%}
+      {{ section.settings.video | video_tag: 
+        image_size: '1100x', 
+        autoplay: true, 
+        loop: true, 
+        controls: false, 
+        muted: true,
+        playsinline: true
+      }}
+    {%- elsif section.settings.image != blank -%}
       {%- liquid
         assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
         assign sizes = '100vw'
@@ -265,9 +277,16 @@
   },
   "settings": [
     {
+      "type": "video",
+      "id": "video",
+      "label": "Background Video",
+      "info": "Overrides the background image if selected. Autoplays on mute."
+    },
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "Background Image"
+      "label": "Background Image",
+      "info": "Will display if no video is selected."
     },
     {
       "type": "range",
