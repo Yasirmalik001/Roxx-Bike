@@ -59,52 +59,6 @@
         "text_alignment": "center"
       }
     },
-    "trust_badges_4dfJAk": {
-      "type": "trust-badges",
-      "blocks": {
-        "badge_NyeRjB": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "title": "1-Year Warranty Included"
-          }
-        },
-        "badge_EBVTWy": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "title": "Fast 7–10 Day Delivery"
-          }
-        },
-        "badge_cXJ8yT": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "title": "Interest-Free Payments"
-          }
-        },
-        "badge_ft6zmw": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "title": "Premium Quality at Fair Prices"
-          }
-        }
-      },
-      "block_order": [
-        "badge_NyeRjB",
-        "badge_EBVTWy",
-        "badge_cXJ8yT",
-        "badge_ft6zmw"
-      ],
-      "name": "Trust Badges",
-      "settings": {
-        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "icon_size": 40,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "collections_tabs_CftkD8": {
       "type": "collections-tabs",
       "blocks": {
@@ -228,6 +182,51 @@
         "padding_bottom": 0
       }
     },
+    "trust_badges_4dfJAk": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_NyeRjB": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "text": "Feature description"
+          }
+        },
+        "badge_EBVTWy": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "text": "Feature description"
+          }
+        },
+        "badge_cXJ8yT": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "text": "Feature description"
+          }
+        },
+        "badge_ft6zmw": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "text": "Feature description"
+          }
+        }
+      },
+      "block_order": [
+        "badge_NyeRjB",
+        "badge_EBVTWy",
+        "badge_cXJ8yT",
+        "badge_ft6zmw"
+      ],
+      "name": "Trust Badges",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "partner_testimonials_TYE8nf": {
       "type": "partner-testimonials",
       "blocks": {
@@ -312,9 +311,9 @@
   },
   "order": [
     "custom_banner_XE8idV",
-    "trust_badges_4dfJAk",
     "collections_tabs_CftkD8",
     "hero_banner_features_7JX3dk",
+    "trust_badges_4dfJAk",
     "partner_testimonials_TYE8nf",
     "hero_slideshow_6ejY9C"
   ]
