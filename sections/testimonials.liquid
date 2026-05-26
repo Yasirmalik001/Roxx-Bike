@@ -194,24 +194,6 @@
     align-items: center;
     gap: 0.5rem;
   }
-
-  /* Active line indicator for slides */
-  .swiper-slide {
-    position: relative;
-    z-index: 2;
-  }
-
-  .swiper-slide::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-  }
-
 {%- endstyle -%}
 
 <div class="customer-reviews section-{{ section.id }}-padding">
