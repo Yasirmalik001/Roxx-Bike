@@ -722,4 +722,303 @@ body{
   .collection-tabs .collection-tabs__arrow[data-collection-tabs-arrow="next"] {
     margin-right: 1rem;
   }
-}
+}
+
+/* ==========================================================================
+   Footer Overrides (Mockup matching 1-to-1)
+   ========================================================================== */
+.footer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-family: "Suisse Int'l Trial", sans-serif !important;
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: none !important;
+}
+
+.footer a:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+.footer .footer__content-top {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: 3rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.footer .footer__blocks-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  flex-grow: 1 !important;
+  flex-basis: 50% !important;
+  margin: 0 !important;
+  gap: 2rem !important;
+}
+
+.footer .footer-block {
+  flex: 1 1 20% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer .footer-block__heading {
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 2rem !important;
+  text-transform: capitalize !important;
+}
+
+.footer .footer-block__details-content li {
+  margin-bottom: 1.2rem !important;
+}
+
+.footer .footer-block__details-content a {
+  font-size: 1.4rem !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  transition: color 0.25s ease;
+}
+
+.footer .footer-block__details-content a:hover {
+  color: #ffffff !important;
+}
+
+/* Newsletter Styles */
+.footer .footer-block--newsletter {
+  flex: 0 0 35% !important;
+  max-width: 450px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer .footer-block__newsletter {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .newsletter-description {
+  font-size: 1.3rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  line-height: 1.4 !important;
+  margin-bottom: 2rem !important;
+  margin-top: 0 !important;
+}
+
+.footer .footer-block__newsletter .field {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+  height: 4.8rem !important;
+  padding: 0 !important;
+}
+
+.footer .footer-block__newsletter .field__input {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  font-size: 1.4rem !important;
+  height: 100% !important;
+  flex: 1 1 auto !important;
+}
+
+.footer .footer-block__newsletter .field__input::placeholder {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.footer .footer-block__newsletter .field__label {
+  display: none !important;
+}
+
+.footer .footer-block__newsletter .newsletter-form__button {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  position: relative !important;
+  right: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.footer .footer-block__newsletter .newsletter-form__button::after {
+  content: "Submit →" !important;
+  font-size: 1.4rem !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+}
+
+.footer .footer-block__newsletter .newsletter-form__button span,
+.footer .footer-block__newsletter .newsletter-form__button svg {
+  display: none !important;
+}
+
+.footer .newsletter-subtext {
+  font-size: 1.1rem !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  line-height: 1.4 !important;
+  margin-top: 1.5rem !important;
+}
+
+/* Bottom Main Row (Logo & Socials / Country Selector) */
+.footer__bottom-main-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.footer__brand-logo-text {
+  font-family: "Suisse Int'l Trial", sans-serif !important;
+  font-size: 6.4rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+  color: #ffd500 !important;
+  display: inline-block;
+  line-height: 0.9 !important;
+  text-transform: uppercase;
+}
+
+.footer__social-icons-wrap {
+  margin-top: 1.5rem !important;
+}
+
+.footer__social-icons-wrap .list-social {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer__social-icons-wrap .list-social__item {
+  margin: 0 !important;
+}
+
+.footer__social-icons-wrap .list-social__link {
+  color: #ffd500 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__social-icons-wrap .list-social__link svg {
+  width: 2.2rem !important;
+  height: 2.2rem !important;
+  fill: currentColor !important;
+}
+
+/* Localization Pill in Bottom Row */
+.footer .footer__localization {
+  margin: 0 !important;
+}
+
+.footer .disclosure__button {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50px !important;
+  padding: 0.6rem 1.6rem !important;
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+  height: 3.8rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  box-shadow: none !important;
+}
+
+.footer .disclosure__button:hover {
+  background: #222222 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.footer .disclosure__button .icon-caret {
+  width: 1.2rem !important;
+  height: 0.8rem !important;
+  margin-left: 0.4rem;
+}
+
+/* Bottom Bar (Copyright & Trustpilot star rating) */
+.footer__bottom-bar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  margin-top: 2rem !important;
+}
+
+.footer__copyright {
+  margin: 0 !important;
+  font-size: 1.2rem !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.footer__copyright small {
+  font-size: 1.2rem !important;
+}
+
+.footer__trustpilot {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  font-size: 1.2rem !important;
+  color: #ffffff !important;
+}
+
+.footer__trustpilot svg {
+  display: block;
+}
+
+@media screen and (max-width: 749px) {
+  .footer .footer__content-top {
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+  .footer .footer__blocks-wrapper {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .footer__bottom-main-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 3rem !important;
+  }
+  .footer__bottom-bar {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
+    text-align: center;
+  }
+}
+

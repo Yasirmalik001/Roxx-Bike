@@ -33,7 +33,7 @@
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
-    {% if localPosition == 'AnnouncementCountry' %}
+    {% if localPosition == 'AnnouncementCountry' or localPosition == 'FooterCountry' %}
       <span style="display: inline-flex; align-items: center; gap: 0.6rem;">
         <img src="https://flagcdn.com/w40/{{ localization.country.iso_code | downcase }}.png" width="20" height="15" alt="" class="country-flag" style="border-radius: 2px; object-fit: cover; aspect-ratio: 4/3;">
         <span style="font-weight: 500;">{{ localization.country.iso_code }}</span>
