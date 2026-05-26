@@ -197,7 +197,10 @@
         <div class="card-product-tabs__specs">
           {%- if card_product.metafields.custom.specifications.value != blank -%}
             {%- for spec in card_product.metafields.custom.specifications.value -%}
-              <span class="card-product-tabs__spec-pill">{{ spec }}</span>
+              {%- liquid
+                assign spec_label = spec.value.value | default: spec.value | default: spec.label.value | default: spec.label | default: spec.text.value | default: spec.text | default: spec.title.value | default: spec.title | default: spec.name.value | default: spec.name | default: spec
+              -%}
+              <span class="card-product-tabs__spec-pill">{{ spec_label }}</span>
             {%- endfor -%}
           {%- else -%}
             <!-- Mockup fallback values -->

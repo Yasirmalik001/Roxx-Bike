@@ -255,3 +255,471 @@ body{
     font-size: 1.3rem;
     font-weight: 500;
 }
+
+/* ==========================================================================
+   Announcement Bar (Desktop side-by-side flex layout)
+   ========================================================================== */
+.utility-bar-desktop {
+  display: block;
+  width: 100%;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.utility-bar-desktop__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-height: 4rem;
+}
+
+.utility-bar-desktop__announcements {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+.utility-bar-desktop__announcement {
+  display: flex;
+  align-items: center;
+}
+
+.utility-bar-desktop__link {
+  display: inline-flex;
+  align-items: center;
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+}
+
+.utility-bar-desktop__link:hover {
+  text-decoration: underline;
+}
+
+.utility-bar-desktop__icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.8rem;
+}
+
+.utility-bar-desktop__text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.utility-bar-desktop__separator {
+  margin: 0 2.5rem;
+  color: rgba(var(--color-foreground), 0.3);
+  font-size: 1.4rem;
+  font-weight: 300;
+  user-select: none;
+}
+
+.utility-bar-desktop__right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.utility-bar-desktop__store-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: rgba(var(--color-foreground), 0.85);
+  transition: color var(--duration-short) ease;
+}
+
+.utility-bar-desktop__store-location:hover {
+  color: rgb(var(--color-foreground));
+}
+
+.utility-bar .disclosure .localization-form__select {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+
+/* ==========================================================================
+   Collection Tabs (Bicycle Swiper Slider Redesign)
+   ========================================================================== */
+.collection-tabs .collection-tabs__header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 799px) {
+  .collection-tabs .collection-tabs__header-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.collection-tabs .collection-tabs__heading-row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.collection-tabs .collection-tabs__controls-row {
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+.collection-tabs .collection-tabs__actions .collection-tabs__view-all-btn {
+  display: none !important;
+}
+
+/* Tab Pills Styling */
+.collection-tabs .collection-tabs__tab {
+  background: #ffffff !important;
+  color: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 50px !important;
+  padding: 0.8rem 2.2rem !important;
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer;
+  height: auto !important;
+  line-height: 1.2 !important;
+}
+
+.collection-tabs .collection-tabs__tab:hover,
+.collection-tabs .collection-tabs__tab.is-active {
+  border-color: #000000 !important;
+  color: #000000 !important;
+  background: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Slider Overflows and Slides Transitions */
+.collection-tabs .slider-template-section__swiper {
+  overflow: visible !important;
+}
+
+.collection-tabs .swiper-slide {
+  transition: opacity 0.4s ease, transform 0.4s ease !important;
+  opacity: 0.35;
+  transform: scale(0.85);
+}
+
+.collection-tabs .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Centering active card and contents */
+.collection-tabs .card-product-tabs {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-tabs .card-product-tabs__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.collection-tabs .card-product-tabs__media {
+  background: transparent !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1.8 / 1 !important; /* landscape aspect ratio for bicycles */
+}
+
+.collection-tabs .card-product-tabs__image {
+  object-fit: contain !important;
+  height: auto !important;
+  width: auto !important;
+  max-width: 90% !important;
+  max-height: 380px !important;
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+  position: relative !important;
+  inset: auto !important;
+}
+
+@media screen and (max-width: 749px) {
+  .collection-tabs .card-product-tabs__media {
+    aspect-ratio: 1.5 / 1 !important;
+  }
+  .collection-tabs .card-product-tabs__image {
+    max-height: 240px !important;
+  }
+}
+
+.collection-tabs .swiper-slide-active .card-product-tabs__image {
+  transform: scale(1.05);
+}
+
+.collection-tabs .card-product-tabs__content {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Hide adjacent cards text and actions completely */
+.collection-tabs .swiper-slide:not(.swiper-slide-active) .card-product-tabs__content {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+.collection-tabs .swiper-slide.swiper-slide-active .card-product-tabs__content {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transition: opacity 0.3s ease 0.1s !important;
+}
+
+/* Hide native quick add cart overlay on the image */
+.collection-tabs .card-product-tabs__cart-btn {
+  display: none !important;
+}
+
+/* Rotated Red Sale Badge Pill (1-to-1 matching mockup) */
+.collection-tabs .card-product-tabs__badge {
+  position: absolute !important;
+  top: 22% !important;
+  right: 18% !important;
+  background: #b3191f !important;
+  color: #ffffff !important;
+  padding: 0.6rem 1.2rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  transform: rotate(-10deg) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12) !important;
+  border: none !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+  line-height: 1.1 !important;
+  z-index: 10 !important;
+}
+
+@media screen and (max-width: 749px) {
+  .collection-tabs .card-product-tabs__badge {
+    top: 15% !important;
+    right: 10% !important;
+    font-size: 1rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+/* Title and Price Alignment */
+.collection-tabs .card-product-tabs__title {
+  font-family: "Suisse Int'l Trial", sans-serif !important;
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.4rem !important;
+  color: #000000 !important;
+  text-align: center;
+}
+
+.collection-tabs .card-product-tabs__price {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.collection-tabs .card-product-tabs__price .price {
+  justify-content: center;
+}
+
+.collection-tabs .price__container {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+}
+
+.collection-tabs .price-item--sale {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+}
+
+.collection-tabs .price-item--regular {
+  font-size: 1.6rem !important;
+  color: #a0a0a0 !important;
+  text-decoration: line-through !important;
+  font-weight: 400 !important;
+}
+
+/* Specifications pills layout and design */
+.collection-tabs .card-product-tabs__specs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 0.8rem;
+  margin: 1rem 0 1.2rem;
+  max-width: 600px;
+}
+
+.collection-tabs .card-product-tabs__spec-pill {
+  background: #f4f4f4 !important;
+  color: #333333 !important;
+  padding: 0.6rem 1.4rem !important;
+  border-radius: 6px !important;
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  display: inline-block;
+  border: none !important;
+}
+
+.collection-tabs .card-product-tabs__spec-pill--delivery {
+  background: #e2f0d9 !important;
+  color: #385623 !important;
+  font-weight: 600 !important;
+}
+
+/* Bottom Actions: SHOP NOW & BOOK A TEST RIDE buttons */
+.collection-tabs .card-product-tabs__buttons {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.collection-tabs .card-product-tabs__btn-shop,
+.collection-tabs .card-product-tabs__btn-book {
+  padding: 1.2rem 2.8rem !important;
+  border-radius: 50px !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  letter-spacing: 0.05em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  line-height: 1.2 !important;
+  height: 4.4rem !important;
+  min-width: 180px !important;
+  box-sizing: border-box !important;
+}
+
+.collection-tabs .card-product-tabs__btn-shop {
+  background: #ffd500 !important;
+  color: #000000 !important;
+  border: 1px solid #ffd500 !important;
+}
+
+.collection-tabs .card-product-tabs__btn-shop:hover {
+  background: #e6bf00 !important;
+  border-color: #e6bf00 !important;
+}
+
+.collection-tabs .card-product-tabs__btn-book {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+.collection-tabs .card-product-tabs__btn-book:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Absolute overlays for circular prev/next arrows */
+.collection-tabs .collection-tabs__panels {
+  position: relative;
+}
+
+.collection-tabs .collection-tabs__arrows-overlay {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 10;
+  width: 100%;
+}
+
+.collection-tabs .collection-tabs__arrow {
+  pointer-events: auto;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0 !important;
+}
+
+.collection-tabs .collection-tabs__arrow:hover {
+  transform: scale(1.08);
+}
+
+.collection-tabs .collection-tabs__arrow[data-collection-tabs-arrow="prev"] {
+  margin-left: 2rem;
+}
+
+.collection-tabs .collection-tabs__arrow[data-collection-tabs-arrow="next"] {
+  margin-right: 2rem;
+}
+
+@media screen and (max-width: 749px) {
+  .collection-tabs .collection-tabs__arrows-overlay {
+    top: 25%;
+  }
+  .collection-tabs .collection-tabs__arrow {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .collection-tabs .collection-tabs__arrow[data-collection-tabs-arrow="prev"] {
+    margin-left: 1rem;
+  }
+  .collection-tabs .collection-tabs__arrow[data-collection-tabs-arrow="next"] {
+    margin-right: 1rem;
+  }
+}
