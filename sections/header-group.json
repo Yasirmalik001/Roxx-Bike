@@ -64,7 +64,7 @@
           "type": "megamenu",
           "settings": {
             "column_size": "25%",
-            "title": "",
+            "title": "bikes",
             "widget": "menu",
             "menu_heading": "",
             "menu_link_list_child": "",
