@@ -1,0 +1,353 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .marquee-gallery {
+    --gap: {{ section.settings.gap_mobile }}px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Optional Edge Fade Mask */
+  {%- if section.settings.enable_edge_fade -%}
+  .marquee-gallery {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  {%- endif -%}
+
+  .marquee-gallery__track-wrapper {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .marquee-gallery__track {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* FIX 1: Ensure strict gap sizing instead of spaced-around */
+    gap: var(--gap);
+    padding-right: var(--gap); /* FIX 2: Add gap padding at the end for a seamless loop */
+    min-width: 100%;
+    width: max-content; /* FIX 3: Let the track size naturally to its images */
+    animation: marquee-scroll var(--duration) linear infinite;
+  }
+
+  .marquee-gallery__track--reverse {
+    animation-direction: reverse;
+  }
+
+  {%- if section.settings.pause_on_hover -%}
+  .marquee-gallery__track-wrapper:hover .marquee-gallery__track {
+    animation-play-state: paused;
+  }
+  {%- endif -%}
+
+  .marquee-gallery__item {
+    flex: 0 0 auto;
+    width: auto;
+    height: {{ section.settings.image_height_mobile }}px;
+    border-radius: {{ section.settings.border_radius }}px;
+    overflow: hidden;
+    position: relative;
+    /* Hardware acceleration for smoother animation */
+    transform: translateZ(0); 
+  }
+
+  .marquee-gallery__item img {
+    width: auto;
+    max-width: none; /* FIX 4: Prevent theme defaults from squishing images */
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%); /* FIX 5: Simplified translation since the track now includes the gap via padding */
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    
+    .marquee-gallery {
+      --gap: {{ section.settings.gap_desktop }}px;
+    }
+
+    .marquee-gallery__item {
+      height: {{ section.settings.image_height_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding {% unless section.settings.full_width %}page-width{% endunless %}">
+    
+    <div class="marquee-gallery">
+      
+      {%- comment -%} ROW 1 {%- endcomment -%}
+      {%- if section.blocks.size > 0 -%}
+        <div class="marquee-gallery__track-wrapper" style="--duration: {{ section.settings.speed_row_1 }}s;">
+          {%- comment -%} 
+            We duplicate the track twice so it scrolls infinitely without empty spaces.
+            The second track is aria-hidden so screen readers don't read duplicate images.
+          {%- endcomment -%}
+          {%- for i in (1..2) -%}
+            <div class="marquee-gallery__track {% if section.settings.direction_row_1 == 'right' %}marquee-gallery__track--reverse{% endif %}" {% if forloop.index == 2 %}aria-hidden="true"{% endif %}>
+              {%- for block in section.blocks -%}
+                {%- if block.settings.row == '1' -%}
+                  <div class="marquee-gallery__item" {{ block.shopify_attributes }}>
+                    {%- if block.settings.image != blank -%}
+                      {{ block.settings.image | image_url: height: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
+                    {%- else -%}
+                      {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} ROW 2 {%- endcomment -%}
+      {%- assign row_2_count = section.blocks | where: "settings.row", "2" | size -%}
+      {%- if row_2_count > 0 -%}
+        <div class="marquee-gallery__track-wrapper" style="--duration: {{ section.settings.speed_row_2 }}s;">
+          {%- for i in (1..2) -%}
+            <div class="marquee-gallery__track {% if section.settings.direction_row_2 == 'right' %}marquee-gallery__track--reverse{% endif %}" {% if forloop.index == 2 %}aria-hidden="true"{% endif %}>
+              {%- for block in section.blocks -%}
+                {%- if block.settings.row == '2' -%}
+                  <div class="marquee-gallery__item" {{ block.shopify_attributes }}>
+                    {%- if block.settings.image != blank -%}
+                      {{ block.settings.image | image_url: height: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
+                    {%- else -%}
+                      {{ 'lifestyle-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marquee Gallery",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_edge_fade",
+      "label": "Enable left/right edge fade mask",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause animation on hover",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Row 1 Settings"
+    },
+    {
+      "type": "range",
+      "id": "speed_row_1",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "s",
+      "label": "Animation Speed (Row 1)",
+      "info": "Lower is faster.",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "direction_row_1",
+      "label": "Direction (Row 1)",
+      "options": [
+        { "value": "left", "label": "Right to Left" },
+        { "value": "right", "label": "Left to Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Row 2 Settings"
+    },
+    {
+      "type": "range",
+      "id": "speed_row_2",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "s",
+      "label": "Animation Speed (Row 2)",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "direction_row_2",
+      "label": "Direction (Row 2)",
+      "options": [
+        { "value": "left", "label": "Right to Left" },
+        { "value": "right", "label": "Left to Right" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "header",
+      "content": "Sizing & Spacing (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "image_height_desktop",
+      "min": 100,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Image Height",
+      "default": 280
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap between images",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Sizing & Spacing (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "image_height_mobile",
+      "min": 80,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Image Height",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap between images",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "row",
+          "label": "Display in Row",
+          "options": [
+            { "value": "1", "label": "Row 1 (Top)" },
+            { "value": "2", "label": "Row 2 (Bottom)" }
+          ],
+          "default": "1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Gallery",
+      "blocks": [
+        { "type": "image", "settings": { "row": "1" } },
+        { "type": "image", "settings": { "row": "1" } },
+        { "type": "image", "settings": { "row": "1" } },
+        { "type": "image", "settings": { "row": "2" } },
+        { "type": "image", "settings": { "row": "2" } },
+        { "type": "image", "settings": { "row": "2" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,166 @@
+<faq-item
+  class="faqrs-item faq-blocks faq-block-{{ block.id }}{% if is_first %} faqrs-active{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  <div class="faqrs-container">
+    <div class="faqrs-question" aria-expanded="{% if is_first %}true{% else %}false{% endif %}">
+      <div class="faqrs-ques-wrap">
+        {%- if block.settings.custom_image != blank -%}
+          {{ block.settings.custom_image | image_url: width: 40 | image_tag: loading: 'lazy', class: 'faq-icon-img' }}
+        {%- endif -%}
+        <p class="faqrs-ques">{{ block.settings.question }}</p>
+      </div>
+
+      <span class="faqrs-icon-wrap">
+        <svg 
+          class="faqrs-icon-chevron" 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="12" 
+          height="8" 
+          viewBox="0 0 12 8" 
+          fill="none"
+        >
+          <path d="M1 1.5L6 6.5L11 1.5" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
+
+    <div
+      class="faqrs-answer"
+      {% if is_first %}
+        style="max-height:1000px;"
+      {% endif %}
+    >
+      <div class="faqrs-answer-inner">
+        {% if block.settings.faq_content_type == 'manual' %}
+          {{ block.settings.answer }}
+        {% elsif block.settings.faq_content_type == 'product_description' %}
+          {{ product.description }}
+        {% elsif block.settings.faq_content_type == 'product_schema' %}
+          {{ product.metafields.custom.schema_content }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</faq-item>
+
+<style>
+/* --------------------------------------------------------------------------
+   3. FAQ STYLES
+   -------------------------------------------------------------------------- */
+/* --- 1. Base Container & Structure --- */
+.faq-blocks {
+    display: block;
+    padding: 0;
+    margin: 0 !important;
+    background-color: transparent;
+    border-bottom: 1px solid #f0f0f0; /* Light gray divider line */
+}
+
+/* Optional: Add a top border to the very first item if needed */
+.faq-blocks:first-of-type {
+    border-top: 1px solid #f0f0f0;
+}
+
+/* --- 2. Typography & Headers --- */
+.faqrs-title {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 120%;
+    margin-bottom: 4rem;
+}
+
+.faqrs-cat-title {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    line-height: 26px;
+}
+
+/* --- 3. Question / Trigger --- */
+.faqrs-question {
+    width: 100%;
+    min-height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0; /* Removed side padding for a flush layout */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.faqrs-ques-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Spacing between the custom image icon and text */
+}
+
+.faqrs-ques {
+    font-family: var(--font-body-family, inherit);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #111111; /* Dark text */
+    margin: 0;
+    text-align: left;
+    text-transform: uppercase; /* Forces the text to uppercase like the image */
+    letter-spacing: 0.02em;
+}
+
+.faq-icon-img {
+    flex-shrink: 0;
+    width: 22px; /* Adjusted size to match the scale of the image */
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- 4. Icons & Animation --- */
+.faqrs-icon-wrap {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #EBE6E0; /* Light beige circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.faqrs-icon-chevron {
+    transition: transform 0.3s ease;
+}
+
+/* Toggle Icon Rotation - Flips the chevron when expanded */
+faq-item.faqrs-active .faqrs-icon-chevron,
+.faqrs-item.faqrs-active .faqrs-icon-chevron {
+    transform: rotate(180deg);
+}
+
+/* --- 5. Answer Body --- */
+.faqrs-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+faq-item.faqrs-active .faqrs-answer,
+.faqrs-item.faqrs-active .faqrs-answer {
+    max-height: 1000px;
+}
+
+.faqrs-answer-inner {
+    padding: 0 0 24px 0; /* Flush left, padding at the bottom */
+    color: #444444; /* Dark gray for readability */
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.faqrs-answer-inner p { 
+    margin: 10px 0; 
+}
+  </style>
