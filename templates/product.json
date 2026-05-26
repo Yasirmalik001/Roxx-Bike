@@ -13,13 +13,16 @@
       "type": "main-product-custom",
       "blocks": {
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {}
         },
         "price": {
-          "type": "price"
+          "type": "price",
+          "settings": {}
         },
         "installment": {
-          "type": "installment"
+          "type": "installment",
+          "settings": {}
         },
         "description": {
           "type": "description",
@@ -28,13 +31,16 @@
           }
         },
         "inventory": {
-          "type": "inventory"
+          "type": "inventory",
+          "settings": {}
         },
         "buy_buttons": {
-          "type": "buy_buttons"
+          "type": "buy_buttons",
+          "settings": {}
         },
         "payment_icons": {
-          "type": "payment_icons"
+          "type": "payment_icons",
+          "settings": {}
         },
         "accessory_1": {
           "type": "accessory",
@@ -69,25 +75,25 @@
         "spec_1": {
           "type": "spec",
           "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"2\" y=\"7\" width=\"16\" height=\"10\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" y1=\"11\" x2=\"22\" y2=\"13\"></line></svg>",
             "label": "Battery",
-            "value": "Samsung lithium, 48V",
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"2\" y=\"7\" width=\"16\" height=\"10\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" y1=\"11\" x2=\"22\" y2=\"13\"></line></svg>"
+            "value": "Samsung lithium, 48V"
           }
         },
         "spec_2": {
           "type": "spec",
           "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>",
             "label": "Max speed",
-            "value": "25km/h",
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>"
+            "value": "25km/h"
           }
         },
         "spec_3": {
           "type": "spec",
           "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h4l3 8 5-16 3 8h5\"></path></svg>",
             "label": "Max Range",
-            "value": "80-90 km",
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h4l3 8 5-16 3 8h5\"></path></svg>"
+            "value": "80-90 km"
           }
         }
       },
