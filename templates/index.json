@@ -147,8 +147,11 @@
         "features_yTAcai": {
           "type": "features",
           "settings": {
+            "feature_icon_1": "shopify://shop_images/Vector.png",
             "feature_title_1": "Comfortable seating position",
+            "feature_icon_2": "shopify://shop_images/Group_10.svg",
             "feature_title_2": "Built-in tracking",
+            "feature_icon_3": "shopify://shop_images/Group.svg",
             "feature_title_3": "Powerful engine"
           }
         },
