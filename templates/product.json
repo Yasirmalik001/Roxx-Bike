@@ -12,26 +12,17 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "gallery_badges_X1": {
-          "type": "gallery_badges",
+        "product_reviews_XX9YT4": {
+          "type": "product-reviews",
           "settings": {
-            "show_bestseller": true,
-            "bestseller_text": "Bestseller",
-            "rating_text": "4.4 / 5 (based on 200+)"
-          }
-        },
-        "gallery_specs_X2": {
-          "type": "gallery_specs",
-          "settings": {
-            "label_1": "Battery",
-            "value_1": "Samsung lithium, 48V",
-            "icon_1": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"2\" y=\"7\" width=\"16\" height=\"10\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" y1=\"11\" x2=\"22\" y2=\"13\"></line></svg>",
-            "label_2": "Max speed",
-            "value_2": "25km/h",
-            "icon_2": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>",
-            "label_3": "Max Range",
-            "value_3": "80-90 km",
-            "icon_3": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h4l3 8 5-16 3 8h5\"></path></svg>"
+            "flow_text": "Heavy periods",
+            "flow_bg_color": "#fff2f6",
+            "star_width": 70,
+            "review_text": "4.7 (92 Reviews)",
+            "link_url": "",
+            "text_color": "#962071",
+            "margin_top": 0,
+            "margin_bottom": 10
           }
         },
         "title": {
@@ -42,11 +33,7 @@
           "type": "price",
           "settings": {}
         },
-        "klarna_installments_X3": {
-          "type": "klarna_installments",
-          "settings": {}
-        },
-        "description_X4": {
+        "text_YJpJae": {
           "type": "text",
           "settings": {
             "text": "Feel safe and comfortable all day with Nora High Waist.A soft, stretchy fit with built-in protection that absorbs flow while staying breathable and discreet.",
@@ -56,15 +43,12 @@
         "multi_icon_xn8fhg": {
           "type": "multi-icon",
           "settings": {
-            "icon-1": "shopify://shop_images/Group_1413372244_1.svg",
             "icon_size_1": 46,
             "icon_size_m_1": 30,
             "text-1": "Absorbs equivalent of 5 tampons",
-            "icon-2": "shopify://shop_images/Group_1413372203.svg",
             "icon_size_2": 46,
             "icon_size_m_2": 30,
             "text-2": "Absorbs equivalent of 5 tampons",
-            "icon-3": "shopify://shop_images/Group_1413372205.svg",
             "icon_size_3": 46,
             "icon_size_m_3": 30,
             "text-3": "Absorbs equivalent of 5 tampons",
@@ -84,7 +68,6 @@
             "color_secondary": "#fb499b",
             "color_tertiary": "#fceced",
             "title": "Size Guide",
-            "avatar_image": "shopify://shop_images/hugeicons_tape-measure_1e87abb3-f8e9-47c7-9231-bdd211d9ea0c.svg",
             "show_xs": true,
             "val_xs_int": "34 - 36",
             "val_xs_cm": "88 - 93",
@@ -107,8 +90,7 @@
             "bullet_1": "Stand naturally and measure around your hips at the widest point, where your body is fullest.",
             "bullet_2": "Keep the measuring tape snug but not tight, and make sure it's level all the way around.",
             "bullet_3": "For best accuracy, measure directly on your body or over thin clothing, and measure twice to be sure.",
-            "note_text": "If you come between the two sizes, choose the small one.",
-            "illustration_image": "shopify://shop_images/273a1e4e69c294daf57dd3c454855697f92de761.png"
+            "note_text": "If you come between the two sizes, choose the small one."
           }
         },
         "buy_buttons": {
@@ -149,7 +131,6 @@
           "type": "faq-blocks",
           "name": "Product Description",
           "settings": {
-            "custom_image": "shopify://shop_images/material-symbols-light_description-outline-rounded.svg",
             "question": "Product Description",
             "faq_content_type": "product_description",
             "answer": ""
@@ -159,7 +140,6 @@
           "type": "faq-blocks",
           "name": "Materials & Care",
           "settings": {
-            "custom_image": "shopify://shop_images/material-symbols-light_info-outline.svg",
             "question": "Materials & Care",
             "faq_content_type": "manual",
             "answer": ""
@@ -169,28 +149,33 @@
           "type": "faq-blocks",
           "name": "Shipping",
           "settings": {
-            "custom_image": "shopify://shop_images/Group_15.svg",
             "question": "Shipping",
             "faq_content_type": "manual",
             "answer": ""
           }
         },
-        "review_avatars_X7": {
-          "type": "review_avatars",
+        "faq_blocks_k8EnCc": {
+          "type": "faq-blocks",
+          "name": "Size Guide",
           "settings": {
-            "title": "Real people reviews"
+            "question": "Size Guide",
+            "faq_content_type": "manual",
+            "answer": ""
           }
         },
-        "feature_icons_row_X8": {
-          "type": "feature_icons_row",
+        "upsell_product_jgWVE7": {
+          "type": "upsell_product",
           "settings": {
-            "title_1": "Free Shipping",
-            "sub_1": "from $79.95",
-            "title_2": "2-Year Warranty",
-            "title_3": "14 days money",
-            "sub_3": "back guarantee"
+            "upsell__heading": "Complete your look",
+            "drawer_mobile_arrows": false,
+            "drawer_enable_autoplay": false,
+            "drawer_autoplay_interval": 3,
+            "drawer_mobile_slides": 1.5,
+            "drawer_tablet_slides": 2,
+            "drawer_desktop_slides": 2,
+            "drawer_mobile_spacing": 10,
+            "drawer_desktop_spacing": 10
           }
-<<<<<<< HEAD
         }
       },
       "block_order": [
@@ -201,10 +186,14 @@
         "multi_icon_xn8fhg",
         "variant_picker",
         "buy_buttons",
-        "payment_icons_X5",
-        "insurance_upsell_X6",
-        "review_avatars_X7",
-        "feature_icons_row_X8"
+        "delivery_payment_mB6BTN",
+        "pills_xFGRwJ",
+        "text_e49ryr",
+        "faq_blocks_NkWNgc",
+        "faq_blocks_CkKVjD",
+        "faq_blocks_FN9CnF",
+        "faq_blocks_k8EnCc",
+        "upsell_product_jgWVE7"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -212,7 +201,7 @@
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "cover",
-        "gallery_layout": "thumbnail_left",
+        "gallery_layout": "thumbnail",
         "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "full_popup",
