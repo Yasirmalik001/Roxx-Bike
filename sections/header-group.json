@@ -60,22 +60,15 @@
     "header": {
       "type": "header",
       "blocks": {
-        "megamenu_Q9K8aE": {
-          "type": "megamenu",
+        "tabbed_megamenu_HFGwmW": {
+          "type": "tabbed_megamenu",
           "settings": {
-            "column_size": "25%",
-            "title": "bikes",
-            "widget": "menu",
-            "menu_heading": "",
-            "menu_link_list_child": "",
-            "banner_title": "",
-            "banner_button": "",
-            "banner_link": ""
+            "title": "bikes"
           }
         }
       },
       "block_order": [
-        "megamenu_Q9K8aE"
+        "tabbed_megamenu_HFGwmW"
       ],
       "settings": {
         "logo_position": "middle-center",
