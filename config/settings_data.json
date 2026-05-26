@@ -124,7 +124,7 @@
     "predictive_search_show_price": false,
     "search_menu": "main-menu-2",
     "search_product_collection": "3-seater",
-    "upsell__container": false,
+    "upsell__container": true,
     "upsell__heading": "We recommend",
     "upsell__products": [
       "20-inch-binnenband",
