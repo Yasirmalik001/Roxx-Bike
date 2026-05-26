@@ -1,18 +1,5 @@
 
-@font-face {
-    font-family: "Suisse Int'l Trial";
-    src: url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.eot");
-    src: url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.svg#Suisse Int'l Trial")format("svg");
-}
 
-body{
-  overflow-x: hidden !important;
-    font-family: "Suisse Int'l Trial" !important;
-}
 .product__text {
     font-weight: 400;
     font-style: Regular;
@@ -1841,5 +1828,6 @@ cart-drawer-items {
 .cart-drawer .cart-items .cart-item__quantity {
   padding: 0 !important;
 }
-
+
+
 >>>>>>> Stashed changes
