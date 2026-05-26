@@ -282,6 +282,33 @@
             "link": ""
           }
         },
+        "feature_fVixTb": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/K1.png",
+            "title": "REMOVABLE BATTERY",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
+        "feature_QU4chA": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/K1.png",
+            "title": "REMOVABLE BATTERY",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
+        "feature_riXQxc": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/K1.png",
+            "title": "REMOVABLE BATTERY",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
         "feature_MCDgtx": {
           "type": "feature",
           "settings": {
@@ -304,6 +331,9 @@
       "block_order": [
         "feature_3Hiqp4",
         "feature_9CVgzr",
+        "feature_fVixTb",
+        "feature_QU4chA",
+        "feature_riXQxc",
         "feature_MCDgtx",
         "feature_Dyg89G"
       ],
