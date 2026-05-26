@@ -1,0 +1,485 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .compare-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .compare-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .compare-header__heading {
+    margin: 0 0 1rem 0;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #000000;
+  }
+
+  .compare-header__subheading {
+    font-size: 1.4rem;
+    color: #666666;
+    margin: 0;
+  }
+
+  /* Grid Layout for alignment */
+  .compare-table {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  @media screen and (min-width: 750px) {
+    .compare-row {
+      gap: 6rem;
+    }
+  }
+
+  .compare-row:last-child {
+    border-bottom: none;
+  }
+
+  .compare-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Product Header Cards */
+  .compare-product__image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 2rem;
+    object-fit: contain;
+  }
+
+  .compare-product__title-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 2.4rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+    color: #000000;
+    transition: border-color 0.2s ease;
+  }
+
+  .compare-product__title-wrapper:hover {
+    border-color: #000000;
+  }
+
+  .compare-product__title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .compare-product__chevron {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+
+  .compare-product__desc {
+    font-size: 1.2rem;
+    color: #888888;
+    margin: 0 0 3rem 0;
+    max-width: 220px;
+  }
+
+  .compare-product__price {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .compare-product__link {
+    font-size: 1.2rem;
+    color: #666666;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .compare-product__link:hover {
+    color: #000000;
+  }
+
+  /* Feature Rows */
+  .compare-feature__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333333;
+  }
+
+  .compare-feature__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .compare-feature__text {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: #333333;
+    margin: 0;
+    max-width: 180px;
+  }
+{%- endstyle -%}
+
+<div class="compare-section section-{{ section.id }}-padding">
+  
+  <div class="compare-header">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="compare-header__heading {{ section.settings.heading_size }}">
+        {{ section.settings.heading | escape }}
+      </h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="compare-header__subheading">{{ section.settings.subheading | escape }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="compare-table">
+    
+    <div class="compare-row compare-row--header">
+      
+      <div class="compare-col">
+        {%- assign product_1 = section.settings.product_1 -%}
+        {%- if product_1 != blank -%}
+          {{ product_1.featured_image | image_url: width: 600 | image_tag: class: 'compare-product__image', loading: 'lazy' }}
+          
+          <a href="{{ product_1.url }}" class="compare-product__title-wrapper">
+            <h3 class="compare-product__title">{{ section.settings.custom_title_1 | default: product_1.title }}</h3>
+            <svg class="compare-product__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          
+          <p class="compare-product__desc">{{ section.settings.desc_1 }}</p>
+          <p class="compare-product__price">{{ product_1.price | money }}</p>
+          <a href="{{ product_1.url }}" class="compare-product__link">{{ section.settings.link_label }}</a>
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'compare-product__image placeholder-svg' }}
+          <div class="compare-product__title-wrapper">
+            <h3 class="compare-product__title">{{ section.settings.custom_title_1 | default: 'Roxx JX' }}</h3>
+            <svg class="compare-product__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <p class="compare-product__desc">{{ section.settings.desc_1 }}</p>
+          <p class="compare-product__price">€1,599.00</p>
+          <span class="compare-product__link">{{ section.settings.link_label }}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="compare-col">
+        {%- assign product_2 = section.settings.product_2 -%}
+        {%- if product_2 != blank -%}
+          {{ product_2.featured_image | image_url: width: 600 | image_tag: class: 'compare-product__image', loading: 'lazy' }}
+          
+          <a href="{{ product_2.url }}" class="compare-product__title-wrapper">
+            <h3 class="compare-product__title">{{ section.settings.custom_title_2 | default: product_2.title }}</h3>
+            <svg class="compare-product__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          
+          <p class="compare-product__desc">{{ section.settings.desc_2 }}</p>
+          <p class="compare-product__price">{{ product_2.price | money }}</p>
+          <a href="{{ product_2.url }}" class="compare-product__link">{{ section.settings.link_label }}</a>
+        {%- else -%}
+          {{ 'product-2' | placeholder_svg_tag: 'compare-product__image placeholder-svg' }}
+          <div class="compare-product__title-wrapper">
+            <h3 class="compare-product__title">{{ section.settings.custom_title_2 | default: 'Roxx SL5' }}</h3>
+            <svg class="compare-product__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <p class="compare-product__desc">{{ section.settings.desc_2 }}</p>
+          <p class="compare-product__price">€1,699.00</p>
+          <span class="compare-product__link">{{ section.settings.link_label }}</span>
+        {%- endif -%}
+      </div>
+
+    </div>
+
+    {%- for block in section.blocks -%}
+      <div class="compare-row" {{ block.shopify_attributes }}>
+        
+        <div class="compare-col">
+          <div class="compare-feature__icon">
+            {%- if block.settings.custom_svg != blank -%}
+              {{ block.settings.custom_svg }}
+            {%- else -%}
+              {%- case block.settings.fallback_icon -%}
+                {%- when 'rider_height' -%}
+                  <svg viewBox="0 0 24 24"><rect x="7" y="4" width="10" height="16" rx="2"></rect><circle cx="12" cy="8" r="2"></circle><path d="M12 11v5"></path><path d="M9 20v2"></path><path d="M15 20v2"></path></svg>
+                {%- when 'range_dots' -%}
+                  <svg viewBox="0 0 24 24"><circle cx="5" cy="19" r="2"></circle><circle cx="19" cy="5" r="2"></circle><path d="M6.5 17.5c3-3 7-7 11-11" stroke-dasharray="3 3"></path></svg>
+                {%- when 'speedometer' -%}
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 12l3-3"></path><path d="M8 12a4 4 0 0 1 8 0"></path></svg>
+                {%- when 'gps_pin' -%}
+                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                {%- when 'drive_belt' -%}
+                  <svg viewBox="0 0 24 24"><circle cx="7" cy="12" r="3"></circle><circle cx="17" cy="12" r="3"></circle><path d="M7 9h10"></path><path d="M7 15h10"></path></svg>
+              {%- endcase -%}
+            {%- endif -%}
+          </div>
+          <p class="compare-feature__text">{{ block.settings.text_1 }}</p>
+        </div>
+
+        <div class="compare-col">
+          <div class="compare-feature__icon">
+            {%- if block.settings.custom_svg != blank -%}
+              {{ block.settings.custom_svg }}
+            {%- else -%}
+              {%- case block.settings.fallback_icon -%}
+                {%- when 'rider_height' -%}
+                  <svg viewBox="0 0 24 24"><rect x="7" y="4" width="10" height="16" rx="2"></rect><circle cx="12" cy="8" r="2"></circle><path d="M12 11v5"></path><path d="M9 20v2"></path><path d="M15 20v2"></path></svg>
+                {%- when 'range_dots' -%}
+                  <svg viewBox="0 0 24 24"><circle cx="5" cy="19" r="2"></circle><circle cx="19" cy="5" r="2"></circle><path d="M6.5 17.5c3-3 7-7 11-11" stroke-dasharray="3 3"></path></svg>
+                {%- when 'speedometer' -%}
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 12l3-3"></path><path d="M8 12a4 4 0 0 1 8 0"></path></svg>
+                {%- when 'gps_pin' -%}
+                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                {%- when 'drive_belt' -%}
+                  <svg viewBox="0 0 24 24"><circle cx="7" cy="12" r="3"></circle><circle cx="17" cy="12" r="3"></circle><path d="M7 9h10"></path><path d="M7 15h10"></path></svg>
+              {%- endcase -%}
+            {%- endif -%}
+          </div>
+          <p class="compare-feature__text">{{ block.settings.text_2 }}</p>
+        </div>
+
+      </div>
+    {%- endfor -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Comparison",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Header Configuration"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "NOT SURE WHICH BIKE SUITS YOU?",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "check out the handy comparison table below.",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Product 1 (Left)"
+    },
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "Select Product 1"
+    },
+    {
+      "type": "text",
+      "id": "custom_title_1",
+      "label": "Custom Title Override",
+      "info": "Leave blank to use the product's actual title."
+    },
+    {
+      "type": "text",
+      "id": "desc_1",
+      "label": "Short Description",
+      "default": "Lorem ipsum dolor sit amet consectetur."
+    },
+    {
+      "type": "header",
+      "content": "Product 2 (Right)"
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Select Product 2"
+    },
+    {
+      "type": "text",
+      "id": "custom_title_2",
+      "label": "Custom Title Override",
+      "info": "Leave blank to use the product's actual title."
+    },
+    {
+      "type": "text",
+      "id": "desc_2",
+      "label": "Short Description",
+      "default": "Lorem ipsum dolor sit amet consectetur."
+    },
+    {
+      "type": "header",
+      "content": "General Text"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link Label underneath price",
+      "default": "More info"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_row",
+      "name": "Feature Row",
+      "settings": [
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Code",
+          "info": "Paste raw SVG code here to override the dropdown."
+        },
+        {
+          "type": "select",
+          "id": "fallback_icon",
+          "label": "Default Icon Fallback",
+          "options": [
+            { "value": "rider_height", "label": "Rider Height" },
+            { "value": "range_dots", "label": "Range Dots" },
+            { "value": "speedometer", "label": "Speedometer" },
+            { "value": "gps_pin", "label": "GPS Pin" },
+            { "value": "drive_belt", "label": "Drive/Belt" }
+          ],
+          "default": "rider_height"
+        },
+        {
+          "type": "textarea",
+          "id": "text_1",
+          "label": "Product 1 Feature Text",
+          "default": "Suitable for cyclists from 165-190 cm"
+        },
+        {
+          "type": "textarea",
+          "id": "text_2",
+          "label": "Product 2 Feature Text",
+          "default": "Suitable for cyclists from 155-195 cm"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Comparison",
+      "blocks": [
+        {
+          "type": "feature_row",
+          "settings": {
+            "fallback_icon": "rider_height",
+            "text_1": "Suitable for cyclists\nfrom 165-190 cm",
+            "text_2": "Suitable for cyclists\nfrom 155-195 cm"
+          }
+        },
+        {
+          "type": "feature_row",
+          "settings": {
+            "fallback_icon": "range_dots",
+            "text_1": "Range upto 80-100 km",
+            "text_2": "Range upto 60-80 km"
+          }
+        },
+        {
+          "type": "feature_row",
+          "settings": {
+            "fallback_icon": "speedometer",
+            "text_1": "Max speed 25 km/h",
+            "text_2": "Max speed 25 km/h"
+          }
+        },
+        {
+          "type": "feature_row",
+          "settings": {
+            "fallback_icon": "gps_pin",
+            "text_1": "Advanced (GPS\ntracking & alarm)",
+            "text_2": "Standard lock support"
+          }
+        },
+        {
+          "type": "feature_row",
+          "settings": {
+            "fallback_icon": "drive_belt",
+            "text_1": "Carbon belt drive",
+            "text_2": "Chain drive"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
