@@ -2,51 +2,7 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  .trust-badges-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2.5rem 1.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .trust-badge-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: calc(50% - 0.75rem); /* 2 items per row on mobile */
-  }
-
-  .trust-badge-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: {{ section.settings.icon_size }}px;
-    height: {{ section.settings.icon_size }}px;
-    margin-bottom: 1.2rem;
-  }
-
-  .trust-badge-icon img,
-  .trust-badge-icon svg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    fill: currentColor;
-    color: rgb(var(--color-foreground));
-  }
-
-  .trust-badge-text {
-    margin: 0;
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.3;
-    color: rgb(var(--color-foreground));
-    letter-spacing: 0.04rem;
+    background-color: {{ section.settings.background_color }};
   }
 
   @media screen and (min-width: 750px) {
@@ -54,41 +10,131 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+  }
 
-    .trust-badges-wrapper {
-      justify-content: space-between;
-      flex-wrap: nowrap;
+  .trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 500px) {
+    .trust-badges__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .trust-badges__grid {
+      grid-template-columns: repeat({{ section.blocks.size | at_most: 4 }}, 1fr);
       gap: 2rem;
     }
+  }
 
-    .trust-badge-item {
-      width: auto;
-      flex: 1 1 0; /* Distributes space evenly on desktop */
-      max-width: 25rem;
-    }
+  .trust-badge__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .trust-badge__icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background-color: #f7f7f7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .trust-badge__icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+    fill: none;
+    stroke: #000000;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  
+  .trust-badge__icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 24px; /* keeps custom images sized similarly to SVGs */
+  }
+
+  .trust-badge__text {
+    font-size: 1.5rem;
+    color: #333333;
+    margin: 0;
+    font-weight: 400;
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="page-width section-{{ section.id }}-padding">
-    <ul class="trust-badges-wrapper" role="list">
+<div class="trust-badges section-{{ section.id }}-padding">
+  <div class="page-width">
+    <ul class="trust-badges__grid">
+      
       {%- for block in section.blocks -%}
-        <li class="trust-badge-item" {{ block.shopify_attributes }}>
-          <div class="trust-badge-icon">
+        <li class="trust-badge__item" {{ block.shopify_attributes }}>
+          <div class="trust-badge__icon-wrapper">
+            
             {%- if block.settings.custom_svg != blank -%}
               {{ block.settings.custom_svg }}
             {%- elsif block.settings.image != blank -%}
-              {%- assign image_width = section.settings.icon_size | times: 2 -%}
-              {{ block.settings.image | image_url: width: image_width | image_tag: loading: 'lazy', alt: block.settings.title | escape }}
+              {{ block.settings.image | image_url: width: 160 | image_tag: loading: 'lazy' }}
             {%- else -%}
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              
+              {%- case forloop.index -%}
+                {%- when 1 -%}
+                  <svg viewBox="0 0 24 24">
+                    <polygon points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polygon>
+                    <line x1="12" y1="3" x2="12" y2="21"></line>
+                    <line x1="20" y1="7.5" x2="4" y2="16.5"></line>
+                    <line x1="4" y1="12" x2="1.5" y2="12"></line>
+                    <line x1="2.5" y1="9" x2="0.5" y2="9"></line>
+                    <line x1="3" y1="15" x2="1" y2="15"></line>
+                  </svg>
+                {%- when 2 -%}
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                    <circle cx="18" cy="16" r="4" fill="#f7f7f7"></circle>
+                    <polyline points="16.5 16 17.5 17 19.5 15"></polyline>
+                  </svg>
+                {%- when 3 -%}
+                  <svg viewBox="0 0 24 24">
+                    <path d="M18 16c1.1 0 2-.9 2-2V10c0-4.4-3.6-8-8-8S4 5.6 4 10v4c0 1.1.9 2 2 2h1v-7h10v7h-3"></path>
+                    <path d="M15 19v1c0 1.1-.9 2-2 2h-4"></path>
+                    <line x1="15" y1="18" x2="15" y2="18.01"></line>
+                  </svg>
+                {%- when 4 -%}
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                {%- else -%}
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+              {%- endcase -%}
+
             {%- endif -%}
+
           </div>
-          {%- if block.settings.title != blank -%}
-            <p class="trust-badge-text">{{ block.settings.title }}</p>
+          
+          {%- if block.settings.text != blank -%}
+            <p class="trust-badge__text">{{ block.settings.text }}</p>
           {%- endif -%}
         </li>
       {%- endfor -%}
+      
     </ul>
   </div>
 </div>
@@ -98,26 +144,20 @@
   "name": "Trust Badges",
   "tag": "section",
   "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 5,
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "range",
-      "id": "icon_size",
-      "min": 24,
-      "max": 80,
-      "step": 4,
-      "unit": "px",
-      "label": "Icon size",
-      "default": 40
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Section Padding"
     },
     {
       "type": "range",
@@ -126,7 +166,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Top Padding",
       "default": 36
     },
     {
@@ -136,7 +176,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Bottom Padding",
       "default": 36
     }
   ],
@@ -144,25 +184,23 @@
     {
       "type": "badge",
       "name": "Badge",
-      "limit": 6,
       "settings": [
         {
           "type": "html",
           "id": "custom_svg",
           "label": "Custom SVG Code",
-          "info": "Recommended for crisp icons. Paste raw SVG code here."
+          "info": "Overrides the image picker if populated."
         },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Fallback Image",
-          "info": "Used if no SVG is provided above."
+          "label": "Image Fallback"
         },
         {
           "type": "inline_richtext",
-          "id": "title",
-          "default": "Feature Title",
-          "label": "Heading"
+          "id": "text",
+          "label": "Text",
+          "default": "Feature description"
         }
       ]
     }
@@ -174,25 +212,25 @@
         {
           "type": "badge",
           "settings": {
-            "title": "1-Year Warranty Included"
+            "text": "Free and Fast delivery"
           }
         },
         {
           "type": "badge",
           "settings": {
-            "title": "Fast 7–10 Day Delivery"
+            "text": "Secure payment"
           }
         },
         {
           "type": "badge",
           "settings": {
-            "title": "Interest-Free Payments"
+            "text": "Strong customer service"
           }
         },
         {
           "type": "badge",
           "settings": {
-            "title": "Premium Quality at Fair Prices"
+            "text": "2-years warranty"
           }
         }
       ]
