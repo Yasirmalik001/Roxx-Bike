@@ -1,0 +1,362 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .hotspot-container {
+    text-align: center;
+  }
+
+  .hotspot-header {
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+  }
+
+  .hotspot-header h2 {
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .hotspot-header .rte {
+    font-size: 1.6rem;
+    color: rgba(var(--color-foreground), 0.75);
+    line-height: 1.6;
+  }
+
+  .hotspot-image-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  .hotspot-image-wrapper img, 
+  .hotspot-image-wrapper svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: {{ section.settings.image_radius }}px;
+  }
+
+  .hotspot-point {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .hotspot-btn {
+    width: 36px;
+    height: 36px;
+    background-color: #F8D62B; /* Yellow from design */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 0 10px rgba(248, 214, 43, 0.3); /* Glow effect */
+    list-style: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    color: #000;
+  }
+
+  .hotspot-btn::-webkit-details-marker {
+    display: none;
+  }
+
+  .hotspot-btn:hover, details[open] .hotspot-btn {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 15px rgba(248, 214, 43, 0.4);
+  }
+
+  .hotspot-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  details[open] .hotspot-btn svg {
+    transform: rotate(45deg);
+  }
+
+  .hotspot-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 25px;
+    background: #ffffff;
+    color: #000000;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    width: max-content;
+    max-width: 280px;
+    z-index: 10;
+    text-align: left;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* Tooltip Arrow */
+  .hotspot-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+  }
+
+  .hotspot-tooltip h4 {
+    margin: 0 0 0.8rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #000;
+  }
+
+  .hotspot-tooltip h4 img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .hotspot-tooltip .rte {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .hotspot-tooltip {
+      width: 200px;
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width hotspot-container">
+    
+    <div class="hotspot-header">
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="hotspot-image-wrapper">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1500 | image_tag: loading: 'lazy', widths: '550, 720, 990, 1500' }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        <div class="hotspot-point" style="top: {{ block.settings.pos_y }}%; left: {{ block.settings.pos_x }}%;" {{ block.shopify_attributes }}>
+          <details data-hotspot>
+            <summary class="hotspot-btn">
+              <span class="visually-hidden">View details for {{ block.settings.title }}</span>
+              <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path d="M14 8H8v6H6V8H0V6h6V0h2v6h6v2z"/></svg>
+            </summary>
+            <div class="hotspot-tooltip">
+              <h4>
+                {%- if block.settings.icon != blank -%}
+                  {{ block.settings.icon | image_url: width: 40 | image_tag: loading: 'lazy' }}
+                {%- endif -%}
+                {{ block.settings.title }}
+              </h4>
+              <div class="rte">{{ block.settings.content }}</div>
+            </div>
+          </details>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Script to ensure only one hotspot is open at a time
+  document.addEventListener('DOMContentLoaded', () => {
+    const hotspots = document.querySelectorAll('details[data-hotspot]');
+    
+    hotspots.forEach((targetDetail) => {
+      targetDetail.addEventListener('click', () => {
+        hotspots.forEach((detail) => {
+          if (detail !== targetDetail) {
+            detail.removeAttribute('open');
+          }
+        });
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (event) => {
+      const isClickInside = event.target.closest('details[data-hotspot]');
+      if (!isClickInside) {
+        hotspots.forEach((detail) => {
+          detail.removeAttribute('open');
+        });
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Image with Hotspots",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "MINIMAL DESIGN. MAXIMUM IMPACT."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>A sleek, integrated frame that turns heads — without compromising function. Built with precision and high-quality materials, the Joieem X blends aesthetics with durability, making it as stylish as it is reliable.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main Image"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Image corner radius",
+      "default": 0
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Hotspot Point",
+      "settings": [
+        {
+          "type": "range",
+          "id": "pos_x",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal Position (Left to Right)",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "pos_y",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical Position (Top to Bottom)",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "Tooltip Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Small Icon Image (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Feature name"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Description",
+          "default": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Hotspots",
+      "blocks": [
+        {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 25,
+            "pos_y": 70
+          }
+        },
+        {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 75,
+            "pos_y": 60
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
