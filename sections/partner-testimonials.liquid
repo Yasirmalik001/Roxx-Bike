@@ -1,0 +1,372 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .partner-testimonials {
+    overflow: hidden;
+  }
+
+  .partner-testimonials__heading {
+    text-align: center;
+    color: {{ section.settings.text_color }};
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 4rem;
+  }
+
+  /* Card Styling */
+  .partner-card {
+    background-color: {{ section.settings.card_background }};
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .partner-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 65%; /* Aspect ratio for the images */
+    overflow: hidden;
+  }
+
+  .partner-card__image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-card__content {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .partner-card__text {
+    color: rgba(255, 255, 255, 0.85); /* Slightly muted text */
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .partner-card__author {
+    color: {{ section.settings.text_color }};
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .partner-card__author::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background-color: {{ section.settings.text_color }};
+  }
+
+  /* Swiper Footer Controls */
+  .partner-slider-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 5rem;
+    min-height: 50px;
+  }
+
+  .partner-pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Swiper Pagination Overrides */
+  .swiper-pagination-{{ section.id }} {
+    position: relative !important;
+    bottom: 0 !important;
+  }
+
+  .swiper-pagination-{{ section.id }} .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    opacity: 0.6;
+    margin: 0 6px !important;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-{{ section.id }} .swiper-pagination-bullet-active {
+    background-color: #ffe600;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  /* Button alignment */
+  .partner-button-wrapper {
+    position: absolute;
+    right: 0;
+  }
+
+  .partner-button {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 50px;
+    padding: 1.2rem 3rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    border: none;
+    display: inline-block;
+  }
+
+  .partner-button:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+  }
+
+  @media screen and (max-width: 989px) {
+    .partner-slider-footer {
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .partner-button-wrapper {
+      position: static;
+    }
+  }
+{%- endstyle -%}
+
+<div class="partner-testimonials section-{{ section.id }}-padding">
+  <div class="page-width">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="partner-testimonials__heading {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    <div class="swiper" id="Swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        
+        {%- for block in section.blocks -%}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <div class="partner-card">
+              <div class="partner-card__image-wrapper">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              <div class="partner-card__content">
+                <div class="partner-card__text rte">
+                  {{ block.settings.text }}
+                </div>
+                <div class="partner-card__author">
+                  {{ block.settings.author }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+
+      </div>
+    </div>
+
+    <div class="partner-slider-footer">
+      <div class="partner-pagination-wrapper">
+        <div class="swiper-pagination-{{ section.id }}"></div>
+      </div>
+      
+      {%- if section.settings.button_label != blank -%}
+        <div class="partner-button-wrapper">
+          <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} 
+             class="partner-button">
+            {{ section.settings.button_label | escape }}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const initSwiper{{ section.id | replace: '-', '_' }} = () => {
+      // Check if Swiper is loaded from CDN yet
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('#Swiper-{{ section.id }}', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          grabCursor: true,
+          pagination: {
+            el: '.swiper-pagination-{{ section.id }}',
+            clickable: true,
+          },
+          breakpoints: {
+            750: {
+              slidesPerView: 2,
+              spaceBetween: 30
+            },
+            990: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
+          }
+        });
+      } else {
+        // If not loaded, check again in 100ms
+        setTimeout(initSwiper{{ section.id | replace: '-', '_' }}, 100);
+      }
+    };
+    
+    initSwiper{{ section.id | replace: '-', '_' }}();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Partner Slider",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "WHAT OUR PARTNER SAYS!",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading Size"
+    },
+    {
+      "type": "header",
+      "content": "Footer Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "View all",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Partner Image"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+          "label": "Testimonial Text"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "default": "Partner Name",
+          "label": "Author Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partner Slider",
+      "blocks": [
+        { "type": "testimonial", "settings": { "author": "Hardwell" } },
+        { "type": "testimonial", "settings": { "author": "John Heitinga" } },
+        { "type": "testimonial", "settings": { "author": "Doutzen Kroes" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
