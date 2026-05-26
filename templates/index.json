@@ -234,6 +234,7 @@
         "testimonial_GrQJgj": {
           "type": "testimonial",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
             "author": "Hardwell"
           }
@@ -241,22 +242,51 @@
         "testimonial_zk7LAw": {
           "type": "testimonial",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
             "author": "John Heitinga"
           }
         },
-        "testimonial_GzbzbW": {
+        "testimonial_AwtBDh": {
           "type": "testimonial",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
-            "author": "Doutzen Kroes"
+            "author": "John Heitinga"
+          }
+        },
+        "testimonial_wHfN8y": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
+          }
+        },
+        "testimonial_DdF7yh": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
+          }
+        },
+        "testimonial_9thtHB": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
           }
         }
       },
       "block_order": [
         "testimonial_GrQJgj",
         "testimonial_zk7LAw",
-        "testimonial_GzbzbW"
+        "testimonial_AwtBDh",
+        "testimonial_wHfN8y",
+        "testimonial_DdF7yh",
+        "testimonial_9thtHB"
       ],
       "name": "Partner Slider",
       "settings": {
