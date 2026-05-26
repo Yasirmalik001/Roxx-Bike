@@ -277,14 +277,34 @@
         "slide_NTY49e": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/b16241972040657058a53089f76089f2c3c83595.png",
             "heading": "WHEN E-BIKE MEETS LIFE",
             "heading_size": "h0",
             "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
           }
         },
-        "slide_nyRmcd": {
+        "slide_8fqVDd": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/b16241972040657058a53089f76089f2c3c83595.png",
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0",
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          }
+        },
+        "slide_kiAErg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/b16241972040657058a53089f76089f2c3c83595.png",
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0",
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          }
+        },
+        "slide_fi8JAc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/b16241972040657058a53089f76089f2c3c83595.png",
             "heading": "WHEN E-BIKE MEETS LIFE",
             "heading_size": "h0",
             "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
@@ -293,7 +313,9 @@
       },
       "block_order": [
         "slide_NTY49e",
-        "slide_nyRmcd"
+        "slide_8fqVDd",
+        "slide_kiAErg",
+        "slide_fi8JAc"
       ],
       "name": "Hero Slideshow",
       "settings": {
