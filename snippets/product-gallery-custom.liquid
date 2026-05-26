@@ -1,0 +1,37 @@
+<div class="product-custom__gallery">
+  {% if product.media.size > 1 %}
+    <div class="product-custom__thumbnails">
+      {% for media in product.media %}
+        <div class="product-custom__thumbnail-item {% if forloop.first %}is-active{% endif %}" data-media-id="{{ media.id }}">
+          {{ media.preview_image | image_url: width: 100 | image_tag: loading: 'lazy' }}
+        </div>
+      {% endfor %}
+      
+      <!-- Arrow for overflow -->
+      <div class="product-custom__thumbnail-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="product-custom__main-media">
+    <div class="product-custom__gallery-badges">
+      {% render 'product-badges', product: product %}
+      {% render 'product-rating', product: product %}
+    </div>
+
+    {%- if product.selected_or_first_available_variant.featured_media != null -%}
+      {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+      <div class="product-custom__main-image" data-media-id="{{ featured_media.id }}">
+        {{ featured_media | image_url: width: 1200 | image_tag: loading: 'eager', class: 'product-main-image' }}
+      </div>
+    {%- else -%}
+      {%- assign featured_media = product.featured_media -%}
+      <div class="product-custom__main-image" data-media-id="{{ featured_media.id }}">
+        {{ featured_media | image_url: width: 1200 | image_tag: loading: 'eager', class: 'product-main-image' }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

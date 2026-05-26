@@ -1,0 +1,23 @@
+{% assign accessory_product = block.settings.product %}
+{% if accessory_product != blank %}
+  <div class="product-custom__accessories" {{ block.shopify_attributes }}>
+    <h3 class="product-custom__accessories-title">Accessories</h3>
+    
+    <label class="product-custom__accessory-card" for="accessory-{{ block.id }}">
+      <input type="checkbox" id="accessory-{{ block.id }}" class="visually-hidden product-custom__accessory-checkbox" value="{{ accessory_product.selected_or_first_available_variant.id }}" data-price="{{ accessory_product.selected_or_first_available_variant.price }}">
+      
+      {% if accessory_product.featured_media %}
+        <img src="{{ accessory_product.featured_media | image_url: width: 100 }}" alt="{{ accessory_product.title }}" class="product-custom__accessory-image" loading="lazy">
+      {% endif %}
+      
+      <div class="product-custom__accessory-info">
+        <h4 class="product-custom__accessory-title">{{ accessory_product.title }}</h4>
+        <p class="product-custom__accessory-price">{{ accessory_product.selected_or_first_available_variant.price | money }}</p>
+      </div>
+      
+      <div class="product-custom__accessory-radio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+    </label>
+  </div>
+{% endif %}
