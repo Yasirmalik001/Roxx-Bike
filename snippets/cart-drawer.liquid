@@ -264,6 +264,7 @@
                               {{- item.product.title | escape -}}
                             </a>
 
+<<<<<<< Updated upstream
                             {% comment %}
                               {%- if item.original_price != item.final_price -%}
                                 <div class="cart-item__discounted-prices">
@@ -280,6 +281,20 @@
                                     {{ item.final_price | money }}
                                   </strong>
                                 </div>
+=======
+                            <div class="cart-item__rating-stars">
+                              <span class="star-rating">★★★★★</span>
+                              <span class="star-count">(18)</span>
+                            </div>
+
+                            <div class="cart-item__price-row">
+                              {%- if item.variant.compare_at_price > item.variant.price -%}
+                                {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
+                                {%- assign savings_amount = item_compare_at | minus: item.final_line_price -%}
+                                <span class="price price--sale">{{ item.final_line_price | money }}</span>
+                                <s class="price price--compare">{{ item_compare_at | money }}</s>
+                                <span class="price-discount-badge">Save {{ savings_amount | money }}</span>
+>>>>>>> Stashed changes
                               {%- else -%}
                                 <div class="product-option">
                                   {{ item.original_price | money }}

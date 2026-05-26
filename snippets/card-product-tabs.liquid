@@ -76,23 +76,8 @@
             >
             {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
-            {%- if show_secondary_image and card_product.media[1] != null -%}
-              <img
-                srcset="
-                  {%- if card_product.media[1].width >= 533 -%}{{ card_product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
-                  {%- if card_product.media[1].width >= 720 -%}{{ card_product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
-                  {%- if card_product.media[1].width >= 940 -%}{{ card_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
-                  {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
-                "
-                src="{{ card_product.media[1] | image_url: width: 720 }}"
-                sizes="(min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                alt="{{ card_product.media[1].alt | escape }}"
-                class="card-product-tabs__image card-product-tabs__image--secondary motion-reduce"
-                loading="lazy"
-                width="{{ card_product.media[1].width }}"
-                height="{{ card_product.media[1].height }}"
-              >
-            {%- endif -%}
+
+
           {%- else -%}
             {{ placeholder_image | default: 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg card-product-tabs__image' }}
           {%- endif -%}
