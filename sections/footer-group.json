@@ -41,13 +41,20 @@
             "heading": "Customer Service",
             "menu": "customer-account-main-menu"
           }
+        },
+        "brand_information_GwJXJD": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
         }
       },
       "block_order": [
         "link_list_KJrftH",
         "link_list_zUw3RB",
         "link_list_cqkHT6",
-        "link_list_kVn87T"
+        "link_list_kVn87T",
+        "brand_information_GwJXJD"
       ],
       "settings": {
         "brand_image_width": 170,
