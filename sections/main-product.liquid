@@ -97,47 +97,27 @@
                 >
                   {{- block.settings.text -}}
                 </p>
-          {%- when 'title_and_price' -%}
-  <div class="product__title-price-container" {{ block.shopify_attributes }}>
+           {%- when 'title' -%}
+  <div class="product__title-wrapper" {{ block.shopify_attributes }}>
+    <h1 class="product__title">
+      {{ product.title | escape }}
+    </h1>
     
-    <div class="product__title-column">
-      {%- if block.settings.show_discount_badge and product.compare_at_price > product.price -%}
-        {%- assign save_amount = product.compare_at_price | minus: product.price -%}
-        {%- assign discount_percentage = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
-        <div class="product__hero-badge">
-          {{ discount_percentage }}% OFF | Save {{ save_amount | money_without_trailing_zeros }}
-        </div>
-      {%- endif -%}
-      
-      <h1 class="product__title">
-        {{ product.title | escape }}
-      </h1>
-      
-      {%- if block.settings.review_icon != blank or block.settings.review_text != blank -%}
-        <div class="product__review-container">
-          {%- if block.settings.review_icon != blank -%}
-            {{ block.settings.review_icon | image_url: width: 150 | image_tag: class: 'product__review-icon', loading: 'lazy' }}
-          {%- endif -%}
-          {%- if block.settings.review_text != blank -%}
-            <span class="product__review-text">{{ block.settings.review_text }}</span>
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-      
-    </div>
-
-    <div class="product__price-column">
-      <div id="price-{{ section.id }}" role="status">
-        {%- render 'custom-price',
-          product: product,
-          use_variant: true,
-          show_badges: true,
-          price_class: 'price--large'
-        -%}
+    {%- if product.metafields.custom.badge != blank -%}
+      <div class="product__custom-badge">
+        {{ product.metafields.custom.badge }}
       </div>
-    </div>
-    
+    {%- endif -%}
   </div>
+              {%- when 'price' -%}
+                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  {%- render 'custom-price',
+                    product: product,
+                    use_variant: true,
+                    show_badges: true,
+                    price_class: 'price--large'
+                  -%}
+                </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -881,38 +861,6 @@
       ]
     },
     {
-  "type": "title_and_price",
-  "name": "Title and Price Row",
-  "limit": 1,
-  "settings": [
-    {
-      "type": "header",
-      "content": "Layout Settings"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_discount_badge",
-      "default": true,
-      "label": "Show 'Save' discount badge"
-    },
-    {
-      "type": "header",
-      "content": "Review Settings"
-    },
-    {
-      "type": "image_picker",
-      "id": "review_icon",
-      "label": "Review Icon Upload (e.g., Stars)"
-    },
-    {
-      "type": "text",
-      "id": "review_text",
-      "label": "Review Text",
-      "default": "4.9 (22 Reviews)"
-    }
-  ]
-},
-    {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
       "limit": 1
@@ -986,7 +934,7 @@
           "type": "color",
           "id": "text_color",
           "label": "Text Color",
-          "default": "#2B2B2B"
+          "default": "#962071"
         },
         {
           "type": "range",
@@ -1366,69 +1314,24 @@
       "name": "Pills",
       "limit": 1,
       "settings": [
-      {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Why you will love it:"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#333333"
-    },
-    {
-      "type": "color",
-      "id": "icon_color",
-      "label": "Icon Color",
-      "default": "#111111"
-    },
-    {
-      "type": "html",
-      "id": "custom_svg",
-      "label": "Custom SVG Icon (Optional)",
-      "info": "Leave blank to use the default checkmark."
-    },
-    {
-      "type": "header",
-      "content": "List Items"
-    },
-    {
-      "type": "text",
-      "id": "benefit_1",
-      "label": "Item 1",
-      "default": "Premium solid foam cushions, no chopped filling, no sagging"
-    },
-    {
-      "type": "text",
-      "id": "benefit_2",
-      "label": "Item 2",
-      "default": "Fullback/Scatter design with a classic, structured look"
-    },
-    {
-      "type": "text",
-      "id": "benefit_3",
-      "label": "Item 3",
-      "default": "Soft touch will be easy to clean"
-    },
-    {
-      "type": "text",
-      "id": "benefit_4",
-      "label": "Item 4",
-      "default": "Solid wood frame with chrome feet for strength and style"
-    },
-    {
-      "type": "text",
-      "id": "benefit_5",
-      "label": "Item 5",
-      "default": "Medium firm seat height for comfort and posture"
-    },
-    {
-      "type": "text",
-      "id": "benefit_6",
-      "label": "Item 6"
-    }
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text & Icon Color",
+          "default": "#922768"
+        },
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Icon",
+          "info": "Paste SVG code here to override the default checkmark. Leave blank to use the default."
+        },
+        { "type": "text", "id": "benefit_1", "label": "Benefit 1", "default": "60 days return guarantee" },
+        { "type": "text", "id": "benefit_2", "label": "Benefit 2", "default": "Delivered within 2-3 days" },
+        { "type": "text", "id": "benefit_3", "label": "Benefit 3", "default": "Free shipping over NOK 800" },
+        { "type": "text", "id": "benefit_4", "label": "Benefit 4", "default": "Pay in Installments" },
+        { "type": "text", "id": "benefit_5", "label": "Benefit 5" },
+        { "type": "text", "id": "benefit_6", "label": "Benefit 6" }
       ]
     },
     {
@@ -1532,46 +1435,43 @@
       "type": "trust-card",
       "name": "Trust card",
       "settings": [
-       {
-      "type": "header", "content": "Review 1"
-    },
-    { "type": "range", "id": "rating_1", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
-    { "type": "checkbox", "id": "verified_1", "label": "Verified", "default": true },
-    { "type": "text", "id": "title_1", "label": "Title", "default": "The quality is unreal for this price point." },
-    { "type": "textarea", "id": "text_1", "label": "Description", "default": "Looks just like it does on the website, which is always a relief!" },
-    { "type": "text", "id": "author_1", "label": "Author", "default": "Caleb T." },
-    {
-      "type": "header", "content": "Review 2"
-    },
-    { "type": "range", "id": "rating_2", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
-    { "type": "checkbox", "id": "verified_2", "label": "Verified", "default": true },
-    { "type": "text", "id": "title_2", "label": "Title" },
-    { "type": "textarea", "id": "text_2", "label": "Description" },
-    { "type": "text", "id": "author_2", "label": "Author" },
-    {
-      "type": "header", "content": "Review 3"
-    },
-    { "type": "range", "id": "rating_3", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
-    { "type": "checkbox", "id": "verified_3", "label": "Verified", "default": true },
-    { "type": "text", "id": "title_3", "label": "Title" },
-    { "type": "textarea", "id": "text_3", "label": "Description" },
-    { "type": "text", "id": "author_3", "label": "Author" },
-    {
-      "type": "header", "content": "Review 4"
-    },
-    { "type": "range", "id": "rating_4", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
-    { "type": "checkbox", "id": "verified_4", "label": "Verified", "default": true },
-    { "type": "text", "id": "title_4", "label": "Title" },
-    { "type": "textarea", "id": "text_4", "label": "Description" },
-    { "type": "text", "id": "author_4", "label": "Author" },
-    {
-      "type": "header", "content": "Review 5"
-    },
-    { "type": "range", "id": "rating_5", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
-    { "type": "checkbox", "id": "verified_5", "label": "Verified", "default": true },
-    { "type": "text", "id": "title_5", "label": "Title" },
-    { "type": "textarea", "id": "text_5", "label": "Description" },
-    { "type": "text", "id": "author_5", "label": "Author" }
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Endorsement Quote",
+          "default": "VIVORUM Cellular Renewal is one of the most thoughtfully formulated nightly supplements I've reviewed."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name & Title",
+          "default": "Dr. A. Reynolds, MD"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Doctor Avatar"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "Recommended by doctors"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        }
       ]
     },
     {
