@@ -13,46 +13,6 @@
   "sections": {
     "announcement_bar_UkxFwA": {
       "type": "announcement-bar",
-      "blocks": {
-        "announcement_mYKFjr": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welkom in onze winkel",
-            "link": "",
-            "icon": "none"
-          }
-        },
-        "announcement_m6TKDU": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welkom in onze winkel",
-            "link": "",
-            "icon": "none"
-          }
-        },
-        "announcement_YW3UHx": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welkom in onze winkel",
-            "link": "",
-            "icon": "none"
-          }
-        },
-        "announcement_JrG3NW": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welkom in onze winkel",
-            "link": "",
-            "icon": "none"
-          }
-        }
-      },
-      "block_order": [
-        "announcement_mYKFjr",
-        "announcement_m6TKDU",
-        "announcement_YW3UHx",
-        "announcement_JrG3NW"
-      ],
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
         "auto_rotate": false,
