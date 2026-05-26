@@ -27,10 +27,10 @@
         "buttons_qkDF6J": {
           "type": "buttons",
           "settings": {
-            "button_text": "Get your comfort sofa now!",
+            "button_text": "Explore Models",
             "button_link": "shopify://collections/all",
-            "button_text2": "",
-            "button_link2": ""
+            "button_text2": "Explore Models",
+            "button_link2": "shopify://collections"
           }
         }
       },
