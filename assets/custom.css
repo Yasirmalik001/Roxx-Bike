@@ -440,9 +440,9 @@ body{
   text-align: center;
   align-items: center;
   justify-content: center;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
 }
@@ -454,13 +454,13 @@ body{
   width: 100%;
 }
 
-.collection-tabs .card-product-tabs__media {
-  background: transparent !important;
-  border-radius: 0 !important;
-  overflow: hidden !important;
+.collection-tabs .card-product-tabs .card-product-tabs__media {
+  background: transparent;
+  border-radius: 0;
+  overflow: hidden;
   width: 100%;
   position: relative;
-  aspect-ratio: 1.2 / 1 !important;
+  aspect-ratio: 16 / 9;
 }
 
 .collection-tabs .card-product-tabs__media-inner {
@@ -471,20 +471,12 @@ body{
   justify-content: center;
 }
 
-.collection-tabs .card-product-tabs__image {
-<<<<<<< Updated upstream
-  max-width: 90% !important;
-  max-height: 380px !important;
-  transform: scale(0.9);
-  transition: transform 0.4s ease;
-  position: relative !important;
-  inset: auto !important;
-=======
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
+.collection-tabs .card-product-tabs .card-product-tabs__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   transition: transform 0.5s ease;
 }
 
@@ -494,16 +486,15 @@ body{
 
 /* Remove secondary image hover effect completely */
 .collection-tabs .card-product-tabs__image--secondary {
-  display: none !important;
+  display: none;
 }
 .collection-tabs .card-product-tabs:hover .card-product-tabs__image--primary {
-  opacity: 1 !important;
->>>>>>> Stashed changes
+  opacity: 1;
 }
 
 @media screen and (max-width: 749px) {
-  .collection-tabs .card-product-tabs__media {
-    aspect-ratio: 1 / 1 !important;
+  .collection-tabs .card-product-tabs .card-product-tabs__media {
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -519,26 +510,26 @@ body{
 
 /* Hide adjacent cards text and actions completely */
 .collection-tabs .swiper-slide:not(.swiper-slide-active) .card-product-tabs__content {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-  height: 0 !important;
-  overflow: hidden !important;
-  margin-top: 0 !important;
-  padding: 0 !important;
-  transition: all 0.3s ease !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding: 0;
+  transition: all 0.3s ease;
 }
 
 .collection-tabs .swiper-slide.swiper-slide-active .card-product-tabs__content {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  transition: opacity 0.3s ease 0.1s !important;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.3s ease 0.1s;
 }
 
 /* Hide native quick add cart overlay on the image */
 .collection-tabs .card-product-tabs__cart-btn {
-  display: none !important;
+  display: none;
 }
 
 /* Rotated Red Sale Badge Pill (1-to-1 matching mockup) */
