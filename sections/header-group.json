@@ -13,6 +13,37 @@
   "sections": {
     "announcement_bar_UkxFwA": {
       "type": "announcement-bar",
+      "blocks": {
+        "announcement_LyMaAy": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welkom in onze winkel",
+            "link": "",
+            "icon": "none"
+          }
+        },
+        "announcement_RpzTqz": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welkom in onze winkel",
+            "link": "",
+            "icon": "none"
+          }
+        },
+        "announcement_LqweQp": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welkom in onze winkel",
+            "link": "",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_LyMaAy",
+        "announcement_RpzTqz",
+        "announcement_LqweQp"
+      ],
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
         "auto_rotate": false,
