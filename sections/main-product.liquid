@@ -76,53 +76,8 @@
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        <div style="position: relative;">
-          <!-- Gallery Badges Overlay -->
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'gallery_badges' -%}
-              <div class="product__gallery-badges" style="position: absolute; top: 1.5rem; left: 1.5rem; z-index: 2; display: flex; flex-direction: column; gap: 1rem;" {{ block.shopify_attributes }}>
-                {%- if product.tags contains 'Bestseller' or block.settings.show_bestseller -%}
-                  <span style="background: #ffd500; color: #000; font-weight: 700; font-size: 1.1rem; padding: 0.5rem 1rem; border-radius: 4px; text-transform: uppercase;">{{ block.settings.bestseller_text }}</span>
-                {%- endif -%}
-                <div style="display: flex; flex-direction: column; gap: 0.3rem;">
-                  <div style="display: flex; gap: 2px;">
-                    {% for i in (1..5) %}
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="#00b67a" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                      </svg>
-                    {% endfor %}
-                  </div>
-                  <span style="font-size: 1.1rem; color: #666;">{{ block.settings.rating_text }}</span>
-                </div>
-              </div>
-            {%- endif -%}
-          {%- endfor -%}
-
-          {% render 'product-media-gallery', variant_images: variant_images %}
-        </div>
-
-        <!-- Specs under gallery -->
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'gallery_specs' -%}
-            <div class="product__gallery-specs" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; background: #fdfdfd; padding: 2rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); margin-top: 2rem;" {{ block.shopify_attributes }}>
-              <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem;">
-                <div style="width: 24px; height: 24px; color: #666;">{{ block.settings.icon_1 }}</div>
-                <span style="font-size: 1.1rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">{{ block.settings.label_1 }}</span>
-                <span style="font-size: 1.4rem; font-weight: 600; color: #000;">{{ block.settings.value_1 }}</span>
-              </div>
-              <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem;">
-                <div style="width: 24px; height: 24px; color: #666;">{{ block.settings.icon_2 }}</div>
-                <span style="font-size: 1.1rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">{{ block.settings.label_2 }}</span>
-                <span style="font-size: 1.4rem; font-weight: 600; color: #000;">{{ block.settings.value_2 }}</span>
-              </div>
-              <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem;">
-                <div style="width: 24px; height: 24px; color: #666;">{{ block.settings.icon_3 }}</div>
-                <span style="font-size: 1.1rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">{{ block.settings.label_3 }}</span>
-                <span style="font-size: 1.4rem; font-weight: 600; color: #000;">{{ block.settings.value_3 }}</span>
-              </div>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
+        {% render 'product-media-gallery', variant_images: variant_images %}
+        {% comment %} {% render 'product-media-gallery-swiper', variant_images: variant_images %} {% endcomment %}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -227,93 +182,8 @@
                 {% render 'size-chart', block: block %}
               {%- when 'trust-card' -%}
                 {% render 'trust-card', block: block %}
-              {%- when 'klarna_installments' -%}
-                <div class="product-custom__installments" style="display: flex; align-items: center; justify-content: center; gap: 0.8rem; background: #fdfdfd; border: 1px solid rgba(0,0,0,0.05); border-radius: 50px; padding: 0.8rem 1.5rem; margin: 1.5rem auto 0; width: fit-content; font-size: 1.2rem;" {{ block.shopify_attributes }}>
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <svg viewBox="0 0 100 25" width="40" height="10"><rect width="100" height="25" fill="#FFB3C7" rx="12.5"/><text x="50" y="16" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Klarna.</text></svg>
-                  </div>
-                  <span>Pay in 3 interest-free installments</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                </div>
-              {%- when 'payment_icons' -%}
-                <div class="product-custom__payment-icons" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 1rem;" {{ block.shopify_attributes }}>
-                  <svg viewBox="0 0 38 24" width="38" height="24" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#006FCF"/><path d="M22.012 19.936v-8.421h5.385v1.474h-3.538v1.895h3.333v1.474h-3.333v2.105h3.692v1.474h-5.539zm-10.872 0l2.256-5.895 2.154 5.895h1.949l-3.128-8.421h-2.051l-3.077 8.421h1.897zm1.128-2.947h2.051l-1.026-2.947-1.025 2.947zm-5.744 2.947H4.368v-8.421H6.52l1.692 5.053 1.744-5.053h2.051v8.421H10.16v-5.263l-1.795 5.263h-1.64l-1.795-5.263v5.263H6.524zm20.82 0l-2.051-3.158h-1.385v3.158h-1.846v-8.421h3.436c1.692 0 2.513 1.053 2.513 2.632 0 1.158-.615 2.105-1.59 2.526l2.154 3.263h-1.231zm-1.333-6.947h-1.692v2.316h1.692c.769 0 1.128-.421 1.128-1.158 0-.737-.359-1.158-1.128-1.158z" fill="#FFF"/></svg>
-                  <svg viewBox="0 0 38 24" width="38" height="24" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000"/><path d="M17.86 16.29c-1.39 0-2.31.81-3.62.81-1.26 0-2.58-.85-3.66-.85-1.44 0-2.82.93-3.56 2.3-.77 1.41-1.04 3.5-.1 5.37.58 1.16 1.35 2.45 2.64 2.45 1.25 0 1.76-.78 3.24-.78 1.49 0 1.94.78 3.26.78 1.33 0 1.99-1.19 2.55-2.26.71-1.36.96-2.07.98-2.12-.03-.02-2.11-.8-2.11-3.14 0-1.95 1.6-2.92 1.67-2.97-1.03-1.49-2.58-1.57-2.9-1.59zm-1.85-2.27c.69-.85 1.16-2.03 1.04-3.21-1.05.04-2.28.69-2.99 1.54-.62.74-1.19 1.95-1.04 3.1 1.15.08 2.3-.57 2.99-1.43z" fill="#FFF"/></svg>
-                  <svg viewBox="0 0 38 24" width="38" height="24" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" fill-opacity="1"/><path d="M12.926 12C12.926 9.404 14.28 7.126 16.32 5.926c-1.41-1.217-3.24-1.926-5.246-1.926-4.418 0-8 3.582-8 8s3.582 8 8 8c2.006 0 3.836-.71 5.246-1.926-2.04-1.2-3.394-3.478-3.394-6.074z" fill="#EB001B"/><path d="M29.926 12c0 4.418-3.582 8-8 8-2.006 0-3.836-.71-5.246-1.926C18.72 16.874 20.074 14.596 20.074 12c0-2.596-1.354-4.874-3.394-6.074 1.41-1.217 3.24-1.926 5.246-1.926 4.418 0 8 3.582 8 8z" fill="#F79E1B"/><path d="M20.074 12c0 2.596-1.354 4.874-3.394 6.074-2.04-1.2-3.394-3.478-3.394-6.074 0-2.596 1.354-4.874 3.394-6.074 2.04 1.2 3.394 3.478 3.394 6.074z" fill="#FF5F00"/></svg>
-                  <svg viewBox="0 0 38 24" width="38" height="24" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#142B6D"/><path d="M12.98 16.51H10.1L11.89 7.5h2.88l-1.79 9.01zm11.75-8.81c-.51-.23-1.31-.47-2.22-.47-2.42 0-4.13 1.29-4.14 3.14-.02 1.36 1.23 2.12 2.15 2.57.94.46 1.26.76 1.26 1.17-.01.63-.76.92-1.47.92-.98 0-1.51-.15-2.31-.51l-.33-.15-.4 2.5c.57.26 1.63.49 2.74.5 2.57 0 4.25-1.27 4.27-3.23.01-1.07-.64-1.88-2.06-2.56-.85-.43-1.37-.71-1.37-1.15.01-.4.45-.83 1.41-.83.8 0 1.41.17 1.88.39l.23.11.39-2.4zm8.38 8.81L30.9 7.5h-2.35c-.44 0-.82.26-1.02.66l-3.64 8.35h3.03s.49-1.36.61-1.68h3.7c.09.43.34 1.68.34 1.68h2.54zM28 13.06l.95-2.54.54 2.54H28zm-15.11 3.45H9.77L6.31 8.01c-.24-.51-.62-.64-1.04-.64H2v.32c.79.17 1.69.46 2.23.75.34.18.43.35.53.77l1.78 7.3h3.1l4.25-9.01h-1z" fill="#FFF"/></svg>
-                </div>
-              {%- when 'insurance_upsell' -%}
-                <div class="product-custom__accessories" style="margin-top: 1rem;" {{ block.shopify_attributes }}>
-                  <h3 style="text-align: center; font-size: 1.4rem; font-weight: 600; margin-bottom: 1.5rem;">Insurance</h3>
-                  <label style="display: flex; align-items: center; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; margin-bottom: 1rem; cursor: pointer; background: #fdfdfd;">
-                    <input type="checkbox" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">
-                    <div style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; font-weight: 900; color: #ffd500; font-size: 1.8rem; letter-spacing: -1px; text-transform: uppercase; margin-right: 1.5rem;">ROXX</div>
-                    <div style="flex-grow: 1;">
-                      <h4 style="font-size: 1.3rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #000;">{{ block.settings.title }}</h4>
-                      <p style="font-size: 1.1rem; margin: 0 0 0.5rem 0; line-height: 1.3; color: #666;">{{ block.settings.text }}</p>
-                      <a href="#" style="font-size: 1.1rem; color: #666; text-decoration: underline;">Learn more</a>
-                    </div>
-                    <div style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;"></div>
-                  </label>
-                </div>
-              {%- when 'review_avatars' -%}
-                <div class="product-custom__avatars" style="text-align: center; margin-top: 2rem;" {{ block.shopify_attributes }}>
-                  <h3 style="font-size: 1.3rem; color: #666; margin-bottom: 1.5rem; font-weight: 400;">{{ block.settings.title }}</h3>
-                  <div style="display: flex; justify-content: center; align-items: center;">
-                    {% if block.settings.image_1 != blank %}
-                      <div style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #fff; position: relative; overflow: hidden;">
-                        {{ block.settings.image_1 | image_url: width: 100 | image_tag: loading: 'lazy', style: 'width: 100%; height: 100%; object-fit: cover;' }}
-                      </div>
-                    {% endif %}
-                    {% if block.settings.image_2 != blank %}
-                      <div style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #fff; margin-left: -12px; position: relative; overflow: hidden;">
-                        {{ block.settings.image_2 | image_url: width: 100 | image_tag: loading: 'lazy', style: 'width: 100%; height: 100%; object-fit: cover;' }}
-                      </div>
-                    {% endif %}
-                    {% if block.settings.image_3 != blank %}
-                      <div style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #fff; margin-left: -12px; position: relative; overflow: hidden;">
-                        {{ block.settings.image_3 | image_url: width: 100 | image_tag: loading: 'lazy', style: 'width: 100%; height: 100%; object-fit: cover;' }}
-                      </div>
-                    {% endif %}
-                    {% if block.settings.image_4 != blank %}
-                      <div style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #fff; margin-left: -12px; position: relative; overflow: hidden;">
-                        {{ block.settings.image_4 | image_url: width: 100 | image_tag: loading: 'lazy', style: 'width: 100%; height: 100%; object-fit: cover;' }}
-                      </div>
-                    {% endif %}
-                  </div>
-                </div>
-              {%- when 'feature_icons_row' -%}
-                <div class="product-custom__features" style="display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);" {{ block.shopify_attributes }}>
-                  <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; flex: 1;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 24px; height: 24px; color: #333;">
-                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
-                    </svg>
-                    <div style="font-size: 1rem; color: #666; line-height: 1.3;">
-                      <strong>{{ block.settings.title_1 }}</strong><br>
-                      {{ block.settings.sub_1 }}
-                    </div>
-                  </div>
-                  <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; flex: 1;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 24px; height: 24px; color: #333;">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline>
-                    </svg>
-                    <div style="font-size: 1rem; color: #666; line-height: 1.3;">
-                      <strong>{{ block.settings.title_2 }}</strong>
-                    </div>
-                  </div>
-                  <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; flex: 1;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 24px; height: 24px; color: #333;">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                    <div style="font-size: 1rem; color: #666; line-height: 1.3;">
-                      <strong>{{ block.settings.title_3 }}</strong><br>
-                      {{ block.settings.sub_3 }}
-                    </div>
-                  </div>
-                </div>
               {%- when 'upsell_product' -%}
                 {% render 'upsell', block: block %}
-
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -3191,99 +3061,6 @@
           "label": "Bottom Margin",
           "default": 16
         }
-      ]
-    },
-    {
-      "type": "gallery_badges",
-      "name": "Gallery Badges",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_bestseller",
-          "label": "Show Bestseller Badge",
-          "default": true
-        },
-        {
-          "type": "text",
-          "id": "bestseller_text",
-          "label": "Bestseller Text",
-          "default": "Bestseller"
-        },
-        {
-          "type": "text",
-          "id": "rating_text",
-          "label": "Rating Text",
-          "default": "4.4 / 5 (based on 200+)"
-        }
-      ]
-    },
-    {
-      "type": "gallery_specs",
-      "name": "Gallery Specs Row",
-      "limit": 1,
-      "settings": [
-        { "type": "text", "id": "label_1", "label": "Label 1", "default": "Battery" },
-        { "type": "text", "id": "value_1", "label": "Value 1", "default": "Samsung lithium, 48V" },
-        { "type": "text", "id": "icon_1", "label": "Icon SVG 1" },
-        { "type": "text", "id": "label_2", "label": "Label 2", "default": "Max speed" },
-        { "type": "text", "id": "value_2", "label": "Value 2", "default": "25km/h" },
-        { "type": "text", "id": "icon_2", "label": "Icon SVG 2" },
-        { "type": "text", "id": "label_3", "label": "Label 3", "default": "Max Range" },
-        { "type": "text", "id": "value_3", "label": "Value 3", "default": "80-90 km" },
-        { "type": "text", "id": "icon_3", "label": "Icon SVG 3" }
-      ]
-    },
-    {
-      "type": "klarna_installments",
-      "name": "Klarna Installments",
-      "limit": 1
-    },
-    {
-      "type": "payment_icons",
-      "name": "Payment Icons",
-      "limit": 1
-    },
-    {
-      "type": "insurance_upsell",
-      "name": "Insurance Upsell",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Roxx insurance"
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Description"
-        }
-      ]
-    },
-    {
-      "type": "review_avatars",
-      "name": "Review Avatars",
-      "limit": 1,
-      "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Real people reviews" },
-        { "type": "image_picker", "id": "image_1", "label": "Avatar 1" },
-        { "type": "image_picker", "id": "image_2", "label": "Avatar 2" },
-        { "type": "image_picker", "id": "image_3", "label": "Avatar 3" },
-        { "type": "image_picker", "id": "image_4", "label": "Avatar 4" }
-      ]
-    },
-    {
-      "type": "feature_icons_row",
-      "name": "Feature Icons Row",
-      "limit": 1,
-      "settings": [
-        { "type": "text", "id": "title_1", "label": "Title 1", "default": "Free Shipping" },
-        { "type": "text", "id": "sub_1", "label": "Subtitle 1", "default": "from $79.95" },
-        { "type": "text", "id": "title_2", "label": "Title 2", "default": "2-Year Warranty" },
-        { "type": "text", "id": "title_3", "label": "Title 3", "default": "14 days money" },
-        { "type": "text", "id": "sub_3", "label": "Subtitle 3", "default": "back guarantee" }
       ]
     }
   ],
