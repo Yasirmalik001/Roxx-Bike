@@ -353,12 +353,14 @@ if (!customElements.get('slider-container')) {
                 slidesPerView: this.config.mobileSlides,
                 spaceBetween: this.config.mobileSpacing,
                 loop: this.config.loop || false,
+                centeredSlides: this.config.centeredSlides || false,
                 grabCursor: true,
                 mousewheel: { forceToAxis: true },
                 breakpoints: {
                     750: {
                         slidesPerView: this.config.desktopSlides,
                         spaceBetween: this.config.desktopSpacing,
+                        centeredSlides: this.config.centeredSlides || false,
                     },
                 },
                 on: {

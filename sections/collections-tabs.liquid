@@ -54,6 +54,280 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {%- if section.settings.enable_centered_layout -%}
+    /* --- Mockup Centered Layout Styles --- */
+    @media screen and (min-width: 800px) {
+      .section-{{ section.id }} .collection-tabs__header-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4rem;
+        gap: 2rem;
+      }
+      .section-{{ section.id }} .collection-tabs__heading-row {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .section-{{ section.id }} .collection-tabs__controls-row {
+        margin: 0 !important;
+        padding: 0 !important;
+        flex: 0 0 auto !important;
+      }
+      .section-{{ section.id }} .collection-tabs__actions .collection-tabs__view-all-btn {
+        display: none !important;
+      }
+    }
+
+    /* Tab Pills override styling */
+    .section-{{ section.id }} .collection-tabs__tab {
+      background: transparent !important;
+      color: rgba(0, 0, 0, 0.4) !important;
+      border: 1px solid rgba(0, 0, 0, 0.15) !important;
+      border-radius: 50px !important;
+      padding: 0.8rem 1.8rem !important;
+      font-size: 1.4rem !important;
+      font-weight: 500 !important;
+      box-shadow: none !important;
+      transition: all 0.25s ease !important;
+    }
+    .section-{{ section.id }} .collection-tabs__tab:hover,
+    .section-{{ section.id }} .collection-tabs__tab.is-active {
+      border-color: #000000 !important;
+      color: #000000 !important;
+      background: transparent !important;
+    }
+
+    /* Slider image container overflow */
+    .section-{{ section.id }} .slider-template-section__swiper {
+      overflow: visible !important;
+    }
+
+    /* Carousel Slides opacity and scale transition */
+    .section-{{ section.id }} .swiper-slide {
+      transition: opacity 0.4s ease, transform 0.4s ease !important;
+      opacity: 0.35;
+      transform: scale(0.85);
+    }
+    .section-{{ section.id }} .swiper-slide-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Navigation Arrows positioning overlay */
+    @media screen and (min-width: 800px) {
+      .section-{{ section.id }} .collection-tabs__panels {
+        position: relative;
+      }
+      .section-{{ section.id }} .collection-tabs__actions .collection-tabs__arrows {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+        z-index: 10;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .section-{{ section.id }} .collection-tabs__arrow {
+        pointer-events: auto;
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+        width: 48px !important;
+        height: 48px !important;
+        transition: all 0.2s ease;
+      }
+      .section-{{ section.id }} .collection-tabs__arrow:hover {
+        transform: scale(1.08);
+      }
+      .section-{{ section.id }} .collection-tabs__arrow[data-collection-tabs-arrow="prev"] {
+        margin-left: 2rem;
+      }
+      .section-{{ section.id }} .collection-tabs__arrow[data-collection-tabs-arrow="next"] {
+        margin-right: 2rem;
+      }
+    }
+
+    /* Centering card contents */
+    .section-{{ section.id }} .card-product-tabs {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      background: transparent !important;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__media {
+      background: transparent !important;
+      border-radius: 0 !important;
+      overflow: visible !important;
+      width: 100%;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__image {
+      object-fit: contain !important;
+      max-height: 380px !important;
+      transform: scale(0.9);
+      transition: transform 0.4s ease;
+    }
+
+    .section-{{ section.id }} .swiper-slide-active .card-product-tabs__image {
+      transform: scale(1.05);
+    }
+
+    .section-{{ section.id }} .card-product-tabs__content {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    /* Hide text/info for adjacent cards, only show on active slide */
+    .section-{{ section.id }} .swiper-slide:not(.swiper-slide-active) .card-product-tabs__content {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      margin-top: 0 !important;
+      padding: 0 !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .section-{{ section.id }} .swiper-slide.swiper-slide-active .card-product-tabs__content {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transition: opacity 0.3s ease 0.1s !important;
+    }
+
+    /* Hide quick add button on image */
+    .section-{{ section.id }} .card-product-tabs__cart-btn {
+      display: none !important;
+    }
+
+    /* Specifications pills styling */
+    .section-{{ section.id }} .card-product-tabs__specs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+      max-width: 600px;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__spec-pill {
+      background: #f4f4f4 !important;
+      color: #333333 !important;
+      padding: 0.6rem 1.4rem !important;
+      border-radius: 6px !important;
+      font-size: 1.2rem !important;
+      font-weight: 500 !important;
+      line-height: 1.2 !important;
+      display: inline-block;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__spec-pill--delivery {
+      background: #e2f0d9 !important;
+      color: #385623 !important;
+      font-weight: 500 !important;
+    }
+
+    /* Dual Action Buttons styling */
+    .section-{{ section.id }} .card-product-tabs__buttons {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__btn-shop,
+    .section-{{ section.id }} .card-product-tabs__btn-book {
+      padding: 1.2rem 3rem !important;
+      border-radius: 50px !important;
+      font-size: 1.3rem !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+      letter-spacing: 0.05em !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.25s ease !important;
+      line-height: 1 !important;
+      height: auto !important;
+      min-width: 160px;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__btn-shop {
+      background: #ffd500 !important;
+      color: #000000 !important;
+      border: 1px solid #ffd500 !important;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__btn-shop:hover {
+      background: #e6bf00 !important;
+      border-color: #e6bf00 !important;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__btn-book {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__btn-book:hover {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    /* Rotated red sale badge ribbon */
+    .section-{{ section.id }} .card-product-tabs__badge {
+      position: absolute !important;
+      top: 35% !important;
+      right: 15% !important;
+      background: #a91d22 !important;
+      color: #ffffff !important;
+      padding: 0.8rem 1.6rem !important;
+      font-size: 1.2rem !important;
+      font-weight: 700 !important;
+      border-radius: 4px !important;
+      transform: rotate(-10deg) !important;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+      border: none !important;
+    }
+
+    /* Styling details alignment */
+    .section-{{ section.id }} .card-product-tabs__title {
+      font-size: 2.2rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      margin-bottom: 0.8rem !important;
+      color: #000000 !important;
+      text-align: center;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__price .price {
+      font-size: 1.8rem !important;
+      font-weight: 700 !important;
+      justify-content: center;
+    }
+
+    .section-{{ section.id }} .card-product-tabs__price .price-item--regular {
+      font-size: 1.6rem !important;
+      color: #888888 !important;
+      text-decoration: line-through !important;
+      font-weight: 400 !important;
+    }
+  {%- endif -%}
 </style>
 
 <div
@@ -76,96 +350,100 @@
     data-id="{{ section.id }}"
   >
     {%- comment -%} ===== Heading Row ===== {%- endcomment -%}
-    <div class="collection-tabs__heading-row collection-tabs__heading-row--{{ heading_align }} page-width{% if section.settings.enable_slider_mobile %} title-wrapper--self-padded-tablet-down{% endif %}">
-      {%- if section.settings.title != blank -%}
-        <h2 class="collection-tabs__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-          {{ section.settings.title }}
-        </h2>
-      {%- endif -%}
+    {%- comment -%} ===== Heading Row & Controls Row Container ===== {%- endcomment -%}
+    <div class="collection-tabs__header-wrap page-width">
+      {%- comment -%} ===== Heading Row ===== {%- endcomment -%}
+      <div class="collection-tabs__heading-row collection-tabs__heading-row--{{ heading_align }}{% if section.settings.enable_slider_mobile %} title-wrapper--self-padded-tablet-down{% endif %}">
+        {%- if section.settings.title != blank -%}
+          <h2 class="collection-tabs__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ section.settings.title }}
+          </h2>
+        {%- endif -%}
 
-      {%- if section.settings.description != blank -%}
-        <div class="collection-tabs__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-          {{ section.settings.description }}
+        {%- if section.settings.description != blank -%}
+          <div class="collection-tabs__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} ===== Controls Row (Tabs + View All + Arrows) ===== {%- endcomment -%}
+      {%- if section.blocks.size > 0 -%}
+        <div class="collection-tabs__controls-row{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          <div class="collection-tabs__nav-wrapper">
+            <div class="collection-tabs__nav" role="tablist" aria-label="{{ section.settings.title | strip_html | escape }}">
+              {%- for block in section.blocks -%}
+                <button
+                  class="collection-tabs__tab {% if forloop.first %}is-active{% endif %}"
+                  role="tab"
+                  aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                  data-target="Panel-{{ block.id }}-{{ section.id }}"
+                  id="Tab-{{ block.id }}-{{ section.id }}"
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if block.settings.tab_image != blank -%}
+                    <span class="collection-tabs__tab-icon">
+                      <img
+                        class="collection-tabs__tab-icon-img"
+                        src="{{ block.settings.tab_image | image_url: width: 64 }}"
+                        alt="{{ block.settings.tab_title | escape }}"
+                        width="32"
+                        height="32"
+                        loading="lazy"
+                      >
+                    </span>
+                  {%- endif -%}
+                  <span class="collection-tabs__tab-label">
+                    {{ block.settings.tab_title | default: block.settings.collection.title | default: 'Collection' }}
+                  </span>
+                </button>
+              {%- endfor -%}
+            </div>
+          </div>
+
+          <div class="collection-tabs__actions">
+            {%- liquid
+              assign first_block = section.blocks | first
+              assign first_collection = first_block.settings.collection
+              assign first_url = first_collection.url | default: '#'
+            -%}
+            {%- if section.settings.show_view_all -%}
+              <a
+                href="{{ first_url }}"
+                class="collection-tabs__view-all-btn"
+                data-collection-tabs-view-all
+                aria-label="{{ 'sections.featured_collection.view_all' | t }}"
+              >
+                <span>{{ section.settings.view_all_text | default: 'View All' }}</span>
+              </a>
+            {%- endif -%}
+
+            <div class="collection-tabs__arrows">
+              <button
+                type="button"
+                class="collection-tabs__arrow js-slider-template-prev"
+                data-collection-tabs-arrow="prev"
+                aria-label="{{ 'general.slider.previous_slide' | t }}"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button
+                type="button"
+                class="collection-tabs__arrow js-slider-template-next"
+                data-collection-tabs-arrow="next"
+                aria-label="{{ 'general.slider.next_slide' | t }}"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       {%- endif -%}
     </div>
-
-    {%- comment -%} ===== Controls Row (Tabs + View All + Arrows) ===== {%- endcomment -%}
-    {%- if section.blocks.size > 0 -%}
-      <div class="collection-tabs__controls-row page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        <div class="collection-tabs__nav-wrapper">
-          <div class="collection-tabs__nav" role="tablist" aria-label="{{ section.settings.title | strip_html | escape }}">
-            {%- for block in section.blocks -%}
-              <button
-                class="collection-tabs__tab {% if forloop.first %}is-active{% endif %}"
-                role="tab"
-                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-                data-target="Panel-{{ block.id }}-{{ section.id }}"
-                id="Tab-{{ block.id }}-{{ section.id }}"
-                {{ block.shopify_attributes }}
-              >
-                {%- if block.settings.tab_image != blank -%}
-                  <span class="collection-tabs__tab-icon">
-                    <img
-                      class="collection-tabs__tab-icon-img"
-                      src="{{ block.settings.tab_image | image_url: width: 64 }}"
-                      alt="{{ block.settings.tab_title | escape }}"
-                      width="32"
-                      height="32"
-                      loading="lazy"
-                    >
-                  </span>
-                {%- endif -%}
-                <span class="collection-tabs__tab-label">
-                  {{ block.settings.tab_title | default: block.settings.collection.title | default: 'Collection' }}
-                </span>
-              </button>
-            {%- endfor -%}
-          </div>
-        </div>
-
-        <div class="collection-tabs__actions">
-          {%- liquid
-            assign first_block = section.blocks | first
-            assign first_collection = first_block.settings.collection
-            assign first_url = first_collection.url | default: '#'
-          -%}
-          {%- if section.settings.show_view_all -%}
-            <a
-              href="{{ first_url }}"
-              class="collection-tabs__view-all-btn"
-              data-collection-tabs-view-all
-              aria-label="{{ 'sections.featured_collection.view_all' | t }}"
-            >
-              <span>{{ section.settings.view_all_text | default: 'View All' }}</span>
-            </a>
-          {%- endif -%}
-
-          <div class="collection-tabs__arrows">
-            <button
-              type="button"
-              class="collection-tabs__arrow js-slider-template-prev"
-              data-collection-tabs-arrow="prev"
-              aria-label="{{ 'general.slider.previous_slide' | t }}"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="collection-tabs__arrow js-slider-template-next"
-              data-collection-tabs-arrow="next"
-              aria-label="{{ 'general.slider.next_slide' | t }}"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    {%- endif -%}
 
     {%- comment -%} ===== Tab Panels ===== {%- endcomment -%}
     <div class="collection-tabs__panels {% unless section.settings.full_width %}page-width{% endunless %}">
@@ -193,16 +471,27 @@
             <div class="slider-template-section__container">
               <div
                 class="swiper js-slider-template-swiper slider-template-section__swiper"
+                {%- liquid
+                  assign desktop_slides = section.settings.columns_desktop
+                  assign loop_val = section.settings.enable_loop | default: false
+                  assign centered_val = false
+                  if section.settings.enable_centered_layout
+                    assign desktop_slides = 1.8
+                    assign loop_val = true
+                    assign centered_val = true
+                  endif
+                -%}
                 data-swiper-config='
                   {
                     "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
                     "enableSliderMobile": {{ section.settings.enable_slider_mobile }},
-                    "loop": {{ section.settings.enable_loop | default: false }},
+                    "loop": {{ loop_val }},
+                    "centeredSlides": {{ centered_val }},
                     "autoplay": {{ section.settings.enable_autoplay | default: false }},
                     "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
                     "mobileSlides": {{ mobile_swiper_slides }},
                     "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
-                    "desktopSlides": {{ section.settings.columns_desktop }},
+                    "desktopSlides": {{ desktop_slides }},
                     "desktopSpacing": {{ section.settings.spacing }}
                   }
                 '
@@ -315,6 +604,23 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_centered_layout",
+      "label": "Enable centered active card layout",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "book_test_ride_label",
+      "label": "Book a test ride label",
+      "default": "BOOK A TEST RIDE"
+    },
+    {
+      "type": "url",
+      "id": "book_test_ride_link",
+      "label": "Book a test ride link"
+    },
     {
       "type": "header",
       "content": "Heading"

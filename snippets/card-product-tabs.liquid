@@ -138,13 +138,6 @@
       </a>
 
 
-      {%- if show_delivery and delivery_text != blank -%}
-        <div class="card-product-tabs__delivery">
-          {{- 'icon-truck.svg' | inline_asset_content -}}
-          <span>{{ delivery_text }}</span>
-        </div>
-      {%- endif -%}
-
       <div class="card-product-tabs__content">
         <div class="card-product-tabs__header">
           <h3 class="card-product-tabs__title">
@@ -199,6 +192,40 @@
             {%- endif -%}
           </div>
         {%- endif -%}
+
+        {%- comment -%} Specifications Tags Pills {%- endcomment -%}
+        <div class="card-product-tabs__specs">
+          {%- if card_product.metafields.custom.specifications.value != blank -%}
+            {%- for spec in card_product.metafields.custom.specifications.value -%}
+              <span class="card-product-tabs__spec-pill">{{ spec }}</span>
+            {%- endfor -%}
+          {%- else -%}
+            <!-- Mockup fallback values -->
+            <span class="card-product-tabs__spec-pill">Endless design frame</span>
+            <span class="card-product-tabs__spec-pill">Range of 80-90km</span>
+            <span class="card-product-tabs__spec-pill">Built-in tracking</span>
+            <span class="card-product-tabs__spec-pill">Comfortable seating position</span>
+          {%- endif -%}
+
+          {%- if show_delivery and delivery_text != blank -%}
+            <span class="card-product-tabs__spec-pill card-product-tabs__spec-pill--delivery">
+              <strong>In stock.</strong> {{ delivery_text }}
+            </span>
+          {%- endif -%}
+        </div>
+
+        {%- comment -%} SHOP NOW & BOOK A TEST RIDE Buttons {%- endcomment -%}
+        <div class="card-product-tabs__buttons">
+          <a href="{{ card_product.url }}" class="card-product-tabs__btn-shop">
+            SHOP NOW
+          </a>
+          <a 
+            {% if section.settings.book_test_ride_link != blank %}href="{{ section.settings.book_test_ride_link }}"{% else %}href="#"{% endif %} 
+            class="card-product-tabs__btn-book"
+          >
+            {{ section.settings.book_test_ride_label | default: 'BOOK A TEST RIDE' }}
+          </a>
+        </div>
       </div>
     {%- else -%}
       <div class="card-product-tabs__media">
