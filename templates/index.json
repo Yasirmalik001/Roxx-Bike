@@ -173,11 +173,149 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "hero_banner_features_7JX3dk": {
+      "type": "hero-banner-features",
+      "blocks": {
+        "heading_LpNm6A": {
+          "type": "heading",
+          "settings": {
+            "heading": "Designed For Real Life",
+            "heading_size": "h0"
+          }
+        },
+        "text_WLp9jP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Blandit lectus tincidunt elit sapien vestibulum pellentesque sed gravida mauris.</p>"
+          }
+        },
+        "features_yTAcai": {
+          "type": "features",
+          "settings": {
+            "feature_icon_1": "",
+            "feature_title_1": "Comfortable seating position",
+            "feature_icon_2": "",
+            "feature_title_2": "Built-in tracking",
+            "feature_icon_3": "",
+            "feature_title_3": "Powerful engine"
+          }
+        },
+        "button_tNUjHt": {
+          "type": "button",
+          "settings": {
+            "button_label": "Book a free test ride",
+            "button_link": "",
+            "button_color": "#ffe600"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LpNm6A",
+        "text_WLp9jP",
+        "features_yTAcai",
+        "button_tNUjHt"
+      ],
+      "name": "Hero Banner with Features",
+      "settings": {
+        "overlay_opacity": 40,
+        "text_color": "#ffffff",
+        "desktop_height": 650,
+        "desktop_content_alignment": "flex-start",
+        "mobile_height": 550,
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "partner_testimonials_TYE8nf": {
+      "type": "partner-testimonials",
+      "blocks": {
+        "testimonial_GrQJgj": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Hardwell"
+          }
+        },
+        "testimonial_zk7LAw": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
+          }
+        },
+        "testimonial_GzbzbW": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Doutzen Kroes"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_GrQJgj",
+        "testimonial_zk7LAw",
+        "testimonial_GzbzbW"
+      ],
+      "name": "Partner Slider",
+      "settings": {
+        "heading": "WHAT OUR PARTNER SAYS!",
+        "heading_size": "h1",
+        "button_label": "View all",
+        "button_link": "",
+        "background_color": "#1a1a1a",
+        "card_background": "#333333",
+        "text_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "hero_slideshow_6ejY9C": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "slide_NTY49e": {
+          "type": "slide",
+          "settings": {
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0",
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          }
+        },
+        "slide_nyRmcd": {
+          "type": "slide",
+          "settings": {
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0",
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NTY49e",
+        "slide_nyRmcd"
+      ],
+      "name": "Hero Slideshow",
+      "settings": {
+        "desktop_height": 750,
+        "mobile_height": 650,
+        "feature_1_title": "Fold & Go",
+        "feature_1_text": "Compact designs that fit your city, your car, your life.",
+        "feature_2_title": "Power You Can Feel",
+        "feature_2_text": "Fast acceleration and long-range performance for daily freedom.",
+        "feature_3_title": "Built for Everyday",
+        "feature_3_text": "Reliable, comfortable, and ready for every ride — rain or shine.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "custom_banner_XE8idV",
     "trust_badges_4dfJAk",
-    "collections_tabs_CftkD8"
+    "collections_tabs_CftkD8",
+    "hero_banner_features_7JX3dk",
+    "partner_testimonials_TYE8nf",
+    "hero_slideshow_6ejY9C"
   ]
 }
