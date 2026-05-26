@@ -1,1 +1,667 @@
-{"sections":{"custom_banner_XE8idV":{"type":"custom-banner","blocks":{"heading_VWVA4z":{"type":"heading","settings":{"heading":"Premium sofas without the wait."}},"subheading_DAaYnw":{"type":"subheading","settings":{"subheading":"<p>Skip the 8–12 week delays. Get UK-made comfort delivered in just 7–10 days.<\/p>"}},"buttons_qkDF6J":{"type":"buttons","settings":{"button_text":"Get your comfort sofa now!","button_link":"shopify:\/\/collections\/all","button_text2":"","button_link2":""}}},"block_order":["heading_VWVA4z","subheading_DAaYnw","buttons_qkDF6J"],"name":"Image Custom Banner","settings":{"color_scheme":"scheme-b2c950b1-7571-4512-9f29-8a1955f48404","media_type":"image","image":"shopify:\/\/shop_images\/image_1.png","mobile_image":"shopify:\/\/shop_images\/image_1_1.png","overlay_opacity":0,"heading_size_desktop":48,"subheading_size_desktop":16,"content_width":650,"min_height_desktop":700,"adapt_height_desktop":true,"heading_size_mobile":28,"min_height_mobile":600,"adapt_height_mobile":false,"show_mobile_content_below":false,"text_position_top":50,"text_position_left":50,"text_alignment":"center"}},"trust_badges_4dfJAk":{"type":"trust-badges","blocks":{"badge_NyeRjB":{"type":"badge","settings":{"custom_svg":"","image":"shopify:\/\/shop_images\/Group_22_3.svg","title":"1-Year Warranty Included"}},"badge_EBVTWy":{"type":"badge","settings":{"custom_svg":"","image":"shopify:\/\/shop_images\/security_3_Vectorized.svg","title":"Fast 7–10 Day Delivery"}},"badge_cXJ8yT":{"type":"badge","settings":{"custom_svg":"","image":"shopify:\/\/shop_images\/Group_3_1.svg","title":"Interest-Free Payments"}},"badge_ft6zmw":{"type":"badge","settings":{"custom_svg":"","image":"shopify:\/\/shop_images\/security_3_Vectorized.svg","title":"Premium Quality at Fair Prices"}}},"block_order":["badge_NyeRjB","badge_EBVTWy","badge_cXJ8yT","badge_ft6zmw"],"name":"Trust Badges","settings":{"color_scheme":"scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41","icon_size":40,"padding_top":36,"padding_bottom":36}},"collections_tabs_CftkD8":{"type":"collections-tabs","blocks":{"collection_Y4nHjT":{"type":"collection","settings":{"tab_title":"","collection":"2-seater"}},"collection_WjLqmy":{"type":"collection","settings":{"tab_title":"","collection":"2-seater"}},"collection_mtDqWx":{"type":"collection","settings":{"tab_title":"","collection":"2-seater"}},"collection_T97FFP":{"type":"collection","settings":{"tab_title":"","collection":"2-seater"}}},"block_order":["collection_Y4nHjT","collection_WjLqmy","collection_mtDqWx","collection_T97FFP"],"name":"Collection Tabs","settings":{"title":"The perfect sofa for your space","heading_size":"h1","description":"","description_style":"body","products_to_show":8,"columns_desktop":4,"columns_mobile":"2","spacing":10,"overflow":true,"full_width":false,"enable_slider_desktop":true,"enable_slider_mobile":true,"show_controls_desktop":false,"show_controls_mobile":false,"controls_position":"dots","enable_autoplay":false,"autoplay_interval":3,"enable_loop":false,"image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","show_view_all":false,"view_all_style":"solid","color_scheme":"scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41","padding_top":36,"padding_bottom":36}},"bento_categories_aFbwVW":{"type":"bento-categories","blocks":{"category_z3qTNx":{"type":"category","settings":{"image":"shopify:\/\/shop_images\/5cd7e40f10a7341f16cb06c1418a5ef074459af5.png","button_label":"Sofas","link":"","col_span":2,"row_span":2}},"category_4jQ8NV":{"type":"category","settings":{"image":"shopify:\/\/shop_images\/c02149c0468b7069aa459f3ac508384148158eda.png","button_label":"Beds","link":"","col_span":2,"row_span":1}},"category_8bF6k6":{"type":"category","settings":{"image":"shopify:\/\/shop_images\/9b16c36e20747dacbfe855023c102e44da0233e4.png","button_label":"Mattresses","link":"","col_span":1,"row_span":1}},"category_gELeBc":{"type":"category","settings":{"image":"shopify:\/\/shop_images\/5cd7e40f10a7341f16cb06c1418a5ef074459af5.png","button_label":"Storage Boxes","link":"","col_span":1,"row_span":1}}},"block_order":["category_z3qTNx","category_4jQ8NV","category_8bF6k6","category_gELeBc"],"name":"Bento Categories","settings":{"title":"Shop by <em>category<\/em>","padding_top":36,"padding_bottom":36}},"instagram_gallery_kKrKtz":{"type":"instagram-gallery","name":"Instagram Gallery","settings":{"color_scheme":"scheme-4","full_width":true,"enable_edge_fade":true,"pause_on_hover":true,"border_radius":16,"speed_row_1":40,"direction_row_1":"left","speed_row_2":50,"direction_row_2":"right","image_height_desktop":280,"gap_desktop":24,"image_height_mobile":180,"gap_mobile":12,"padding_top":40,"padding_bottom":52}},"icon_category_list_nG3Ni8":{"type":"icon-category-list","blocks":{"category_eegFtJ":{"type":"category","settings":{"title":"2 Seater Sofas","link":""}},"category_4NYgWA":{"type":"category","settings":{"title":"3 Seater Sofas","link":""}},"category_iUnEnp":{"type":"category","settings":{"title":"4 Seater Sofas","link":""}},"category_ThtFMW":{"type":"category","settings":{"title":"Corner Sofas","link":""}},"category_kthBRn":{"type":"category","settings":{"title":"Swivel Chairs","link":""}}},"block_order":["category_eegFtJ","category_4NYgWA","category_iUnEnp","category_ThtFMW","category_kthBRn"],"name":"Icon Category Grid","settings":{"title":"Sofas for every <em>space<\/em>","heading_size":"h1","color_scheme":"","padding_top":40,"padding_bottom":52}},"custom_hero_banner_EpqzyB":{"type":"custom-hero-banner","blocks":{"heading_By7mTe":{"type":"heading","settings":{"heading":"Comfort now, Pay later.","heading_size":"h1"}},"text_YDc4BF":{"type":"text","settings":{"text":"<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.<\/p>"}},"buttons_nyNjni":{"type":"buttons","settings":{"button_label_1":"Explore our products","button_link_1":"","button_style_1":"primary","button_label_2":"Learn more","button_link_2":"","button_style_2":"secondary"}}},"block_order":["heading_By7mTe","text_YDc4BF","buttons_nyNjni"],"name":"Custom Hero Banner","settings":{"overlay_opacity":30,"color_scheme":"","desktop_height":70,"desktop_content_position":"flex-start","desktop_text_alignment":"left","mobile_height":60,"padding_top":0,"padding_bottom":0}},"instagram_gallery_zreTaW":{"type":"instagram-gallery","blocks":{"image_YQWYtD":{"type":"image","settings":{"row":"1"}},"image_NhbMPH":{"type":"image","settings":{"row":"1"}},"image_PLjpeF":{"type":"image","settings":{"row":"1"}},"image_fck6ix":{"type":"image","settings":{"row":"2"}},"image_dzMAyg":{"type":"image","settings":{"row":"2"}},"image_wkNjax":{"type":"image","settings":{"row":"2"}}},"block_order":["image_YQWYtD","image_NhbMPH","image_PLjpeF","image_fck6ix","image_dzMAyg","image_wkNjax"],"name":"Marquee Gallery","settings":{"color_scheme":"","full_width":true,"enable_edge_fade":true,"pause_on_hover":true,"border_radius":16,"speed_row_1":40,"direction_row_1":"left","speed_row_2":50,"direction_row_2":"right","image_height_desktop":280,"gap_desktop":24,"image_height_mobile":180,"gap_mobile":12,"padding_top":36,"padding_bottom":36}},"faq_tabs_rxczBA":{"type":"faq-tabs","blocks":{"category_qpEmBY":{"type":"category","settings":{"title":"Sofa related questions","custom_svg":""}},"category_LmHxAQ":{"type":"category","settings":{"title":"Bed related questions","custom_svg":""}},"faq_YdrqCY":{"type":"faq","settings":{"category_match":"Sofa related questions","question":"How long does delivery take?","answer":"<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.<\/p>"}},"faq_ac4RCN":{"type":"faq","settings":{"category_match":"Sofa related questions","question":"Are your sofas made in the UK?","answer":"<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.<\/p>"}},"faq_NVJcEw":{"type":"faq","settings":{"category_match":"Bed related questions","question":"What sizes are available?","answer":"<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.<\/p>"}}},"block_order":["category_qpEmBY","category_LmHxAQ","faq_YdrqCY","faq_ac4RCN","faq_NVJcEw"],"name":"FAQ Tabs","settings":{"title":"Expert <em>answers<\/em> to common <em>questions<\/em>","heading_size":"h1","description":"Browse questions by categories","answers_label":"answers","color_scheme":"","accordion_color_scheme":"","padding_top":40,"padding_bottom":52}},"instagram_gallery_biMKMB":{"type":"instagram-gallery","blocks":{"image_6q4Ycy":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"1"}},"image_P7ETTk":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"1"}},"image_E8VMDh":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"1"}},"image_jrPKmX":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"1"}},"image_iWmE8f":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"2"}},"image_EQwkf6":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"2"}},"image_efiAg4":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"2"}}},"block_order":["image_6q4Ycy","image_P7ETTk","image_E8VMDh","image_jrPKmX","image_iWmE8f","image_EQwkf6","image_efiAg4"],"name":"Marquee Gallery","settings":{"color_scheme":"","full_width":true,"enable_edge_fade":true,"pause_on_hover":true,"border_radius":16,"speed_row_1":40,"direction_row_1":"left","speed_row_2":50,"direction_row_2":"right","image_height_desktop":280,"gap_desktop":24,"image_height_mobile":180,"gap_mobile":12,"padding_top":36,"padding_bottom":16}},"instagram_gallery_itHmBn":{"type":"instagram-gallery","blocks":{"image_gFNyx6":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"1"}},"image_aPGpHw":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"1"}},"image_WQPner":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"1"}},"image_dMyKqr":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"1"}},"image_NNUBMb":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"2"}},"image_AxgbFg":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"2"}},"image_DDMyrH":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/image_1.png","row":"2"}}},"block_order":["image_gFNyx6","image_aPGpHw","image_WQPner","image_dMyKqr","image_NNUBMb","image_AxgbFg","image_DDMyrH"],"name":"Marquee Gallery","settings":{"color_scheme":"","full_width":true,"enable_edge_fade":true,"pause_on_hover":true,"border_radius":16,"speed_row_1":40,"direction_row_1":"right","speed_row_2":50,"direction_row_2":"right","image_height_desktop":280,"gap_desktop":24,"image_height_mobile":180,"gap_mobile":12,"padding_top":16,"padding_bottom":36}}},"order":["custom_banner_XE8idV","trust_badges_4dfJAk","collections_tabs_CftkD8","bento_categories_aFbwVW","instagram_gallery_kKrKtz","icon_category_list_nG3Ni8","custom_hero_banner_EpqzyB","instagram_gallery_zreTaW","faq_tabs_rxczBA","instagram_gallery_biMKMB","instagram_gallery_itHmBn"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_banner_XE8idV": {
+      "type": "custom-banner",
+      "blocks": {
+        "heading_VWVA4z": {
+          "type": "heading",
+          "settings": {
+            "heading": "Premium sofas without the wait."
+          }
+        },
+        "subheading_DAaYnw": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "<p>Skip the 8–12 week delays. Get UK-made comfort delivered in just 7–10 days.</p>"
+          }
+        },
+        "buttons_qkDF6J": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "Get your comfort sofa now!",
+            "button_link": "shopify://collections/all",
+            "button_text2": "",
+            "button_link2": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_VWVA4z",
+        "subheading_DAaYnw",
+        "buttons_qkDF6J"
+      ],
+      "name": "Image Custom Banner",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "media_type": "image",
+        "overlay_opacity": 0,
+        "heading_size_desktop": 48,
+        "subheading_size_desktop": 16,
+        "content_width": 650,
+        "min_height_desktop": 700,
+        "adapt_height_desktop": true,
+        "heading_size_mobile": 28,
+        "min_height_mobile": 600,
+        "adapt_height_mobile": false,
+        "show_mobile_content_below": false,
+        "text_position_top": 50,
+        "text_position_left": 50,
+        "text_alignment": "center"
+      }
+    },
+    "trust_badges_4dfJAk": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_NyeRjB": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "title": "1-Year Warranty Included"
+          }
+        },
+        "badge_EBVTWy": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "title": "Fast 7–10 Day Delivery"
+          }
+        },
+        "badge_cXJ8yT": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "title": "Interest-Free Payments"
+          }
+        },
+        "badge_ft6zmw": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "title": "Premium Quality at Fair Prices"
+          }
+        }
+      },
+      "block_order": [
+        "badge_NyeRjB",
+        "badge_EBVTWy",
+        "badge_cXJ8yT",
+        "badge_ft6zmw"
+      ],
+      "name": "Trust Badges",
+      "settings": {
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "icon_size": 40,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collections_tabs_CftkD8": {
+      "type": "collections-tabs",
+      "blocks": {
+        "collection_Y4nHjT": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "collection": "2-seater"
+          }
+        },
+        "collection_WjLqmy": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "collection": "2-seater"
+          }
+        },
+        "collection_mtDqWx": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "collection": "2-seater"
+          }
+        },
+        "collection_T97FFP": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "collection": "2-seater"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Y4nHjT",
+        "collection_WjLqmy",
+        "collection_mtDqWx",
+        "collection_T97FFP"
+      ],
+      "name": "Collection Tabs",
+      "settings": {
+        "title": "The perfect sofa for your space",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "description": "",
+        "description_style": "body",
+        "tab_icon_size": 32,
+        "tab_bg_color": "#ffffff",
+        "tab_text_color": "#1f1f1f",
+        "tab_active_bg_color": "#efe6d8",
+        "tab_active_text_color": "#1f1f1f",
+        "accent_color": "#1f1f1f",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "spacing": 10,
+        "overflow": true,
+        "full_width": false,
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "dots",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "badge_position": "top-left",
+        "show_rating": false,
+        "card_image_bg": "#f5f1eb",
+        "card_radius": 12,
+        "cart_btn_bg": "#a37b4c",
+        "cart_btn_color": "#ffffff",
+        "show_delivery": true,
+        "delivery_text": "Order now & get it by 28-29 March",
+        "show_swatches": true,
+        "swatch_option_name": "Color",
+        "show_view_all": false,
+        "view_all_text": "View All",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "bento_categories_aFbwVW": {
+      "type": "bento-categories",
+      "blocks": {
+        "category_z3qTNx": {
+          "type": "category",
+          "settings": {
+            "button_label": "Sofas",
+            "link": "",
+            "col_span": 2,
+            "row_span": 2
+          }
+        },
+        "category_4jQ8NV": {
+          "type": "category",
+          "settings": {
+            "button_label": "Beds",
+            "link": "",
+            "col_span": 2,
+            "row_span": 1
+          }
+        },
+        "category_8bF6k6": {
+          "type": "category",
+          "settings": {
+            "button_label": "Mattresses",
+            "link": "",
+            "col_span": 1,
+            "row_span": 1
+          }
+        },
+        "category_gELeBc": {
+          "type": "category",
+          "settings": {
+            "button_label": "Storage Boxes",
+            "link": "",
+            "col_span": 1,
+            "row_span": 1
+          }
+        }
+      },
+      "block_order": [
+        "category_z3qTNx",
+        "category_4jQ8NV",
+        "category_8bF6k6",
+        "category_gELeBc"
+      ],
+      "name": "Bento Categories",
+      "settings": {
+        "title": "Shop by <em>category</em>",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "instagram_gallery_kKrKtz": {
+      "type": "instagram-gallery",
+      "name": "Instagram Gallery",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "enable_edge_fade": true,
+        "pause_on_hover": true,
+        "border_radius": 16,
+        "speed_row_1": 40,
+        "direction_row_1": "left",
+        "speed_row_2": 50,
+        "direction_row_2": "right",
+        "image_height_desktop": 280,
+        "gap_desktop": 24,
+        "image_height_mobile": 180,
+        "gap_mobile": 12,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "icon_category_list_nG3Ni8": {
+      "type": "icon-category-list",
+      "blocks": {
+        "category_eegFtJ": {
+          "type": "category",
+          "settings": {
+            "title": "2 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_4NYgWA": {
+          "type": "category",
+          "settings": {
+            "title": "3 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_iUnEnp": {
+          "type": "category",
+          "settings": {
+            "title": "4 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_ThtFMW": {
+          "type": "category",
+          "settings": {
+            "title": "Corner Sofas",
+            "link": ""
+          }
+        },
+        "category_kthBRn": {
+          "type": "category",
+          "settings": {
+            "title": "Swivel Chairs",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_eegFtJ",
+        "category_4NYgWA",
+        "category_iUnEnp",
+        "category_ThtFMW",
+        "category_kthBRn"
+      ],
+      "name": "Icon Category Grid",
+      "settings": {
+        "title": "Sofas for every <em>space</em>",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_hero_banner_EpqzyB": {
+      "type": "custom-hero-banner",
+      "blocks": {
+        "heading_By7mTe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comfort now, Pay later.",
+            "heading_size": "h1"
+          }
+        },
+        "text_YDc4BF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
+          }
+        },
+        "buttons_nyNjni": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Explore our products",
+            "button_link_1": "",
+            "button_style_1": "primary",
+            "button_label_2": "Learn more",
+            "button_link_2": "",
+            "button_style_2": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_By7mTe",
+        "text_YDc4BF",
+        "buttons_nyNjni"
+      ],
+      "name": "Custom Hero Banner",
+      "settings": {
+        "overlay_opacity": 30,
+        "color_scheme": "",
+        "desktop_height": 70,
+        "desktop_content_position": "flex-start",
+        "desktop_text_alignment": "left",
+        "mobile_height": 60,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instagram_gallery_zreTaW": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_YQWYtD": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_NhbMPH": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_PLjpeF": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_fck6ix": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        },
+        "image_dzMAyg": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        },
+        "image_wkNjax": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        }
+      },
+      "block_order": [
+        "image_YQWYtD",
+        "image_NhbMPH",
+        "image_PLjpeF",
+        "image_fck6ix",
+        "image_dzMAyg",
+        "image_wkNjax"
+      ],
+      "name": "Marquee Gallery",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "enable_edge_fade": true,
+        "pause_on_hover": true,
+        "border_radius": 16,
+        "speed_row_1": 40,
+        "direction_row_1": "left",
+        "speed_row_2": 50,
+        "direction_row_2": "right",
+        "image_height_desktop": 280,
+        "gap_desktop": 24,
+        "image_height_mobile": 180,
+        "gap_mobile": 12,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "faq_tabs_rxczBA": {
+      "type": "faq-tabs",
+      "blocks": {
+        "category_qpEmBY": {
+          "type": "category",
+          "settings": {
+            "title": "Sofa related questions",
+            "custom_svg": ""
+          }
+        },
+        "category_LmHxAQ": {
+          "type": "category",
+          "settings": {
+            "title": "Bed related questions",
+            "custom_svg": ""
+          }
+        },
+        "faq_YdrqCY": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How long does delivery take?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        },
+        "faq_ac4RCN": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Are your sofas made in the UK?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        },
+        "faq_NVJcEw": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "What sizes are available?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_qpEmBY",
+        "category_LmHxAQ",
+        "faq_YdrqCY",
+        "faq_ac4RCN",
+        "faq_NVJcEw"
+      ],
+      "name": "FAQ Tabs",
+      "settings": {
+        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "heading_size": "h1",
+        "description": "Browse questions by categories",
+        "answers_label": "answers",
+        "color_scheme": "",
+        "accordion_color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "instagram_gallery_biMKMB": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_6q4Ycy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_P7ETTk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_E8VMDh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_jrPKmX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_iWmE8f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        },
+        "image_EQwkf6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        },
+        "image_efiAg4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        }
+      },
+      "block_order": [
+        "image_6q4Ycy",
+        "image_P7ETTk",
+        "image_E8VMDh",
+        "image_jrPKmX",
+        "image_iWmE8f",
+        "image_EQwkf6",
+        "image_efiAg4"
+      ],
+      "name": "Marquee Gallery",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "enable_edge_fade": true,
+        "pause_on_hover": true,
+        "border_radius": 16,
+        "speed_row_1": 40,
+        "direction_row_1": "left",
+        "speed_row_2": 50,
+        "direction_row_2": "right",
+        "image_height_desktop": 280,
+        "gap_desktop": 24,
+        "image_height_mobile": 180,
+        "gap_mobile": 12,
+        "padding_top": 36,
+        "padding_bottom": 16
+      }
+    },
+    "instagram_gallery_itHmBn": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_gFNyx6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_aPGpHw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_WQPner": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_dMyKqr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_NNUBMb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        },
+        "image_AxgbFg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        },
+        "image_DDMyrH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        }
+      },
+      "block_order": [
+        "image_gFNyx6",
+        "image_aPGpHw",
+        "image_WQPner",
+        "image_dMyKqr",
+        "image_NNUBMb",
+        "image_AxgbFg",
+        "image_DDMyrH"
+      ],
+      "name": "Marquee Gallery",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "enable_edge_fade": true,
+        "pause_on_hover": true,
+        "border_radius": 16,
+        "speed_row_1": 40,
+        "direction_row_1": "right",
+        "speed_row_2": 50,
+        "direction_row_2": "right",
+        "image_height_desktop": 280,
+        "gap_desktop": 24,
+        "image_height_mobile": 180,
+        "gap_mobile": 12,
+        "padding_top": 16,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "custom_banner_XE8idV",
+    "trust_badges_4dfJAk",
+    "collections_tabs_CftkD8",
+    "bento_categories_aFbwVW",
+    "instagram_gallery_kKrKtz",
+    "icon_category_list_nG3Ni8",
+    "custom_hero_banner_EpqzyB",
+    "instagram_gallery_zreTaW",
+    "faq_tabs_rxczBA",
+    "instagram_gallery_biMKMB",
+    "instagram_gallery_itHmBn"
+  ]
+}
