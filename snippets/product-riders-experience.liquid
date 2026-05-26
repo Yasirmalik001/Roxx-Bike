@@ -1,0 +1,97 @@
+<div class="product-riders-experience" {{ block.shopify_attributes }}>
+  {%- if block.settings.heading != blank -%}
+    <h3 class="riders-heading">{{ block.settings.heading | escape }}</h3>
+  {%- endif -%}
+  
+  <div class="riders-list">
+    {%- for i in (1..4) -%}
+      {%- capture image_key -%}image_{{ i }}{%- endcapture -%}
+      {%- capture url_key -%}video_url_{{ i }}{%- endcapture -%}
+      
+      {%- assign img_val = block.settings[image_key] -%}
+      {%- assign url_val = block.settings[url_key] -%}
+      
+      <a {% if url_val != blank %}href="{{ url_val }}"{% else %}role="link" aria-disabled="true"{% endif %} class="rider-circle-link" target="_blank">
+        <div class="rider-circle">
+          {%- if img_val != blank -%}
+            <img src="{{ img_val | image_url: width: 120 }}" alt="Rider testimonial {{ i }}" loading="lazy" width="60" height="60">
+          {%- else -%}
+            <!-- Placeholder icon/initials -->
+            <div class="rider-placeholder">R</div>
+          {%- endif -%}
+          
+          <div class="rider-play-overlay">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .product-riders-experience {
+    margin: 2.5rem 0;
+  }
+  .riders-heading {
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #555;
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+  .riders-list {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+  }
+  .rider-circle-link {
+    text-decoration: none;
+  }
+  .rider-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+  .rider-circle:hover {
+    transform: scale(1.05);
+  }
+  .rider-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .rider-placeholder {
+    font-weight: 800;
+    color: #888;
+    font-size: 1.6rem;
+  }
+  .rider-play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2px;
+  }
+</style>

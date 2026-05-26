@@ -12,6 +12,14 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "rating_badge_custom": {
+          "type": "rating_badge",
+          "settings": {
+            "badge_label": "Bestseller",
+            "rating_score": "4.4",
+            "rating_text": "Trusted on 200+"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -23,7 +31,7 @@
         "text_YJpJae": {
           "type": "text",
           "settings": {
-            "text": "Feel safe and comfortable all day with Nora High Waist.A soft, stretchy fit with built-in protection that absorbs flow while staying breathable and discreet.",
+            "text": "Feel safe and comfortable all day with Nora High Waist. A soft, stretchy fit with built-in protection that absorbs flow while staying breathable and discreet.",
             "text_style": "body"
           }
         },
@@ -78,6 +86,29 @@
             "bullet_2": "Keep the measuring tape snug but not tight, and make sure it's level all the way around.",
             "bullet_3": "For best accuracy, measure directly on your body or over thin clothing, and measure twice to be sure.",
             "note_text": "If you come between the two sizes, choose the small one."
+          }
+        },
+        "custom_option_accessories_custom": {
+          "type": "custom_option_accessories",
+          "settings": {
+            "heading": "Accessories",
+            "acc_title_1": "Accessories package 1",
+            "acc_price_1": "€ 1.599,00",
+            "acc_title_2": "Accessories package 2",
+            "acc_price_2": "€ 529,00",
+            "acc_title_3": "Accessories package 3",
+            "acc_price_3": "€ 239,00",
+            "acc_title_4": "Accessories package 4",
+            "acc_price_4": "€ 139,00"
+          }
+        },
+        "custom_option_insurance_custom": {
+          "type": "custom_option_insurance",
+          "settings": {
+            "heading": "Insurance",
+            "title": "Roxx Insurance",
+            "description": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at.",
+            "price": "+ € 150,00"
           }
         },
         "buy_buttons": {
@@ -163,14 +194,58 @@
             "drawer_mobile_spacing": 10,
             "drawer_desktop_spacing": 10
           }
+        },
+        "gallery_specifications_custom": {
+          "type": "gallery_specifications",
+          "settings": {
+            "label_1": "Battery",
+            "value_1": "48V 15Ah",
+            "label_2": "Max Speed",
+            "value_2": "25 km/h",
+            "label_3": "Max Range",
+            "value_3": "80-100 km"
+          }
+        },
+        "riders_experience_custom": {
+          "type": "riders_experience",
+          "settings": {
+            "heading": "Riders experience"
+          }
+        },
+        "custom_trust_badges_custom": {
+          "type": "custom_trust_badges",
+          "settings": {
+            "text_1": "Free shipping from €79,00",
+            "text_2": "2-Years Warranty",
+            "text_3": "14-days money back guarantee"
+          }
+        },
+        "product_tabs_custom": {
+          "type": "product_tabs",
+          "settings": {
+            "description": "<p>Experience the ultimate ride with the Roxx Bike. Features a powerful motor, long-lasting battery, and premium styling built for comfort.</p>",
+            "features": "<p>Smart features including GPS tracking, electronic locking, and integrated lights.</p>",
+            "specifications": "<p>Battery: 48V 15Ah | Range: 80-100 km | Speed: 25 km/h | Weight: 25kg</p>",
+            "accessories": "<p>Compatible with cargo racks, phone mounts, and custom bags.</p>",
+            "faq": "<p>Frequently asked questions about charging, shipping, and maintenance.</p>",
+            "feature_label_1": "Suitable for custom size 160-195 cm",
+            "feature_label_2": "Comfortable riding position",
+            "feature_label_3": "Shimano Nexus",
+            "feature_label_4": "Close-loop chains",
+            "feature_label_5": "GPS Tracking",
+            "feature_label_6": "Electronic Lock"
+          }
         }
       },
       "block_order": [
+        "rating_badge_custom",
         "title",
         "price",
         "text_YJpJae",
         "multi_icon_xn8fhg",
         "variant_picker",
+        "custom_option_accessories_custom",
+        "custom_option_insurance_custom",
         "buy_buttons",
         "delivery_payment_mB6BTN",
         "pills_xFGRwJ",
@@ -179,7 +254,11 @@
         "faq_blocks_CkKVjD",
         "faq_blocks_FN9CnF",
         "faq_blocks_k8EnCc",
-        "upsell_product_jgWVE7"
+        "upsell_product_jgWVE7",
+        "gallery_specifications_custom",
+        "riders_experience_custom",
+        "custom_trust_badges_custom",
+        "product_tabs_custom"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -201,6 +280,7 @@
         "fancybox_show_all": false,
         "trigger_label": "Size Guide",
         "default_metric": true,
+        "thumbnail_side_by_side": true,
         "padding_top": 36,
         "padding_bottom": 12
       }

@@ -78,6 +78,12 @@
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
         {% comment %} {% render 'product-media-gallery-swiper', variant_images: variant_images %} {% endcomment %}
+        
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'gallery_specifications' -%}
+            {% render 'gallery-specifications-strip', block: block %}
+          {%- endif -%}
+        {%- endfor -%}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -88,6 +94,16 @@
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
+              {%- when 'rating_badge' -%}
+                {% render 'product-rating-badge', block: block %}
+              {%- when 'custom_option_accessories' -%}
+                {% render 'product-option-accessories', block: block %}
+              {%- when 'custom_option_insurance' -%}
+                {% render 'product-option-insurance', block: block %}
+              {%- when 'riders_experience' -%}
+                {% render 'product-riders-experience', block: block %}
+              {%- when 'custom_trust_badges' -%}
+                {% render 'product-trust-badges', block: block %}
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
@@ -796,6 +812,11 @@
       {{ product | structured_data }}
     </script>
   </div>
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'product_tabs' -%}
+      {% render 'product-tabs', block: block %}
+    {%- endif -%}
+  {%- endfor -%}
 </product-info>
 
 {% comment %} Styles moved to sereluna.css {% endcomment %}
@@ -2962,6 +2983,341 @@
           "default": 16
         }
       ]
+    },
+    {
+      "type": "gallery_specifications",
+      "name": "Gallery Specifications",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label_1",
+          "default": "Battery",
+          "label": "Spec 1 Label"
+        },
+        {
+          "type": "text",
+          "id": "value_1",
+          "default": "Samsung Lithium, 48V",
+          "label": "Spec 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "label_2",
+          "default": "Max speed",
+          "label": "Spec 2 Label"
+        },
+        {
+          "type": "text",
+          "id": "value_2",
+          "default": "25km/h",
+          "label": "Spec 2 Value"
+        },
+        {
+          "type": "text",
+          "id": "label_3",
+          "default": "Max Range",
+          "label": "Spec 3 Label"
+        },
+        {
+          "type": "text",
+          "id": "value_3",
+          "default": "80-100 km",
+          "label": "Spec 3 Value"
+        }
+      ]
+    },
+    {
+      "type": "rating_badge",
+      "name": "Rating Badge Bar",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge_label",
+          "default": "Bestseller",
+          "label": "Badge Label"
+        },
+        {
+          "type": "text",
+          "id": "rating_score",
+          "default": "4.4",
+          "label": "Rating Score"
+        },
+        {
+          "type": "text",
+          "id": "rating_text",
+          "default": "Trusted on 200+",
+          "label": "Rating Text"
+        }
+      ]
+    },
+    {
+      "type": "custom_option_accessories",
+      "name": "Accessories Options",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Accessories",
+          "label": "Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "acc_image_1",
+          "label": "Accessory 1 Image"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_1",
+          "default": "Accessories package 1",
+          "label": "Accessory 1 Title"
+        },
+        {
+          "type": "text",
+          "id": "acc_price_1",
+          "default": "€ 1.599,00",
+          "label": "Accessory 1 Price"
+        },
+        {
+          "type": "image_picker",
+          "id": "acc_image_2",
+          "label": "Accessory 2 Image"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_2",
+          "default": "Accessories package 2",
+          "label": "Accessory 2 Title"
+        },
+        {
+          "type": "text",
+          "id": "acc_price_2",
+          "default": "€ 529,00",
+          "label": "Accessory 2 Price"
+        },
+        {
+          "type": "image_picker",
+          "id": "acc_image_3",
+          "label": "Accessory 3 Image"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_3",
+          "default": "Accessories package 3",
+          "label": "Accessory 3 Title"
+        },
+        {
+          "type": "text",
+          "id": "acc_price_3",
+          "default": "€ 239,00",
+          "label": "Accessory 3 Price"
+        },
+        {
+          "type": "image_picker",
+          "id": "acc_image_4",
+          "label": "Accessory 4 Image"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_4",
+          "default": "Accessories package 4",
+          "label": "Accessory 4 Title"
+        },
+        {
+          "type": "text",
+          "id": "acc_price_4",
+          "default": "€ 139,00",
+          "label": "Accessory 4 Price"
+        }
+      ]
+    },
+    {
+      "type": "custom_option_insurance",
+      "name": "Insurance Option",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Insurance",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Roxx Insurance",
+          "label": "Insurance Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "default": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at.",
+          "label": "Insurance Description"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "default": "+ € 150,00",
+          "label": "Insurance Extra Price"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Learn More Link"
+        }
+      ]
+    },
+    {
+      "type": "riders_experience",
+      "name": "Riders Experience Testimonials",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Riders experience",
+          "label": "Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "User Image 1"
+        },
+        {
+          "type": "url",
+          "id": "video_url_1",
+          "label": "Video Link 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "User Image 2"
+        },
+        {
+          "type": "url",
+          "id": "video_url_2",
+          "label": "Video Link 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "User Image 3"
+        },
+        {
+          "type": "url",
+          "id": "video_url_3",
+          "label": "Video Link 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "User Image 4"
+        },
+        {
+          "type": "url",
+          "id": "video_url_4",
+          "label": "Video Link 4"
+        }
+      ]
+    },
+    {
+      "type": "custom_trust_badges",
+      "name": "Custom Trust Badges",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text_1",
+          "default": "Free shipping from €79,00",
+          "label": "Badge 1 Text"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "default": "2-Years Warranty",
+          "label": "Badge 2 Text"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "default": "14-days money back guarantee",
+          "label": "Badge 3 Text"
+        }
+      ]
+    },
+    {
+      "type": "product_tabs",
+      "name": "Product Tabs Section",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description Tab Content"
+        },
+        {
+          "type": "richtext",
+          "id": "features",
+          "label": "Features Tab Content"
+        },
+        {
+          "type": "richtext",
+          "id": "specifications",
+          "label": "Specifications Tab Content"
+        },
+        {
+          "type": "richtext",
+          "id": "accessories",
+          "label": "Accessories Tab Content"
+        },
+        {
+          "type": "richtext",
+          "id": "faq",
+          "label": "FAQ Tab Content"
+        },
+        {
+          "type": "header",
+          "content": "Features Grid (Right side of description)"
+        },
+        {
+          "type": "text",
+          "id": "feature_label_1",
+          "default": "Suitable for custom size 160-195 cm",
+          "label": "Feature 1 Label"
+        },
+        {
+          "type": "text",
+          "id": "feature_label_2",
+          "default": "Comfortable riding position",
+          "label": "Feature 2 Label"
+        },
+        {
+          "type": "text",
+          "id": "feature_label_3",
+          "default": "Shimano Nexus",
+          "label": "Feature 3 Label"
+        },
+        {
+          "type": "text",
+          "id": "feature_label_4",
+          "default": "Close-loop chains",
+          "label": "Feature 4 Label"
+        },
+        {
+          "type": "text",
+          "id": "feature_label_5",
+          "default": "GPS Tracking",
+          "label": "Feature 5 Label"
+        },
+        {
+          "type": "text",
+          "id": "feature_label_6",
+          "default": "Electronic Lock",
+          "label": "Feature 6 Label"
+        }
+      ]
     }
   ],
   "settings": [
@@ -3185,6 +3541,12 @@
       "id": "default_metric",
       "label": "Default to Metric (CM)",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "thumbnail_side_by_side",
+      "default": false,
+      "label": "Show thumbnails side-by-side (left) on desktop"
     },
     {
       "type": "header",

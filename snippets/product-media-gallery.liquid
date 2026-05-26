@@ -42,12 +42,56 @@
   endif
 -%}
 
+{%- if section.settings.thumbnail_side_by_side -%}
+  <style>
+    @media screen and (min-width: 990px) {
+      media-gallery.media-gallery--side-by-side {
+        display: flex !important;
+        flex-direction: row-reverse !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+      }
+      media-gallery.media-gallery--side-by-side slider-component:not(.thumbnail-slider) {
+        flex: 1 !important;
+      }
+      media-gallery.media-gallery--side-by-side slider-component.thumbnail-slider {
+        width: 80px !important;
+        flex-shrink: 0 !important;
+        margin-top: 0 !important;
+      }
+      media-gallery.media-gallery--side-by-side slider-component.thumbnail-slider ul.thumbnail-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        max-height: 550px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        scroll-snap-type: y mandatory !important;
+      }
+      media-gallery.media-gallery--side-by-side slider-component.thumbnail-slider ul.thumbnail-list::-webkit-scrollbar {
+        width: 4px;
+      }
+      media-gallery.media-gallery--side-by-side slider-component.thumbnail-slider ul.thumbnail-list::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 2px;
+      }
+      media-gallery.media-gallery--side-by-side .thumbnail-list__item {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      media-gallery.media-gallery--side-by-side slider-component.thumbnail-slider .slider-buttons {
+        display: none !important;
+      }
+    }
+  </style>
+{%- endif -%}
+
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
-  {% if section.settings.enable_sticky_info %}
-    class="product__column-sticky"
-  {% endif %}
+  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if section.settings.thumbnail_side_by_side %} media-gallery--side-by-side{% endif %}"
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >

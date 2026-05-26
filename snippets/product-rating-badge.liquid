@@ -1,0 +1,58 @@
+<div class="product-rating-badge-row" {{ block.shopify_attributes }}>
+  {%- if block.settings.badge_label != blank -%}
+    <span class="product-badge-yellow">{{ block.settings.badge_label | escape }}</span>
+  {%- endif -%}
+  
+  <div class="product-badge-rating">
+    <div class="product-stars-green">
+      {%- for i in (1..5) -%}
+        <span class="star-pill-green">&#9733;</span>
+      {%- endfor -%}
+    </div>
+    <span class="product-rating-score-text"><strong>{{ block.settings.rating_score | escape }}</strong> ({{ block.settings.rating_text | escape }})</span>
+  </div>
+</div>
+
+<style>
+  .product-rating-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .product-badge-yellow {
+    background-color: #ffd000;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .product-badge-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .product-stars-green {
+    display: flex;
+    gap: 2px;
+  }
+  .star-pill-green {
+    background-color: #00b67a;
+    color: #fff;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+  }
+  .product-rating-score-text {
+    font-size: 1.2rem;
+    color: #555;
+  }
+</style>
