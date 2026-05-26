@@ -271,6 +271,55 @@
         "padding_bottom": 60
       }
     },
+    "testimonials_6kM9B3": {
+      "type": "testimonials",
+      "blocks": {
+        "review_BXePF7": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_cVHFNQ": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_ghb9bL": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_7RfCba": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        }
+      },
+      "block_order": [
+        "review_BXePF7",
+        "review_cVHFNQ",
+        "review_ghb9bL",
+        "review_7RfCba"
+      ],
+      "name": "Customer Reviews Slider",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "OUR CUSTOMER SAY!",
+        "heading_size": "h0",
+        "summary_rating_text": "4.2 stars / 5",
+        "summary_count_text": "(Based on 200+ reviews)",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "hero_slideshow_6ejY9C": {
       "type": "hero-slideshow",
       "blocks": {
@@ -371,6 +420,7 @@
     "hero_banner_features_7JX3dk",
     "trust_badges_4dfJAk",
     "partner_testimonials_TYE8nf",
+    "testimonials_6kM9B3",
     "hero_slideshow_6ejY9C",
     "keep_discovering_nqKjzK"
   ]
