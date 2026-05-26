@@ -1,5 +1,3 @@
-
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -148,18 +146,13 @@
     overflow: hidden;
   }
 
-  .swiper-scrollbar-{{ section.id }} {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-scrollbar-{{ section.id }} .swiper-scrollbar-drag {
+  .quick-features__scrollbar-container .slider-template-progress-fill {
     background: {{ section.settings.accent_color }};
-    border-radius: 4px;
-    cursor: pointer;
+    height: 100%;
+    display: block;
+    width: 0%;
+    transition: width 300ms ease;
+    border-radius: inherit;
   }
 
   /* Custom Navigation Buttons */
@@ -222,119 +215,94 @@
       </h2>
     {%- endif -%}
 
-    <div class="swiper" id="Swiper-{{ section.id }}">
-      <div class="swiper-wrapper">
-        
-        {%- for block in section.blocks -%}
-          <div class="swiper-slide" {{ block.shopify_attributes }}>
-            <a {% if block.settings.link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.link }}"{% endif %} class="feature-card">
-              
-              <div class="feature-card__media">
-                {%- if block.settings.image != blank -%}
-                  {%- liquid
-                    assign fetch_priority = 'auto'
-                    assign loading_attr = 'lazy'
-                    if forloop.index <= 3
-                      assign fetch_priority = 'high'
-                      assign loading_attr = 'eager'
-                    endif
-                  -%}
-                  {{ block.settings.image | image_url: width: 800 | image_tag: 
-                    loading: loading_attr, 
-                    fetchpriority: fetch_priority,
-                    sizes: '(min-width: 1200px) 25vw, (min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw',
-                    widths: '375, 550, 750, 800'
-                  }}
-                {%- else -%}
-                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                {%- endif -%}
-              </div>
-
-              <div class="feature-card__content">
-                <div class="feature-card__header">
-                  <h3 class="feature-card__title">{{ block.settings.title | escape }}</h3>
-                  <div class="feature-card__icon">
-                    <svg viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="12" y1="8" x2="12" y2="16"></line>
-                      <line x1="8" y1="12" x2="16" y2="12"></line>
-                    </svg>
+    <slider-container class="slider-template-section block" data-block-id="{{ section.id }}">
+      <div class="slider-template-section__container">
+        <div class="swiper js-slider-template-swiper slider-template-section__swiper"
+          data-swiper-config='
+            {
+              "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
+              "enableSliderMobile": {{ section.settings.enable_slider_mobile }},
+              "loop": {{ section.settings.enable_loop }},
+              "centeredSlides": {{ section.settings.enable_centered_slides }},
+              "autoplay": {{ section.settings.enable_autoplay }},
+              "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 }},
+              "mobileSlides": {{ section.settings.columns_mobile }},
+              "mobileSpacing": {{ section.settings.spacing_mobile }},
+              "desktopSlides": {{ section.settings.columns_desktop }},
+              "desktopSpacing": {{ section.settings.spacing_desktop }}
+            }
+          '
+        >
+          <div class="swiper-wrapper">
+            
+            {%- for block in section.blocks -%}
+              <div class="swiper-slide" {{ block.shopify_attributes }}>
+                <a {% if block.settings.link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.link }}"{% endif %} class="feature-card">
+                  
+                  <div class="feature-card__media">
+                    {%- if block.settings.image != blank -%}
+                      {%- liquid
+                        assign fetch_priority = 'auto'
+                        assign loading_attr = 'lazy'
+                        if forloop.index <= 3
+                          assign fetch_priority = 'high'
+                          assign loading_attr = 'eager'
+                        endif
+                      -%}
+                      {{ block.settings.image | image_url: width: 800 | image_tag: 
+                        loading: loading_attr, 
+                        fetchpriority: fetch_priority,
+                        sizes: '(min-width: 1200px) 25vw, (min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw',
+                        widths: '375, 550, 750, 800'
+                      }}
+                    {%- else -%}
+                      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
                   </div>
-                </div>
-                
-                {%- if block.settings.text != blank -%}
-                  <p class="feature-card__text">{{ block.settings.text }}</p>
-                {%- endif -%}
+
+                  <div class="feature-card__content">
+                    <div class="feature-card__header">
+                      <h3 class="feature-card__title">{{ block.settings.title | escape }}</h3>
+                      <div class="feature-card__icon">
+                        <svg viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <line x1="12" y1="8" x2="12" y2="16"></line>
+                          <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {%- if block.settings.text != blank -%}
+                      <p class="feature-card__text">{{ block.settings.text }}</p>
+                    {%- endif -%}
+                  </div>
+                  
+                </a>
               </div>
-              
-            </a>
+            {%- endfor -%}
+
           </div>
-        {%- endfor -%}
+        </div>
 
+        <div class="quick-features__footer">
+          <div class="quick-features__scrollbar-container">
+            <div class="slider-template-progress-fill"></div>
+          </div>
+          
+          <div class="quick-features__nav">
+            <button class="quick-features__btn js-slider-template-prev" aria-label="Previous slide">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="quick-features__btn js-slider-template-next" aria-label="Next slide">
+              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="quick-features__footer">
-      <div class="quick-features__scrollbar-container">
-        <div class="swiper-scrollbar-{{ section.id }}"></div>
-      </div>
-      
-      <div class="quick-features__nav">
-        <button class="quick-features__btn swiper-prev-{{ section.id }}" aria-label="Previous slide">
-          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="quick-features__btn swiper-next-{{ section.id }}" aria-label="Next slide">
-          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
+    </slider-container>
 
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const initQuickFeatures{{ section.id | replace: '-', '_' }} = () => {
-      if (typeof Swiper !== 'undefined') {
-        new Swiper('#Swiper-{{ section.id }}', {
-          slidesPerView: 1.2,
-          spaceBetween: 15,
-          grabCursor: true,
-          navigation: {
-            nextEl: '.swiper-next-{{ section.id }}',
-            prevEl: '.swiper-prev-{{ section.id }}',
-          },
-          scrollbar: {
-            el: '.swiper-scrollbar-{{ section.id }}',
-            draggable: true,
-          },
-          breakpoints: {
-            550: {
-              slidesPerView: 2.2,
-              spaceBetween: 20
-            },
-            750: {
-              slidesPerView: 2.5,
-              spaceBetween: 20
-            },
-            990: {
-              slidesPerView: 3,
-              spaceBetween: 24
-            },
-            1200: {
-              slidesPerView: 4,
-              spaceBetween: 24
-            }
-          }
-        });
-      } else {
-        setTimeout(initQuickFeatures{{ section.id | replace: '-', '_' }}, 100);
-      }
-    };
-    
-    initQuickFeatures{{ section.id | replace: '-', '_' }}();
-  });
-</script>
 
 {% schema %}
 {
@@ -383,6 +351,88 @@
       "id": "accent_color",
       "label": "Accent Color (Buttons & Bar)",
       "default": "#ffd000"
+    },
+    {
+      "type": "header",
+      "content": "Slider Configuration"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider_desktop",
+      "label": "Enable Slider on Desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider_mobile",
+      "label": "Enable Slider on Mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "label": "Enable Infinite Loop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_centered_slides",
+      "label": "Enable Centered Slides",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay Interval",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 0.1,
+      "label": "Slides per view on Desktop",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "label": "Slides per view on Mobile",
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "spacing_desktop",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Space between slides on Desktop",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "spacing_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Space between slides on Mobile",
+      "default": 15
     },
     {
       "type": "header",
