@@ -1,0 +1,489 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .hero-features {
+    position: relative;
+    display: flex;
+    min-height: {{ section.settings.mobile_height }}px;
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 750px) {
+    .hero-features {
+      min-height: {{ section.settings.desktop_height }}px;
+      align-items: center;
+    }
+  }
+
+  /* LCP Optimized Media Layer */
+  .hero-features__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-features__media img,
+  .hero-features__media svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.image.presentation.focal_point | default: 'center' }};
+  }
+
+  .hero-features__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 100%);
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+  }
+
+  .hero-features__container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    justify-content: {{ section.settings.desktop_content_alignment }};
+  }
+
+  .hero-features__content {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: {% if section.settings.desktop_content_alignment == 'center' %}center{% elsif section.settings.desktop_content_alignment == 'flex-end' %}flex-end{% else %}flex-start{% endif %};
+    text-align: {% if section.settings.desktop_content_alignment == 'center' %}center{% elsif section.settings.desktop_content_alignment == 'flex-end' %}right{% else %}left{% endif %};
+    padding: 4rem 0;
+  }
+
+  /* Typography overriding Dawn defaults for specific mock styling */
+  .hero-features__heading {
+    color: {{ section.settings.text_color }};
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-features__description {
+    color: {{ section.settings.text_color }};
+    opacity: 0.9;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-bottom: 3.5rem;
+  }
+
+  .hero-features__grid {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    width: 100%;
+    justify-content: inherit;
+  }
+
+  .hero-features__item {
+    display: flex;
+    flex-direction: column;
+    align-items: inherit;
+    max-width: 140px;
+  }
+
+  /* Advanced Glassmorphism */
+  .hero-features__icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-features__icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: {{ section.settings.text_color }};
+  }
+
+  .hero-features__icon-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: {{ section.settings.text_color }};
+    margin: 0;
+  }
+
+  /* Mobile Adjustments */
+  @media screen and (max-width: 749px) {
+    .hero-features__content {
+      align-items: {{ section.settings.mobile_content_alignment }};
+      text-align: {{ section.settings.mobile_content_alignment }};
+      justify-content: center;
+    }
+    .hero-features__grid {
+      gap: 1.5rem;
+      justify-content: space-between;
+    }
+    .hero-features__item {
+      align-items: center;
+      text-align: center;
+    }
+  }
+{%- endstyle -%}
+
+<div id="Banner-{{ section.id }}" class="hero-features section-{{ section.id }}-padding">
+  
+  <div class="hero-features__media">
+    {%- if section.settings.image != blank -%}
+      {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        assign sizes = '100vw'
+        assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+      -%}
+      {{ section.settings.image | image_url: width: 3840 | image_tag:
+        loading: 'eager',
+        fetchpriority: 'high',
+        width: section.settings.image.width,
+        height: image_height,
+        sizes: sizes,
+        widths: widths
+      }}
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+
+  <div class="hero-features__overlay"></div>
+
+  <div class="page-width hero-features__container">
+    <div class="hero-features__content">
+      
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          
+          {%- when 'heading' -%}
+            <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+              {{ block.settings.heading }}
+            </h2>
+
+          {%- when 'text' -%}
+            <div class="hero-features__description rte" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+
+          {%- when 'features' -%}
+            <div class="hero-features__grid" {{ block.shopify_attributes }}>
+              
+              {%- if block.settings.feature_title_1 != blank -%}
+                <div class="hero-features__item">
+                  <div class="hero-features__icon-wrapper">
+                    {%- if block.settings.feature_icon_1 != blank -%}
+                      {{ block.settings.feature_icon_1 }}
+                    {%- else -%}
+                      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                    {%- endif -%}
+                  </div>
+                  <p class="hero-features__icon-title">{{ block.settings.feature_title_1 }}</p>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.feature_title_2 != blank -%}
+                <div class="hero-features__item">
+                  <div class="hero-features__icon-wrapper">
+                    {%- if block.settings.feature_icon_2 != blank -%}
+                      {{ block.settings.feature_icon_2 }}
+                    {%- else -%}
+                      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="1"></circle></svg>
+                    {%- endif -%}
+                  </div>
+                  <p class="hero-features__icon-title">{{ block.settings.feature_title_2 }}</p>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.feature_title_3 != blank -%}
+                <div class="hero-features__item">
+                  <div class="hero-features__icon-wrapper">
+                    {%- if block.settings.feature_icon_3 != blank -%}
+                      {{ block.settings.feature_icon_3 }}
+                    {%- else -%}
+                      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    {%- endif -%}
+                  </div>
+                  <p class="hero-features__icon-title">{{ block.settings.feature_title_3 }}</p>
+                </div>
+              {%- endif -%}
+
+            </div>
+
+          {%- when 'button' -%}
+            {%- if block.settings.button_label != blank -%}
+              <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} 
+                 class="button" 
+                 style="background-color: {{ block.settings.button_color }}; color: #000; border-radius: 50px; font-weight: 700; text-transform: uppercase; padding: 1.5rem 3.5rem; border: none; letter-spacing: 0.05em;" 
+                 {{ block.shopify_attributes }}>
+                {{ block.settings.button_label | escape }}
+              </a>
+            {%- endif -%}
+
+        {%- endcase -%}
+      {%- endfor -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Banner with Features",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "label": "Desktop Minimum Height",
+      "default": 650
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "flex-start",
+      "label": "Desktop Content Alignment"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile Minimum Height",
+      "default": 550
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left",
+      "label": "Mobile Content Alignment"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Designed For Real Life",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" }
+          ],
+          "default": "h0",
+          "label": "Heading Size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur. Blandit lectus tincidunt elit sapien vestibulum pellentesque sed gravida mauris.</p>",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "name": "Features Row",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Feature 1"
+        },
+        {
+          "type": "html",
+          "id": "feature_icon_1",
+          "label": "SVG Icon Code (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "feature_title_1",
+          "label": "Title",
+          "default": "Comfortable seating position"
+        },
+        {
+          "type": "header",
+          "content": "Feature 2"
+        },
+        {
+          "type": "html",
+          "id": "feature_icon_2",
+          "label": "SVG Icon Code (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "feature_title_2",
+          "label": "Title",
+          "default": "Built-in tracking"
+        },
+        {
+          "type": "header",
+          "content": "Feature 3"
+        },
+        {
+          "type": "html",
+          "id": "feature_icon_3",
+          "label": "SVG Icon Code (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "feature_title_3",
+          "label": "Title",
+          "default": "Powerful engine"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Book a free test ride",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button Background Color",
+          "default": "#ffe600"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner with Features",
+      "blocks": [
+        { "type": "heading" },
+        { "type": "text" },
+        { "type": "features" },
+        { "type": "button" }
+      ]
+    }
+  ]
+}
+{% endschema %}
