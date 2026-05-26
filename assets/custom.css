@@ -451,9 +451,6 @@ body{
 }
 
 .collection-tabs .card-product-tabs__image {
-  object-fit: contain !important;
-  height: auto !important;
-  width: auto !important;
   max-width: 90% !important;
   max-height: 380px !important;
   transform: scale(0.9);
@@ -1021,4 +1018,4 @@ body{
     text-align: center;
   }
 }
-
+
