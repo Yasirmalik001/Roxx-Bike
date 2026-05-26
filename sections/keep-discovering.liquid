@@ -1,0 +1,377 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .keep-discovering-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #000;
+  }
+
+  .keep-discovering-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .keep-discovering-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Dark gradient overlay to match the deep fade at the top */
+  .keep-discovering-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%);
+    z-index: 2;
+  }
+
+  .keep-discovering-content {
+    position: relative;
+    z-index: 3;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .keep-discovering-heading {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 3.5rem;
+    text-align: center;
+  }
+
+  .kd-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .kd-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Frosted glass / Dark card styling */
+  .kd-card {
+    background: rgba(35, 35, 35, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 1.5rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    aspect-ratio: 16 / 11;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .kd-card:hover {
+    background: rgba(45, 45, 45, 0.85);
+    transform: translateY(-4px);
+  }
+
+  .kd-card__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+  }
+
+  .kd-card__icon-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: auto;
+  }
+
+  /* SVG styling for external link icon */
+  .kd-card__icon-external svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Avatar badge stack styling */
+  .kd-avatar-badge {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    border-radius: 30px;
+    padding: 4px;
+    margin-top: auto;
+    align-self: flex-end;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .kd-avatar-initial {
+    background: #6a7b9e; /* Muted slate blue from reference */
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+
+  .kd-avatar-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: -12px;
+    border: 2px solid #2a2a2a;
+    object-fit: cover;
+    background-color: #111;
+  }
+{%- endstyle -%}
+
+<div class="keep-discovering-wrapper section-{{ section.id }}-padding">
+  <div class="keep-discovering-bg">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 3000 | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000' }}
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+
+  <div class="keep-discovering-content page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="keep-discovering-heading {{ section.settings.heading_size }}">
+        {{ section.settings.heading | escape }}
+      </h2>
+    {%- endif -%}
+
+    <div class="kd-grid">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link | default: '#' }}" class="kd-card" {{ block.shopify_attributes }}>
+          <h3 class="kd-card__title">{{ block.settings.title | escape }}</h3>
+
+          {%- if block.type == 'external_link' -%}
+            <div class="kd-card__icon-wrapper">
+              <span class="kd-card__icon-external">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </span>
+            </div>
+          {%- elsif block.type == 'avatar_badge' -%}
+            <div class="kd-card__icon-wrapper" style="justify-content: flex-end;">
+              <div class="kd-avatar-badge">
+                <span class="kd-avatar-initial">{{ block.settings.initial | default: 'J' }}</span>
+                {%- if block.settings.avatar_image != blank -%}
+                  {{ block.settings.avatar_image | image_url: width: 80 | image_tag: class: 'kd-avatar-image', loading: 'lazy' }}
+                {%- else -%}
+                  <div class="kd-avatar-image"></div>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Keep Discovering Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "KEEP DISCOVERING",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "standard_card",
+      "name": "Standard Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "SHOP BIKES",
+          "label": "Card Heading"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "external_link",
+      "name": "External Link Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "BOOK TEST DRIVE",
+          "label": "Card Heading"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "avatar_badge",
+      "name": "Avatar Badge Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "ACCESSORIES",
+          "label": "Card Heading"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "initial",
+          "default": "J",
+          "label": "Avatar Initial",
+          "info": "Single letter for the first badge slot"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar_image",
+          "label": "Avatar Image",
+          "info": "Image for the overlapping second badge slot"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Keep Discovering Hero",
+      "blocks": [
+        {
+          "type": "external_link",
+          "settings": {
+            "title": "BOOK TEST DRIVE"
+          }
+        },
+        {
+          "type": "avatar_badge",
+          "settings": {
+            "title": "ACCESSORIES",
+            "initial": "J"
+          }
+        },
+        {
+          "type": "standard_card",
+          "settings": {
+            "title": "SHOP BIKES"
+          }
+        },
+        {
+          "type": "avatar_badge",
+          "settings": {
+            "title": "SUPPORT",
+            "initial": "J"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
