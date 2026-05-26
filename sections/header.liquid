@@ -7,6 +7,7 @@
   media="print"
   onload="this.media='all'"
 >
+<link rel="stylesheet" href="{{ 'custom-megamenu.css' | asset_url }}" media="print" onload="this.media='all'">
 
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -801,6 +802,34 @@
       initTransparentHeader();
     }
 
+    // Tabbed Megamenu Interactions
+    document.addEventListener('DOMContentLoaded', () => {
+      const megamenus = document.querySelectorAll('.megamenu-tabbed-container');
+      
+      megamenus.forEach((megamenu) => {
+        const tabs = megamenu.querySelectorAll('.megamenu-sidebar-item');
+        const panels = megamenu.querySelectorAll('.megamenu-panel');
+
+        tabs.forEach((tab) => {
+          // Use mouseenter for instant hover effect
+          tab.addEventListener('mouseenter', () => {
+            const targetId = tab.getAttribute('data-target');
+            
+            // Remove active class from all tabs and panels
+            tabs.forEach(t => t.classList.remove('is-active'));
+            panels.forEach(p => p.classList.remove('is-active'));
+            
+            // Add active class to the hovered tab and corresponding panel
+            tab.classList.add('is-active');
+            const targetPanel = megamenu.querySelector(`#${targetId}`);
+            if (targetPanel) {
+              targetPanel.classList.add('is-active');
+            }
+          });
+        });
+      });
+    });
+
     // Re-initialize on Shopify theme editor changes
     if (typeof Shopify !== 'undefined' && Shopify.designMode) {
       document.addEventListener('shopify:section:load', initTransparentHeader);
@@ -1064,6 +1093,18 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "tabbed_megamenu",
+      "name": "Tabbed Megamenu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Menu Trigger Name",
+          "info": "Must match the main menu link title exactly (e.g. Bikes)."
+        }
+      ]
     },
     {
       "type": "megamenu",
