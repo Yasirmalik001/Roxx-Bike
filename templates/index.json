@@ -62,24 +62,24 @@
     "collections_tabs_CftkD8": {
       "type": "collections-tabs",
       "blocks": {
-        "collection_mtDqWx": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "collection": "accessoires"
-          }
-        },
         "collection_T97FFP": {
           "type": "collection",
           "settings": {
             "tab_title": "",
             "collection": "e-bikes"
           }
+        },
+        "collection_mtDqWx": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "collection": "accessoires"
+          }
         }
       },
       "block_order": [
-        "collection_mtDqWx",
-        "collection_T97FFP"
+        "collection_T97FFP",
+        "collection_mtDqWx"
       ],
       "name": "Collection Tabs",
       "settings": {
