@@ -42,7 +42,8 @@
       "name": "Image Custom Banner",
       "settings": {
         "color_scheme": "scheme-1",
-        "media_type": "image",
+        "media_type": "video",
+        "video": "shopify://files/videos/1.RijRoxx-16x9-ezgif.com-mute-video.mp4",
         "overlay_opacity": 0,
         "heading_size_desktop": 48,
         "subheading_size_desktop": 16,
