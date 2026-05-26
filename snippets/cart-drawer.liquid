@@ -255,47 +255,73 @@
                             {% endif %}
                           </td>
 
-                          <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct" style="position: relative;">
+                          <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
                             {%- if settings.show_vendor -%}
                               <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                             {%- endif -%}
 
-                            <a href="{{ item.url }}" class="cart-item__name card__heading h5 full-unstyled-link break" style="font-size: 1.4rem; font-weight: 800; text-transform: uppercase;">
+                            <a href="{{ item.url }}" class="cart-item__name card__heading h5 full-unstyled-link break">
                               {{- item.product.title | escape -}}
                             </a>
 
-                            <div class="cart-item__totals" role="cell" headers="CartDrawer-ColumnTotal" style="margin-top: 4px;">
+<<<<<<< Updated upstream
+                            {% comment %}
+                              {%- if item.original_price != item.final_price -%}
+                                <div class="cart-item__discounted-prices">
+                                  <span class="visually-hidden">
+                                    {{ 'products.product.price.regular_price' | t }}
+                                  </span>
+                                  <s class="cart-item__old-price product-option">
+                                    {{- item.original_price | money -}}
+                                  </s>
+                                  <span class="visually-hidden">
+                                    {{ 'products.product.price.sale_price' | t }}
+                                  </span>
+                                  <strong class="cart-item__final-price product-option">
+                                    {{ item.final_price | money }}
+                                  </strong>
+                                </div>
+=======
+                            <div class="cart-item__rating-stars">
+                              <span class="star-rating">★★★★★</span>
+                              <span class="star-count">(18)</span>
+                            </div>
+
+                            <div class="cart-item__price-row">
+                              {%- if item.variant.compare_at_price > item.variant.price -%}
+                                {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
+                                {%- assign savings_amount = item_compare_at | minus: item.final_line_price -%}
+                                <span class="price price--sale">{{ item.final_line_price | money }}</span>
+                                <s class="price price--compare">{{ item_compare_at | money }}</s>
+                                <span class="price-discount-badge">Save {{ savings_amount | money }}</span>
+>>>>>>> Stashed changes
+                              {%- else -%}
+                                <div class="product-option">
+                                  {{ item.original_price | money }}
+                                </div>
+                              {%- endif -%}
+                            {% endcomment %}
+
+                            <div class="cart-item__totals" role="cell" headers="CartDrawer-ColumnTotal">
                               {%- render 'loading-spinner' -%}
                               <div class="cart-item__price-wrapper">
-                                {%- if item.variant.compare_at_price > item.variant.price -%}
-                                  {%- assign item_compare_at_price = item.variant.compare_at_price | times: item.quantity -%}
-                                  {%- assign savings = item_compare_at_price | minus: item.final_line_price -%}
-                                  <div class="cart-item__discount-badge" style="position: absolute; top: 0; right: 0; background: #b3191f; color: #fff; padding: 4px 10px; border-radius: 50px; font-size: 1rem; font-weight: 600;">
-                                    Save {{ savings | money }}
-                                  </div>
-                                  <div class="cart-item__discounted-prices" style="display: flex; gap: 8px; align-items: center;">
-                                    <span class="price" style="font-weight: 800; color: #000; font-size: 1.4rem;">
-                                      {{ item.final_line_price | money }}
+                                {%- if item.original_line_price != item.final_line_price -%}
+                                  <div class="cart-item__discounted-prices">
+                                    <span class="visually-hidden">
+                                      {{ 'products.product.price.regular_price' | t }}
                                     </span>
-                                    <s class="cart-item__old-price price" style="color: #a0a0a0; font-size: 1.2rem; text-decoration: line-through;">
-                                      {{ item_compare_at_price | money }}
-                                    </s>
-                                  </div>
-                                {%- elsif item.original_line_price != item.final_line_price -%}
-                                  <div class="cart-item__discounted-prices" style="display: flex; gap: 8px; align-items: center;">
-                                    <span class="price" style="font-weight: 800; color: #000; font-size: 1.4rem;">
-                                      {{ item.final_line_price | money }}
-                                    </span>
-                                    <s class="cart-item__old-price price" style="color: #a0a0a0; font-size: 1.2rem; text-decoration: line-through;">
+                                    <s class="cart-item__old-price price">
                                       {{ item.original_line_price | money }}
                                     </s>
-                                  </div>
-                                  {%- assign discount_amount = item.original_line_price | minus: item.final_line_price -%}
-                                  <div class="cart-item__discount-badge" style="position: absolute; top: 0; right: 0; background: #b3191f; color: #fff; padding: 4px 10px; border-radius: 50px; font-size: 1rem; font-weight: 600;">
-                                    Save {{ discount_amount | money }}
+                                    <span class="visually-hidden">
+                                      {{ 'products.product.price.sale_price' | t }}
+                                    </span>
+                                    <span class="price">
+                                      {{ item.final_line_price | money }}
+                                    </span>
                                   </div>
                                 {%- else -%}
-                                  <span class="price" style="font-weight: 800; color: #000; font-size: 1.4rem;">
+                                  <span class="price">
                                     {{ item.original_line_price | money }}
                                   </span>
                                 {%- endif -%}
@@ -816,58 +842,6 @@
           <!-- Start blocks -->
           <!-- Subtotals -->
 
-          <!-- Trust section directly above the black footer -->
-          <div class="cart-drawer__trust-section" style="padding: 1.5rem 2rem; border-top: 1px solid rgba(0,0,0,0.08); background: #fdfdfd;">
-            <div class="cart-drawer__trustpilot" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <svg class="trustpilot-star" viewBox="0 0 24 24" fill="#00b67a" width="20" height="20">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                </svg>
-                <span class="trustpilot-text" style="font-weight: 700; font-size: 1.3rem;">Trustpilot</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <div class="trustpilot-stars-img" style="display: flex;">
-                  <svg width="78" height="16" viewBox="0 0 68 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="12" height="12" fill="#00b67a"/>
-                    <path d="M6 9.5L8.5 11l-1-3 2.5-2H7L6 3 5 6H2l2.5 2-1 3L6 9.5z" fill="white"/>
-                    <rect x="14" width="12" height="12" fill="#00b67a"/>
-                    <path d="M20 9.5L22.5 11l-1-3 2.5-2H21L20 3l-1 3h-3l2.5 2-1 3L20 9.5z" fill="white"/>
-                    <rect x="28" width="12" height="12" fill="#00b67a"/>
-                    <path d="M34 9.5L36.5 11l-1-3 2.5-2H35L34 3l-1 3h-3l2.5 2-1 3L34 9.5z" fill="white"/>
-                    <rect x="42" width="12" height="12" fill="#00b67a"/>
-                    <path d="M48 9.5L50.5 11l-1-3 2.5-2H49L48 3l-1 3h-3l2.5 2-1 3L48 9.5z" fill="white"/>
-                    <rect x="56" width="12" height="12" fill="#00b67a"/>
-                    <path d="M62 9.5L64.5 11l-1-3 2.5-2H63L62 3l-1 3h-3l2.5 2-1 3L62 9.5z" fill="white"/>
-                  </svg>
-                </div>
-                <span class="trustpilot-score" style="font-size: 1.2rem; font-weight: 500;">4.4 / 5 <span style="color: #666; font-weight: 400;">(based on 200+)</span></span>
-              </div>
-            </div>
-            
-            <div class="cart-drawer__trust-icons" style="display: flex; justify-content: space-between; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 1.5rem;">
-              <div class="trust-icon-item" style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
-                </svg>
-                <span style="font-size: 1.1rem; text-align: center;">Fast delivery</span>
-              </div>
-              <div class="trust-icon-item" style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; border-left: 1px solid rgba(0,0,0,0.08); border-right: 1px solid rgba(0,0,0,0.08);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0110 0v4"/>
-                </svg>
-                <span style="font-size: 1.1rem; text-align: center;">Secured payment</span>
-              </div>
-              <div class="trust-icon-item" style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <path d="M3 18v-6a9 9 0 0118 0v6"/>
-                  <path d="M21 19a2 2 0 01-2 2h-1v-6h3v4zM3 19a2 2 0 002 2h1v-6H3v4z"/>
-                </svg>
-                <span style="font-size: 1.1rem; text-align: center;">Excellent support</span>
-              </div>
-            </div>
-          </div>
-
           <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
             <div>
               {%- if cart.cart_level_discount_applications.size > 0 -%}
@@ -883,35 +857,76 @@
               {%- endif -%}
             </div>
 
-            <div class="totals" role="status" style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 2rem;">
-              <h2 class="totals__total" style="font-size: 2.4rem; font-weight: 900; text-transform: uppercase; margin: 0; line-height: 1.1; letter-spacing: -0.5px;">SUBTOTAL</h2>
-              <div style="display: flex; justify-content: space-between; width: 100%; align-items: flex-end; margin-top: 4px;">
-                <p style="font-size: 1.2rem; margin: 0; color: rgba(255,255,255,0.8);">Included tax and shipping</p>
-                <div style="text-align: right;">
-                  <p class="totals__total-value" style="font-size: 2.4rem; font-weight: 800; color: #ffd500; margin: 0; line-height: 1.1; margin-bottom: 4px;">{{ cart.total_price | money_with_currency }}</p>
-                  <p style="font-size: 1.6rem; font-weight: 700; margin: 0; text-decoration: line-through; color: rgba(255,255,255,0.7);">{{ cart.original_total_price | money_with_currency }}</p>
-                </div>
+            <div class="totals" role="status">
+              <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
+              <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+            </div>
+
+            {% comment %}
+              <div class="totals estimate-delivery" role="status">
+                <h2 class="totals__total">Estimeret levering</h2>
+                <p class="totals__total-value">15 Nov 2025</p>
               </div>
-            </div>
+            {% endcomment %}
 
-            <!-- CTAs -->
+            <small class="tax-note caption-large rte">
+              {%- if cart.duties_included and cart.taxes_included -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
+                {%- else -%}
+                  {{
+                    'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
+                    | t: link: shop.shipping_policy.url
+                  }}
+                {%- endif -%}
+              {%- elsif cart.duties_included == false and cart.taxes_included -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
+                {%- else -%}
+                  {{
+                    'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
+                    | t: link: shop.shipping_policy.url
+                  }}
+                {%- endif -%}
+              {%- elsif cart.duties_included and cart.taxes_included == false -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                {%- else -%}
+                  {{
+                    'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                    | t: link: shop.shipping_policy.url
+                  }}
+                {%- endif -%}
+              {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                {%- else -%}
+                  {{
+                    'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                    | t: link: shop.shipping_policy.url
+                  }}
+                {%- endif -%}
+              {%- endif -%}
+            </small>
+          </div>
 
-            <div class="cart__ctas" {{ block.shopify_attributes }}>
-              <button
-                type="submit"
-                id="CartDrawer-Checkout"
-                class="cart__checkout-button button"
-                name="checkout"
-                form="CartDrawer-Form"
-                style="background-color: #ffffff; color: #000000; border-radius: 50px; font-weight: 800; font-size: 1.4rem; text-transform: uppercase; width: 100%; padding: 1.5rem; letter-spacing: 0px;"
-                {% if cart == empty %}
-                  disabled
-                {% endif %}
-              >
-                CONTINUE TO CHECKOUT
-              </button>
-            </div>
-            {% render 'Payments' %}
+          <!-- CTAs -->
+
+          <div class="cart__ctas" {{ block.shopify_attributes }}>
+            <button
+              type="submit"
+              id="CartDrawer-Checkout"
+              class="cart__checkout-button button"
+              name="checkout"
+              form="CartDrawer-Form"
+              {% if cart == empty %}
+                disabled
+              {% endif %}
+            >
+              {{ 'sections.cart.checkout' | t }}
+            </button>
+          </div>
+          {% render 'Payments' %}
         </div>
       </div>
     </div>
