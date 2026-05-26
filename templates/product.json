@@ -10,8 +10,30 @@
 {
   "sections": {
     "main": {
-      "type": "main-product-custom",
+      "type": "main-product",
       "blocks": {
+        "gallery_badges_X1": {
+          "type": "gallery_badges",
+          "settings": {
+            "show_bestseller": true,
+            "bestseller_text": "Bestseller",
+            "rating_text": "4.4 / 5 (based on 200+)"
+          }
+        },
+        "gallery_specs_X2": {
+          "type": "gallery_specs",
+          "settings": {
+            "label_1": "Battery",
+            "value_1": "Samsung lithium, 48V",
+            "icon_1": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"2\" y=\"7\" width=\"16\" height=\"10\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" y1=\"11\" x2=\"22\" y2=\"13\"></line></svg>",
+            "label_2": "Max speed",
+            "value_2": "25km/h",
+            "icon_2": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>",
+            "label_3": "Max Range",
+            "value_3": "80-90 km",
+            "icon_3": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h4l3 8 5-16 3 8h5\"></path></svg>"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -20,50 +42,51 @@
           "type": "price",
           "settings": {}
         },
-        "installment": {
-          "type": "installment",
+        "klarna_installments_X3": {
+          "type": "klarna_installments",
           "settings": {}
         },
-        "description": {
-          "type": "description",
+        "description_X4": {
+          "type": "text",
           "settings": {
-            "text": "<p>A fully connected e-bike built for modern life — powerful, intelligent, and effortlessly smooth.</p>"
+            "text": "A fully connected e-bike built for modern life — powerful, intelligent, and effortlessly smooth.",
+            "text_style": "body"
           }
         },
         "inventory": {
           "type": "inventory",
-          "settings": {}
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": {}
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
         },
-        "payment_icons": {
+        "payment_icons_X5": {
           "type": "payment_icons",
           "settings": {}
         },
-        "accessory_1": {
-          "type": "accessory",
+        "insurance_upsell_X6": {
+          "type": "insurance_upsell",
           "settings": {
-            "product": ""
-          }
-        },
-        "insurance": {
-          "type": "insurance",
-          "settings": {
-            "product": "",
             "title": "Roxx insurance",
             "text": "Lorem ipsum dolor sit amet consectetur. In etiam donec purus vel fermentum morbi sed ut."
           }
         },
-        "review_avatars": {
+        "review_avatars_X7": {
           "type": "review_avatars",
           "settings": {
             "title": "Real people reviews"
           }
         },
-        "feature_icons": {
-          "type": "feature_icons",
+        "feature_icons_row_X8": {
+          "type": "feature_icons_row",
           "settings": {
             "title_1": "Free Shipping",
             "sub_1": "from $79.95",
@@ -71,55 +94,44 @@
             "title_3": "14 days money",
             "sub_3": "back guarantee"
           }
-        },
-        "spec_1": {
-          "type": "spec",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"2\" y=\"7\" width=\"16\" height=\"10\" rx=\"2\" ry=\"2\"></rect><line x1=\"22\" y1=\"11\" x2=\"22\" y2=\"13\"></line></svg>",
-            "label": "Battery",
-            "value": "Samsung lithium, 48V"
-          }
-        },
-        "spec_2": {
-          "type": "spec",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>",
-            "label": "Max speed",
-            "value": "25km/h"
-          }
-        },
-        "spec_3": {
-          "type": "spec",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h4l3 8 5-16 3 8h5\"></path></svg>",
-            "label": "Max Range",
-            "value": "80-90 km"
-          }
         }
       },
       "block_order": [
+        "gallery_badges_X1",
+        "gallery_specs_X2",
         "title",
         "price",
-        "installment",
-        "description",
+        "klarna_installments_X3",
+        "description_X4",
         "inventory",
         "buy_buttons",
-        "payment_icons",
-        "accessory_1",
-        "insurance",
-        "review_avatars",
-        "feature_icons",
-        "spec_1",
-        "spec_2",
-        "spec_3"
+        "payment_icons_X5",
+        "insurance_upsell_X6",
+        "review_avatars_X7",
+        "feature_icons_row_X8"
       ],
       "settings": {
-        "bg_color": "#ffffff",
-        "container_width": 1400,
         "enable_sticky_info": true,
-        "enable_specs": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_left",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "full_popup",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "show_main_arrows": true,
+        "show_main_pagination": true,
+        "show_thumbs_arrows": true,
+        "enable_group_by_color": true,
+        "color_option_name": "Color",
+        "fancybox_show_all": false,
+        "trigger_label": "Size Guide",
+        "default_metric": true,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 12
       }
     },
     "related-products": {

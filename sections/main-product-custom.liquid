@@ -1,6 +1,23 @@
+{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-product-custom.css' | asset_url | stylesheet_tag }}
 {{ 'component-product-card-custom.css' | asset_url | stylesheet_tag }}
+
+{%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
+{%- if first_3d_model -%}
+  {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
 <script src="{{ 'product-custom.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+{% if section.settings.image_zoom == 'hover' %}
+  <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+{%- if product.media.size > 0 -%}
+  <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -16,12 +33,30 @@
   }
 {%- endstyle -%}
 
-<div class="product-custom page-width section-{{ section.id }}-padding" style="--bg-color: {{ section.settings.bg_color }}; --container-width: {{ section.settings.container_width }}px;">
-  <div class="product-custom__container">
+<product-info
+  id="MainProduct-{{ section.id }}"
+  class="product-custom page-width section-{{ section.id }}-padding"
+  data-section="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-update-url="true"
+  data-url="{{ product.url }}"
+  {% if section.settings.image_zoom == 'hover' %}
+    data-zoom-on-hover
+  {% endif %}
+  style="--bg-color: {{ section.settings.bg_color }}; --container-width: {{ section.settings.container_width }}px; display: block;"
+>
+  <div class="product-custom__container product product--large product--left product--thumbnail_left product--mobile-show grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     
     <!-- LEFT SIDE: Gallery and Specs -->
-    <div class="product-custom__media-wrapper">
-      {% render 'product-gallery-custom', section: section, product: product %}
+    <div class="product-custom__media-wrapper grid__item product__media-wrapper" style="width: 100%; max-width: 100%;">
+      <div style="position: relative;">
+        <div class="product-custom__gallery-badges" style="position: absolute; top: 1.5rem; left: 1.5rem; z-index: 2; display: flex; flex-direction: column; gap: 1rem;">
+          {% render 'product-badges', product: product %}
+          {% render 'product-rating', product: product %}
+        </div>
+        {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+        {% render 'product-media-gallery', variant_images: variant_images %}
+      </div>
       
       {% if section.settings.enable_specs %}
         {% render 'product-specs', blocks: section.blocks %}
@@ -34,7 +69,9 @@
     </div>
     
   </div>
-</div>
+  
+  {% render 'product-media-modal', variant_images: variant_images %}
+</product-info>
 
 {% schema %}
 {

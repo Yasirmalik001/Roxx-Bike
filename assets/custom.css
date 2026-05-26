@@ -1838,3 +1838,105 @@ cart-drawer-items {
   padding: 0 !important;
 }
 
+/* ==========================================================================
+   ROXX Native Dawn Product Overrides
+   ========================================================================== */
+.product__title h1 {
+  font-size: clamp(3.5rem, 5vw, 6rem) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -2px !important;
+  line-height: 1 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.price {
+  margin-bottom: 1rem !important;
+}
+
+.price .price-item--regular:not(s) {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+}
+
+.price .price-item--sale {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  color: #000 !important;
+}
+
+.price s.price-item--regular {
+  font-size: 1.6rem !important;
+  font-weight: 500 !important;
+  color: #999 !important;
+}
+
+.product__inventory {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 2rem !important;
+}
+
+.product__inventory::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background-color: #00b67a !important;
+}
+
+.product-form__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.product-form__submit {
+  background: #ffd500 !important;
+  color: #000 !important;
+  font-weight: 800 !important;
+  font-size: 1.6rem !important;
+  text-transform: uppercase !important;
+  border-radius: 50px !important;
+  min-height: 65px !important;
+  letter-spacing: 1px !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.product-form__submit:hover {
+  background: #ffd500 !important;
+  opacity: 0.85 !important;
+}
+
+.product-form__submit::after {
+  box-shadow: none !important;
+}
+
+.shopify-payment-button__button {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  font-weight: 800 !important;
+  font-size: 1.6rem !important;
+  text-transform: uppercase !important;
+  border-radius: 50px !important;
+  min-height: 65px !important;
+  box-shadow: none !important;
+}
+
+.shopify-payment-button__button:hover {
+  background: #f5f5f5 !important;
+}
+
+@media screen and (min-width: 990px) {
+  .product--thumbnail_left .thumbnail-list {
+    gap: 1.5rem !important;
+  }
+}
