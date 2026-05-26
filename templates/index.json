@@ -350,6 +350,7 @@
       ],
       "name": "Keep Discovering Hero",
       "settings": {
+        "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
         "heading": "KEEP DISCOVERING",
         "heading_size": "h1",
         "padding_top": 36,
