@@ -533,52 +533,52 @@ body{
 }
 
 /* Rotated Red Sale Badge Pill (1-to-1 matching mockup) */
-.collection-tabs .card-product-tabs__badge {
-  position: absolute !important;
-  top: 22% !important;
-  right: 18% !important;
-  background: #b3191f !important;
-  color: #ffffff !important;
-  padding: 0.6rem 1.2rem !important;
-  font-size: 1.1rem !important;
-  font-weight: 700 !important;
-  border-radius: 4px !important;
-  transform: rotate(-10deg) !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12) !important;
-  border: none !important;
-  width: auto !important;
-  max-width: fit-content !important;
-  white-space: nowrap !important;
-  display: inline-block !important;
-  line-height: 1.1 !important;
-  z-index: 10 !important;
+.collection-tabs .card-product-tabs .card-product-tabs__badge {
+  position: absolute;
+  top: 22%;
+  right: 18%;
+  background: #b3191f;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 4px;
+  transform: rotate(-10deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  border: none;
+  width: auto;
+  max-width: fit-content;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.1;
+  z-index: 10;
 }
 
 @media screen and (max-width: 749px) {
-  .collection-tabs .card-product-tabs__badge {
-    top: 15% !important;
-    right: 10% !important;
-    font-size: 1rem !important;
-    padding: 0.5rem 1rem !important;
+  .collection-tabs .card-product-tabs .card-product-tabs__badge {
+    top: 15%;
+    right: 10%;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
 /* Title and Price Alignment */
 .collection-tabs .card-product-tabs__title {
-  font-family: "Suisse Int'l Trial", sans-serif !important;
-  font-size: 2.2rem !important;
-  font-weight: 800 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  margin-top: 0 !important;
-  margin-bottom: 0.4rem !important;
-  color: #000000 !important;
+  font-family: "Suisse Int'l Trial", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  color: #000000;
   text-align: center;
 }
 
 .collection-tabs .card-product-tabs__price {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 }
 
 .collection-tabs .card-product-tabs__price .price {
@@ -586,24 +586,24 @@ body{
 }
 
 .collection-tabs .price__container {
-  display: flex !important;
-  flex-direction: row-reverse !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 0.8rem !important;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
 }
 
 .collection-tabs .price-item--sale {
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  color: #000000 !important;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;
 }
 
 .collection-tabs .price-item--regular {
-  font-size: 1.6rem !important;
-  color: #a0a0a0 !important;
-  text-decoration: line-through !important;
-  font-weight: 400 !important;
+  font-size: 1.6rem;
+  color: #a0a0a0;
+  text-decoration: line-through;
+  font-weight: 400;
 }
 
 /* Specifications pills layout and design */
@@ -617,21 +617,21 @@ body{
 }
 
 .collection-tabs .card-product-tabs__spec-pill {
-  background: #f4f4f4 !important;
-  color: #333333 !important;
-  padding: 0.6rem 1.4rem !important;
-  border-radius: 6px !important;
-  font-size: 1.2rem !important;
-  font-weight: 500 !important;
-  line-height: 1.2 !important;
+  background: #f4f4f4;
+  color: #333333;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
   display: inline-block;
-  border: none !important;
+  border: none;
 }
 
 .collection-tabs .card-product-tabs__spec-pill--delivery {
-  background: #e2f0d9 !important;
-  color: #385623 !important;
-  font-weight: 600 !important;
+  background: #e2f0d9;
+  color: #385623;
+  font-weight: 600;
 }
 
 /* Bottom Actions: SHOP NOW & BOOK A TEST RIDE buttons */
@@ -646,43 +646,43 @@ body{
 
 .collection-tabs .card-product-tabs__btn-shop,
 .collection-tabs .card-product-tabs__btn-book {
-  padding: 1.2rem 2.8rem !important;
-  border-radius: 50px !important;
-  font-size: 1.2rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
-  letter-spacing: 0.05em !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  transition: all 0.2s ease !important;
-  line-height: 1.2 !important;
-  height: 4.4rem !important;
-  min-width: 180px !important;
-  box-sizing: border-box !important;
+  padding: 1.2rem 2.8rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+  height: 4.4rem;
+  min-width: 180px;
+  box-sizing: border-box;
 }
 
 .collection-tabs .card-product-tabs__btn-shop {
-  background: #ffd500 !important;
-  color: #000000 !important;
-  border: 1px solid #ffd500 !important;
+  background: #ffd500;
+  color: #000000;
+  border: 1px solid #ffd500;
 }
 
 .collection-tabs .card-product-tabs__btn-shop:hover {
-  background: #e6bf00 !important;
-  border-color: #e6bf00 !important;
+  background: #e6bf00;
+  border-color: #e6bf00;
 }
 
 .collection-tabs .card-product-tabs__btn-book {
-  background: #ffffff !important;
-  color: #000000 !important;
-  border: 1px solid #000000 !important;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .collection-tabs .card-product-tabs__btn-book:hover {
-  background: #000000 !important;
-  color: #ffffff !important;
+  background: #000000;
+  color: #ffffff;
 }
 
 /* Absolute overlays for circular prev/next arrows */
@@ -702,21 +702,21 @@ body{
   width: 100%;
 }
 
-.collection-tabs .collection-tabs__arrow {
+.collection-tabs .collection-tabs__arrows-overlay .collection-tabs__arrow {
   pointer-events: auto;
-  background: #ffffff !important;
-  color: #000000 !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-  width: 48px !important;
-  height: 48px !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  padding: 0 !important;
+  padding: 0;
 }
 
 .collection-tabs .collection-tabs__arrow:hover {
@@ -735,9 +735,9 @@ body{
   .collection-tabs .collection-tabs__arrows-overlay {
     top: 25%;
   }
-  .collection-tabs .collection-tabs__arrow {
-    width: 36px !important;
-    height: 36px !important;
+  .collection-tabs .collection-tabs__arrows-overlay .collection-tabs__arrow {
+    width: 36px;
+    height: 36px;
   }
   .collection-tabs .collection-tabs__arrow[data-collection-tabs-arrow="prev"] {
     margin-left: 1rem;
