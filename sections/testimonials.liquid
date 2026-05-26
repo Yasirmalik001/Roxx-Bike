@@ -1,137 +1,415 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .customer-reviews {
+    overflow: hidden;
+  }
+
+  /* Header Bar */
+  .customer-reviews__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .customer-reviews__heading {
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #000000;
+  }
+
+  .customer-reviews__brand-logo img {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Main Layout */
+  .customer-reviews__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .customer-reviews__layout {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 5rem;
+    }
+  }
+
+  /* Left Summary Card */
+  .customer-reviews__summary-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  }
+
+  @media screen and (min-width: 990px) {
+    .customer-reviews__summary-card {
+      width: 320px;
+      flex-shrink: 0;
+    }
+  }
+
+  .customer-reviews__summary-stars {
+    margin-bottom: 1.5rem;
+  }
+
+  .customer-reviews__summary-stars img,
+  .customer-reviews__summary-stars svg {
+    height: 24px;
+    width: auto;
+  }
+
+  .customer-reviews__summary-rating {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .customer-reviews__summary-count {
+    font-size: 1.3rem;
+    color: #666666;
+    margin: 0 0 4rem 0;
+  }
+
+  /* Custom Navigation Buttons */
+  .customer-reviews__nav-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: auto;
+  }
+
+  .customer-reviews__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #ffd000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .customer-reviews__btn:hover {
+    transform: scale(1.05);
+  }
+
+  .customer-reviews__btn.swiper-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .customer-reviews__btn svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2.5;
+  }
+
+  /* Right Slider Area */
+  .customer-reviews__slider-wrapper {
+    flex-grow: 1;
+    min-width: 0; /* Prevents Swiper from breaking flex container */
+    position: relative;
+  }
+
+  /* Track background line */
+  .customer-reviews__slider-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #eeeeee;
+    z-index: 1;
+  }
+
+  /* Individual Slide Card */
+  .review-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+
+  .review-card__stars {
+    margin-bottom: 1.5rem;
+  }
+
+  .review-card__stars img,
+  .review-card__stars svg {
+    height: 20px;
+    width: auto;
+  }
+
+  .review-card__text {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+
+  .review-card__author {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Active line indicator for slides */
+  .swiper-slide {
+    position: relative;
+    z-index: 2;
+  }
+
+  .swiper-slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+
+  .swiper-slide-active::after {
+    background-color: #ffd000;
+    z-index: 3;
+  }
+{%- endstyle -%}
+
+<div class="customer-reviews section-{{ section.id }}-padding">
+  <div class="page-width">
+    
+    <div class="customer-reviews__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="customer-reviews__heading {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.brand_logo != blank -%}
+        <div class="customer-reviews__brand-logo">
+          {{ section.settings.brand_logo | image_url: width: 300 | image_tag: loading: 'lazy' }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="customer-reviews__layout">
+      
+      <div class="customer-reviews__summary-card">
+        <div class="customer-reviews__summary-stars">
+          {%- if section.settings.summary_stars_image != blank -%}
+            {{ section.settings.summary_stars_image | image_url: width: 150 | image_tag: loading: 'lazy' }}
+          {%- else -%}
+            <svg viewBox="0 0 120 24" fill="#00B67A" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              <path d="M36 17.27L42.18 21l-1.64-7.03L46 9.24l-7.19-.61L36 2 33.19 8.63 26 9.24l5.46 4.73L29.82 21z"/>
+              <path d="M60 17.27L66.18 21l-1.64-7.03L70 9.24l-7.19-.61L60 2 57.19 8.63 50 9.24l5.46 4.73L53.82 21z"/>
+              <path d="M84 17.27L90.18 21l-1.64-7.03L94 9.24l-7.19-.61L84 2 81.19 8.63 74 9.24l5.46 4.73L77.82 21z"/>
+              <path d="M108 17.27L114.18 21l-1.64-7.03L118 9.24l-7.19-.61L108 2 105.19 8.63 98 9.24l5.46 4.73L101.82 21z"/>
+            </svg>
+          {%- endif -%}
+        </div>
+        
+        <p class="customer-reviews__summary-rating">{{ section.settings.summary_rating_text }}</p>
+        <p class="customer-reviews__summary-count">{{ section.settings.summary_count_text }}</p>
+
+        <div class="customer-reviews__nav-buttons">
+          <button class="customer-reviews__btn swiper-prev-{{ section.id }}" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="customer-reviews__btn swiper-next-{{ section.id }}" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="customer-reviews__slider-wrapper">
+        <div class="swiper" id="Swiper-{{ section.id }}">
+          <div class="swiper-wrapper">
+            
+            {%- for block in section.blocks -%}
+              <div class="swiper-slide" {{ block.shopify_attributes }}>
+                <div class="review-card">
+                  <div class="review-card__stars">
+                    {%- if block.settings.stars_image != blank -%}
+                      {{ block.settings.stars_image | image_url: width: 150 | image_tag: loading: 'lazy' }}
+                    {%- else -%}
+                       <svg viewBox="0 0 120 24" fill="#00B67A" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                          <path d="M36 17.27L42.18 21l-1.64-7.03L46 9.24l-7.19-.61L36 2 33.19 8.63 26 9.24l5.46 4.73L29.82 21z"/>
+                          <path d="M60 17.27L66.18 21l-1.64-7.03L70 9.24l-7.19-.61L60 2 57.19 8.63 50 9.24l5.46 4.73L53.82 21z"/>
+                          <path d="M84 17.27L90.18 21l-1.64-7.03L94 9.24l-7.19-.61L84 2 81.19 8.63 74 9.24l5.46 4.73L77.82 21z"/>
+                          <path d="M108 17.27L114.18 21l-1.64-7.03L118 9.24l-7.19-.61L108 2 105.19 8.63 98 9.24l5.46 4.73L101.82 21z"/>
+                        </svg>
+                    {%- endif -%}
+                  </div>
+                  <div class="review-card__text rte">
+                    {{ block.settings.text }}
+                  </div>
+                  <div class="review-card__author">
+                    &mdash; {{ block.settings.author }}
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const initReviewSwiper{{ section.id | replace: '-', '_' }} = () => {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('#Swiper-{{ section.id }}', {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          grabCursor: true,
+          navigation: {
+            nextEl: '.swiper-next-{{ section.id }}',
+            prevEl: '.swiper-prev-{{ section.id }}',
+          },
+          breakpoints: {
+            750: {
+              slidesPerView: 2,
+              spaceBetween: 40
+            },
+            1200: {
+              slidesPerView: 3,
+              spaceBetween: 50
+            }
+          }
+        });
+      } else {
+        setTimeout(initReviewSwiper{{ section.id | replace: '-', '_' }}, 100);
+      }
+    };
+    
+    initReviewSwiper{{ section.id | replace: '-', '_' }}();
+  });
+</script>
+
 {% schema %}
 {
-  "name": "Testimonial Marquee",
+  "name": "Customer Reviews Slider",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Section Color Scheme",
-      "default": "scheme-1"
-    },
-    {
-      "type": "color_scheme",
-      "id": "card_color_scheme",
-      "label": "Card Color Scheme",
-      "default": "scheme-4"
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
     },
     {
       "type": "header",
-      "content": "Top Area ('As seen in')"
-    },
-    {
-      "type": "text",
-      "id": "seen_in_text",
-      "label": "Small Heading",
-      "default": "As seen in"
-    },
-    {
-      "type": "image_picker",
-      "id": "seen_in_logos",
-      "label": "Logos Image (Transparent PNG)"
-    },
-    {
-      "type": "image_picker",
-      "id": "seen_in_logos_2",
-      "label": "Logos Image (Transparent PNG) 2"
-    },
-    {
-      "type": "header",
-      "content": "Main Heading Area"
+      "content": "Header Layout"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Main Heading",
-      "default": "What our customers say"
-    },
-    {
-      "type": "richtext",
-      "id": "subheading",
-      "label": "Subheading / Rating Text",
-      "default": "<p>Rated 4.8 out of 5 Stars (466 Reviews) on</p>"
-    },
-    {
-      "type": "image_picker",
-      "id": "rating_logo",
-      "label": "Rating Partner Logo (e.g., RaveCapture)"
-    },
-    {
-      "type": "header",
-      "content": "Footer Button"
-    },
-    {
-      "type": "text",
-      "id": "btn_text",
-      "label": "Button Text",
-      "default": "View All"
-    },
-    {
-      "type": "url",
-      "id": "btn_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "header",
-      "content": "Marquee Settings"
-    },
-    {
-      "type": "range",
-      "id": "speed",
-      "min": 10,
-      "max": 120,
-      "step": 2,
-      "unit": "s",
-      "label": "Animation Speed",
-      "default": 30
+      "default": "OUR CUSTOMER SAY!",
+      "label": "Heading"
     },
     {
       "type": "select",
-      "id": "direction",
-      "label": "Direction",
+      "id": "heading_size",
       "options": [
-        { "value": "normal", "label": "Right to Left" },
-        { "value": "reverse", "label": "Left to Right" }
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
       ],
-      "default": "normal"
+      "default": "h0",
+      "label": "Heading Size"
     },
     {
-      "type": "checkbox",
-      "id": "pause_on_hover",
-      "label": "Pause on hover",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "card_width_desktop",
-      "min": 250,
-      "max": 500,
-      "step": 10,
-      "unit": "px",
-      "label": "Card Width (Desktop)",
-      "default": 350
-    },
-    {
-      "type": "range",
-      "id": "card_width_mobile",
-      "min": 200,
-      "max": 400,
-      "step": 10,
-      "unit": "px",
-      "label": "Card Width (Mobile)",
-      "default": 280
+      "type": "image_picker",
+      "id": "brand_logo",
+      "label": "Brand Logo (e.g. Trustpilot)"
     },
     {
       "type": "header",
-      "content": "Layout Spacing"
+      "content": "Summary Card (Left)"
+    },
+    {
+      "type": "image_picker",
+      "id": "summary_stars_image",
+      "label": "Summary Stars Image (Manual Override)"
+    },
+    {
+      "type": "text",
+      "id": "summary_rating_text",
+      "label": "Rating Text",
+      "default": "4.2 stars / 5"
+    },
+    {
+      "type": "text",
+      "id": "summary_count_text",
+      "label": "Review Count Text",
+      "default": "(Based on 200+ reviews)"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
     },
     {
       "type": "range",
       "id": "padding_top",
       "min": 0,
       "max": 100,
-      "step": 5,
+      "step": 4,
       "unit": "px",
-      "label": "Padding Top",
+      "label": "Top Padding",
       "default": 60
     },
     {
@@ -139,270 +417,47 @@
       "id": "padding_bottom",
       "min": 0,
       "max": 100,
-      "step": 5,
+      "step": 4,
       "unit": "px",
-      "label": "Padding Bottom",
+      "label": "Bottom Padding",
       "default": 60
     }
   ],
   "blocks": [
     {
-      "type": "testimonial",
-      "name": "Testimonial",
+      "type": "review",
+      "name": "Review",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "stars_image",
+          "label": "Custom Stars Image (Manual Override)"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+          "label": "Review Text"
+        },
         {
           "type": "text",
           "id": "author",
-          "label": "Author Name",
-          "default": "Anna H."
-        },
-        {
-          "type": "range",
-          "id": "stars",
-          "min": 1,
-          "max": 5,
-          "step": 1,
-          "label": "Star Rating",
-          "default": 5
-        },
-        {
-          "type": "textarea",
-          "id": "content",
-          "label": "Review Text",
-          "default": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          "default": "Lena . J",
+          "label": "Author Name"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Testimonial Slider",
+      "name": "Customer Reviews Slider",
       "blocks": [
-        { "type": "testimonial" },
-        { "type": "testimonial" },
-        { "type": "testimonial" },
-        { "type": "testimonial" }
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
       ]
     }
   ]
 }
 {% endschema %}
-
-{%- style -%}
-  .ts-section-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    overflow: hidden;
-  }
-
-  .ts-header-wrapper {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  .ts-header-wrapper .h1 {
-    margin: 10px;
-  }
-
-  .ts-seen-in-box {
-    background-color: #FFF2F2; 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 12px;
-  }
-
-  .ts-seen-in-box img {
-    height: 38px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .ts-subheading-wrapper {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .ts-subheading-wrapper p {
-    margin: 0;
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 125%;
-    letter-spacing: 1%;
-    text-align: center;
-    vertical-align: middle;
-  }
-
-  .ts-subheading-wrapper img {
-    height: 26px;
-    width: auto;
-  }
-
-  .ts-marquee-container {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 20px;
-  }
-
-  .ts-marquee-track {
-    display: flex;
-    width: max-content;
-    animation: scroll-marquee {{ section.settings.speed }}s linear infinite {{ section.settings.direction }};
-    gap: 20px;
-    padding: 0 10px;
-  }
-
-  {% if section.settings.pause_on_hover %}
-  .ts-marquee-track:hover {
-    animation-play-state: paused;
-  }
-  {% endif %}
-
-  @keyframes scroll-marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 10px)); }
-  }
-
-  .ts-card-wrapper {
-    width: {{ section.settings.card_width_mobile }}px;
-    flex-shrink: 0;
-  }
-
-  @media (min-width: 768px) {
-    .ts-card-wrapper {
-      width: {{ section.settings.card_width_desktop }}px;
-    }
-  }
-
-  .ts-card {
-    border-radius: 20px;
-    padding: 30px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 180px;
-    box-sizing: border-box;
-    justify-content: space-between;
-  }
-
-  @media (max-width: 768px) {
-    .ts-card { padding: 24px; min-height: 200px; }
-    .ts-marquee-track{
-      animation: scroll-marquee 25s linear infinite {{ section.settings.direction }};
-    }
-  }
-
-  .ts-main-headin.h1 {
-    margin-bottom: 5px;
-  }
-
-  .ts-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .ts-card-author {
-    font-family: Inter;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 125%;
-    text-transform: capitalize;
-    margin: 0;
-    color: white;
-  }
-
-  .ts-stars {
-    display: flex;
-    gap: 2px;
-  }
-
-  .ts-card-text {
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 125%;
-    color: #FFFFFF;
-  }
-
-  .ts-footer-action {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
-{%- endstyle -%}
-
-<div class="ts-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient isolate">
-  <div class="page-width">
-    
-    <div class="ts-header-wrapper">
-      {% if section.settings.seen_in_text != blank or section.settings.seen_in_logos != blank %}
-        <h3 class="h1">{{ section.settings.seen_in_text }}</h3>
-        {% if section.settings.seen_in_logos != blank %}
-          <div class="ts-seen-in-box">
-            <img src="{{ section.settings.seen_in_logos | image_url: width: 600 }}" alt="As seen in" loading="lazy">
-            <img src="{{ section.settings.seen_in_logos_2 | image_url: width: 600 }}" alt="As seen in" loading="lazy">
-          </div>
-        {% endif %}
-      {% endif %}
-
-      <h2 class="ts-main-headin h1">{{ section.settings.heading }}</h2>
-      
-      <div class="ts-subheading-wrapper">
-        {{ section.settings.subheading }}
-        {% if section.settings.rating_logo != blank %}
-          <img src="{{ section.settings.rating_logo | image_url: width: 200 }}" alt="Rating Partner" loading="lazy">
-        {% endif %}
-      </div>
-    </div>
-  </div>
-
-  <div class="ts-marquee-container">
-    <div class="ts-marquee-track">
-      {%- capture marquee_content -%}
-        {%- for block in section.blocks -%}
-          <div class="ts-card-wrapper" {{ block.shopify_attributes }}>
-            <div class="ts-card color-{{ section.settings.card_color_scheme }} gradient">
-              <div class="ts-card-header">
-                <div class="ts-card-author">{{ block.settings.author }}</div>
-                <div class="ts-stars">
-                 {%- for i in (1..block.settings.stars) -%}
-                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <path d="M9.00002 13.7475L5.26502 15.9975C5.10002 16.1025 4.92752 16.1475 4.74752 16.1325C4.56752 16.1175 4.41002 16.0575 4.27502 15.9525C4.14002 15.8475 4.03502 15.7164 3.96002 15.5592C3.88502 15.402 3.87002 15.2256 3.91502 15.03L4.90502 10.7775L1.59752 7.91998C1.44752 7.78498 1.35392 7.63108 1.31672 7.45828C1.27952 7.28548 1.29062 7.11688 1.35002 6.95248C1.40942 6.78808 1.49942 6.65308 1.62002 6.54748C1.74062 6.44188 1.90562 6.37438 2.11502 6.34498L6.48002 5.96248L8.16752 1.95748C8.24252 1.77748 8.35892 1.64248 8.51672 1.55248C8.67452 1.46248 8.83562 1.41748 9.00002 1.41748C9.16442 1.41748 9.32552 1.46248 9.48332 1.55248C9.64112 1.64248 9.75752 1.77748 9.83252 1.95748L11.52 5.96248L15.885 6.34498C16.095 6.37498 16.26 6.44248 16.38 6.54748C16.5 6.65248 16.59 6.78748 16.65 6.95248C16.71 7.11748 16.7214 7.28638 16.6842 7.45918C16.647 7.63198 16.5531 7.78558 16.4025 7.91998L13.095 10.7775L14.085 15.03C14.13 15.225 14.115 15.4014 14.04 15.5592C13.965 15.717 13.86 15.8481 13.725 15.9525C13.59 16.0569 13.4325 16.1169 13.2525 16.1325C13.0725 16.1481 12.9 16.1031 12.735 15.9975L9.00002 13.7475Z" fill="white"/>
-                   </svg>
-                 {%- endfor -%}
-                </div>
-              </div>
-              
-              <p class="ts-card-text">{{ block.settings.content }}</p>
-              
-            </div>
-          </div>
-        {%- endfor -%}
-      {%- endcapture -%}
-      
-      {{ marquee_content }}
-      {{ marquee_content }}
-    </div>
-  </div>
-
-  <div class="page-width">
-    {% if section.settings.btn_text != blank and section.settings.btn_link != blank %}
-      <div class="ts-footer-action">
-        <a href="{{ section.settings.btn_link }}" class="button button--secondary">
-          {{ section.settings.btn_text }}
-        </a>
-      </div>
-    {% endif %}
-  </div>
-
-</div>
