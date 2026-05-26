@@ -62,7 +62,7 @@
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
-        "menu": "",
+        "menu": "main-menu",
         "menu_type_desktop": "mega",
         "enable_center_menu": true,
         "sticky_header_type": "on-scroll-up",
