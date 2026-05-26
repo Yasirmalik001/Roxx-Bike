@@ -1,1 +1,96 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement_bar_timer_jnccnD":{"type":"announcement-bar-timer","name":"Announcement Timer","settings":{"color_scheme":"","text":"30% OFF Store Wide | Sale ends in:","end_date":"2026\/12\/31 23:59:59","hide_on_expire":false,"label_days":"Days","label_hours":"Hours","label_minutes":"Minutes","label_seconds":"Seconds"}},"header":{"type":"header","settings":{"logo_position":"middle-center","mobile_logo_position":"center","menu":"main-menu-2","menu_type_desktop":"mega","enable_center_menu":true,"sticky_header_type":"on-scroll-up","show_line_separator":true,"enable_transparent_header":true,"transparent_logo":"shopify:\/\/shop_images\/Group_8.svg","enable_full_width":true,"color_scheme":"scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41","menu_color_scheme":"scheme-1","enable_country_selector":true,"enable_language_selector":true,"enable_customer_avatar":true,"margin_bottom":0,"padding_top":0,"padding_bottom":0}}},"order":["announcement_bar_timer_jnccnD","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement_bar_UkxFwA": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_mYKFjr": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welkom in onze winkel",
+            "link": "",
+            "icon": "none"
+          }
+        },
+        "announcement_m6TKDU": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welkom in onze winkel",
+            "link": "",
+            "icon": "none"
+          }
+        },
+        "announcement_YW3UHx": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welkom in onze winkel",
+            "link": "",
+            "icon": "none"
+          }
+        },
+        "announcement_JrG3NW": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welkom in onze winkel",
+            "link": "",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_mYKFjr",
+        "announcement_m6TKDU",
+        "announcement_YW3UHx",
+        "announcement_JrG3NW"
+      ],
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "store_location_label": "Store location",
+        "store_location_link": ""
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-center",
+        "mobile_logo_position": "center",
+        "menu": "",
+        "menu_type_desktop": "mega",
+        "enable_center_menu": true,
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "enable_transparent_header": true,
+        "enable_full_width": true,
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_UkxFwA",
+    "header"
+  ]
+}
