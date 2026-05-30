@@ -1,6 +1,7 @@
 {% comment %}
   Renders a product card
-  (Original logic preserved, Roxx Design applied)
+  Designed 1:1 based on image_3fc602.png
+  Requires dynamic text from Metafields and Section/Theme settings.
 {% endcomment %}
 
 {%- unless skip_styles -%}
@@ -12,10 +13,10 @@
 {%- endunless -%}
 
 <style>
-  /* ROXX Custom Design Overrides */
+  /* ROXX Custom Design Overrides - 1:1 Match */
   .roxx-product-card {
     background-color: #F8F9FA !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important;
     padding: 1.5rem !important;
     display: flex;
     flex-direction: column;
@@ -32,40 +33,42 @@
     background: transparent !important;
     border: none !important;
     padding-top: 100%; /* 1:1 Aspect Ratio */
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     position: relative;
   }
   .roxx-product-card .card__inner img {
-    max-width: 110%;
-    max-height: 110%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain !important;
-    mix-blend-mode: multiply;
+    mix-blend-mode: multiply; /* Helps blend white image backgrounds into the grey card */
+    transform: scale(1.15); /* Slightly enlarges bike to match mockup bleeding */
   }
   .roxx-card-title {
-    font-size: 1.6rem;
-    font-weight: 800;
+    font-size: 1.4rem;
+    font-weight: 900;
     color: #111111;
-    margin: 0 0 0.2rem 0;
+    margin: 0 0 0.1rem 0;
     line-height: 1.2;
     text-decoration: none;
     letter-spacing: -0.02em;
   }
   .roxx-card-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: #555555;
-    margin: 0 0 1.2rem 0;
+    margin: 0 0 1rem 0;
+    font-weight: 500;
   }
   .roxx-specs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
   }
   .roxx-spec-pill {
     background-color: #FFFFFF;
-    padding: 0.6rem 0.5rem;
-    border-radius: 8px;
-    font-size: 0.75rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
     color: #333333;
     text-align: center;
     font-weight: 500;
@@ -81,55 +84,55 @@
     flex-wrap: wrap;
   }
   .roxx-price-current {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 900;
     color: #111111;
   }
   .roxx-price-compare {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     font-weight: 700;
     color: #A3A3A3;
     text-decoration: line-through;
   }
   .roxx-save-badge {
-    background-color: #B92330;
+    background-color: #B22222; /* Matched dark red from image */
     color: #FFFFFF;
-    padding: 0.3rem 0.6rem;
+    padding: 0.25rem 0.6rem;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
   }
   .roxx-actions-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
+    gap: 0.6rem;
     margin-top: auto;
     margin-bottom: 1rem;
     align-items: end;
   }
-  /* Override Default Quick Add Button */
+  /* Buttons */
   .roxx-actions-row .quick-add__submit,
   .roxx-actions-row .roxx-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 10px;
+    padding: 10px 5px;
     border-radius: 30px !important;
-    font-size: 0.8rem;
-    font-weight: 800;
+    font-size: 0.75rem;
+    font-weight: 900;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
     transition: opacity 0.2s ease;
     text-align: center;
-    min-height: 44px;
+    min-height: 40px;
     margin: 0;
     width: 100%;
   }
   .roxx-actions-row .quick-add__submit {
     background-color: #FFD100 !important;
     color: #000000 !important;
-    border: 1px solid #FFD100 !important;
+    border: none !important;
     box-shadow: none !important;
   }
   .roxx-actions-row .quick-add__submit:hover { opacity: 0.85; }
@@ -143,16 +146,21 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #555555;
     font-weight: 500;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
-  .roxx-payment-mock { display: flex; align-items: center; gap: 4px; }
-  .mock-klarna { background: #FFA8C2; color: #000; padding: 2px 5px; border-radius: 3px; font-weight: 800; font-size: 0.55rem; }
-  .mock-ideal { background: #fff; color: #000; padding: 1px 4px; border-radius: 3px; border: 1px solid #000; font-weight: 800; font-size: 0.55rem; }
-  .mock-spraypay { color: #0076B6; font-weight: 800; font-size: 0.55rem; }
+  .roxx-payment-logos {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .roxx-payment-logos img {
+    height: 14px; /* Adjust height based on your payment logo image */
+    width: auto;
+  }
   
   /* Hide standard card info to replace with Roxx layout */
   .roxx-product-card > .card__content { padding: 0 !important; }
@@ -179,6 +187,11 @@
         break
       endif
     endfor
+    
+    assign text_shop_now = section.settings.shop_now_text | default: 'SHOP NOW'
+    assign text_test_ride = section.settings.test_ride_text | default: 'BOOK A TEST RIDE'
+    assign link_test_ride = section.settings.test_ride_link | default: '/pages/contact'
+    assign text_payment = section.settings.payment_text | default: 'Pay in 3 interest-free installments'
   -%}
   
   <div class="card-wrapper product-card-wrapper underline-links-hover roxx-product-card">
@@ -258,23 +271,34 @@
         <a href="{{ card_product.url }}" style="text-decoration: none;">
           <h3 class="roxx-card-title">{{ card_product.title | escape }}</h3>
         </a>
-        <p class="roxx-card-subtitle">
-          {{ card_product.metafields.custom.subtitle | default: 'For easy commuting' }}
-        </p>
+        
+        <!-- Dynamic Subtitle -->
+        {% if card_product.metafields.custom.subtitle != blank %}
+          <p class="roxx-card-subtitle">{{ card_product.metafields.custom.subtitle }}</p>
+        {% endif %}
 
+        <!-- Dynamic Specs Grid -->
         <div class="roxx-specs-grid">
-          <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_1 | default: 'Endless design frame' }}">
-            {{ card_product.metafields.custom.spec_1 | default: 'Endless design frame' }}
-          </div>
-          <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_2 | default: 'Range of 80-90km' }}">
-            {{ card_product.metafields.custom.spec_2 | default: 'Range of 80-90km' }}
-          </div>
-          <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_3 | default: 'Speed 45-50 km/h' }}">
-            {{ card_product.metafields.custom.spec_3 | default: 'Speed 45-50 km/h' }}
-          </div>
-          <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_4 | default: 'Hydraulics brakes' }}">
-            {{ card_product.metafields.custom.spec_4 | default: 'Hydraulics brakes' }}
-          </div>
+          {% if card_product.metafields.custom.spec_1 != blank %}
+            <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_1 }}">
+              {{ card_product.metafields.custom.spec_1 }}
+            </div>
+          {% endif %}
+          {% if card_product.metafields.custom.spec_2 != blank %}
+            <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_2 }}">
+              {{ card_product.metafields.custom.spec_2 }}
+            </div>
+          {% endif %}
+          {% if card_product.metafields.custom.spec_3 != blank %}
+            <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_3 }}">
+              {{ card_product.metafields.custom.spec_3 }}
+            </div>
+          {% endif %}
+          {% if card_product.metafields.custom.spec_4 != blank %}
+            <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_4 }}">
+              {{ card_product.metafields.custom.spec_4 }}
+            </div>
+          {% endif %}
         </div>
 
         <div class="roxx-price-row">
@@ -335,7 +359,7 @@
                     aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
                     data-product-url="{{ card_product.url }}"
                   >
-                    {{ 'products.product.choose_options' | t | replace: 'Choose options', 'SHOP NOW' }}
+                    {{ text_shop_now }}
                     {%- render 'loading-spinner' -%}
                   </button>
                 </modal-opener>
@@ -363,7 +387,7 @@
                     >
                       <span>
                         {%- if card_product.selected_or_first_available_variant.available -%}
-                          SHOP NOW
+                          {{ text_shop_now }}
                         {%- else -%}
                           {{ 'products.product.sold_out' | t }}
                         {%- endif -%}
@@ -375,26 +399,28 @@
                 </product-form>
               {%- endif -%}
             </div>
-          {% elsif quick_add == 'bulk' %}
-            <div style="width: 100%;">
-              <a href="{{ card_product.url }}" class="quick-add__submit" style="background-color: #FFD100; color: #000; text-decoration: none;">SHOP NOW</a>
-            </div>
           {% else %}
              <div style="width: 100%;">
-              <a href="{{ card_product.url }}" class="quick-add__submit" style="background-color: #FFD100; color: #000; text-decoration: none;">SHOP NOW</a>
+              <a href="{{ card_product.url }}" class="quick-add__submit" style="background-color: #FFD100; color: #000; text-decoration: none;">{{ text_shop_now }}</a>
             </div>
           {% endif %}
           
-          <a href="/pages/contact" class="roxx-btn roxx-btn-secondary">BOOK A TEST RIDE</a>
+          <a href="{{ link_test_ride }}" class="roxx-btn roxx-btn-secondary">{{ text_test_ride }}</a>
         </div>
 
         <div class="roxx-payment-strip">
-          <div class="roxx-payment-mock">
-            <span class="mock-spraypay">SPRAYPAY</span>
-            <span class="mock-ideal">iDEAL</span>
-            <span class="mock-klarna">Klarna.</span>
+          <div class="roxx-payment-logos">
+             <!-- If using an image uploaded to theme settings for logos, otherwise fallbacks to text -->
+            {% if section.settings.payment_logos_image != blank %}
+              <img src="{{ section.settings.payment_logos_image | image_url: width: 200 }}" alt="Payment Methods" loading="lazy">
+            {% else %}
+               <!-- Replace this mock HTML with your actual asset if needed -->
+               <span style="color:#0076B6;font-weight:900;font-size:0.5rem;font-style:italic;">SPRAYPAY</span>
+               <span style="background:#fff;border:1px solid #000;border-radius:3px;padding:1px 3px;font-weight:900;font-size:0.5rem;">in3</span>
+               <span style="background:#FFA8C2;color:#000;border-radius:3px;padding:1px 3px;font-weight:900;font-size:0.5rem;">Klarna.</span>
+            {% endif %}
           </div>
-          <span>Pay in 3 interest-free installments</span>
+          <span>{{ text_payment }}</span>
         </div>
 
       </div>
@@ -409,7 +435,7 @@
       </div>
     </div>
     <div class="card__content" style="display: flex; flex-direction: column; flex-grow: 1;">
-      <h3 class="roxx-card-title">SL5</h3>
+      <h3 class="roxx-card-title">RX1+</h3>
       <p class="roxx-card-subtitle">For easy commuting</p>
       <div class="roxx-specs-grid">
         <div class="roxx-spec-pill">Endless design frame</div>
@@ -427,10 +453,10 @@
         <div class="roxx-btn roxx-btn-secondary">BOOK A TEST RIDE</div>
       </div>
       <div class="roxx-payment-strip">
-        <div class="roxx-payment-mock">
-          <span class="mock-spraypay">SPRAYPAY</span>
-          <span class="mock-ideal">iDEAL</span>
-          <span class="mock-klarna">Klarna.</span>
+        <div class="roxx-payment-logos">
+           <span style="color:#0076B6;font-weight:900;font-size:0.5rem;font-style:italic;">SPRAYPAY</span>
+           <span style="background:#fff;border:1px solid #000;border-radius:3px;padding:1px 3px;font-weight:900;font-size:0.5rem;">in3</span>
+           <span style="background:#FFA8C2;color:#000;border-radius:3px;padding:1px 3px;font-weight:900;font-size:0.5rem;">Klarna.</span>
         </div>
         <span>Pay in 3 interest-free installments</span>
       </div>
