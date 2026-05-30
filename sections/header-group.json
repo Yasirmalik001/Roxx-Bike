@@ -17,25 +17,25 @@
         "announcement_LyMaAy": {
           "type": "announcement",
           "settings": {
-            "text": "Welkom in onze winkel",
+            "text": "Free Shipping from $79.95",
             "link": "",
-            "icon": "none"
+            "icon": "shipping"
           }
         },
         "announcement_RpzTqz": {
           "type": "announcement",
           "settings": {
-            "text": "Welkom in onze winkel",
+            "text": "Pay in Installments",
             "link": "",
-            "icon": "none"
+            "icon": "payment"
           }
         },
         "announcement_LqweQp": {
           "type": "announcement",
           "settings": {
-            "text": "Welkom in onze winkel",
+            "text": "2-Year Warranty",
             "link": "",
-            "icon": "none"
+            "icon": "warranty"
           }
         }
       },

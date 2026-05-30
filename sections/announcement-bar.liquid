@@ -75,7 +75,7 @@
     
     <!-- Right side selectors and store location link -->
     <div class="utility-bar-desktop__right">
-      {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+      {%- if section.settings.enable_country_selector and localization.available_countries.size >= 1 -%}
         <localization-form>
           {%- form 'localization', id: 'AnnouncementCountryFormDesktop', class: 'localization-form' -%}
             <div>
@@ -290,7 +290,7 @@
       {%- endif -%}
     {%- endif -%}
     <div class="localization-wrapper" style="display: flex; align-items: center; gap: 2rem;">
-      {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+      {%- if section.settings.enable_country_selector and localization.available_countries.size >= 1 -%}
         <localization-form class="small-hide medium-hide">
           {%- form 'localization', id: 'AnnouncementCountryForm', class: 'localization-form' -%}
             <div>
