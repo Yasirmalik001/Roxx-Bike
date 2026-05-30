@@ -1,76 +1,231 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  @media screen and (max-width: 749px) {
-    .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+<style>
+  .custom-collection-hero {
+    position: relative;
+    width: 100%;
+    min-height: {{ section.settings.desktop_height }}px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #111111;
+  }
+
+  .custom-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .custom-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .custom-hero-bg svg {
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+    fill: #555555;
+  }
+
+  .custom-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+  }
+
+  .custom-hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: var(--page-width, 1400px);
+    margin: 0 auto;
+    padding: 3rem 5rem 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .custom-hero-center {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-hero-title {
+    font-family: inherit;
+    font-size: 4.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .custom-hero-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: auto;
+  }
+
+  .custom-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .custom-breadcrumbs a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .custom-breadcrumbs a:hover {
+    opacity: 0.7;
+  }
+
+  .breadcrumb-separator {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 990px) {
+    .custom-hero-content {
+      padding: 3rem 3rem 2rem 3rem;
     }
   }
-{%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+  @media screen and (max-width: 749px) {
+    .custom-collection-hero {
+      min-height: {{ section.settings.mobile_height }}px;
+    }
+    .custom-hero-content {
+      padding: 2rem 2rem 1.5rem 2rem;
+    }
+    .custom-hero-title {
+      font-size: 2.8rem;
+    }
+  }
+</style>
+
+<div class="custom-collection-hero">
+  <!-- Background Image -->
+  <div class="custom-hero-bg">
+    {%- if section.settings.show_collection_image and collection.image -%}
+      <img
+        srcset="
+          {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if collection.image.width >= 1100 -%}{{ collection.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+          {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {%- if collection.image.width >= 2000 -%}{{ collection.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+          {{ collection.image | image_url }} {{ collection.image.width }}w
+        "
+        src="{{ collection.image | image_url: width: 1500 }}"
+        sizes="100vw"
+        alt="{{ collection.image.alt | escape }}"
+        width="{{ collection.image.width }}"
+        height="{{ collection.image.height }}"
+        fetchpriority="high"
+      >
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+
+  <!-- Dark Overlay for Text Legibility -->
+  <div class="custom-hero-overlay"></div>
+
+  <!-- Content & Breadcrumbs -->
+  <div class="custom-hero-content page-width">
+    <div class="custom-hero-center">
+      <h1 class="custom-hero-title">
+        <span class="visually-hidden">Collection: </span>
         {{- collection.title | escape -}}
       </h1>
-
-      {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
-      {%- endif -%}
     </div>
-
-    {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="collection-hero__image-container media gradient">
-        <img
-          srcset="
-            {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
-            {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-            {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
-            {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-            {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
-            {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
-            {{ collection.image | image_url }} {{ collection.image.width }}w
-          "
-          src="{{ collection.image | image_url: width: 750 }}"
-          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-          alt="{{ collection.image.alt | escape }}"
-          width="{{ collection.image.width }}"
-          height="{{ collection.image.height }}"
-        >
+    
+    {% if section.settings.show_breadcrumbs %}
+      <div class="custom-hero-bottom">
+        <nav class="custom-breadcrumbs" aria-label="breadcrumbs">
+          <a href="{{ routes.root_url }}">Home</a>
+          <span class="breadcrumb-separator">›</span>
+          <span>{{ collection.title | escape }}</span>
+        </nav>
       </div>
-    {%- endif -%}
+    {% endif %}
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.main-collection-banner.name",
+  "name": "Collection Banner Custom",
   "class": "section",
   "settings": [
     {
       "type": "paragraph",
-      "content": "t:sections.main-collection-banner.settings.paragraph.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_collection_description",
-      "default": true,
-      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+      "content": "Displays a full-width collection banner with centered title and breadcrumbs."
     },
     {
       "type": "checkbox",
       "id": "show_collection_image",
-      "default": false,
-      "label": "t:sections.main-collection-banner.settings.show_collection_image.label"
+      "default": true,
+      "label": "Show collection image"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "default": true,
+      "label": "Show breadcrumbs"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image overlay opacity",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop height",
+      "default": 450
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 200,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile height",
+      "default": 300
     }
   ]
 }
