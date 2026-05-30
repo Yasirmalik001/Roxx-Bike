@@ -2037,3 +2037,278 @@ cart-drawer-items {
     gap: 1.5rem !important;
   }
 }
+
+/* ==========================================================================
+   Header and Bottom Promo Bar Figma Redesign Styles
+   ========================================================================== */
+.header__icons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.2rem !important;
+}
+
+.header__icon.header__icon--account,
+.header__icon.header__icon--cart {
+  width: 4.4rem !important;
+  height: 4.4rem !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+
+/* Default / Transparent States */
+.header-transparent:not(.header-scrolled):not(.header-hovered) .header__icon--account,
+.header-transparent:not(.header-scrolled):not(.header-hovered) .header__icon--cart {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.header-transparent:not(.header-scrolled):not(.header-hovered) .header__icon--account:hover,
+.header-transparent:not(.header-scrolled):not(.header-hovered) .header__icon--cart:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Scrolled / Reverted States */
+.header-scrolled .header__icon--account,
+.header-scrolled .header__icon--cart,
+.header-hovered .header__icon--account,
+.header-hovered .header__icon--cart,
+.header-wrapper:not(.header-transparent) .header__icon--account,
+.header-wrapper:not(.header-transparent) .header__icon--cart {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.header-scrolled .header__icon--account:hover,
+.header-scrolled .header__icon--cart:hover,
+.header-hovered .header__icon--account:hover,
+.header-hovered .header__icon--cart:hover,
+.header-wrapper:not(.header-transparent) .header__icon--account:hover,
+.header-wrapper:not(.header-transparent) .header__icon--cart:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Cart Bubble */
+.header__icons .cart-count-bubble {
+  background-color: #ffd500 !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  width: 1.8rem !important;
+  height: 1.8rem !important;
+  border-radius: 50% !important;
+  border: 1.5px solid #000000 !important;
+  top: -0.4rem !important;
+  left: 2.6rem !important;
+}
+
+.header-transparent:not(.header-scrolled):not(.header-hovered) .cart-count-bubble {
+  border-color: #ffffff !important;
+}
+
+/* Book a Test Ride Header Button */
+.header__button-ride {
+  height: auto !important;
+  min-height: 4.4rem !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  padding: 1rem 2.4rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+  text-transform: capitalize !important;
+}
+
+/* Transparent state */
+.header-transparent:not(.header-scrolled):not(.header-hovered) .header__button-ride {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.header-transparent:not(.header-scrolled):not(.header-hovered) .header__button-ride:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Scrolled/White state */
+.header-scrolled .header__button-ride,
+.header-hovered .header__button-ride,
+.header-wrapper:not(.header-transparent) .header__button-ride {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+}
+
+.header-scrolled .header__button-ride:hover,
+.header-hovered .header__button-ride:hover,
+.header-wrapper:not(.header-transparent) .header__button-ride:hover {
+  background: #2b2b2b !important;
+  border-color: #2b2b2b !important;
+}
+
+/* Hide Search in transparent header desktop */
+@media screen and (min-width: 990px) {
+  .header-transparent .header__icons details-modal.header__search {
+    display: none !important;
+  }
+}
+
+/* Bottom Promo Bar Glassmorphic Style */
+.header-promo-bar {
+  margin: 1rem 5rem 0 5rem;
+  background: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  box-sizing: border-box !important;
+  transition: opacity 0.3s ease;
+  z-index: 11;
+  position: relative;
+}
+
+@media screen and (max-width: 749px) {
+  .header-promo-bar {
+    margin: 1rem 1.5rem 0 1.5rem;
+  }
+}
+
+.scrolled-past-header .header-promo-bar {
+  display: none !important;
+}
+
+.header-promo-bar__content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1rem 2rem !important;
+  position: relative !important;
+  gap: 1.2rem !important;
+  min-height: 4rem !important;
+}
+
+.header-promo-bar__icon-info {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: #ffffff !important;
+  opacity: 0.9;
+}
+
+.header-promo-bar__text {
+  margin: 0 !important;
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.02em !important;
+  text-align: center !important;
+  color: #ffffff !important;
+}
+
+.header-promo-bar__text .highlight-yellow {
+  color: #ffd500 !important;
+  font-weight: 700 !important;
+}
+
+.header-promo-bar__link {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  margin-left: 1rem !important;
+  font-weight: 600 !important;
+}
+
+.header-promo-bar__close {
+  position: absolute !important;
+  right: 2rem !important;
+  background: transparent !important;
+  border: none !important;
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.5rem !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.header-promo-bar__close:hover {
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   Custom Banner Figma Redesign Styles
+   ========================================================================== */
+.custom-banner-section .btn-custom-banner {
+  gap: 1.6rem !important;
+  margin-top: 1.5rem !important;
+}
+
+.custom-banner-section .btn-custom-banner .button {
+  border-radius: 50px !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  padding: 1.2rem 3.2rem !important;
+  height: auto !important;
+  min-height: 4.8rem !important;
+  line-height: 1.2 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.8rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.custom-banner-section .btn-custom-banner .button--primary {
+  background: #ffd500 !important;
+  color: #000000 !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.custom-banner-section .btn-custom-banner .button--primary:hover {
+  background: #e6bf00 !important;
+}
+
+.custom-banner-section .btn-custom-banner .button--secondary {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.custom-banner-section .btn-custom-banner .button--secondary:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Trustpilot Badge Container */
+.custom-banner-section .banner-review-block {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50px !important;
+  padding: 0.8rem 1.8rem !important;
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  margin-bottom: 1.5rem !important;
+  width: fit-content !important;
+}

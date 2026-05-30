@@ -12,10 +12,17 @@
     "custom_banner_XE8idV": {
       "type": "custom-banner",
       "blocks": {
+        "review_badge_VWVA4x": {
+          "type": "review_badge",
+          "settings": {
+            "review_text": "4.2★ Verified Reviews",
+            "custom_svg": "<div style=\"display: flex; align-items: center; gap: 6px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"#00b67a\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192L12 .587z\"/></svg><span style=\"color:#00b67a; font-weight:700;\">Trustpilot</span></div>"
+          }
+        },
         "heading_VWVA4z": {
           "type": "heading",
           "settings": {
-            "heading": "When E-bike meets life"
+            "heading": "WHEN E-BIKE MEETS LIFE"
           }
         },
         "subheading_DAaYnw": {
@@ -27,14 +34,15 @@
         "buttons_qkDF6J": {
           "type": "buttons",
           "settings": {
-            "button_text": "Explore Models",
+            "button_text": "Shop E-Bikes →",
             "button_link": "shopify://collections/all",
-            "button_text2": "Explore Models",
+            "button_text2": "Explore Models →",
             "button_link2": "shopify://collections"
           }
         }
       },
       "block_order": [
+        "review_badge_VWVA4x",
         "heading_VWVA4z",
         "subheading_DAaYnw",
         "buttons_qkDF6J"

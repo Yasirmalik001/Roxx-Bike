@@ -617,8 +617,38 @@
           </div>
         {%- endif -%}
       </a>
+      {%- if section.settings.header_button_label != blank -%}
+        <a href="{{ section.settings.header_button_link | default: '#' }}" class="header__button-ride button">
+          {{ section.settings.header_button_label }}
+        </a>
+      {%- endif -%}
     </div>
   </header>
+  {%- if section.settings.show_promo_bar -%}
+    <div class="header-promo-bar">
+      <div class="header-promo-bar__content page-width">
+        <span class="header-promo-bar__icon-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-info" style="width: 1.8rem; height: 1.8rem;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </span>
+        <p class="header-promo-bar__text">
+          Limited deal: Get the JX e bike in new color and <span class="highlight-yellow">Save upto 25%</span> 
+          {%- if section.settings.promo_bar_link_text != blank -%}
+            <a href="{{ section.settings.promo_bar_link | default: '#' }}" class="header-promo-bar__link">{{ section.settings.promo_bar_link_text }}</a>
+          {%- endif -%}
+        </p>
+        <button class="header-promo-bar__close" aria-label="Close promotion">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-close" style="width: 1.6rem; height: 1.6rem;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  {%- endif -%}
 </{{ header_tag }}>
 
 {%- if settings.cart_type == 'notification' -%}
@@ -804,6 +834,14 @@
 
     // Tabbed Megamenu Interactions
     document.addEventListener('DOMContentLoaded', () => {
+      // Close header promo bar
+      const promoClose = document.querySelector('.header-promo-bar__close');
+      if (promoClose) {
+        promoClose.addEventListener('click', () => {
+          document.querySelector('.header-promo-bar').style.display = 'none';
+        });
+      }
+
       const megamenus = document.querySelectorAll('.megamenu-tabbed-container');
       
       megamenus.forEach((megamenu) => {
@@ -1088,6 +1126,42 @@
       "unit": "px",
       "label": "Bottom padding",
       "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Promo Bar Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_promo_bar",
+      "default": true,
+      "label": "Show bottom promo bar"
+    },
+    {
+      "type": "text",
+      "id": "promo_bar_link_text",
+      "label": "Promo link text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "promo_bar_link",
+      "label": "Promo link url"
+    },
+    {
+      "type": "header",
+      "content": "Header Button"
+    },
+    {
+      "type": "text",
+      "id": "header_button_label",
+      "label": "Button label",
+      "default": "Book a test ride"
+    },
+    {
+      "type": "url",
+      "id": "header_button_link",
+      "label": "Button link"
     }
   ],
   "blocks": [
