@@ -151,12 +151,11 @@
     .header-transparent .header__active-menu-item {
       color: rgb(255, 255, 255);
     }
-{% comment %} 
-    .header-transparent.header-scrolled .header-wrapper,
-    .header-transparent.header-hovered .header-wrapper {
+
+    .header-transparent.header-scrolled .header-wrapper {
       background: rgb(255, 255, 255);
       background-color: rgb(255, 255, 255);
-    } {% endcomment %}
+    }
 
     .header-transparent .header__icon svg,
     .header-transparent .svg-wrapper svg,
@@ -265,16 +264,14 @@
       left: 0;
       right: 0;
     }
-{% comment %} 
-    .header-transparent.header-scrolled .header-wrapper,
-    .header-transparent.header-hovered .header-wrapper {
+
+    .header-transparent.header-scrolled .header-wrapper {
       background: rgb(255, 255, 255);
       background-color: rgb(255, 255, 255);
       width: 100%;
-    } {% endcomment %}
+    }
 
-    .header-transparent.header-scrolled .header-wrapper.gradient,
-    .header-transparent.header-hovered .header-wrapper.gradient {
+    .header-transparent.header-scrolled .header-wrapper.gradient.gradient {
       background: rgb(255, 255, 255);
       background-color: rgb(255, 255, 255);
       background-image: none;
@@ -293,10 +290,8 @@
     }
 
     /* Ensure no gaps or spacing issues */
-    .header-transparent.header-scrolled .header-wrapper::before,
-    .header-transparent.header-hovered .header-wrapper::before,
-    .header-transparent.header-scrolled .header-wrapper::after,
-    .header-transparent.header-hovered .header-wrapper::after {
+    .header-transparent.header-scrolled .header-wrapper::before::before,
+    .header-transparent.header-scrolled .header-wrapper::after::after {
       display: none;
     }
   {%- endif -%}
