@@ -45,10 +45,34 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "rich_text_JXmCia": {
+      "type": "rich-text",
+      "blocks": {
+        "text_9LiYQj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Deel informatie over je merk met klanten. Beschrijf een product, doe aankondigingen of verwelkom klanten in je winkel.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_9LiYQj"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
-    "hero_slideshow_V3NdcU"
+    "hero_slideshow_V3NdcU",
+    "rich_text_JXmCia"
   ]
 }
