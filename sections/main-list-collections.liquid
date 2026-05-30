@@ -1,123 +1,356 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width">
-  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    {{ section.settings.title }}
-  </h1>
+<style>
+  /* Custom Styles for 1-to-1 match with image_4a3700.png */
+  .bikes-header {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .bikes-header__reviews {
+    color: #00b67a; /* Trustpilot green */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .bikes-header__title {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+  }
+  .bikes-header__desc {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  .btn-outline {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 1px solid #111;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover {
+    background: #111;
+    color: #fff;
+  }
+  
+  /* Category Banner */
+  .category-banner {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin: 4rem 0 3rem 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Bike Card Styles */
+  .bike-card {
+    background: #f7f7f7;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .bike-card__image-wrapper {
+    margin-bottom: 2rem;
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bike-card__image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .bike-card__info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .bike-card__title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .bike-card__subtitle {
+    font-size: 1.2rem;
+    color: #444;
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+  }
+  .bike-card__specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  .bike-card__spec-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.8rem 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    color: #333;
+    font-weight: 500;
+  }
+  .bike-card__pricing {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .bike-card__price-current {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0;
+    color: #111;
+  }
+  .bike-card__price-compare {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .bike-card__save-badge {
+    background: #b52525;
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .bike-card__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: auto;
+  }
+  .btn-yellow {
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    padding: 1.2rem 0;
+    text-align: center;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .btn-white {
+    background: #fff;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    padding: 1.2rem 0;
+    text-align: center;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .bike-card__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+</style>
+
+<div class="bikes-page">
+  <!-- Top Global Header Matching the Reference -->
+  <div class="bikes-header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <div class="bikes-header__reviews">
+      <span class="stars">★★★★★</span> {{ section.settings.review_text }}
+    </div>
+    <h1 class="bikes-header__title">{{ section.settings.title }}</h1>
+    <p class="bikes-header__desc">{{ section.settings.description }}</p>
+    {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link }}" class="btn-outline">{{ section.settings.button_label }}</a>
+    {% endif %}
+  </div>
+
   {%- liquid
     case section.settings.sort
       when 'products_high', 'products_low'
-        assign collections = collections | sort: 'all_products_count'
+        assign sorted_collections = collections | sort: 'all_products_count'
       when 'date', 'date_reversed'
-        assign collections = collections | sort: 'published_at'
+        assign sorted_collections = collections | sort: 'published_at'
+      else
+        assign sorted_collections = collections | sort: 'title'
     endcase
 
     if section.settings.sort == 'products_high' or section.settings.sort == 'date_reversed' or section.settings.sort == 'alphabetical_reversed'
-      assign collections = collections | reverse
-    endif
-
-    assign moduloResult = 28 | modulo: section.settings.columns_desktop
-    assign paginate_by = 30
-    if moduloResult == 0
-      assign paginate_by = 28
+      assign sorted_collections = sorted_collections | reverse
     endif
   -%}
-  {%- paginate collections by paginate_by -%}
-    <ul
-      class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-      role="list"
-    >
-      {%- for collection in collections -%}
-        <li
-          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-          {% render 'card-collection',
-            card_collection: collection,
-            media_aspect_ratio: section.settings.image_ratio,
-            columns: 3
-          %}
-        </li>
-      {%- endfor -%}
-    </ul>
-    {% render 'pagination', paginate: paginate %}
-  {%- endpaginate -%}
+
+  <!-- Loop through Categories to output categorized grids -->
+  {%- for collection in sorted_collections -%}
+    {%- if collection.all_products_count > 0 -%}
+      <div class="category-section{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+           {% if settings.animations_reveal_on_scroll %}data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
+        
+        <!-- Category Banner Divider -->
+        <div class="category-banner">
+          {{ collection.title }}
+        </div>
+
+        <!-- Product Grid inside the category -->
+        <div class="page-width">
+          <ul class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down" role="list">
+            
+            {%- for product in collection.products limit: section.settings.products_per_collection -%}
+              <li class="grid__item">
+                <div class="bike-card">
+                  
+                  <!-- Image Block -->
+                  <div class="bike-card__image-wrapper">
+                    <a href="{{ product.url }}">
+                      {% if product.featured_image != blank %}
+                        <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title }}" class="bike-card__image" loading="lazy" width="100%" height="auto">
+                      {% else %}
+                        {{ 'product-1' | placeholder_svg_tag: 'bike-card__image placeholder-svg' }}
+                      {% endif %}
+                    </a>
+                  </div>
+
+                  <!-- Details Block -->
+                  <div class="bike-card__info">
+                    <h3 class="bike-card__title">{{ product.title }}</h3>
+                    <p class="bike-card__subtitle">{{ product.metafields.custom.subtitle | default: 'For easy commuting' }}</p>
+
+                    <!-- Metafield Specs -->
+                    <div class="bike-card__specs">
+                      <div class="bike-card__spec-item">{{ product.metafields.custom.frame | default: 'Endless design frame' }}</div>
+                      <div class="bike-card__spec-item">{{ product.metafields.custom.range | default: 'Range 60-120km' }}</div>
+                      <div class="bike-card__spec-item">{{ product.metafields.custom.speed | default: 'Speed 25-32 km/h' }}</div>
+                      <div class="bike-card__spec-item">{{ product.metafields.custom.brakes | default: 'Hydraulic brakes' }}</div>
+                    </div>
+
+                    <!-- Pricing -->
+                    <div class="bike-card__pricing">
+                      <span class="bike-card__price-current">{{ product.price | money }}</span>
+                      {% if product.compare_at_price > product.price %}
+                        <span class="bike-card__price-compare">{{ product.compare_at_price | money }}</span>
+                        <span class="bike-card__save-badge">Save {{ product.compare_at_price | minus: product.price | money }}</span>
+                      {% endif %}
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="bike-card__actions">
+                      <button class="btn-yellow" onclick="window.location.href='{{ product.url }}'">SHOP NOW</button>
+                      <button class="btn-white">BOOK A TEST RIDE</button>
+                    </div>
+                    
+                    <!-- Footer Notice -->
+                    <div class="bike-card__footer">
+                      💳 Pay in 3 interest-free installments
+                    </div>
+
+                  </div>
+                </div>
+              </li>
+            {%- endfor -%}
+            
+          </ul>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
 </div>
+
 {% schema %}
 {
-  "name": "t:sections.main-list-collections.name",
+  "name": "Categorized Bikes Grid",
   "class": "section",
   "settings": [
     {
-      "type": "inline_richtext",
+      "type": "header",
+      "content": "Page Header Content"
+    },
+    {
+      "type": "text",
+      "id": "review_text",
+      "label": "Review Text",
+      "default": "5.0 / 5.0 (Based on 200+)"
+    },
+    {
+      "type": "text",
       "id": "title",
-      "label": "t:sections.main-list-collections.settings.title.label",
-      "default": "t:sections.main-list-collections.settings.title.default"
+      "label": "Heading",
+      "default": "SHOP ALL BIKES"
     },
     {
-      "type": "select",
-      "id": "sort",
-      "options": [
-        {
-          "value": "alphabetical",
-          "label": "t:sections.main-list-collections.settings.sort.options__1.label"
-        },
-        {
-          "value": "alphabetical_reversed",
-          "label": "t:sections.main-list-collections.settings.sort.options__2.label"
-        },
-        {
-          "value": "date_reversed",
-          "label": "t:sections.main-list-collections.settings.sort.options__3.label"
-        },
-        {
-          "value": "date",
-          "label": "t:sections.main-list-collections.settings.sort.options__4.label"
-        },
-        {
-          "value": "products_high",
-          "label": "t:sections.main-list-collections.settings.sort.options__5.label"
-        },
-        {
-          "value": "products_low",
-          "label": "t:sections.main-list-collections.settings.sort.options__6.label"
-        }
-      ],
-      "default": "alphabetical",
-      "label": "t:sections.main-list-collections.settings.sort.label"
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Explore the complete bike collection — from smart urban e-bikes to powerful fat bikes and everyday commuters. Designed for performance, comfort, and modern mobility."
     },
     {
-      "type": "select",
-      "id": "image_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-list-collections.settings.image_ratio.options__1.label"
-        },
-        {
-          "value": "portrait",
-          "label": "t:sections.main-list-collections.settings.image_ratio.options__2.label"
-        },
-        {
-          "value": "square",
-          "label": "t:sections.main-list-collections.settings.image_ratio.options__3.label"
-        }
-      ],
-      "default": "adapt",
-      "label": "t:sections.main-list-collections.settings.image_ratio.label"
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Compare Models ➔"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Grid Settings"
+    },
+    {
+      "type": "range",
+      "id": "products_per_collection",
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "default": 3,
+      "label": "Products to show per category"
     },
     {
       "type": "range",
       "id": "columns_desktop",
       "min": 1,
-      "max": 6,
+      "max": 4,
       "step": 1,
       "default": 3,
-      "label": "t:sections.main-list-collections.settings.columns_desktop.label"
+      "label": "Columns on desktop"
     },
     {
       "type": "select",
@@ -125,15 +358,47 @@
       "options": [
         {
           "value": "1",
-          "label": "t:sections.main-list-collections.settings.columns_mobile.options__1.label"
+          "label": "1 column"
         },
         {
           "value": "2",
-          "label": "t:sections.main-list-collections.settings.columns_mobile.options__2.label"
+          "label": "2 columns"
         }
       ],
-      "default": "2",
-      "label": "t:sections.main-list-collections.settings.columns_mobile.label"
+      "default": "1",
+      "label": "Columns on mobile"
+    },
+    {
+      "type": "select",
+      "id": "sort",
+      "options": [
+        {
+          "value": "alphabetical",
+          "label": "Alphabetically, A-Z"
+        },
+        {
+          "value": "alphabetical_reversed",
+          "label": "Alphabetically, Z-A"
+        },
+        {
+          "value": "date_reversed",
+          "label": "Date, new to old"
+        },
+        {
+          "value": "date",
+          "label": "Date, old to new"
+        },
+        {
+          "value": "products_high",
+          "label": "Product count, high to low"
+        },
+        {
+          "value": "products_low",
+          "label": "Product count, low to high"
+        }
+      ],
+      "default": "alphabetical",
+      "label": "Sort categories by"
     }
   ]
 }
