@@ -880,7 +880,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "Header",
   "class": "section-header",
   "settings": [
     {
@@ -889,24 +889,24 @@
       "options": [
         {
           "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
+          "label": "Top left"
         },
         {
           "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
+          "label": "Top center"
         },
         {
           "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
+          "label": "Middle left"
         },
         {
           "value": "middle-center",
-          "label": "t:sections.header.settings.logo_position.options__4.label"
+          "label": "Middle center"
         }
       ],
       "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label",
-      "info": "t:sections.header.settings.logo_help.content"
+      "label": "Desktop logo position",
+      "info": "Position of the logo on desktop screens."
     },
     {
       "type": "select",
@@ -914,21 +914,21 @@
       "options": [
         {
           "value": "center",
-          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
+          "label": "Center"
         },
         {
           "value": "left",
-          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
+          "label": "Left"
         }
       ],
       "default": "center",
-      "label": "t:sections.header.settings.mobile_logo_position.label"
+      "label": "Mobile logo position"
     },
     {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
+      "label": "Menu"
     },
     {
       "type": "select",
@@ -936,19 +936,19 @@
       "options": [
         {
           "value": "dropdown",
-          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
+          "label": "Dropdown"
         },
         {
           "value": "mega",
-          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
+          "label": "Mega menu"
         },
         {
           "value": "drawer",
-          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
+          "label": "Drawer"
         }
       ],
       "default": "dropdown",
-      "label": "t:sections.header.settings.menu_type_desktop.label"
+      "label": "Desktop menu type"
     },
     {
       "type": "checkbox",
@@ -963,97 +963,97 @@
       "options": [
         {
           "value": "none",
-          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
+          "label": "None"
         },
         {
           "value": "on-scroll-up",
-          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
+          "label": "On scroll up"
         },
         {
           "value": "always",
-          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
+          "label": "Always"
         },
         {
           "value": "reduce-logo-size",
-          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
+          "label": "Reduce logo size"
         }
       ],
       "default": "on-scroll-up",
-      "label": "t:sections.header.settings.sticky_header_type.label"
+      "label": "Sticky header"
     },
     {
       "type": "checkbox",
       "id": "show_line_separator",
       "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
+      "label": "Show separator line"
     },
     {
       "type": "header",
-      "content": "t:sections.header.settings.transparent_header.header.content"
+      "content": "Transparent header"
     },
     {
       "type": "checkbox",
       "id": "enable_transparent_header",
       "default": false,
-      "label": "t:sections.header.settings.transparent_header.enable.label",
-      "info": "t:sections.header.settings.transparent_header.enable.info"
+      "label": "Enable transparent header",
+      "info": "Shows the header over the first section on the home page."
     },
     {
       "type": "image_picker",
       "id": "transparent_logo",
-      "label": "t:sections.header.settings.transparent_header.logo.label",
-      "info": "t:sections.header.settings.transparent_header.logo.info"
+      "label": "Transparent logo",
+      "info": "This logo will be displayed when the transparent header is active."
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
       "default": false,
-      "label": "t:sections.header.settings.transparent_header.full_width.label"
+      "label": "Enable full width"
     },
     {
       "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
+      "content": "Color"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Color scheme",
       "default": "scheme-1"
     },
     {
       "type": "color_scheme",
       "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
+      "label": "Menu color scheme",
       "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "t:sections.header.settings.header__utilities.content"
+      "content": "Utilities"
     },
     {
       "type": "checkbox",
       "id": "enable_country_selector",
       "default": true,
-      "label": "t:sections.header.settings.enable_country_selector.label",
-      "info": "t:sections.header.settings.enable_country_selector.info"
+      "label": "Enable country/region selector",
+      "info": "To add a country/region, go to your market settings."
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
       "default": true,
-      "label": "t:sections.header.settings.enable_language_selector.label",
-      "info": "t:sections.header.settings.enable_language_selector.info"
+      "label": "Enable language selector",
+      "info": "To add a language, go to your language settings."
     },
     {
       "type": "checkbox",
       "id": "enable_customer_avatar",
       "default": true,
-      "label": "t:sections.header.settings.enable_customer_avatar.label",
-      "info": "t:sections.header.settings.enable_customer_avatar.info"
+      "label": "Enable customer avatar",
+      "info": "Shows an avatar icon when customers are logged in."
     },
     {
       "type": "header",
-      "content": "t:sections.all.spacing"
+      "content": "Spacing"
     },
     {
       "type": "range",
@@ -1062,12 +1062,12 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.header.settings.margin_bottom.label",
+      "label": "Bottom margin",
       "default": 0
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Section padding"
     },
     {
       "type": "range",
@@ -1076,7 +1076,7 @@
       "max": 36,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Top padding",
       "default": 20
     },
     {
@@ -1086,29 +1086,8 @@
       "max": 36,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Bottom padding",
       "default": 20
-    },
-    {
-      "type": "header",
-      "content": "Mobile Drawer Settings"
-    },
-    {
-      "type": "text",
-      "id": "mobile_drawer_button_label",
-      "label": "Mobile Button Label",
-      "default": "Book a test ride"
-    },
-    {
-      "type": "url",
-      "id": "mobile_drawer_button_link",
-      "label": "Mobile Button Link"
-    },
-    {
-      "type": "link_list",
-      "id": "mobile_drawer_secondary_menu",
-      "label": "Mobile Secondary Menu",
-      "info": "Links listed below the main mobile drawer button (e.g. Store location, About us, etc.)"
     }
   ],
   "blocks": [
@@ -1162,8 +1141,14 @@
           "id": "widget",
           "label": "Widget Type",
           "options": [
-            { "value": "menu", "label": "Menu List" },
-            { "value": "image", "label": "Image Banner" }
+            {
+              "value": "menu",
+              "label": "Menu List"
+            },
+            {
+              "value": "image",
+              "label": "Image Banner"
+            }
           ],
           "default": "menu"
         },
@@ -1242,30 +1227,101 @@
           "label": "Heading",
           "default": "Featured Collections"
         },
-        { "type": "header", "content": "Collection Slot 1" },
-        { "type": "collection", "id": "collection_1", "label": "Collection" },
-        { "type": "image_picker", "id": "custom_image_1", "label": "Custom Image" },
-        { "type": "text", "id": "custom_title_1", "label": "Custom Title" },
-
-        { "type": "header", "content": "Collection Slot 2" },
-        { "type": "collection", "id": "collection_2", "label": "Collection" },
-        { "type": "image_picker", "id": "custom_image_2", "label": "Custom Image" },
-        { "type": "text", "id": "custom_title_2", "label": "Custom Title" },
-
-        { "type": "header", "content": "Collection Slot 3" },
-        { "type": "collection", "id": "collection_3", "label": "Collection" },
-        { "type": "image_picker", "id": "custom_image_3", "label": "Custom Image" },
-        { "type": "text", "id": "custom_title_3", "label": "Custom Title" },
-
-        { "type": "header", "content": "Collection Slot 4" },
-        { "type": "collection", "id": "collection_4", "label": "Collection" },
-        { "type": "image_picker", "id": "custom_image_4", "label": "Custom Image" },
-        { "type": "text", "id": "custom_title_4", "label": "Custom Title" },
-
-        { "type": "header", "content": "Collection Slot 5" },
-        { "type": "collection", "id": "collection_5", "label": "Collection" },
-        { "type": "image_picker", "id": "custom_image_5", "label": "Custom Image" },
-        { "type": "text", "id": "custom_title_5", "label": "Custom Title" }
+        {
+          "type": "header",
+          "content": "Collection Slot 1"
+        },
+        {
+          "type": "collection",
+          "id": "collection_1",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image_1",
+          "label": "Custom Image"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_1",
+          "label": "Custom Title"
+        },
+        {
+          "type": "header",
+          "content": "Collection Slot 2"
+        },
+        {
+          "type": "collection",
+          "id": "collection_2",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image_2",
+          "label": "Custom Image"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_2",
+          "label": "Custom Title"
+        },
+        {
+          "type": "header",
+          "content": "Collection Slot 3"
+        },
+        {
+          "type": "collection",
+          "id": "collection_3",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image_3",
+          "label": "Custom Image"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_3",
+          "label": "Custom Title"
+        },
+        {
+          "type": "header",
+          "content": "Collection Slot 4"
+        },
+        {
+          "type": "collection",
+          "id": "collection_4",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image_4",
+          "label": "Custom Image"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_4",
+          "label": "Custom Title"
+        },
+        {
+          "type": "header",
+          "content": "Collection Slot 5"
+        },
+        {
+          "type": "collection",
+          "id": "collection_5",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image_5",
+          "label": "Custom Image"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_5",
+          "label": "Custom Title"
+        }
       ]
     },
     {
@@ -1303,35 +1359,120 @@
           "label": "Heading",
           "default": "SHOP BY CATEGORY"
         },
-        { "type": "header", "content": "Category 1" },
-        { "type": "url", "id": "collection_1", "label": "Collection Link" },
-        { "type": "text", "id": "custom_title_1", "label": "Title" },
-        { "type": "richtext", "id": "custom_desc_1", "label": "Description" },
-
-        { "type": "header", "content": "Category 2" },
-        { "type": "url", "id": "collection_2", "label": "Collection Link" },
-        { "type": "text", "id": "custom_title_2", "label": "Title" },
-        { "type": "richtext", "id": "custom_desc_2", "label": "Description" },
-
-        { "type": "header", "content": "Category 3" },
-        { "type": "url", "id": "collection_3", "label": "Collection Link" },
-        { "type": "text", "id": "custom_title_3", "label": "Title" },
-        { "type": "richtext", "id": "custom_desc_3", "label": "Description" },
-
-        { "type": "header", "content": "Category 4" },
-        { "type": "url", "id": "collection_4", "label": "Collection Link" },
-        { "type": "text", "id": "custom_title_4", "label": "Title" },
-        { "type": "richtext", "id": "custom_desc_4", "label": "Description" },
-
-        { "type": "header", "content": "Category 5" },
-        { "type": "url", "id": "collection_5", "label": "Collection Link" },
-        { "type": "text", "id": "custom_title_5", "label": "Title" },
-        { "type": "richtext", "id": "custom_desc_5", "label": "Description" },
-
-        { "type": "header", "content": "Category 6" },
-        { "type": "url", "id": "collection_6", "label": "Collection Link" },
-        { "type": "text", "id": "custom_title_6", "label": "Title" },
-        { "type": "richtext", "id": "custom_desc_6", "label": "Description" }
+        {
+          "type": "header",
+          "content": "Category 1"
+        },
+        {
+          "type": "url",
+          "id": "collection_1",
+          "label": "Collection Link"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_1",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "custom_desc_1",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Category 2"
+        },
+        {
+          "type": "url",
+          "id": "collection_2",
+          "label": "Collection Link"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_2",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "custom_desc_2",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Category 3"
+        },
+        {
+          "type": "url",
+          "id": "collection_3",
+          "label": "Collection Link"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_3",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "custom_desc_3",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Category 4"
+        },
+        {
+          "type": "url",
+          "id": "collection_4",
+          "label": "Collection Link"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_4",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "custom_desc_4",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Category 5"
+        },
+        {
+          "type": "url",
+          "id": "collection_5",
+          "label": "Collection Link"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_5",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "custom_desc_5",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Category 6"
+        },
+        {
+          "type": "url",
+          "id": "collection_6",
+          "label": "Collection Link"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_6",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "custom_desc_6",
+          "label": "Description"
+        }
       ]
     },
     {
@@ -1369,71 +1510,159 @@
           "label": "Heading",
           "default": "SHOP BY CATEGORY"
         },
-        { "type": "header", "content": "Item 1" },
-        { "type": "image_picker", "id": "item_image_1", "label": "Image 1" },
-        { "type": "text", "id": "item_title_1", "label": "Title 1", "default": "Heavy" },
+        {
+          "type": "header",
+          "content": "Item 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "text",
+          "id": "item_title_1",
+          "label": "Title 1",
+          "default": "Heavy"
+        },
         {
           "type": "image_picker",
           "id": "item_svg_1",
           "label": "Droplet Image 1",
           "info": "Upload droplet SVG/PNG here. Leave blank to hide."
         },
-        { "type": "url", "id": "item_link_1", "label": "Link 1" },
-
-        { "type": "header", "content": "Item 2" },
-        { "type": "image_picker", "id": "item_image_2", "label": "Image 2" },
-        { "type": "text", "id": "item_title_2", "label": "Title 2", "default": "Moderate" },
+        {
+          "type": "url",
+          "id": "item_link_1",
+          "label": "Link 1"
+        },
+        {
+          "type": "header",
+          "content": "Item 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "text",
+          "id": "item_title_2",
+          "label": "Title 2",
+          "default": "Moderate"
+        },
         {
           "type": "image_picker",
           "id": "item_svg_2",
           "label": "Droplet Image 2",
           "info": "Upload droplet SVG/PNG here. Leave blank to hide."
         },
-        { "type": "url", "id": "item_link_2", "label": "Link 2" },
-
-        { "type": "header", "content": "Item 3" },
-        { "type": "image_picker", "id": "item_image_3", "label": "Image 3" },
-        { "type": "text", "id": "item_title_3", "label": "Title 3", "default": "Light" },
+        {
+          "type": "url",
+          "id": "item_link_2",
+          "label": "Link 2"
+        },
+        {
+          "type": "header",
+          "content": "Item 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "text",
+          "id": "item_title_3",
+          "label": "Title 3",
+          "default": "Light"
+        },
         {
           "type": "image_picker",
           "id": "item_svg_3",
           "label": "Droplet Image 3",
           "info": "Upload droplet SVG/PNG here. Leave blank to hide."
         },
-        { "type": "url", "id": "item_link_3", "label": "Link 3" },
-
-        { "type": "header", "content": "Item 4" },
-        { "type": "image_picker", "id": "item_image_4", "label": "Image 4" },
-        { "type": "text", "id": "item_title_4", "label": "Title 4" },
+        {
+          "type": "url",
+          "id": "item_link_3",
+          "label": "Link 3"
+        },
+        {
+          "type": "header",
+          "content": "Item 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "text",
+          "id": "item_title_4",
+          "label": "Title 4"
+        },
         {
           "type": "image_picker",
           "id": "item_svg_4",
           "label": "Droplet Image 4",
           "info": "Upload droplet SVG/PNG here. Leave blank to hide."
         },
-        { "type": "url", "id": "item_link_4", "label": "Link 4" },
-
-        { "type": "header", "content": "Item 5" },
-        { "type": "image_picker", "id": "item_image_5", "label": "Image 5" },
-        { "type": "text", "id": "item_title_5", "label": "Title 5" },
+        {
+          "type": "url",
+          "id": "item_link_4",
+          "label": "Link 4"
+        },
+        {
+          "type": "header",
+          "content": "Item 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_image_5",
+          "label": "Image 5"
+        },
+        {
+          "type": "text",
+          "id": "item_title_5",
+          "label": "Title 5"
+        },
         {
           "type": "image_picker",
           "id": "item_svg_5",
           "label": "Droplet Image 5",
           "info": "Upload droplet SVG/PNG here. Leave blank to hide."
         },
-        { "type": "url", "id": "item_link_5", "label": "Link 5" },
-
-        { "type": "header", "content": "Item 6" },
-        { "type": "image_picker", "id": "item_image_6", "label": "Image 6" },
-        { "type": "text", "id": "item_title_6", "label": "Title 6" },
+        {
+          "type": "url",
+          "id": "item_link_5",
+          "label": "Link 5"
+        },
+        {
+          "type": "header",
+          "content": "Item 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_image_6",
+          "label": "Image 6"
+        },
+        {
+          "type": "text",
+          "id": "item_title_6",
+          "label": "Title 6"
+        },
         {
           "type": "image_picker",
           "id": "item_svg_6",
           "label": "Droplet Image 6",
           "info": "Upload droplet SVG/PNG here. Leave blank to hide."
         },
-        { "type": "url", "id": "item_link_6", "label": "Link 6" }
+        {
+          "type": "url",
+          "id": "item_link_6",
+          "label": "Link 6"
+        }
       ]
     },
     {
@@ -1505,17 +1734,50 @@
           "id": "title",
           "label": "Menu Trigger Name"
         },
-        { "type": "header", "content": "Link 1 (Left)" },
-        { "type": "text", "id": "link_1_text", "label": "Link Text", "default": "Shop All Meat" },
-        { "type": "url", "id": "link_1_url", "label": "Link URL" },
-        { "type": "color", "id": "link_color_1", "label": "Text color", "default": "#000" },
-
-        { "type": "header", "content": "Link 2 (Right)" },
-        { "type": "text", "id": "link_2_text", "label": "Link Text", "default": "Read Our Guide" },
-        { "type": "url", "id": "link_2_url", "label": "Link URL" },
-        { "type": "color", "id": "link_color_2", "label": "Text color", "default": "#000" }
+        {
+          "type": "header",
+          "content": "Link 1 (Left)"
+        },
+        {
+          "type": "text",
+          "id": "link_1_text",
+          "label": "Link Text",
+          "default": "Shop All Meat"
+        },
+        {
+          "type": "url",
+          "id": "link_1_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "color",
+          "id": "link_color_1",
+          "label": "Text color",
+          "default": "#000"
+        },
+        {
+          "type": "header",
+          "content": "Link 2 (Right)"
+        },
+        {
+          "type": "text",
+          "id": "link_2_text",
+          "label": "Link Text",
+          "default": "Read Our Guide"
+        },
+        {
+          "type": "url",
+          "id": "link_2_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "color",
+          "id": "link_color_2",
+          "label": "Text color",
+          "default": "#000"
+        }
       ]
-    },
+    }
   ]
 }
 {% endschema %}
