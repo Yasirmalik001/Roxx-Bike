@@ -1,0 +1,207 @@
+
+
+<style>
+  .custom-partner-section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: stretch;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  /* Content Column */
+  .partner-content {
+    width: 45%;
+    padding: 6% 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+
+  .partner-heading {
+    font-family: inherit;
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #111111;
+  }
+
+  .partner-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 2.5rem;
+  }
+  
+  .partner-text p {
+    margin-top: 0;
+  }
+
+  .partner-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 30px;
+    background-color: #FFD100;
+    color: #000000;
+    transition: all 0.3s ease;
+  }
+
+  .partner-btn:hover {
+    background-color: #e6bc00;
+  }
+
+  /* Images Column */
+  .partner-images {
+    width: 55%;
+    display: flex;
+    gap: 15px; /* Matches the vertical split gap in the design */
+  }
+
+  .partner-image-col {
+    flex: 1;
+    display: flex;
+    position: relative;
+    font-size: 0;
+  }
+
+  .partner-image-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 600px;
+    display: block;
+  }
+
+  .partner-image-col svg {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    background-color: #f3f3f3;
+  }
+
+  /* Responsive Breakpoints */
+  @media screen and (max-width: 990px) {
+    .partner-content {
+      width: 100%;
+      padding: 4rem 2rem;
+    }
+
+    .partner-images {
+      width: 100%;
+      /* If you want the images to stack on very small screens, you can change this to column */
+      flex-direction: row; 
+    }
+
+    .partner-image-col img, .partner-image-col svg {
+      min-height: 400px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .partner-images {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+</style>
+
+<section class="custom-partner-section">
+  
+  <!-- Left Content Area -->
+  <div class="partner-content">
+    {% if section.settings.heading != blank %}
+      <h2 class="partner-heading">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <div class="partner-text">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="partner-btn">
+        {{ section.settings.button_label | escape }}
+      </a>
+    {% endif %}
+  </div>
+
+  <!-- Right Dual Images Area -->
+  <div class="partner-images">
+    <div class="partner-image-col">
+      {% if section.settings.image_1 != blank %}
+        {{ section.settings.image_1 | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 25vw, 50vw' }}
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+    
+    <div class="partner-image-col">
+      {% if section.settings.image_2 != blank %}
+        {{ section.settings.image_2 | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 25vw, 50vw' }}
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Partner Split Content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "HAND IN HAND WITH BUSINESS PARTNERS"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>In addition to our regular customers, we will also focus on business partners in the coming years. By collaborating with bicycle shops, hotels, event organizers, and companies, we aim to demonstrate the power of flexible, fun, and reliable transportation through strong partnerships and comprehensive service and maintenance contracts.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "BECOME A DEALER"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Right Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partner Split Content"
+    }
+  ]
+}
+{% endschema %}
