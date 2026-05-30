@@ -11,13 +11,44 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "hero_slideshow_V3NdcU": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "slide_efXaz9": {
+          "type": "slide",
+          "settings": {
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0",
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_efXaz9"
+      ],
+      "name": "Hero Slideshow",
+      "settings": {
+        "desktop_height": 750,
+        "mobile_height": 650,
+        "feature_1_title": "Fold & Go",
+        "feature_1_text": "Compact designs that fit your city, your car, your life.",
+        "feature_2_title": "Power You Can Feel",
+        "feature_2_text": "Fast acceleration and long-range performance for daily freedom.",
+        "feature_3_title": "Built for Everyday",
+        "feature_3_text": "Reliable, comfortable, and ready for every ride — rain or shine.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "hero_slideshow_V3NdcU"
   ]
 }
