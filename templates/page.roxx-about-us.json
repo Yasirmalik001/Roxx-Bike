@@ -69,11 +69,25 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "showroom_map_RhAd3U": {
+      "type": "showroom-map",
+      "name": "Showroom Map",
+      "settings": {
+        "heading": "THE ROXX BIKE SHOWROOM IN WEESP",
+        "address": "<p>Pampuslaan 59A<br>1382 JM Weesp</p>",
+        "hours": "<p>we are open from <strong>monday to friday 9:00 am to 6:00 pm</strong></p>",
+        "primary_button_label": "GET DIRECTION",
+        "primary_button_link": "",
+        "secondary_button_label": "CALL US",
+        "secondary_button_link": ""
+      }
     }
   },
   "order": [
     "main",
     "hero_slideshow_V3NdcU",
-    "rich_text_JXmCia"
+    "rich_text_JXmCia",
+    "showroom_map_RhAd3U"
   ]
 }
