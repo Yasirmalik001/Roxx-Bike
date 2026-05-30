@@ -10,7 +10,6 @@
   display: inline-flex;
   flex-wrap: wrap;
   flex: initial;
-  padding: 1rem 0;
 }
 
 .localization-form:only-child .button,
@@ -26,12 +25,6 @@
 
   .localization-form:first-of-type {
     padding-left: 0;
-  }
-
-  .localization-form:only-child {
-    justify-content: start;
-    width: auto;
-    margin: 0 1rem 0 0;
   }
 
   .localization-form:only-child .button,
