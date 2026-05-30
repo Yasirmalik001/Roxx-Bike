@@ -1,0 +1,258 @@
+
+
+<style>
+  .custom-alternating-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+  .alternating-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .alternating-row.layout-right {
+    flex-direction: row-reverse;
+  }
+  
+  .alternating-image {
+    width: 50%;
+    font-size: 0;
+    position: relative;
+  }
+  
+  .alternating-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .alternating-image svg {
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+    background-color: #f3f3f3;
+  }
+  
+  .alternating-content {
+    width: 50%;
+    padding: 6% 8%;
+    box-sizing: border-box;
+  }
+  
+  .alternating-heading {
+    font-family: inherit;
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #111111;
+  }
+  
+  /* Timeline Component Styles */
+  .alternating-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .timeline-item {
+    position: relative;
+    padding-left: 2.5rem;
+    padding-bottom: 3rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333333;
+  }
+  
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+  
+  /* Yellow Bullet Point */
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    width: 14px;
+    height: 14px;
+    background-color: #FFD100;
+    border-radius: 50%;
+    z-index: 2;
+  }
+  
+  /* Vertical Connecting Line */
+  .timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 1.4rem;
+    bottom: -0.2rem;
+    width: 2px;
+    background-color: #E5E7EB;
+    z-index: 1;
+  }
+  
+  /* Standard Paragraph Styles */
+  .alternating-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333333;
+  }
+  
+  /* Responsive Breakpoints */
+  @media screen and (max-width: 990px) {
+    .alternating-image, .alternating-content {
+      width: 100%;
+    }
+    
+    .alternating-image img, .alternating-image svg {
+      min-height: 400px;
+    }
+    
+    .alternating-content {
+      padding: 4rem 2rem;
+    }
+  }
+</style>
+
+<section class="custom-alternating-section">
+  {% for block in section.blocks %}
+    <div class="alternating-row {% if block.settings.layout == 'right' %}layout-right{% endif %}" {{ block.shopify_attributes }}>
+      
+      <!-- Image Column -->
+      <div class="alternating-image">
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 1500 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 50vw, 100vw' }}
+        {% else %}
+          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <!-- Content Column -->
+      <div class="alternating-content">
+        {% if block.settings.heading != blank %}
+          <h2 class="alternating-heading">{{ block.settings.heading | escape }}</h2>
+        {% endif %}
+
+        {% if block.type == 'timeline_row' %}
+          <ul class="alternating-timeline">
+            {% if block.settings.bullet_1 != blank %}
+              <li class="timeline-item">{{ block.settings.bullet_1 }}</li>
+            {% endif %}
+            {% if block.settings.bullet_2 != blank %}
+              <li class="timeline-item">{{ block.settings.bullet_2 }}</li>
+            {% endif %}
+          </ul>
+        {% elsif block.type == 'text_row' %}
+          {% if block.settings.text != blank %}
+            <div class="alternating-text">
+              {{ block.settings.text }}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+      
+    </div>
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Alternating Features",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "timeline_row",
+      "name": "Timeline Row",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Image Placement",
+          "options": [
+            { "value": "left", "label": "Image on Left" },
+            { "value": "right", "label": "Image on Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "FROM A SMALL IDEA TO A GROWING E-BIKE BRAND"
+        },
+        {
+          "type": "textarea",
+          "id": "bullet_1",
+          "label": "First Bullet Text",
+          "default": "Lorem ipsum dolor sit amet consectetur. Velit eu justo adipiscing nec nam nibh turpis et consectetur. Arcu arcu odio egestas nibh nisl arcu. Duis aliquam mattis leo proin tristique. Ornare luctus eget turpis nibh cras vitae neque. Pellentesque in donec habitant nibh nunc dui sed gravida aliquet. Ut euismod tempor et ultrices mauris. Amet elit."
+        },
+        {
+          "type": "textarea",
+          "id": "bullet_2",
+          "label": "Second Bullet Text",
+          "default": "Lorem ipsum dolor sit amet consectetur. Et facilisi quis consequat nulla nibh amet mi est proin. Consectetur id ornare convallis vestibulum. Ullamcorper pulvinar amet."
+        }
+      ]
+    },
+    {
+      "type": "text_row",
+      "name": "Text Row",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Image Placement",
+          "options": [
+            { "value": "left", "label": "Image on Left" },
+            { "value": "right", "label": "Image on Right" }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "BUILT FOR EVERYDAY RIDERS"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>From city commuting to weekend adventures, our bikes are designed to make every ride feel effortless — with comfort, reliability, and smart technology at the center of the experience.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Alternating Features",
+      "blocks": [
+        { "type": "timeline_row" },
+        { "type": "text_row" }
+      ]
+    }
+  ]
+}
+{% endschema %}
