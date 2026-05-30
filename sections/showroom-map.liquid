@@ -1,0 +1,256 @@
+
+
+<style>
+  .custom-showroom-map {
+    position: relative;
+    width: 100%;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #E2EFF3; /* Fallback map color */
+  }
+
+  .showroom-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .showroom-bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  
+  .showroom-bg-image svg {
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+  }
+
+  .showroom-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+  }
+
+  .showroom-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 3.5rem 3rem;
+    max-width: 460px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .showroom-heading {
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #111111;
+  }
+
+  .showroom-address {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: #333333;
+  }
+
+  .showroom-hours {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+    color: #333333;
+  }
+
+  /* Target bold text in rich text to match design */
+  .showroom-hours strong {
+    font-weight: 700;
+  }
+
+  .showroom-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .showroom-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 30px;
+    min-width: 160px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: #FFD100;
+    color: #000000;
+    border: 1px solid #FFD100;
+  }
+
+  .btn-primary:hover {
+    background-color: #e6bc00;
+    border-color: #e6bc00;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #111111;
+  }
+
+  .btn-secondary:hover {
+    background-color: #f9f9f9;
+  }
+
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .custom-showroom-map {
+      min-height: 500px;
+      align-items: flex-start;
+    }
+    
+    .showroom-content-wrapper {
+      padding: 2rem;
+    }
+    
+    .showroom-card {
+      padding: 2rem;
+      max-width: 100%;
+    }
+    
+    .showroom-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .showroom-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<section class="custom-showroom-map">
+  <!-- Background Map Image -->
+  <div class="showroom-bg-image">
+    {% if section.settings.map_image != blank %}
+      {{ section.settings.map_image | image_url: width: 2000 | image_tag: loading: 'lazy', sizes: '100vw' }}
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+
+  <!-- Content Overlay -->
+  <div class="showroom-content-wrapper">
+    <div class="showroom-card">
+      {% if section.settings.heading != blank %}
+        <h2 class="showroom-heading">{{ section.settings.heading | escape }}</h2>
+      {% endif %}
+
+      {% if section.settings.address != blank %}
+        <div class="showroom-address">
+          {{ section.settings.address }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.hours != blank %}
+        <div class="showroom-hours">
+          {{ section.settings.hours }}
+        </div>
+      {% endif %}
+
+      <div class="showroom-buttons">
+        {% if section.settings.primary_button_label != blank %}
+          <a href="{{ section.settings.primary_button_link | default: '#' }}" class="showroom-btn btn-primary">
+            {{ section.settings.primary_button_label | escape }}
+          </a>
+        {% endif %}
+        
+        {% if section.settings.secondary_button_label != blank %}
+          <a href="{{ section.settings.secondary_button_link | default: '#' }}" class="showroom-btn btn-secondary">
+            {{ section.settings.secondary_button_label | escape }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Showroom Map",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Background Map Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE ROXX BIKE SHOWROOM IN WEESP"
+    },
+    {
+      "type": "richtext",
+      "id": "address",
+      "label": "Address Text",
+      "default": "<p>Pampuslaan 59A<br>1382 JM Weesp</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "hours",
+      "label": "Operating Hours Text",
+      "default": "<p>we are open from <strong>monday to friday 9:00 am to 6:00 pm</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary Button Label",
+      "default": "GET DIRECTION"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary Button Label",
+      "default": "CALL US"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Showroom Map"
+    }
+  ]
+}
+{% endschema %}
