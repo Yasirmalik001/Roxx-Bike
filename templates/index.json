@@ -106,8 +106,8 @@
         "tab_active_text_color": "#1f1f1f",
         "accent_color": "#1f1f1f",
         "products_to_show": 8,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
+        "columns_desktop": 1,
+        "columns_mobile": "1",
         "spacing": 10,
         "overflow": true,
         "full_width": false,
@@ -183,7 +183,7 @@
         "video": "shopify://files/videos/Gordonroxxbreed-ezgif.com-mute-video.mp4",
         "overlay_opacity": 40,
         "text_color": "#ffffff",
-        "desktop_height": 850,
+        "desktop_height": 900,
         "desktop_content_alignment": "flex-start",
         "mobile_height": 650,
         "mobile_content_alignment": "left",
@@ -489,7 +489,6 @@
         "feature_block_nUaiFE": {
           "type": "feature_block",
           "settings": {
-            "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a.jpg",
             "layout": "left",
             "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
             "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
@@ -505,7 +504,6 @@
         "feature_block_CNymqe": {
           "type": "feature_block",
           "settings": {
-            "image": "shopify://shop_images/K1.png",
             "layout": "right",
             "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
             "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
@@ -526,120 +524,87 @@
       "name": "Alternating Features",
       "settings": {}
     },
-    "featured_collection_eJfREB": {
-      "type": "featured-collection",
-      "name": "Featured Collection",
-      "settings": {
-        "collection": "e-bikes",
-        "title": "FOLLOW US ON INSTAGRAM",
-        "view_all_link": "",
-        "view_all_text": "@luxiaojuneurope",
-        "enable_autoplay": false,
-        "autoplay_interval": 3,
-        "desktop_slides": 4,
-        "desktop_spacing": 24,
-        "desktop_arrows": false,
-        "desktop_dots": false,
-        "desktop_scrollbar": false,
-        "desktop_progress_bar": false,
-        "tablet_slides": 3,
-        "mobile_slides": 1.2,
-        "mobile_spacing": 16,
-        "mobile_arrows": false,
-        "mobile_dots": true,
-        "mobile_scrollbar": false,
-        "mobile_progress_bar": true
-      }
-    },
     "instagram_gallery_EtcBJN": {
       "type": "instagram-gallery",
       "blocks": {
-        "image_VcmKPQ": {
+        "image_GnwQrP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a.jpg"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_BDX9BD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_3iMWhc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_J7hzi3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_JgPBbb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_hKxVBk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_D4F6bN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_4edjgx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_HwqQgA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+          }
+        },
+        "image_yQhtpM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         }
       },
       "block_order": [
-        "image_VcmKPQ"
+        "image_GnwQrP",
+        "image_BDX9BD",
+        "image_3iMWhc",
+        "image_J7hzi3",
+        "image_JgPBbb",
+        "image_hKxVBk",
+        "image_D4F6bN",
+        "image_4edjgx",
+        "image_HwqQgA",
+        "image_yQhtpM"
       ],
       "name": "Masonry Gallery",
       "settings": {
         "heading": "JOIN OUR ROXX FAMILY",
-        "subheading": "with thousands who've upgraded their everyday ride.",
         "padding_top": 60,
         "padding_bottom": 60
-      }
-    },
-    "faq_x4Rhax": {
-      "type": "faq",
-      "blocks": {
-        "faq_AHchFw": {
-          "type": "faq",
-          "settings": {
-            "question": "How fast can a Roxx e-bike go?",
-            "answer": "<p>Roxx e-bikes are designed to meet EU regulations, with pedal assist up to 25 km/h. You get a smooth, powerful ride while staying fully road-legal.</p>"
-          }
-        },
-        "faq_9Ub8PF": {
-          "type": "faq",
-          "settings": {
-            "question": "What range can I expect on a full charge?",
-            "answer": "<p>Depending on the model and conditions, you can typically expect a range of 60km to 120km on a single charge.</p>"
-          }
-        },
-        "faq_PgpMqr": {
-          "type": "faq",
-          "settings": {
-            "question": "How long does the battery take to charge?",
-            "answer": "<p>A full charge takes approximately 4 to 6 hours using the included standard charger.</p>"
-          }
-        },
-        "faq_NQDDHx": {
-          "type": "faq",
-          "settings": {
-            "question": "Can I fold and store the bike easily?",
-            "answer": "<p>Yes, specific models feature a quick-fold mechanism allowing you to easily store it in a car trunk or take it on public transport.</p>"
-          }
-        },
-        "faq_JiJJdW": {
-          "type": "faq",
-          "settings": {
-            "question": "What warranty do I get?",
-            "answer": "<p>All Roxx e-bikes come with a 2-year warranty on the frame and electronic components, including the motor and battery.</p>"
-          }
-        },
-        "faq_aYX4Gi": {
-          "type": "faq",
-          "settings": {
-            "question": "Do you provide maintenance or repair services?",
-            "answer": "<p>Yes, we have certified repair centers and provide ongoing maintenance support to keep your ride smooth.</p>"
-          }
-        },
-        "faq_7F6Myw": {
-          "type": "faq",
-          "settings": {
-            "question": "Can I return the bike if I'm not satisfied?",
-            "answer": "<p>We offer a 14-day test ride period. If you're not completely satisfied, you can return it for a full refund.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_AHchFw",
-        "faq_9Ub8PF",
-        "faq_PgpMqr",
-        "faq_NQDDHx",
-        "faq_JiJJdW",
-        "faq_aYX4Gi",
-        "faq_7F6Myw"
-      ],
-      "name": "Custom FAQ Split",
-      "settings": {
-        "background_color": "#ffffff",
-        "heading": "FREQUENTLY ASKED\nQUESTIONS",
-        "padding_top": 80,
-        "padding_bottom": 80
       }
     }
   },
@@ -653,8 +618,6 @@
     "hero_slideshow_6ejY9C",
     "keep_discovering_nqKjzK",
     "feature_alternating_Y3DYDF",
-    "featured_collection_eJfREB",
-    "instagram_gallery_EtcBJN",
-    "faq_x4Rhax"
+    "instagram_gallery_EtcBJN"
   ]
 }
