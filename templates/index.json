@@ -558,80 +558,120 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_BDX9BD": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_3iMWhc": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_J7hzi3": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_JgPBbb": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_hKxVBk": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "2"
+>>>>>>> Stashed changes
           }
         },
         "image_D4F6bN": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "2"
+>>>>>>> Stashed changes
           }
         },
         "image_4edjgx": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "2"
+>>>>>>> Stashed changes
           }
         },
         "image_HwqQgA": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "2"
+>>>>>>> Stashed changes
           }
         },
         "image_yQhtpM": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+<<<<<<< Updated upstream
             "link": "",
             "show_icon_on_hover": false
+=======
+            "row": "2"
+>>>>>>> Stashed changes
           }
         }
       },
@@ -652,8 +692,12 @@
         "background_color": "#ffffff",
         "heading": "JOIN OUR ROXX FAMILY",
         "heading_size": "h0",
+<<<<<<< Updated upstream
         "description": "with thousands who've upgraded their everyday ride.",
         "lazy_load": true,
+=======
+        "enable_marquee": false,
+>>>>>>> Stashed changes
         "padding_top": 60,
         "padding_bottom": 60
       }
