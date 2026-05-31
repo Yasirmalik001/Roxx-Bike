@@ -211,52 +211,54 @@ customElements.define('ma-slider', MaSlider);
     customElements.define('custom-slider', CustomSlider);
 }
 
+if (!customElements.get('faq-item')) {
   class FAQItem extends HTMLElement {
-  constructor() {
-    super();
-    this.handleToggle = this.handleToggle.bind(this);
-  }
+    constructor() {
+      super();
+      this.handleToggle = this.handleToggle.bind(this);
+    }
 
-  connectedCallback() {
-    this.question = this.querySelector(".faqrs-question");
-    this.answer = this.querySelector(".faqrs-answer");
-    if (this.question && this.answer) {
-      this.question.addEventListener("click", this.handleToggle);
+    connectedCallback() {
+      this.question = this.querySelector(".faqrs-question");
+      this.answer = this.querySelector(".faqrs-answer");
+      if (this.question && this.answer) {
+        this.question.addEventListener("click", this.handleToggle);
+      }
+    }
+
+    disconnectedCallback() {
+      if (this.question) {
+        this.question.removeEventListener("click", this.handleToggle);
+      }
+    }
+
+    handleToggle() {
+      const isActive = this.classList.contains("faqrs-active");
+      const allItems = document.querySelectorAll("faq-item");
+      allItems.forEach(item => item.close());
+      if (!isActive) {
+        this.open();
+      }
+    }
+
+    open() {
+      this.classList.add("faqrs-active");
+      this.answer.style.maxHeight = this.answer.scrollHeight + "px";
+      this.question.setAttribute("aria-expanded", "true");
+    }
+
+    close() {
+      this.classList.remove("faqrs-active");
+      if(this.answer) {
+          this.answer.style.maxHeight = null;
+      }
+      if(this.question) {
+          this.question.setAttribute("aria-expanded", "false");
+      }
     }
   }
-
-  disconnectedCallback() {
-    if (this.question) {
-      this.question.removeEventListener("click", this.handleToggle);
-    }
-  }
-
-  handleToggle() {
-    const isActive = this.classList.contains("faqrs-active");
-    const allItems = document.querySelectorAll("faq-item");
-    allItems.forEach(item => item.close());
-    if (!isActive) {
-      this.open();
-    }
-  }
-
-  open() {
-    this.classList.add("faqrs-active");
-    this.answer.style.maxHeight = this.answer.scrollHeight + "px";
-    this.question.setAttribute("aria-expanded", "true");
-  }
-
-  close() {
-    this.classList.remove("faqrs-active");
-    if(this.answer) {
-        this.answer.style.maxHeight = null;
-    }
-    if(this.question) {
-        this.question.setAttribute("aria-expanded", "false");
-    }
-  }
+  customElements.define("faq-item", FAQItem);
 }
-customElements.define("faq-item", FAQItem);
 
 
 /* --------------------------------------------------------------------------
