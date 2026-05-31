@@ -433,9 +433,7 @@
   text-decoration: none;
 }
 
-.card-product-tabs__title a:hover {
-  text-decoration: underline;
-}
+
 
 /* Rating */
 .card-product-tabs__rating {
