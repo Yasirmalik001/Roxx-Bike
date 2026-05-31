@@ -169,7 +169,7 @@
           "settings": {
             "button_label": "Book a free test ride",
             "button_link": "",
-            "button_color": "#ffe600"
+            "button_style_secondary": false
           }
         }
       },
@@ -181,9 +181,9 @@
       ],
       "name": "Hero Banner with Features",
       "settings": {
+        "color_scheme": "scheme-50fbb05c-7b9a-4819-9253-c47230788d8a",
         "video": "shopify://files/videos/Gordonroxxbreed-ezgif.com-mute-video.mp4",
         "overlay_opacity": 40,
-        "text_color": "#ffffff",
         "desktop_height": 900,
         "desktop_content_alignment": "flex-start",
         "mobile_height": 650,
@@ -596,6 +596,7 @@
       "settings": {
         "background_color": "#ffffff",
         "heading": "FREQUENTLY ASKED\nQUESTIONS",
+        "heading_size": "h1",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -740,7 +741,6 @@
       "name": "Masonry Gallery",
       "settings": {
         "heading": "JOIN OUR ROXX FAMILY",
-        "text_color": "#121212",
         "heading_size": "h0",
         "subheading": "with thousands who've upgraded their everyday ride.",
         "color_scheme": "",
