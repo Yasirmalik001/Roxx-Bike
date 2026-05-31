@@ -625,8 +625,6 @@
   font-size: 1.1rem;
   font-weight: 700;
   border-radius: 4px;
-  transform: rotate(-10deg);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
   border: none;
   width: auto;
   max-width: fit-content;
@@ -2320,4 +2318,4 @@ cart-drawer-items {
   position: relative;
   z-index: 101 !important;
 }
-
+
