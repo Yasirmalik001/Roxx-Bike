@@ -561,6 +561,70 @@
         "padding_bottom": 80
       }
     },
+    "masonary_gallery_3z9FME": {
+      "type": "masonary-gallery",
+      "blocks": {
+        "image_KfXAJV": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_Fn8zDV": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_bAiykp": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_TDDpAL": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_BjAGUx": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_C3PVip": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_9KpTat": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_xXe6Rg": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_JAJbkz": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_J4N6Qb": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image_KfXAJV",
+        "image_Fn8zDV",
+        "image_bAiykp",
+        "image_TDDpAL",
+        "image_BjAGUx",
+        "image_C3PVip",
+        "image_9KpTat",
+        "image_xXe6Rg",
+        "image_JAJbkz",
+        "image_J4N6Qb"
+      ],
+      "name": "Masonry Gallery",
+      "settings": {
+        "heading": "JOIN OUR ROXX FAMILY",
+        "subheading": "with thousands who've upgraded their everyday ride.",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "keep_discovering_nqKjzK": {
       "type": "keep-discovering",
       "blocks": {
@@ -605,6 +669,7 @@
     "hero_slideshow_6ejY9C",
     "feature_alternating_Y3DYDF",
     "faq_x9aGnf",
+    "masonary_gallery_3z9FME",
     "keep_discovering_nqKjzK"
   ]
 }
