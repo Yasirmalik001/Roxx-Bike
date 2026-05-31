@@ -530,69 +530,79 @@
         "image_GnwQrP": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_KBgNNM": {
+        "image_BDX9BD": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_BPX4VP": {
+        "image_3iMWhc": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_RFwDgY": {
+        "image_J7hzi3": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_nK6q63": {
+        "image_JgPBbb": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_dNFyKc": {
+        "image_hKxVBk": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_ggx7H7": {
+        "image_D4F6bN": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_jCdFbw": {
+        "image_4edjgx": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_QFpEXe": {
+        "image_HwqQgA": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
         },
-        "image_aUhPr9": {
+        "image_yQhtpM": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "link": "",
             "show_icon_on_hover": false
           }
@@ -600,15 +610,15 @@
       },
       "block_order": [
         "image_GnwQrP",
-        "image_KBgNNM",
-        "image_BPX4VP",
-        "image_RFwDgY",
-        "image_nK6q63",
-        "image_dNFyKc",
-        "image_ggx7H7",
-        "image_jCdFbw",
-        "image_QFpEXe",
-        "image_aUhPr9"
+        "image_BDX9BD",
+        "image_3iMWhc",
+        "image_J7hzi3",
+        "image_JgPBbb",
+        "image_hKxVBk",
+        "image_D4F6bN",
+        "image_4edjgx",
+        "image_HwqQgA",
+        "image_yQhtpM"
       ],
       "name": "Masonry Gallery",
       "settings": {
