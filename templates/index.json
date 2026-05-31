@@ -526,67 +526,112 @@
       "name": "Alternating Features",
       "settings": {}
     },
+    "featured_collection_eJfREB": {
+      "type": "featured-collection",
+      "name": "Featured Collection",
+      "settings": {
+        "collection": "",
+        "title": "FOLLOW US ON INSTAGRAM",
+        "view_all_link": "",
+        "view_all_text": "@luxiaojuneurope",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "desktop_slides": 4,
+        "desktop_spacing": 24,
+        "desktop_arrows": false,
+        "desktop_dots": false,
+        "desktop_scrollbar": false,
+        "desktop_progress_bar": false,
+        "tablet_slides": 3,
+        "mobile_slides": 1.2,
+        "mobile_spacing": 16,
+        "mobile_arrows": false,
+        "mobile_dots": true,
+        "mobile_scrollbar": false,
+        "mobile_progress_bar": true
+      }
+    },
     "instagram_gallery_EtcBJN": {
       "type": "instagram-gallery",
       "blocks": {
         "image_GnwQrP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_BDX9BD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_3iMWhc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_J7hzi3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_JgPBbb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_hKxVBk": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_D4F6bN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_4edjgx": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_HwqQgA": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         },
         "image_yQhtpM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "link": "",
+            "show_icon_on_hover": false
           }
         }
       },
@@ -604,8 +649,11 @@
       ],
       "name": "Masonry Gallery",
       "settings": {
+        "background_color": "#ffffff",
         "heading": "JOIN OUR ROXX FAMILY",
         "heading_size": "h0",
+        "description": "with thousands who've upgraded their everyday ride.",
+        "lazy_load": true,
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -621,6 +669,7 @@
     "hero_slideshow_6ejY9C",
     "keep_discovering_nqKjzK",
     "feature_alternating_Y3DYDF",
+    "featured_collection_eJfREB",
     "instagram_gallery_EtcBJN"
   ]
 }
