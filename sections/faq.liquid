@@ -1,0 +1,339 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .faqrs-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .faqrs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .faqrs-grid {
+      grid-template-columns: 40% 60%; /* Matches the screenshot's left/right balance */
+      gap: 5rem;
+    }
+  }
+
+  .faqrs-heading {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #1a1a1a;
+  }
+
+  .faqrs-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faqrs-item {
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .faqrs-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: color 0.2s ease;
+  }
+
+  .faqrs-question:hover {
+    color: #000;
+  }
+
+  .faqrs-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .faqrs-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: #1a1a1a;
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  /* Hide minus by default, show plus */
+  .faqrs-icon-minus {
+    display: none;
+  }
+
+  /* When active, swap icons */
+  faq-item.faqrs-active .faqrs-icon-plus {
+    display: none;
+  }
+  
+  faq-item.faqrs-active .faqrs-icon-minus {
+    display: flex;
+  }
+
+  .faqrs-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faqrs-answer-inner {
+    padding-bottom: 1.5rem;
+    padding-left: 3rem; /* Aligns text with the question, pushing past the icon */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666666;
+  }
+  
+  .faqrs-answer-inner p {
+    margin: 0;
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="faqrs-container">
+    <div class="faqrs-grid">
+      
+      <div class="faqrs-grid-left">
+        <h2 class="faqrs-heading">{{ section.settings.heading | newline_to_br }}</h2>
+      </div>
+
+      <div class="faqrs-grid-right">
+        <div class="faqrs-list">
+          {%- for block in section.blocks -%}
+            <faq-item class="faqrs-item" {{ block.shopify_attributes }}>
+              <button class="faqrs-question" aria-expanded="false">
+                <span class="faqrs-icon faqrs-icon-plus">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                  </svg>
+                </span>
+                <span class="faqrs-icon faqrs-icon-minus">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                  </svg>
+                </span>
+                <span class="faqrs-q-text">{{ block.settings.question | escape }}</span>
+              </button>
+              
+              <div class="faqrs-answer">
+                <div class="faqrs-answer-inner">
+                  {{ block.settings.answer }}
+                </div>
+              </div>
+            </faq-item>
+          {%- endfor -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  if (!customElements.get('faq-item')) {
+    class FAQItem extends HTMLElement {
+      constructor() {
+        super();
+        this.handleToggle = this.handleToggle.bind(this);
+      }
+
+      connectedCallback() {
+        this.question = this.querySelector(".faqrs-question");
+        this.answer = this.querySelector(".faqrs-answer");
+        if (this.question && this.answer) {
+          this.question.addEventListener("click", this.handleToggle);
+        }
+      }
+
+      disconnectedCallback() {
+        if (this.question) {
+          this.question.removeEventListener("click", this.handleToggle);
+        }
+      }
+
+      handleToggle() {
+        const isActive = this.classList.contains("faqrs-active");
+        const allItems = document.querySelectorAll("faq-item");
+        
+        // Close all other items
+        allItems.forEach(item => item.close());
+        
+        // Open this one if it wasn't already active
+        if (!isActive) {
+          this.open();
+        }
+      }
+
+      open() {
+        this.classList.add("faqrs-active");
+        this.answer.style.maxHeight = this.answer.scrollHeight + "px";
+        this.question.setAttribute("aria-expanded", "true");
+      }
+
+      close() {
+        this.classList.remove("faqrs-active");
+        if (this.answer) {
+          this.answer.style.maxHeight = null;
+        }
+        if (this.question) {
+          this.question.setAttribute("aria-expanded", "false");
+        }
+      }
+    }
+    customElements.define("faq-item", FAQItem);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Custom FAQ Split",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FREQUENTLY ASKED\nQUESTIONS"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question text goes here?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer text goes here. Provide a clear and concise response.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom FAQ Split",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How fast can a Roxx e-bike go?",
+            "answer": "<p>Roxx e-bikes are designed to meet EU regulations, with pedal assist up to 25 km/h. You get a smooth, powerful ride while staying fully road-legal.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What range can I expect on a full charge?",
+            "answer": "<p>Depending on the model and conditions, you can typically expect a range of 60km to 120km on a single charge.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does the battery take to charge?",
+            "answer": "<p>A full charge takes approximately 4 to 6 hours using the included standard charger.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I fold and store the bike easily?",
+            "answer": "<p>Yes, specific models feature a quick-fold mechanism allowing you to easily store it in a car trunk or take it on public transport.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What warranty do I get?",
+            "answer": "<p>All Roxx e-bikes come with a 2-year warranty on the frame and electronic components, including the motor and battery.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Do you provide maintenance or repair services?",
+            "answer": "<p>Yes, we have certified repair centers and provide ongoing maintenance support to keep your ride smooth.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return the bike if I'm not satisfied?",
+            "answer": "<p>We offer a 14-day test ride period. If you're not completely satisfied, you can return it for a full refund.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
