@@ -130,8 +130,8 @@
 <div class="page-width section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   {%- if section.settings.heading != blank -%}
     <h2 class="hero-features__heading {{ section.settings.heading_size }}">
-  {{ section.settings.heading }}
-</h2>
+      {{ section.settings.heading }}
+    </h2>
   {%- endif -%}
 
   <div class="discover-bikes-grid">
@@ -156,9 +156,9 @@
           {%- endif -%}
 
           {%- if block.settings.title != blank -%}
-            <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-  {{ block.settings.title }}
-</h2>
+            <h3 class="discover-card__title">
+              {{ block.settings.title }}
+            </h3>
           {%- endif -%}
 
           {%- if block.settings.text != blank -%}
