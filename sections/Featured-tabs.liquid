@@ -93,8 +93,8 @@
     
     <div class="sr-tabs-header">
       <h2 class="hero-features__heading {{ section.settings.heading_size }}">
-  {{ section.settings.title }}
-</h2>
+        {{ section.settings.title }}
+      </h2>
       
       {% if section.blocks.size > 0 %}
         <div class="sr-tabs-nav">
@@ -191,7 +191,7 @@
 
 .sr-tabs-title {
   font-size: 42px;
-  color: #F5F2ED; /* Plum color */
+  color: currentColor;
   margin: 0 0 25px 0;
   font-weight: 400;
 }
@@ -206,8 +206,8 @@
 }
 
 .sr-tab-btn {
-  background-color: #FFF2F5; /* Light pink */
-  color: #F5F2ED;
+  background-color: rgba(var(--color-foreground), 0.05);
+  color: currentColor;
   border: none;
   border-radius: 50px;
   padding: 12px 24px;
@@ -219,12 +219,12 @@
 }
 
 .sr-tab-btn:hover {
-  background-color: #f7dbe3;
+  background-color: rgba(var(--color-foreground), 0.1);
 }
 
 .sr-tab-btn.is-active {
-  background-color: #F5F2ED;
-  color: #ffffff;
+  background-color: rgba(var(--color-foreground), 0.9);
+  color: rgb(var(--color-background));
 }
 
 /* --- Tab Content Logic --- */
@@ -274,8 +274,8 @@
 .swiper-custom-arrow {
   width: 44px;
   height: 44px;
-  background-color: #FFF2F5;
-  color: #F5F2ED;
+  background-color: rgba(var(--color-foreground), 0.05);
+  color: currentColor;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -287,8 +287,8 @@
 }
 
 .swiper-custom-arrow:hover {
-  background-color: #F5F2ED;
-  color: #ffffff;
+  background-color: rgba(var(--color-foreground), 0.9);
+  color: rgb(var(--color-background));
 }
 
 .swiper-button-disabled { 
@@ -314,8 +314,8 @@
   display: inline-block;
   padding: 12px 40px;
   background-color: transparent;
-  color: #F5F2ED;
-  border: 1px solid #F5F2ED;
+  color: currentColor;
+  border: 1px solid currentColor;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 500;
@@ -324,8 +324,8 @@
 }
 
 .sr-view-all-btn:hover {
-  background-color: #F5F2ED;
-  color: #ffffff;
+  background-color: rgba(var(--color-foreground), 0.9);
+  color: rgb(var(--color-background));
 }
 
 /* --- Mobile Adjustments --- */
