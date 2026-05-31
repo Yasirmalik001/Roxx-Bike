@@ -299,6 +299,7 @@
       ],
       "name": "Partner Slider",
       "settings": {
+        "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
         "heading": "WHAT OUR PARTNER SAYS!",
         "heading_size": "h1",
         "button_label": "View all",
@@ -312,9 +313,6 @@
         "columns_desktop": 3,
         "columns_mobile": "1",
         "spacing": 30,
-        "background_color": "#1a1a1a",
-        "card_background": "#333333",
-        "text_color": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60
       }
