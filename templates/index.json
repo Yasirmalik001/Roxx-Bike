@@ -566,56 +566,83 @@
       "blocks": {
         "image_KfXAJV": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_Fn8zDV": {
+        "image_A9fUrx": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_bAiykp": {
+        "image_hN878A": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_TDDpAL": {
+        "image_tTf6TC": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_BjAGUx": {
+        "image_MjkYgY": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_C3PVip": {
+        "image_DFU8QL": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_9KpTat": {
+        "image_fcKxxM": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_xXe6Rg": {
+        "image_pfLGYG": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_JAJbkz": {
+        "image_fXKKWj": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         },
-        "image_J4N6Qb": {
+        "image_kjGgrM": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
+        },
+        "image_jXxiFt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/PIC.jpg"
+          }
         }
       },
       "block_order": [
         "image_KfXAJV",
-        "image_Fn8zDV",
-        "image_bAiykp",
-        "image_TDDpAL",
-        "image_BjAGUx",
-        "image_C3PVip",
-        "image_9KpTat",
-        "image_xXe6Rg",
-        "image_JAJbkz",
-        "image_J4N6Qb"
+        "image_A9fUrx",
+        "image_hN878A",
+        "image_tTf6TC",
+        "image_MjkYgY",
+        "image_DFU8QL",
+        "image_fcKxxM",
+        "image_pfLGYG",
+        "image_fXKKWj",
+        "image_kjGgrM",
+        "image_jXxiFt"
       ],
       "name": "Masonry Gallery",
       "settings": {
