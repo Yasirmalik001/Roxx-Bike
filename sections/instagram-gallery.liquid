@@ -1,9 +1,52 @@
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Header Styles */
+  .instagram-gallery__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .instagram-gallery__heading {
+    margin: 0 0 1rem 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: #000000;
+  }
+
+  .instagram-gallery__subtitle {
+    font-size: 1.4rem;
+    color: #666666;
+    margin: 0;
+  }
+
+  /* Grid Layout Styles */
+  .instagram-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+    gap: {{ section.settings.gap_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .instagram-gallery__grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+      gap: {{ section.settings.gap_desktop }}px;
+    }
+  }
+
+  /* Marquee Layout Styles */
   .marquee-gallery {
     --gap: {{ section.settings.gap_mobile }}px;
     display: flex;
@@ -14,7 +57,6 @@
     width: 100%;
   }
 
-  /* Optional Edge Fade Mask */
   {%- if section.settings.enable_edge_fade -%}
   .marquee-gallery {
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -32,11 +74,11 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* FIX 1: Ensure strict gap sizing instead of spaced-around */
+    justify-content: flex-start;
     gap: var(--gap);
-    padding-right: var(--gap); /* FIX 2: Add gap padding at the end for a seamless loop */
+    padding-right: var(--gap);
     min-width: 100%;
-    width: max-content; /* FIX 3: Let the track size naturally to its images */
+    width: max-content;
     animation: marquee-scroll var(--duration) linear infinite;
   }
 
@@ -57,13 +99,12 @@
     border-radius: {{ section.settings.border_radius }}px;
     overflow: hidden;
     position: relative;
-    /* Hardware acceleration for smoother animation */
     transform: translateZ(0); 
   }
 
   .marquee-gallery__item img {
     width: auto;
-    max-width: none; /* FIX 4: Prevent theme defaults from squishing images */
+    max-width: none;
     height: 100%;
     object-fit: cover;
     display: block;
@@ -74,16 +115,11 @@
       transform: translateX(0);
     }
     to {
-      transform: translateX(-100%); /* FIX 5: Simplified translation since the track now includes the gap via padding */
+      transform: translateX(-100%);
     }
   }
 
   @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-    
     .marquee-gallery {
       --gap: {{ section.settings.gap_desktop }}px;
     }
@@ -92,64 +128,666 @@
       height: {{ section.settings.image_height_desktop }}px;
     }
   }
+
+  /* Hotspot Styling */
+  .comment-hotspot-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    padding: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+    z-index: 5;
+    transform: translate(-50%, -50%); /* Center hotspot on the coordinate */
+  }
+
+  .comment-hotspot-pill:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .comment-hotspot-avatar {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    border: 1.5px solid #1a1a1a;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .comment-hotspot-avatar--1 {
+    background-color: #5c7b96;
+    margin-right: -1.2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .comment-hotspot-avatar--2 {
+    background-color: #3b3b3b;
+    position: relative;
+    z-index: 1;
+  }
+
+  .comment-hotspot-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Popover Box Styling */
+  .comment-popup-box {
+    position: absolute;
+    width: 320px;
+    background-color: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .comment-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 1rem;
+  }
+
+  .comment-popup-title {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .comment-popup-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .comment-popup-more,
+  .comment-popup-close {
+    background: transparent;
+    border: none;
+    color: #888888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    transition: color 0.2s ease;
+  }
+
+  .comment-popup-more:hover,
+  .comment-popup-close:hover {
+    color: #ffffff;
+  }
+
+  .comment-popup-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .comment-row {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .comment-row--reply {
+    margin-left: 2rem;
+  }
+
+  .comment-avatar {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background-color: #5c7b96;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .comment-row--reply .comment-avatar {
+    background-color: #3b3b3b;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .comment-content-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .comment-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .comment-author {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .comment-time {
+    color: #888888;
+    font-size: 1.1rem;
+  }
+
+  .comment-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+
+  .comment-mention {
+    color: #52a3ff;
+    font-weight: 600;
+  }
+
+  .comment-popup-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.2rem;
+  }
+
+  .comment-footer-avatar {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background-color: #3f51b5;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .comment-input-wrap {
+    display: flex;
+    align-items: center;
+    background-color: #2d2d2d;
+    border-radius: 20px;
+    flex-grow: 1;
+    padding: 0.4rem 0.4rem 0.4rem 1.2rem;
+  }
+
+  .comment-input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.3rem;
+    outline: none;
+    width: 100%;
+  }
+
+  .comment-input::placeholder {
+    color: #666666;
+  }
+
+  .comment-submit-btn {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background-color: #4f4f4f;
+    border: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .comment-submit-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  /* Set grid item defaults */
+  .instagram-gallery__grid-item {
+    position: relative;
+    border-radius: {{ section.settings.border_radius }}px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1.3;
+  }
+
+  .instagram-gallery__grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="section-{{ section.id }}-padding {% unless section.settings.full_width %}page-width{% endunless %}">
     
-    <div class="marquee-gallery">
-      
-      {%- comment -%} ROW 1 {%- endcomment -%}
-      {%- if section.blocks.size > 0 -%}
-        <div class="marquee-gallery__track-wrapper" style="--duration: {{ section.settings.speed_row_1 }}s;">
-          {%- comment -%} 
-            We duplicate the track twice so it scrolls infinitely without empty spaces.
-            The second track is aria-hidden so screen readers don't read duplicate images.
-          {%- endcomment -%}
-          {%- for i in (1..2) -%}
-            <div class="marquee-gallery__track {% if section.settings.direction_row_1 == 'right' %}marquee-gallery__track--reverse{% endif %}" {% if forloop.index == 2 %}aria-hidden="true"{% endif %}>
-              {%- for block in section.blocks -%}
-                {%- if block.settings.row == '1' -%}
-                  <div class="marquee-gallery__item" {{ block.shopify_attributes }}>
-                    {%- if block.settings.image != blank -%}
-                      {{ block.settings.image | image_url: height: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
-                    {%- else -%}
-                      {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
+    {%- if section.settings.heading != blank or section.settings.subtitle != blank -%}
+      <div class="instagram-gallery__header page-width">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="instagram-gallery__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="instagram-gallery__subtitle">
+            {{ section.settings.subtitle }}
+          </p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
 
-      {%- comment -%} ROW 2 {%- endcomment -%}
-      {%- assign row_2_count = section.blocks | where: "settings.row", "2" | size -%}
-      {%- if row_2_count > 0 -%}
-        <div class="marquee-gallery__track-wrapper" style="--duration: {{ section.settings.speed_row_2 }}s;">
-          {%- for i in (1..2) -%}
-            <div class="marquee-gallery__track {% if section.settings.direction_row_2 == 'right' %}marquee-gallery__track--reverse{% endif %}" {% if forloop.index == 2 %}aria-hidden="true"{% endif %}>
-              {%- for block in section.blocks -%}
-                {%- if block.settings.row == '2' -%}
-                  <div class="marquee-gallery__item" {{ block.shopify_attributes }}>
-                    {%- if block.settings.image != blank -%}
-                      {{ block.settings.image | image_url: height: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
-                    {%- else -%}
-                      {{ 'lifestyle-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
+    {%- if section.settings.enable_marquee -%}
+      <!-- Marquee Layout -->
+      <div class="marquee-gallery">
+        
+        {%- comment -%} ROW 1 {%- endcomment -%}
+        {%- if section.blocks.size > 0 -%}
+          <div class="marquee-gallery__track-wrapper" style="--duration: {{ section.settings.speed_row_1 }}s;">
+            {%- for i in (1..2) -%}
+              <div class="marquee-gallery__track {% if section.settings.direction_row_1 == 'right' %}marquee-gallery__track--reverse{% endif %}" {% if forloop.index == 2 %}aria-hidden="true"{% endif %}>
+                {%- for block in section.blocks -%}
+                  {%- if block.settings.row == '1' -%}
+                    <div class="marquee-gallery__item" style="position: relative;" {{ block.shopify_attributes }}>
+                      {%- if block.settings.image != blank -%}
+                        {{ block.settings.image | image_url: height: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
+                      {%- else -%}
+                        {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
 
-    </div>
-    
+                      {%- if block.settings.show_comment -%}
+                        <button type="button" class="comment-hotspot-pill" data-popup-id="Popup-{{ block.id }}-{{ i }}" style="position: absolute; top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%;">
+                          <span class="comment-hotspot-avatar comment-hotspot-avatar--1">J</span>
+                          <span class="comment-hotspot-avatar comment-hotspot-avatar--2">
+                            {%- if block.settings.reply_avatar != blank -%}
+                              <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
+                            {%- else -%}
+                              L
+                            {%- endif -%}
+                          </span>
+                        </button>
+                        
+                        <div class="comment-popup-box" id="Popup-{{ block.id }}-{{ i }}" style="display: none;">
+                          <div class="comment-popup-header">
+                            <span class="comment-popup-title">Comment</span>
+                            <div class="comment-popup-header-actions">
+                              <button type="button" class="comment-popup-more" aria-label="More options">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                              </button>
+                              <button type="button" class="comment-popup-close" aria-label="Close comments">
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="comment-popup-body">
+                            <div class="comment-row">
+                              <div class="comment-avatar">J</div>
+                              <div class="comment-content-wrap">
+                                <div class="comment-meta">
+                                  <span class="comment-author">{{ block.settings.comment_author_1 | default: 'jay' }}</span>
+                                  <span class="comment-time">{{ block.settings.comment_time_1 | default: '12 days ago' }}</span>
+                                </div>
+                                <div class="comment-text">{{ block.settings.comment_text_1 | default: 'You make it adjustable?' }}</div>
+                              </div>
+                            </div>
+                            {%- if block.settings.comment_text_2 != blank -%}
+                              <div class="comment-row comment-row--reply">
+                                <div class="comment-avatar">
+                                  {%- if block.settings.reply_avatar != blank -%}
+                                    <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
+                                  {%- else -%}
+                                    L
+                                  {%- endif -%}
+                                </div>
+                                <div class="comment-content-wrap">
+                                  <div class="comment-meta">
+                                    <span class="comment-author">{{ block.settings.comment_author_2 | default: 'Lucineh' }}</span>
+                                    <span class="comment-time">{{ block.settings.comment_time_2 | default: '12 days ago' }}</span>
+                                  </div>
+                                  <div class="comment-text">
+                                    {%- if block.settings.comment_text_2 contains 'jay' -%}
+                                      {{ block.settings.comment_text_2 | replace: 'jay', '<span class="comment-mention">jay</span>' }}
+                                    {%- else -%}
+                                      {{ block.settings.comment_text_2 }}
+                                    {%- endif -%}
+                                  </div>
+                                </div>
+                              </div>
+                            {%- endif -%}
+                          </div>
+                          <div class="comment-popup-footer">
+                            <div class="comment-footer-avatar">Y</div>
+                            <div class="comment-input-wrap">
+                              <input type="text" placeholder="Reply" class="comment-input" readonly>
+                              <button type="button" class="comment-submit-btn" aria-label="Send reply">
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- comment -%} ROW 2 {%- endcomment -%}
+        {%- assign row_2_count = section.blocks | where: "settings.row", "2" | size -%}
+        {%- if row_2_count > 0 -%}
+          <div class="marquee-gallery__track-wrapper" style="--duration: {{ section.settings.speed_row_2 }}s;">
+            {%- for i in (1..2) -%}
+              <div class="marquee-gallery__track {% if section.settings.direction_row_2 == 'right' %}marquee-gallery__track--reverse{% endif %}" {% if forloop.index == 2 %}aria-hidden="true"{% endif %}>
+                {%- for block in section.blocks -%}
+                  {%- if block.settings.row == '2' -%}
+                    <div class="marquee-gallery__item" style="position: relative;" {{ block.shopify_attributes }}>
+                      {%- if block.settings.image != blank -%}
+                        {{ block.settings.image | image_url: height: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
+                      {%- else -%}
+                        {{ 'lifestyle-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+
+                      {%- if block.settings.show_comment -%}
+                        <button type="button" class="comment-hotspot-pill" data-popup-id="Popup-{{ block.id }}-{{ i }}" style="position: absolute; top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%;">
+                          <span class="comment-hotspot-avatar comment-hotspot-avatar--1">J</span>
+                          <span class="comment-hotspot-avatar comment-hotspot-avatar--2">
+                            {%- if block.settings.reply_avatar != blank -%}
+                              <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
+                            {%- else -%}
+                              L
+                            {%- endif -%}
+                          </span>
+                        </button>
+                        
+                        <div class="comment-popup-box" id="Popup-{{ block.id }}-{{ i }}" style="display: none;">
+                          <div class="comment-popup-header">
+                            <span class="comment-popup-title">Comment</span>
+                            <div class="comment-popup-header-actions">
+                              <button type="button" class="comment-popup-more" aria-label="More options">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                              </button>
+                              <button type="button" class="comment-popup-close" aria-label="Close comments">
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="comment-popup-body">
+                            <div class="comment-row">
+                              <div class="comment-avatar">J</div>
+                              <div class="comment-content-wrap">
+                                <div class="comment-meta">
+                                  <span class="comment-author">{{ block.settings.comment_author_1 | default: 'jay' }}</span>
+                                  <span class="comment-time">{{ block.settings.comment_time_1 | default: '12 days ago' }}</span>
+                                </div>
+                                <div class="comment-text">{{ block.settings.comment_text_1 | default: 'You make it adjustable?' }}</div>
+                              </div>
+                            </div>
+                            {%- if block.settings.comment_text_2 != blank -%}
+                              <div class="comment-row comment-row--reply">
+                                <div class="comment-avatar">
+                                  {%- if block.settings.reply_avatar != blank -%}
+                                    <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
+                                  {%- else -%}
+                                    L
+                                  {%- endif -%}
+                                </div>
+                                <div class="comment-content-wrap">
+                                  <div class="comment-meta">
+                                    <span class="comment-author">{{ block.settings.comment_author_2 | default: 'Lucineh' }}</span>
+                                    <span class="comment-time">{{ block.settings.comment_time_2 | default: '12 days ago' }}</span>
+                                  </div>
+                                  <div class="comment-text">
+                                    {%- if block.settings.comment_text_2 contains 'jay' -%}
+                                      {{ block.settings.comment_text_2 | replace: 'jay', '<span class="comment-mention">jay</span>' }}
+                                    {%- else -%}
+                                      {{ block.settings.comment_text_2 }}
+                                    {%- endif -%}
+                                  </div>
+                                </div>
+                              </div>
+                            {%- endif -%}
+                          </div>
+                          <div class="comment-popup-footer">
+                            <div class="comment-footer-avatar">Y</div>
+                            <div class="comment-input-wrap">
+                              <input type="text" placeholder="Reply" class="comment-input" readonly>
+                              <button type="button" class="comment-submit-btn" aria-label="Send reply">
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+      </div>
+    {%- else -%}
+      <!-- Grid Layout -->
+      <div class="instagram-gallery__grid">
+        {%- for block in section.blocks -%}
+          <div class="instagram-gallery__grid-item" style="position: relative;" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
+            {%- else -%}
+              {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+
+            {%- if block.settings.show_comment -%}
+              <button type="button" class="comment-hotspot-pill" data-popup-id="Popup-{{ block.id }}-1" style="position: absolute; top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%;">
+                <span class="comment-hotspot-avatar comment-hotspot-avatar--1">J</span>
+                <span class="comment-hotspot-avatar comment-hotspot-avatar--2">
+                  {%- if block.settings.reply_avatar != blank -%}
+                    <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
+                  {%- else -%}
+                    L
+                  {%- endif -%}
+                </span>
+              </button>
+              
+              <div class="comment-popup-box" id="Popup-{{ block.id }}-1" style="display: none;">
+                <div class="comment-popup-header">
+                  <span class="comment-popup-title">Comment</span>
+                  <div class="comment-popup-header-actions">
+                    <button type="button" class="comment-popup-more" aria-label="More options">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    </button>
+                    <button type="button" class="comment-popup-close" aria-label="Close comments">
+                      <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="comment-popup-body">
+                  <div class="comment-row">
+                    <div class="comment-avatar">J</div>
+                    <div class="comment-content-wrap">
+                      <div class="comment-meta">
+                        <span class="comment-author">{{ block.settings.comment_author_1 | default: 'jay' }}</span>
+                        <span class="comment-time">{{ block.settings.comment_time_1 | default: '12 days ago' }}</span>
+                      </div>
+                      <div class="comment-text">{{ block.settings.comment_text_1 | default: 'You make it adjustable?' }}</div>
+                    </div>
+                  </div>
+                  {%- if block.settings.comment_text_2 != blank -%}
+                    <div class="comment-row comment-row--reply">
+                      <div class="comment-avatar">
+                        {%- if block.settings.reply_avatar != blank -%}
+                          <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
+                        {%- else -%}
+                          L
+                        {%- endif -%}
+                      </div>
+                      <div class="comment-content-wrap">
+                        <div class="comment-meta">
+                          <span class="comment-author">{{ block.settings.comment_author_2 | default: 'Lucineh' }}</span>
+                          <span class="comment-time">{{ block.settings.comment_time_2 | default: '12 days ago' }}</span>
+                        </div>
+                        <div class="comment-text">
+                          {%- if block.settings.comment_text_2 contains 'jay' -%}
+                            {{ block.settings.comment_text_2 | replace: 'jay', '<span class="comment-mention">jay</span>' }}
+                          {%- else -%}
+                            {{ block.settings.comment_text_2 }}
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+                </div>
+                <div class="comment-popup-footer">
+                  <div class="comment-footer-avatar">Y</div>
+                  <div class="comment-input-wrap">
+                    <input type="text" placeholder="Reply" class="comment-input" readonly>
+                    <button type="button" class="comment-submit-btn" aria-label="Send reply">
+                      <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('.section-{{ section.id }}-padding');
+    if (!section) return;
+
+    // Create popup portal container
+    const portal = document.createElement('div');
+    portal.className = 'instagram-popups-portal';
+    section.appendChild(portal);
+
+    // Move all popup boxes inside blocks to portal container to avoid marquee overflow clipping
+    const popups = section.querySelectorAll('.comment-popup-box');
+    popups.forEach(popup => portal.appendChild(popup));
+
+    const hotspots = section.querySelectorAll('.comment-hotspot-pill');
+    let activePopup = null;
+
+    function pauseMarquees() {
+      const tracks = section.querySelectorAll('.marquee-gallery__track');
+      tracks.forEach(track => {
+        track.style.animationPlayState = 'paused';
+      });
+    }
+
+    function resumeMarquees() {
+      const tracks = section.querySelectorAll('.marquee-gallery__track');
+      tracks.forEach(track => {
+        track.style.animationPlayState = 'running';
+      });
+    }
+
+    hotspots.forEach(hotspot => {
+      hotspot.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const popupId = this.getAttribute('data-popup-id');
+        const popup = document.getElementById(popupId);
+        if (!popup) return;
+
+        // Close current active popup
+        if (activePopup) {
+          activePopup.style.display = 'none';
+        }
+
+        // Pause marquee
+        pauseMarquees();
+
+        // Position popup relative to section container
+        const rect = this.getBoundingClientRect();
+        const secRect = section.getBoundingClientRect();
+
+        let top = rect.bottom - secRect.top;
+        let left = rect.left - secRect.left + (rect.width / 2) - 160; // Center popup (width: 320px)
+
+        // Keep popup inside section container bounds horizontally
+        if (left < 10) left = 10;
+        if (left + 330 > secRect.width) {
+          left = secRect.width - 330;
+        }
+
+        popup.style.top = `${top + 10}px`;
+        popup.style.left = `${left}px`;
+        popup.style.display = 'flex';
+        activePopup = popup;
+      });
+    });
+
+    // Close buttons inside popups
+    const closeBtns = section.querySelectorAll('.comment-popup-close');
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (activePopup) {
+          activePopup.style.display = 'none';
+          activePopup = null;
+        }
+        resumeMarquees();
+      });
+    });
+
+    // Close when clicking outside of the popup
+    document.addEventListener('click', function(e) {
+      if (activePopup && !activePopup.contains(e.target) && !e.target.closest('.comment-hotspot-pill')) {
+        activePopup.style.display = 'none';
+        activePopup = null;
+        resumeMarquees();
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -168,6 +806,62 @@
       "id": "full_width",
       "label": "Make section full width",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_marquee",
+      "label": "Enable scrolling marquee animation",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Heading Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "JOIN OUR ROXX FAMILY",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading Size"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "default": "with thousands who've upgraded their everyday ride.",
+      "label": "Subtitle"
+    },
+    {
+      "type": "header",
+      "content": "Grid Settings (Static Mode)"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "default": 5,
+      "label": "Columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Columns on mobile",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ]
     },
     {
       "type": "checkbox",
@@ -193,7 +887,7 @@
     },
     {
       "type": "header",
-      "content": "Row 1 Settings"
+      "content": "Row 1 Settings (Marquee Mode)"
     },
     {
       "type": "range",
@@ -218,7 +912,7 @@
     },
     {
       "type": "header",
-      "content": "Row 2 Settings"
+      "content": "Row 2 Settings (Marquee Mode)"
     },
     {
       "type": "range",
@@ -251,7 +945,7 @@
       "max": 600,
       "step": 10,
       "unit": "px",
-      "label": "Image Height",
+      "label": "Image Height (Marquee Mode)",
       "default": 280
     },
     {
@@ -275,7 +969,7 @@
       "max": 400,
       "step": 10,
       "unit": "px",
-      "label": "Image Height",
+      "label": "Image Height (Marquee Mode)",
       "default": 180
     },
     {
@@ -326,12 +1020,83 @@
         {
           "type": "select",
           "id": "row",
-          "label": "Display in Row",
+          "label": "Display in Row (Marquee Mode)",
           "options": [
             { "value": "1", "label": "Row 1 (Top)" },
-            { "value": "2", "label": "Row 2 (Bottom)" }
+            { "value": "2", "label": "Bottom Row (2)" }
           ],
           "default": "1"
+        },
+        {
+          "type": "header",
+          "content": "Hotspot & Comments Popup"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_comment",
+          "label": "Show comment hotspot indicator",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "hotspot_x",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Hotspot Horizontal Position (X)",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Hotspot Vertical Position (Y)",
+          "default": 50
+        },
+        {
+          "type": "text",
+          "id": "comment_author_1",
+          "label": "Commenter Name",
+          "default": "jay"
+        },
+        {
+          "type": "text",
+          "id": "comment_time_1",
+          "label": "Comment Time Offset",
+          "default": "12 days ago"
+        },
+        {
+          "type": "text",
+          "id": "comment_text_1",
+          "label": "Comment Text",
+          "default": "You make it adjustable?"
+        },
+        {
+          "type": "text",
+          "id": "comment_author_2",
+          "label": "Reply Author Name",
+          "default": "Lucineh"
+        },
+        {
+          "type": "text",
+          "id": "comment_time_2",
+          "label": "Reply Time Offset",
+          "default": "12 days ago"
+        },
+        {
+          "type": "text",
+          "id": "comment_text_2",
+          "label": "Reply Text",
+          "default": "Yes jay"
+        },
+        {
+          "type": "image_picker",
+          "id": "reply_avatar",
+          "label": "Reply Avatar Image Override"
         }
       ]
     }
@@ -342,7 +1107,11 @@
       "blocks": [
         { "type": "image", "settings": { "row": "1" } },
         { "type": "image", "settings": { "row": "1" } },
+        { "type": "image", "settings": { "row": "1", "show_comment": true, "hotspot_x": 50, "hotspot_y": 30 } },
         { "type": "image", "settings": { "row": "1" } },
+        { "type": "image", "settings": { "row": "1" } },
+        { "type": "image", "settings": { "row": "2" } },
+        { "type": "image", "settings": { "row": "2" } },
         { "type": "image", "settings": { "row": "2" } },
         { "type": "image", "settings": { "row": "2" } },
         { "type": "image", "settings": { "row": "2" } }
