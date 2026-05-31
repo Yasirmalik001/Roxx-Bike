@@ -31,7 +31,6 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    color: #1a1a1a;
   }
 
   .faqrs-list {
@@ -41,7 +40,7 @@
 
   .faqrs-item {
     display: block;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
   }
 
   .faqrs-question {
@@ -56,12 +55,12 @@
     text-align: left;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1a1a1a;
-    transition: color 0.2s ease;
+    color: currentColor;
+    transition: opacity 0.2s ease;
   }
 
   .faqrs-question:hover {
-    color: #000;
+    opacity: 0.8;
   }
 
   .faqrs-icon {
@@ -74,7 +73,7 @@
   .faqrs-icon svg {
     width: 20px;
     height: 20px;
-    stroke: #1a1a1a;
+    stroke: currentColor;
     stroke-width: 1.5;
     fill: none;
   }
@@ -104,7 +103,7 @@
     padding-left: 3rem; /* Aligns text with the question, pushing past the icon */
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #666666;
+    color: rgba(var(--color-foreground), 0.75);
   }
   
   .faqrs-answer-inner p {
