@@ -1,4 +1,3 @@
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -32,7 +31,6 @@
     font-weight: 800;
     letter-spacing: -0.03em;
     text-transform: uppercase;
-    color: #000000;
   }
 
   .customer-reviews__header-right {
@@ -72,8 +70,8 @@
 
   /* Left Summary Card */
   .customer-reviews__summary-card {
-    background-color: #ffffff;
-    border: 1px solid #e5e5e5;
+    background-color: rgba(var(--color-foreground), 0.03);
+    border: 1px solid rgba(var(--color-foreground), 0.08);
     border-radius: 12px;
     padding: 4rem 3rem;
     display: flex;
@@ -105,13 +103,12 @@
   .customer-reviews__summary-rating {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #000000;
     margin: 0 0 0.5rem 0;
   }
 
   .customer-reviews__summary-count {
     font-size: 1.3rem;
-    color: #666666;
+    opacity: 0.75;
     margin: 0 0 4rem 0;
   }
 
@@ -131,20 +128,20 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 1px solid rgba(0,0,0,0.12) !important;
-    color: #000000 !important;
+    border: 1px solid rgba(var(--color-foreground), 0.15) !important;
+    color: currentColor !important;
     transition: all 0.2s ease;
   }
 
   .customer-reviews__btn:hover {
-    background-color: rgba(0, 0, 0, 0.05) !important;
-    border-color: #000000 !important;
+    background-color: rgba(var(--color-foreground), 0.05) !important;
+    border-color: rgba(var(--color-foreground), 0.8) !important;
   }
 
   .customer-reviews__btn.swiper-button-disabled {
     opacity: 0.3 !important;
     cursor: not-allowed !important;
-    border-color: rgba(0,0,0,0.08) !important;
+    border-color: rgba(var(--color-foreground), 0.08) !important;
   }
 
   .customer-reviews__btn svg {
@@ -165,8 +162,8 @@
 
   /* Individual Slide Card */
   .review-card {
-    background-color: #ffffff;
-    border: 1px solid #e5e5e5;
+    background-color: rgba(var(--color-foreground), 0.03);
+    border: 1px solid rgba(var(--color-foreground), 0.08);
     border-radius: 12px;
     padding: 3rem;
     display: flex;
@@ -177,7 +174,7 @@
   }
 
   .review-card:hover {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(var(--color-foreground), 0.03);
   }
 
   .review-card__stars {
@@ -193,7 +190,7 @@
   .review-card__text {
     font-size: 1.4rem;
     line-height: 1.6;
-    color: #333333;
+    opacity: 0.85;
     margin-bottom: 2.5rem;
     flex-grow: 1;
   }
@@ -201,7 +198,7 @@
   .review-card__author {
     font-size: 1.4rem;
     font-weight: 600;
-    color: #000000;
+    color: currentColor;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -219,7 +216,7 @@
   .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet {
     width: 1rem;
     height: 1rem;
-    background-color: #000000 !important;
+    background-color: currentColor !important;
     opacity: 0.2 !important;
     margin: 0 !important;
     transition: all 0.3s ease;
@@ -235,7 +232,7 @@
 
   /* Custom styling for progress fill in reviews */
   .section-{{ section.id }}-padding .slider-template-progress-track {
-    background: rgba(0, 0, 0, 0.08) !important;
+    background: rgba(var(--color-foreground), 0.08) !important;
     margin-top: 3rem;
   }
 
@@ -251,8 +248,8 @@
       <div class="customer-reviews__header">
         {%- if section.settings.heading != blank -%}
           <h2 class="hero-features__heading {{ section.settings.heading_size }}">
-  {{ section.settings.heading }}
-</h2>
+            {{ section.settings.heading }}
+          </h2>
         {%- endif -%}
 
         <div class="customer-reviews__header-right">
