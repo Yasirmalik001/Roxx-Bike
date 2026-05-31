@@ -2,7 +2,6 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    background-color: {{ section.settings.background_color }};
   }
 
   @media screen and (min-width: 750px) {
@@ -29,13 +28,12 @@
     font-size: clamp(2.4rem, 4vw, 3.6rem);
     letter-spacing: -0.03em;
     text-transform: uppercase;
-    color: #000000;
   }
 
   .compare-header__subheading {
     font-size: 1.4rem;
-    color: #666666;
     margin: 0;
+    opacity: 0.8;
   }
 
   /* Grid Layout for alignment */
@@ -49,7 +47,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 3rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
   }
 
   @media screen and (min-width: 750px) {
@@ -83,16 +81,16 @@
     align-items: center;
     gap: 0.8rem;
     padding: 0.8rem 2.4rem;
-    border: 1px solid #e5e5e5;
+    border: 1px solid rgba(var(--color-foreground), 0.15);
     border-radius: 50px;
     margin-bottom: 1.5rem;
     text-decoration: none;
-    color: #000000;
+    color: currentColor;
     transition: border-color 0.2s ease;
   }
 
   .compare-product__title-wrapper:hover {
-    border-color: #000000;
+    border-color: currentColor;
   }
 
   .compare-product__title {
@@ -111,28 +109,28 @@
 
   .compare-product__desc {
     font-size: 1.2rem;
-    color: #888888;
     margin: 0 0 3rem 0;
     max-width: 220px;
+    opacity: 0.75;
   }
 
   .compare-product__price {
     font-size: 1.6rem;
     font-weight: 600;
-    color: #000000;
     margin: 0 0 0.5rem 0;
   }
 
   .compare-product__link {
     font-size: 1.2rem;
-    color: #666666;
+    color: currentColor;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: opacity 0.2s ease;
+    opacity: 0.75;
   }
 
   .compare-product__link:hover {
-    color: #000000;
+    opacity: 1;
   }
 
   /* Feature Rows */
@@ -143,7 +141,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #333333;
   }
 
   .compare-feature__icon svg {
@@ -159,17 +156,16 @@
   .compare-feature__text {
     font-size: 1.3rem;
     line-height: 1.5;
-    color: #333333;
     margin: 0;
     max-width: 180px;
   }
 {%- endstyle -%}
 
-<div class="compare-section section-{{ section.id }}-padding">
+<div class="compare-section section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   
   <div class="compare-header">
     {%- if section.settings.heading != blank -%}
-      <h2 class="compare-header__heading {{ section.settings.heading_size }}">
+      <h2 class="compare-header__heading hero-features__heading {{ section.settings.heading_size }}">
         {{ section.settings.heading | escape }}
       </h2>
     {%- endif -%}
@@ -297,10 +293,10 @@
   },
   "settings": [
     {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background Color",
-      "default": "#ffffff"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "header",
@@ -311,6 +307,19 @@
       "id": "heading",
       "default": "NOT SURE WHICH BIKE SUITS YOU?",
       "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" },
+        { "value": "hxl", "label": "Extra Large" },
+        { "value": "hxxl", "label": "Extra Extra Large" }
+      ],
+      "default": "h1",
+      "label": "Heading Size"
     },
     {
       "type": "text",

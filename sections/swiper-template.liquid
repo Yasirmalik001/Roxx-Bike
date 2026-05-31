@@ -1,11 +1,11 @@
-<custom-slider class="template-slider-section" data-block-id="{{ section.id }}">
+<custom-slider class="template-slider-section color-{{ section.settings.color_scheme }} gradient" data-block-id="{{ section.id }}">
   <div class="slider-wrapper relative-container">
     <div class="swiper-custom-header">
-      <div class="swiper-custom-heading">
-        {%- if section.settings.block_heading != blank -%}
+      {%- if section.settings.block_heading != blank -%}
+        <h2 class="swiper-custom-heading hero-features__heading {{ section.settings.heading_size }}">
           {{ section.settings.block_heading }}
-        {%- endif -%}
-      </div>
+        </h2>
+      {%- endif -%}
     </div>
     
     <swiper-container 
@@ -181,11 +181,30 @@ customElements.define('custom-slider', CustomSlider);
   "class": "section",
   "settings": [
     {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
       "type": "collection",
       "id": "collection",
       "label": "Collection"
     },
     { "type": "text", "id": "block_heading", "label": "Heading", "default": "Swiper template" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" },
+        { "value": "hxl", "label": "Extra Large" },
+        { "value": "hxxl", "label": "Extra Extra Large" }
+      ],
+      "default": "h1",
+      "label": "Heading Size"
+    },
     { "type": "header", "content": "⚙️ Configuration" },
     { "type": "checkbox", "id": "enable_autoplay", "label": "Enable Autoplay", "default": false },
     { "type": "range", "id": "autoplay_interval", "min": 2, "max": 10, "step": 1, "unit": "s", "label": "Autoplay Interval", "default": 3 },

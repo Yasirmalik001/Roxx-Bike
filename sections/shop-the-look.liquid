@@ -10,7 +10,7 @@
 		assign image_mobile = image
 	endunless
 -%}
-<shop-the-look class="shop-the-look section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
+<shop-the-look class="shop-the-look section-spacing color-{{ section.settings.color_scheme }} gradient{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
 	<div class="row {{ section_width }}">
 		<div class="small-12 columns">
 			<figure class="shop-the-look--area shop-the-look--mobile">
@@ -80,6 +80,12 @@
     "name": "Shop the look",
 		"class": "section-shop-the-look",
     "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "scheme-1"
+      },
       {
         "type": "paragraph",
 				"content": "Learn more about how to set up the [shop the look section](https://documentation.fuelthemes.net/kb/how-to-set-up-shop-the-look-section-in-reformation/)"

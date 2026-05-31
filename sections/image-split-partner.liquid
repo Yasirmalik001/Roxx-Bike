@@ -6,7 +6,6 @@
     flex-wrap: wrap;
     width: 100%;
     align-items: stretch;
-    background-color: #ffffff;
     overflow: hidden;
   }
 
@@ -29,13 +28,11 @@
     margin: 0 0 1.5rem 0;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    color: #111111;
   }
 
   .partner-text {
     font-size: 1.05rem;
     line-height: 1.6;
-    color: #333333;
     margin-bottom: 2.5rem;
   }
   
@@ -118,12 +115,12 @@
   }
 </style>
 
-<section class="custom-partner-section">
+<section class="custom-partner-section color-{{ section.settings.color_scheme }} gradient">
   
   <!-- Left Content Area -->
   <div class="partner-content">
     {% if section.settings.heading != blank %}
-      <h2 class="partner-heading">{{ section.settings.heading | escape }}</h2>
+      <h2 class="partner-heading hero-features__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
     {% endif %}
 
     {% if section.settings.text != blank %}
@@ -164,6 +161,25 @@
 {
   "name": "Partner Split Content",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" },
+        { "value": "hxl", "label": "Extra Large" },
+        { "value": "hxxl", "label": "Extra Extra Large" }
+      ],
+      "default": "h1",
+      "label": "Heading Size"
+    },
     {
       "type": "text",
       "id": "heading",

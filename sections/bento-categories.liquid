@@ -155,11 +155,11 @@
   }
 {%- endstyle -%}
 
-<div class="custom-bento-{{ section.id }} page-width">
+<div class="custom-bento-{{ section.id }} page-width color-{{ section.settings.color_scheme }} gradient">
   
   {%- if section.settings.title != blank -%}
     <div class="custom-bento__header">
-      <h2 class="custom-bento__title">
+      <h2 class="custom-bento__title hero-features__heading {{ section.settings.heading_size }}">
         {{ section.settings.title }}
       </h2>
     </div>
@@ -205,10 +205,29 @@
   "tag": "section",
   "settings": [
     {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
       "type": "inline_richtext",
       "id": "title",
       "default": "Shop by <em>category</em>",
       "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" },
+        { "value": "hxl", "label": "Extra Large" },
+        { "value": "hxxl", "label": "Extra Extra Large" }
+      ],
+      "default": "h1",
+      "label": "Heading Size"
     },
     {
       "type": "header",
