@@ -39,21 +39,32 @@
 
   /* 
    * ==========================================
-   * MOBILE ONLY: 2-Column Dynamic Masonry
+   * MOBILE ONLY: CSS Horizontal Scroll Slider
    * ==========================================
    */
   .roxx-masonry-grid {
-    column-count: 3;
-    column-gap: 12px;
-    display: block; /* Overrides any grid behavior on mobile */
-    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px; /* Space for native scrollbar if visible */
+    scrollbar-width: none; /* Firefox: hide scrollbar */
+  }
+
+  /* Hide scrollbar for Chrome/Safari/Edge */
+  .roxx-masonry-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .roxx-column-block {
-    display: inline-block;
-    width: 100%;
-    break-inside: avoid;
-    margin-bottom: 12px;
+    /* 32vw ensures roughly 3 cards fit on screen, teasing the next one */
+    flex: 0 0 32vw; 
+    min-width: 120px;
+    scroll-snap-align: start;
     transform: translateZ(0);
   }
 
@@ -78,16 +89,15 @@
   @media screen and (min-width: 1024px) {
     .roxx-masonry-grid {
       display: grid;
-      column-count: auto; /* Disables the mobile masonry */
       grid-template-columns: repeat(5, 1fr);
       gap: 20px;
-      align-items: start;
+      overflow-x: visible;
+      padding-bottom: 0;
     }
 
     .roxx-column-block {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 0;
+      width: 100%;
+      flex: none; /* Disables the mobile flex sizing */
     }
 
     .roxx-column-block-inner {
