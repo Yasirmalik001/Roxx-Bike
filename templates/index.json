@@ -450,6 +450,41 @@
         "padding_bottom": 0
       }
     },
+    "discover_bikes_VEdLb7": {
+      "type": "discover-bikes",
+      "blocks": {
+        "card_paX6MA": {
+          "type": "card",
+          "settings": {
+            "badge_text": "5 bikes",
+            "title": "E-BIKES",
+            "text": "Every detail is engineered to make riding effortless.",
+            "link_text": "Discover",
+            "link": ""
+          }
+        },
+        "card_zQwU9d": {
+          "type": "card",
+          "settings": {
+            "badge_text": "7 bikes",
+            "title": "FATBIKES",
+            "text": "Chosen by riders who expect more.",
+            "link_text": "Discover",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_paX6MA",
+        "card_zQwU9d"
+      ],
+      "name": "Discover Bikes Grid",
+      "settings": {
+        "heading": "DISCOVER OUR BIKES",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "feature_alternating_Y3DYDF": {
       "type": "feature-alternating",
       "blocks": {
@@ -697,6 +732,7 @@
     "partner_testimonials_TYE8nf",
     "testimonials_6kM9B3",
     "hero_slideshow_6ejY9C",
+    "discover_bikes_VEdLb7",
     "feature_alternating_Y3DYDF",
     "faq_x9aGnf",
     "masonary_gallery_3z9FME",
