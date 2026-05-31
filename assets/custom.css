@@ -397,7 +397,8 @@
 
 .utility-bar-desktop .disclosure__button.localization-form__select:hover,
 .utility-bar .localization-wrapper .disclosure__button.localization-form__select:hover {
-  text-decoration: underline !important;
+  text-decoration: none !important;
+  opacity: 0.8 !important;
   background: transparent !important;
 }
 
@@ -417,6 +418,7 @@
   bottom: initial !important;
   top: 100% !important;
   transform: translateY(0.5rem) !important;
+  z-index: 99999 !important;
 }
 
 
@@ -2311,4 +2313,11 @@ cart-drawer-items {
   gap: 0.8rem !important;
   margin-bottom: 1.5rem !important;
   width: fit-content !important;
-}
+}
+
+/* Fix z-index stacking context: Ensure announcement bar selector dropdown overlaps header elements */
+.announcement-bar-section {
+  position: relative;
+  z-index: 101 !important;
+}
+

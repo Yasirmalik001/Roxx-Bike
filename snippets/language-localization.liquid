@@ -5,6 +5,30 @@
     - localPosition: pass in the position in which the form is coming up to create specific IDs
 {%- endcomment -%}
 
+{%- liquid
+  assign current_lang_code = localization.language.iso_code | downcase | slice: 0, 2
+  assign current_flag_code = current_lang_code
+  if current_lang_code == 'en'
+    assign current_flag_code = 'gb'
+  elsif current_lang_code == 'da'
+    assign current_flag_code = 'dk'
+  elsif current_lang_code == 'el'
+    assign current_flag_code = 'gr'
+  elsif current_lang_code == 'zh'
+    assign current_flag_code = 'cn'
+  elsif current_lang_code == 'ja'
+    assign current_flag_code = 'jp'
+  elsif current_lang_code == 'ko'
+    assign current_flag_code = 'kr'
+  elsif current_lang_code == 'sv'
+    assign current_flag_code = 'se'
+  elsif current_lang_code == 'nb'
+    assign current_flag_code = 'no'
+  elsif current_lang_code == 'cs'
+    assign current_flag_code = 'cz'
+  endif
+-%}
+
 <div class="disclosure">
   <button
     type="button"
@@ -13,7 +37,10 @@
     aria-controls="{{ localPosition }}List"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>{{ localization.language.endonym_name | capitalize }}</span>
+    <span style="display: inline-flex; align-items: center; gap: 0.6rem;">
+      <img src="https://flagcdn.com/w40/{{ current_flag_code }}.png" width="20" height="15" alt="" class="country-flag" style="border-radius: 2px; object-fit: cover; aspect-ratio: 4/3;">
+      <span>{{ localization.language.endonym_name | capitalize }}</span>
+    </span>
     {{ 'icon-caret.svg' | inline_asset_content }}
   </button>
   <div class="disclosure__list-wrapper language-selector" hidden>
@@ -37,8 +64,32 @@
             >
               {{- 'icon-checkmark.svg' | inline_asset_content -}}
             </span>
-            <span>
-              {{ language.endonym_name | capitalize }}
+            <span style="display: inline-flex; align-items: center; gap: 0.6rem;">
+              {%- liquid
+                assign lang_code = language.iso_code | downcase | slice: 0, 2
+                assign flag_code = lang_code
+                if lang_code == 'en'
+                  assign flag_code = 'gb'
+                elsif lang_code == 'da'
+                  assign flag_code = 'dk'
+                elsif lang_code == 'el'
+                  assign flag_code = 'gr'
+                elsif lang_code == 'zh'
+                  assign flag_code = 'cn'
+                elsif lang_code == 'ja'
+                  assign flag_code = 'jp'
+                elsif lang_code == 'ko'
+                  assign flag_code = 'kr'
+                elsif lang_code == 'sv'
+                  assign flag_code = 'se'
+                elsif lang_code == 'nb'
+                  assign flag_code = 'no'
+                elsif lang_code == 'cs'
+                  assign flag_code = 'cz'
+                endif
+              -%}
+              <img src="https://flagcdn.com/w40/{{ flag_code }}.png" width="16" height="12" alt="" class="country-flag" style="border-radius: 1px; object-fit: cover; display: inline-block;">
+              <span>{{ language.endonym_name | capitalize }}</span>
             </span>
           </a>
         </li>
