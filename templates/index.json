@@ -489,6 +489,7 @@
         "feature_block_nUaiFE": {
           "type": "feature_block",
           "settings": {
+            "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a.jpg",
             "layout": "left",
             "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
             "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
@@ -504,6 +505,7 @@
         "feature_block_CNymqe": {
           "type": "feature_block",
           "settings": {
+            "image": "shopify://shop_images/K1.png",
             "layout": "right",
             "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
             "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
