@@ -1126,10 +1126,11 @@
     gap: 3rem !important;
   }
 
-  .footer .footer__blocks-wrapper {
-    flex-direction: column !important;
-    gap: 2rem !important;
-  }
+.footer .footer__blocks-wrapper {
+    flex-direction: column!important;
+    gap: 2rem!important;
+    width: 100%;
+}
 
   .footer__bottom-main-row {
     flex-direction: column !important;
