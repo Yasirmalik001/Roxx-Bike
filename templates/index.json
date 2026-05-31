@@ -614,6 +614,7 @@
           "type": "slide",
           "settings": {
             "tab_title": "QUALITY",
+            "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
             "heading": "PREMIUM COMPONENTS FOR PREMIUM RIDES.",
             "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
           }
@@ -622,6 +623,7 @@
           "type": "slide",
           "settings": {
             "tab_title": "MAINTENANCE",
+            "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
             "heading": "EASY TO MAINTAIN, HARD TO BREAK.",
             "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
           }
@@ -630,6 +632,7 @@
           "type": "slide",
           "settings": {
             "tab_title": "SECURITY",
+            "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
             "heading": "YOUR BIKE, ALWAYS PROTECTED.",
             "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
           }
