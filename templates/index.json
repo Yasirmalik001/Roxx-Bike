@@ -439,6 +439,7 @@
       ],
       "name": "Hero Slideshow",
       "settings": {
+        "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
         "desktop_height": 750,
         "mobile_height": 650,
         "feature_1_title": "Fold & Go",
@@ -483,6 +484,7 @@
       ],
       "name": "Discover Bikes Grid",
       "settings": {
+        "color_scheme": "",
         "heading": "DISCOVER OUR BIKES",
         "heading_size": "h0",
         "padding_top": 36,
@@ -495,8 +497,10 @@
         "feature_block_nUaiFE": {
           "type": "feature_block",
           "settings": {
+            "color_scheme": "",
             "layout": "left",
             "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
+            "heading_size": "h0",
             "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
             "list_heading": "What's covered:",
             "list_item_1": "Theft protection",
@@ -510,8 +514,10 @@
         "feature_block_CNymqe": {
           "type": "feature_block",
           "settings": {
+            "color_scheme": "",
             "layout": "right",
             "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
+            "heading_size": "h0",
             "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
             "list_heading": "What's covered:",
             "list_item_1": "Theft protection",
@@ -528,7 +534,11 @@
         "feature_block_CNymqe"
       ],
       "name": "Alternating Features",
-      "settings": {}
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "faq_x9aGnf": {
       "type": "faq",
@@ -594,7 +604,7 @@
       ],
       "name": "Custom FAQ Split",
       "settings": {
-        "background_color": "#ffffff",
+        "color_scheme": "",
         "heading": "FREQUENTLY ASKED\nQUESTIONS",
         "heading_size": "h1",
         "padding_top": 80,
@@ -653,6 +663,7 @@
       ],
       "name": "Tabbed Hero Slider",
       "settings": {
+        "color_scheme": "",
         "desktop_height": 800,
         "mobile_height": 600,
         "overlay_opacity": 70,
