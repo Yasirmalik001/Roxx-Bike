@@ -530,81 +530,61 @@
         "image_GnwQrP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_BDX9BD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_3iMWhc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_J7hzi3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_JgPBbb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_hKxVBk": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_D4F6bN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_4edjgx": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_HwqQgA": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         },
         "image_yQhtpM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
-            "link": "",
-            "show_icon_on_hover": false
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
           }
         }
       },
@@ -622,11 +602,8 @@
       ],
       "name": "Masonry Gallery",
       "settings": {
-        "background_color": "#ffffff",
         "heading": "JOIN OUR ROXX FAMILY",
         "heading_size": "h0",
-        "description": "with thousands who've upgraded their everyday ride.",
-        "lazy_load": true,
         "padding_top": 60,
         "padding_bottom": 60
       }
