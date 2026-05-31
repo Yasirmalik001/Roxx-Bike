@@ -2149,7 +2149,6 @@ cart-drawer-items {
 .header-wrapper:not(.header-transparent) .header__button-ride {
   background: #000000 !important;
   color: #ffffff !important;
-  border: 1px solid #000000 !important;
 }
 
 .header-scrolled .header__button-ride:hover,
