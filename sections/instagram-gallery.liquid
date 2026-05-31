@@ -1,8 +1,8 @@
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background_color }};
   }
 
   @media screen and (min-width: 750px) {
@@ -12,819 +12,202 @@
     }
   }
 
-  /* Header Styles */
-  .instagram-gallery__header {
+  .scrolling-gallery__header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
   }
 
-  .instagram-gallery__heading {
+  .scrolling-gallery__heading {
     margin: 0 0 1rem 0;
     font-weight: 800;
+    letter-spacing: -0.03em;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
     color: #000000;
   }
 
-  .instagram-gallery__subtitle {
-    font-size: 1.4rem;
-    color: #666666;
+  .scrolling-gallery__description {
+    font-size: 1.5rem;
+    color: #555555;
     margin: 0;
   }
 
-  /* Grid Layout Styles (Masonry) */
-  .instagram-gallery__grid {
-    column-count: {{ section.settings.columns_mobile }};
-    column-gap: {{ section.settings.gap_mobile }}px;
+  /* Horizontal Scrolling Flex Layout */
+  .scrolling-gallery__grid {
+    display: flex;
+    gap: 1.5rem;
     width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-bottom: 1rem;
+    
+    /* Creates the fade effect on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .scrolling-gallery__grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
   }
 
   @media screen and (min-width: 750px) {
-    .instagram-gallery__grid {
-      column-count: {{ section.settings.columns_desktop }};
-      column-gap: {{ section.settings.gap_desktop }}px;
+    .scrolling-gallery__grid {
+      gap: 2rem;
     }
   }
 
-  /* Marquee Layout Styles */
-  .marquee-gallery {
-    --gap: {{ section.settings.gap_mobile }}px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-
-  {%- if section.settings.enable_edge_fade -%}
-  .marquee-gallery {
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  }
-  {%- endif -%}
-
-  .marquee-gallery__track-wrapper {
-    display: flex;
-    overflow: hidden;
-    user-select: none;
-  }
-
-  .marquee-gallery__track {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: var(--gap);
-    padding-right: var(--gap);
-    min-width: 100%;
-    width: max-content;
-    animation: marquee-scroll var(--duration) linear infinite;
-  }
-
-  .marquee-gallery__track--reverse {
-    animation-direction: reverse;
-  }
-
-  {%- if section.settings.pause_on_hover -%}
-  .marquee-gallery__track-wrapper:hover .marquee-gallery__track {
-    animation-play-state: paused;
-  }
-  {%- endif -%}
-
-  .marquee-gallery__item {
+  .scrolling-gallery__item {
     flex: 0 0 auto;
-    width: auto;
-    height: {{ section.settings.image_height_mobile }}px;
-    border-radius: {{ section.settings.border_radius }}px;
+    width: 70vw; /* Mobile width */
+    aspect-ratio: 1 / 1; /* Forces the 1:1 square ratio */
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
+    scroll-snap-align: center;
     transform: translateZ(0); 
   }
 
-  .marquee-gallery__item img {
-    width: auto;
-    max-width: none;
+  @media screen and (min-width: 750px) {
+    .scrolling-gallery__item {
+      width: 35vw;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .scrolling-gallery__item {
+      width: 22vw; /* Adjust width to show partial next/prev slides */
+    }
+  }
+
+  .scrolling-gallery__image-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .scrolling-gallery__image-wrapper img {
+    display: block;
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  @keyframes marquee-scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+  /* Hover Effect */
+  .scrolling-gallery__item:hover .scrolling-gallery__image-wrapper img {
+    transform: scale(1.03);
   }
-
-  @media screen and (min-width: 750px) {
-    .marquee-gallery {
-      --gap: {{ section.settings.gap_desktop }}px;
-    }
-
-    .marquee-gallery__item {
-      height: {{ section.settings.image_height_desktop }}px;
-    }
-  }
-
-  /* Hotspot Styling */
-  .comment-hotspot-pill {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 50px;
-    padding: 4px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: all 0.2s ease;
-    z-index: 5;
-    transform: translate(-50%, -50%); /* Center hotspot on the coordinate */
-  }
-
-  .comment-hotspot-pill:hover {
-    transform: translate(-50%, -50%) scale(1.08);
-    background: rgba(0, 0, 0, 0.8);
-    border-color: rgba(255, 255, 255, 0.5);
-  }
-
-  .comment-hotspot-avatar {
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 50%;
+  
+  /* Instagram overlay styling */
+  .scrolling-gallery__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #ffffff;
-    border: 1.5px solid #1a1a1a;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .comment-hotspot-avatar--1 {
-    background-color: #5c7b96;
-    margin-right: -1.2rem;
-    position: relative;
     z-index: 2;
   }
-
-  .comment-hotspot-avatar--2 {
-    background-color: #3b3b3b;
-    position: relative;
-    z-index: 1;
+  
+  .scrolling-gallery__item:hover .scrolling-gallery__overlay {
+    opacity: 1;
   }
-
-  .comment-hotspot-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Popover Box Styling */
-  .comment-popup-box {
-    position: absolute;
-    width: 320px;
-    background-color: #1e1e1e;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    box-sizing: border-box;
-  }
-
-  .comment-popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 1rem;
-  }
-
-  .comment-popup-title {
-    color: #ffffff;
-    font-size: 1.4rem;
-    font-weight: 700;
-  }
-
-  .comment-popup-header-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-  }
-
-  .comment-popup-more,
-  .comment-popup-close {
-    background: transparent;
-    border: none;
-    color: #888888;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2rem;
-    transition: color 0.2s ease;
-  }
-
-  .comment-popup-more:hover,
-  .comment-popup-close:hover {
-    color: #ffffff;
-  }
-
-  .comment-popup-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-height: 200px;
-    overflow-y: auto;
-  }
-
-  .comment-row {
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-  }
-
-  .comment-row--reply {
-    margin-left: 2rem;
-  }
-
-  .comment-avatar {
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    background-color: #5c7b96;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 700;
-    flex-shrink: 0;
-    overflow: hidden;
-  }
-
-  .comment-row--reply .comment-avatar {
-    background-color: #3b3b3b;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .comment-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .comment-content-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .comment-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .comment-author {
-    color: #ffffff;
-    font-size: 1.3rem;
-    font-weight: 700;
-  }
-
-  .comment-time {
-    color: #888888;
-    font-size: 1.1rem;
-  }
-
-  .comment-text {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.3rem;
-    line-height: 1.4;
-  }
-
-  .comment-mention {
-    color: #52a3ff;
-    font-weight: 600;
-  }
-
-  .comment-popup-footer {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 1.2rem;
-  }
-
-  .comment-footer-avatar {
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    background-color: #3f51b5;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .comment-input-wrap {
-    display: flex;
-    align-items: center;
-    background-color: #2d2d2d;
-    border-radius: 20px;
-    flex-grow: 1;
-    padding: 0.4rem 0.4rem 0.4rem 1.2rem;
-  }
-
-  .comment-input {
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 1.3rem;
-    outline: none;
-    width: 100%;
-  }
-
-  .comment-input::placeholder {
-    color: #666666;
-  }
-
-  .comment-submit-btn {
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 50%;
-    background-color: #4f4f4f;
-    border: none;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .comment-submit-btn:hover {
-    background-color: #ffffff;
-    color: #000000;
-  }
-
-  /* Set grid item defaults (Masonry column items) */
-  .instagram-gallery__grid-item {
-    position: relative;
-    border-radius: {{ section.settings.border_radius }}px;
-    overflow: hidden;
-    break-inside: avoid;
-    margin-bottom: {{ section.settings.gap_mobile }}px;
-    display: block;
-    width: 100%;
-  }
-
-  @media screen and (min-width: 750px) {
-    .instagram-gallery__grid-item {
-      margin-bottom: {{ section.settings.gap_desktop }}px;
-    }
-  }
-
-  .instagram-gallery__grid-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+  
+  .scrolling-gallery__overlay svg {
+    width: 32px;
+    height: 32px;
+    fill: #ffffff;
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="section-{{ section.id }}-padding {% unless section.settings.full_width %}page-width{% endunless %}">
-    
-    {%- if section.settings.heading != blank or section.settings.subtitle != blank -%}
-      <div class="instagram-gallery__header page-width">
-        {%- if section.settings.heading != blank -%}
-          <h2 class="instagram-gallery__heading {{ section.settings.heading_size }}">
-            {{ section.settings.heading }}
-          </h2>
-        {%- endif -%}
-        {%- if section.settings.subtitle != blank -%}
-          <p class="instagram-gallery__subtitle">
-            {{ section.settings.subtitle }}
-          </p>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
+<div class="scrolling-gallery section-{{ section.id }}-padding">
+  <!-- Removed page-width wrapper from the grid so the slider spans edge-to-edge -->
+  <div class="page-width">
+    <div class="scrolling-gallery__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="scrolling-gallery__heading {{ section.settings.heading_size }}">
+          {{ section.settings.heading | escape }}
+        </h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <p class="scrolling-gallery__description">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
 
-    {%- if section.settings.enable_marquee -%}
-      <!-- Marquee Layout -->
-      <div class="marquee-gallery">
-        
-        {%- comment -%} ROW 1 {%- endcomment -%}
-        {%- if section.blocks.size > 0 -%}
-          <div class="marquee-gallery__track-wrapper" style="--duration: {{ section.settings.speed_row_1 }}s;">
-            {%- for i in (1..2) -%}
-              <div class="marquee-gallery__track {% if section.settings.direction_row_1 == 'right' %}marquee-gallery__track--reverse{% endif %}" {% if forloop.index == 2 %}aria-hidden="true"{% endif %}>
-                {%- for block in section.blocks -%}
-                  {%- if block.settings.row == '1' -%}
-                    <div class="marquee-gallery__item" style="position: relative;" {{ block.shopify_attributes }}>
-                      {%- if block.settings.image != blank -%}
-                        {{ block.settings.image | image_url: height: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
-                      {%- else -%}
-                        {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
-                      {%- endif -%}
-
-                      {%- if block.settings.show_comment -%}
-                        <button type="button" class="comment-hotspot-pill" data-popup-id="Popup-{{ block.id }}-{{ i }}" style="position: absolute; top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%;">
-                          <span class="comment-hotspot-avatar comment-hotspot-avatar--1">J</span>
-                          <span class="comment-hotspot-avatar comment-hotspot-avatar--2">
-                            {%- if block.settings.reply_avatar != blank -%}
-                              <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
-                            {%- else -%}
-                              L
-                            {%- endif -%}
-                          </span>
-                        </button>
-                        
-                        <div class="comment-popup-box" id="Popup-{{ block.id }}-{{ i }}" style="display: none;">
-                          <div class="comment-popup-header">
-                            <span class="comment-popup-title">Comment</span>
-                            <div class="comment-popup-header-actions">
-                              <button type="button" class="comment-popup-more" aria-label="More options">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                              </button>
-                              <button type="button" class="comment-popup-close" aria-label="Close comments">
-                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                              </button>
-                            </div>
-                          </div>
-                          <div class="comment-popup-body">
-                            <div class="comment-row">
-                              <div class="comment-avatar">J</div>
-                              <div class="comment-content-wrap">
-                                <div class="comment-meta">
-                                  <span class="comment-author">{{ block.settings.comment_author_1 | default: 'jay' }}</span>
-                                  <span class="comment-time">{{ block.settings.comment_time_1 | default: '12 days ago' }}</span>
-                                </div>
-                                <div class="comment-text">{{ block.settings.comment_text_1 | default: 'You make it adjustable?' }}</div>
-                              </div>
-                            </div>
-                            {%- if block.settings.comment_text_2 != blank -%}
-                              <div class="comment-row comment-row--reply">
-                                <div class="comment-avatar">
-                                  {%- if block.settings.reply_avatar != blank -%}
-                                    <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
-                                  {%- else -%}
-                                    L
-                                  {%- endif -%}
-                                </div>
-                                <div class="comment-content-wrap">
-                                  <div class="comment-meta">
-                                    <span class="comment-author">{{ block.settings.comment_author_2 | default: 'Lucineh' }}</span>
-                                    <span class="comment-time">{{ block.settings.comment_time_2 | default: '12 days ago' }}</span>
-                                  </div>
-                                  <div class="comment-text">
-                                    {%- if block.settings.comment_text_2 contains 'jay' -%}
-                                      {{ block.settings.comment_text_2 | replace: 'jay', '<span class="comment-mention">jay</span>' }}
-                                    {%- else -%}
-                                      {{ block.settings.comment_text_2 }}
-                                    {%- endif -%}
-                                  </div>
-                                </div>
-                              </div>
-                            {%- endif -%}
-                          </div>
-                          <div class="comment-popup-footer">
-                            <div class="comment-footer-avatar">Y</div>
-                            <div class="comment-input-wrap">
-                              <input type="text" placeholder="Reply" class="comment-input" readonly>
-                              <button type="button" class="comment-submit-btn" aria-label="Send reply">
-                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  {%- endif -%}
-                {%- endfor -%}
-              </div>
-            {%- endfor -%}
-          </div>
+  <div class="scrolling-gallery__grid">
+    {%- for block in section.blocks -%}
+      <div class="scrolling-gallery__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.link != blank -%}
+          <a href="{{ block.settings.link }}" class="scrolling-gallery__image-wrapper">
+        {%- else -%}
+          <div class="scrolling-gallery__image-wrapper">
         {%- endif -%}
 
-        {%- comment -%} ROW 2 {%- endcomment -%}
-        {%- assign row_2_count = section.blocks | where: "settings.row", "2" | size -%}
-        {%- if row_2_count > 0 -%}
-          <div class="marquee-gallery__track-wrapper" style="--duration: {{ section.settings.speed_row_2 }}s;">
-            {%- for i in (1..2) -%}
-              <div class="marquee-gallery__track {% if section.settings.direction_row_2 == 'right' %}marquee-gallery__track--reverse{% endif %}" {% if forloop.index == 2 %}aria-hidden="true"{% endif %}>
-                {%- for block in section.blocks -%}
-                  {%- if block.settings.row == '2' -%}
-                    <div class="marquee-gallery__item" style="position: relative;" {{ block.shopify_attributes }}>
-                      {%- if block.settings.image != blank -%}
-                        {{ block.settings.image | image_url: height: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
-                      {%- else -%}
-                        {{ 'lifestyle-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
-                      {%- endif -%}
-
-                      {%- if block.settings.show_comment -%}
-                        <button type="button" class="comment-hotspot-pill" data-popup-id="Popup-{{ block.id }}-{{ i }}" style="position: absolute; top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%;">
-                          <span class="comment-hotspot-avatar comment-hotspot-avatar--1">J</span>
-                          <span class="comment-hotspot-avatar comment-hotspot-avatar--2">
-                            {%- if block.settings.reply_avatar != blank -%}
-                              <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
-                            {%- else -%}
-                              L
-                            {%- endif -%}
-                          </span>
-                        </button>
-                        
-                        <div class="comment-popup-box" id="Popup-{{ block.id }}-{{ i }}" style="display: none;">
-                          <div class="comment-popup-header">
-                            <span class="comment-popup-title">Comment</span>
-                            <div class="comment-popup-header-actions">
-                              <button type="button" class="comment-popup-more" aria-label="More options">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                              </button>
-                              <button type="button" class="comment-popup-close" aria-label="Close comments">
-                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                              </button>
-                            </div>
-                          </div>
-                          <div class="comment-popup-body">
-                            <div class="comment-row">
-                              <div class="comment-avatar">J</div>
-                              <div class="comment-content-wrap">
-                                <div class="comment-meta">
-                                  <span class="comment-author">{{ block.settings.comment_author_1 | default: 'jay' }}</span>
-                                  <span class="comment-time">{{ block.settings.comment_time_1 | default: '12 days ago' }}</span>
-                                </div>
-                                <div class="comment-text">{{ block.settings.comment_text_1 | default: 'You make it adjustable?' }}</div>
-                              </div>
-                            </div>
-                            {%- if block.settings.comment_text_2 != blank -%}
-                              <div class="comment-row comment-row--reply">
-                                <div class="comment-avatar">
-                                  {%- if block.settings.reply_avatar != blank -%}
-                                    <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
-                                  {%- else -%}
-                                    L
-                                  {%- endif -%}
-                                </div>
-                                <div class="comment-content-wrap">
-                                  <div class="comment-meta">
-                                    <span class="comment-author">{{ block.settings.comment_author_2 | default: 'Lucineh' }}</span>
-                                    <span class="comment-time">{{ block.settings.comment_time_2 | default: '12 days ago' }}</span>
-                                  </div>
-                                  <div class="comment-text">
-                                    {%- if block.settings.comment_text_2 contains 'jay' -%}
-                                      {{ block.settings.comment_text_2 | replace: 'jay', '<span class="comment-mention">jay</span>' }}
-                                    {%- else -%}
-                                      {{ block.settings.comment_text_2 }}
-                                    {%- endif -%}
-                                  </div>
-                                </div>
-                              </div>
-                            {%- endif -%}
-                          </div>
-                          <div class="comment-popup-footer">
-                            <div class="comment-footer-avatar">Y</div>
-                            <div class="comment-input-wrap">
-                              <input type="text" placeholder="Reply" class="comment-input" readonly>
-                              <button type="button" class="comment-submit-btn" aria-label="Send reply">
-                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  {%- endif -%}
-                {%- endfor -%}
-              </div>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-
-      </div>
-    {%- else -%}
-      <!-- Grid Layout -->
-      <div class="instagram-gallery__grid">
-        {%- for block in section.blocks -%}
-          <div class="instagram-gallery__grid-item" style="position: relative;" {{ block.shopify_attributes }}>
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt | escape }}
-            {%- else -%}
-              {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-
-            {%- if block.settings.show_comment -%}
-              <button type="button" class="comment-hotspot-pill" data-popup-id="Popup-{{ block.id }}-1" style="position: absolute; top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%;">
-                <span class="comment-hotspot-avatar comment-hotspot-avatar--1">J</span>
-                <span class="comment-hotspot-avatar comment-hotspot-avatar--2">
-                  {%- if block.settings.reply_avatar != blank -%}
-                    <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
-                  {%- else -%}
-                    L
-                  {%- endif -%}
-                </span>
-              </button>
+          {%- if block.settings.image != blank -%}
+            {%- liquid
+              assign fetch_priority = 'auto'
+              assign loading_attr = 'lazy'
               
-              <div class="comment-popup-box" id="Popup-{{ block.id }}-1" style="display: none;">
-                <div class="comment-popup-header">
-                  <span class="comment-popup-title">Comment</span>
-                  <div class="comment-popup-header-actions">
-                    <button type="button" class="comment-popup-more" aria-label="More options">
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                    </button>
-                    <button type="button" class="comment-popup-close" aria-label="Close comments">
-                      <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="comment-popup-body">
-                  <div class="comment-row">
-                    <div class="comment-avatar">J</div>
-                    <div class="comment-content-wrap">
-                      <div class="comment-meta">
-                        <span class="comment-author">{{ block.settings.comment_author_1 | default: 'jay' }}</span>
-                        <span class="comment-time">{{ block.settings.comment_time_1 | default: '12 days ago' }}</span>
-                      </div>
-                      <div class="comment-text">{{ block.settings.comment_text_1 | default: 'You make it adjustable?' }}</div>
-                    </div>
-                  </div>
-                  {%- if block.settings.comment_text_2 != blank -%}
-                    <div class="comment-row comment-row--reply">
-                      <div class="comment-avatar">
-                        {%- if block.settings.reply_avatar != blank -%}
-                          <img src="{{ block.settings.reply_avatar | image_url: width: 40 }}" alt="">
-                        {%- else -%}
-                          L
-                        {%- endif -%}
-                      </div>
-                      <div class="comment-content-wrap">
-                        <div class="comment-meta">
-                          <span class="comment-author">{{ block.settings.comment_author_2 | default: 'Lucineh' }}</span>
-                          <span class="comment-time">{{ block.settings.comment_time_2 | default: '12 days ago' }}</span>
-                        </div>
-                        <div class="comment-text">
-                          {%- if block.settings.comment_text_2 contains 'jay' -%}
-                            {{ block.settings.comment_text_2 | replace: 'jay', '<span class="comment-mention">jay</span>' }}
-                          {%- else -%}
-                            {{ block.settings.comment_text_2 }}
-                          {%- endif -%}
-                        </div>
-                      </div>
-                    </div>
-                  {%- endif -%}
-                </div>
-                <div class="comment-popup-footer">
-                  <div class="comment-footer-avatar">Y</div>
-                  <div class="comment-input-wrap">
-                    <input type="text" placeholder="Reply" class="comment-input" readonly>
-                    <button type="button" class="comment-submit-btn" aria-label="Send reply">
-                      <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            {%- endif -%}
-          </div>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
+              if section.settings.lazy_load == false and forloop.index <= 5
+                assign fetch_priority = 'high'
+                assign loading_attr = 'eager'
+              endif
+            -%}
+            {{ block.settings.image | image_url: width: 800 | image_tag:
+              loading: loading_attr,
+              fetchpriority: fetch_priority,
+              widths: '300, 400, 600, 800',
+              sizes: '(min-width: 990px) 22vw, (min-width: 750px) 35vw, 70vw'
+            }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+          
+          {%- if block.settings.show_icon_on_hover -%}
+            <div class="scrolling-gallery__overlay">
+               <svg viewBox="0 0 24 24">
+                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+               </svg>
+            </div>
+          {%- endif -%}
 
+        {%- if block.settings.link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
   </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const section = document.querySelector('.section-{{ section.id }}-padding');
-    if (!section) return;
-
-    // Create popup portal container
-    const portal = document.createElement('div');
-    portal.className = 'instagram-popups-portal';
-    section.appendChild(portal);
-
-    // Move all popup boxes inside blocks to portal container to avoid marquee overflow clipping
-    const popups = section.querySelectorAll('.comment-popup-box');
-    popups.forEach(popup => portal.appendChild(popup));
-
-    const hotspots = section.querySelectorAll('.comment-hotspot-pill');
-    let activePopup = null;
-
-    function pauseMarquees() {
-      const tracks = section.querySelectorAll('.marquee-gallery__track');
-      tracks.forEach(track => {
-        track.style.animationPlayState = 'paused';
-      });
-    }
-
-    function resumeMarquees() {
-      const tracks = section.querySelectorAll('.marquee-gallery__track');
-      tracks.forEach(track => {
-        track.style.animationPlayState = 'running';
-      });
-    }
-
-    hotspots.forEach(hotspot => {
-      hotspot.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const popupId = this.getAttribute('data-popup-id');
-        const popup = document.getElementById(popupId);
-        if (!popup) return;
-
-        // Close current active popup
-        if (activePopup) {
-          activePopup.style.display = 'none';
-        }
-
-        // Pause marquee
-        pauseMarquees();
-
-        // Position popup relative to section container
-        const rect = this.getBoundingClientRect();
-        const secRect = section.getBoundingClientRect();
-
-        let top = rect.bottom - secRect.top;
-        let left = rect.left - secRect.left + (rect.width / 2) - 160; // Center popup (width: 320px)
-
-        // Keep popup inside section container bounds horizontally
-        if (left < 10) left = 10;
-        if (left + 330 > secRect.width) {
-          left = secRect.width - 330;
-        }
-
-        popup.style.top = `${top + 10}px`;
-        popup.style.left = `${left}px`;
-        popup.style.display = 'flex';
-        activePopup = popup;
-      });
-    });
-
-    // Close buttons inside popups
-    const closeBtns = section.querySelectorAll('.comment-popup-close');
-    closeBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (activePopup) {
-          activePopup.style.display = 'none';
-          activePopup = null;
-        }
-        resumeMarquees();
-      });
-    });
-
-    // Close when clicking outside of the popup
-    document.addEventListener('click', function(e) {
-      if (activePopup && !activePopup.contains(e.target) && !e.target.closest('.comment-hotspot-pill')) {
-        activePopup.style.display = 'none';
-        activePopup = null;
-        resumeMarquees();
-      }
-    });
-  });
-</script>
-
 {% schema %}
 {
-  "name": "Marquee Gallery",
+  "name": "Scrolling Gallery",
   "tag": "section",
   "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Make section full width",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_marquee",
-      "label": "Enable scrolling marquee animation",
-      "default": true
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
     },
     {
       "type": "header",
-      "content": "Heading Content"
+      "content": "Header Layout"
     },
     {
       "type": "text",
@@ -840,160 +223,25 @@
         { "value": "h1", "label": "Medium" },
         { "value": "h0", "label": "Large" }
       ],
-      "default": "h1",
+      "default": "h0",
       "label": "Heading Size"
     },
     {
-      "type": "inline_richtext",
-      "id": "subtitle",
+      "type": "text",
+      "id": "description",
       "default": "with thousands who've upgraded their everyday ride.",
-      "label": "Subtitle"
-    },
-    {
-      "type": "header",
-      "content": "Grid Settings (Static Mode)"
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 3,
-      "max": 8,
-      "step": 1,
-      "default": 5,
-      "label": "Columns on desktop"
-    },
-    {
-      "type": "select",
-      "id": "columns_mobile",
-      "default": "2",
-      "label": "Columns on mobile",
-      "options": [
-        { "value": "1", "label": "1 column" },
-        { "value": "2", "label": "2 columns" }
-      ]
+      "label": "Description"
     },
     {
       "type": "checkbox",
-      "id": "enable_edge_fade",
-      "label": "Enable left/right edge fade mask",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "pause_on_hover",
-      "label": "Pause animation on hover",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "border_radius",
-      "min": 0,
-      "max": 40,
-      "step": 2,
-      "unit": "px",
-      "label": "Image border radius",
-      "default": 16
+      "id": "lazy_load",
+      "default": true,
+      "label": "Lazy load images",
+      "info": "Disable if this section is the first thing users see."
     },
     {
       "type": "header",
-      "content": "Row 1 Settings (Marquee Mode)"
-    },
-    {
-      "type": "range",
-      "id": "speed_row_1",
-      "min": 10,
-      "max": 100,
-      "step": 2,
-      "unit": "s",
-      "label": "Animation Speed (Row 1)",
-      "info": "Lower is faster.",
-      "default": 40
-    },
-    {
-      "type": "select",
-      "id": "direction_row_1",
-      "label": "Direction (Row 1)",
-      "options": [
-        { "value": "left", "label": "Right to Left" },
-        { "value": "right", "label": "Left to Right" }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "header",
-      "content": "Row 2 Settings (Marquee Mode)"
-    },
-    {
-      "type": "range",
-      "id": "speed_row_2",
-      "min": 10,
-      "max": 100,
-      "step": 2,
-      "unit": "s",
-      "label": "Animation Speed (Row 2)",
-      "default": 50
-    },
-    {
-      "type": "select",
-      "id": "direction_row_2",
-      "label": "Direction (Row 2)",
-      "options": [
-        { "value": "left", "label": "Right to Left" },
-        { "value": "right", "label": "Left to Right" }
-      ],
-      "default": "right"
-    },
-    {
-      "type": "header",
-      "content": "Sizing & Spacing (Desktop)"
-    },
-    {
-      "type": "range",
-      "id": "image_height_desktop",
-      "min": 100,
-      "max": 600,
-      "step": 10,
-      "unit": "px",
-      "label": "Image Height (Marquee Mode)",
-      "default": 280
-    },
-    {
-      "type": "range",
-      "id": "gap_desktop",
-      "min": 0,
-      "max": 60,
-      "step": 4,
-      "unit": "px",
-      "label": "Gap between images",
-      "default": 24
-    },
-    {
-      "type": "header",
-      "content": "Sizing & Spacing (Mobile)"
-    },
-    {
-      "type": "range",
-      "id": "image_height_mobile",
-      "min": 80,
-      "max": 400,
-      "step": 10,
-      "unit": "px",
-      "label": "Image Height (Marquee Mode)",
-      "default": 180
-    },
-    {
-      "type": "range",
-      "id": "gap_mobile",
-      "min": 0,
-      "max": 40,
-      "step": 4,
-      "unit": "px",
-      "label": "Gap between images",
-      "default": 12
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Section Padding"
     },
     {
       "type": "range",
@@ -1002,8 +250,8 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "label": "Top Padding",
+      "default": 60
     },
     {
       "type": "range",
@@ -1012,8 +260,8 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "label": "Bottom Padding",
+      "default": 60
     }
   ],
   "blocks": [
@@ -1027,103 +275,28 @@
           "label": "Image"
         },
         {
-          "type": "select",
-          "id": "row",
-          "label": "Display in Row (Marquee Mode)",
-          "options": [
-            { "value": "1", "label": "Row 1 (Top)" },
-            { "value": "2", "label": "Bottom Row (2)" }
-          ],
-          "default": "1"
-        },
-        {
-          "type": "header",
-          "content": "Hotspot & Comments Popup"
+          "type": "url",
+          "id": "link",
+          "label": "Image Link (Optional)"
         },
         {
           "type": "checkbox",
-          "id": "show_comment",
-          "label": "Show comment hotspot indicator",
+          "id": "show_icon_on_hover",
+          "label": "Show Instagram icon on hover",
           "default": false
-        },
-        {
-          "type": "range",
-          "id": "hotspot_x",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "%",
-          "label": "Hotspot Horizontal Position (X)",
-          "default": 50
-        },
-        {
-          "type": "range",
-          "id": "hotspot_y",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "%",
-          "label": "Hotspot Vertical Position (Y)",
-          "default": 50
-        },
-        {
-          "type": "text",
-          "id": "comment_author_1",
-          "label": "Commenter Name",
-          "default": "jay"
-        },
-        {
-          "type": "text",
-          "id": "comment_time_1",
-          "label": "Comment Time Offset",
-          "default": "12 days ago"
-        },
-        {
-          "type": "text",
-          "id": "comment_text_1",
-          "label": "Comment Text",
-          "default": "You make it adjustable?"
-        },
-        {
-          "type": "text",
-          "id": "comment_author_2",
-          "label": "Reply Author Name",
-          "default": "Lucineh"
-        },
-        {
-          "type": "text",
-          "id": "comment_time_2",
-          "label": "Reply Time Offset",
-          "default": "12 days ago"
-        },
-        {
-          "type": "text",
-          "id": "comment_text_2",
-          "label": "Reply Text",
-          "default": "Yes jay"
-        },
-        {
-          "type": "image_picker",
-          "id": "reply_avatar",
-          "label": "Reply Avatar Image Override"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Marquee Gallery",
+      "name": "Scrolling Gallery",
       "blocks": [
-        { "type": "image", "settings": { "row": "1" } },
-        { "type": "image", "settings": { "row": "1" } },
-        { "type": "image", "settings": { "row": "1", "show_comment": true, "hotspot_x": 50, "hotspot_y": 30 } },
-        { "type": "image", "settings": { "row": "1" } },
-        { "type": "image", "settings": { "row": "1" } },
-        { "type": "image", "settings": { "row": "2" } },
-        { "type": "image", "settings": { "row": "2" } },
-        { "type": "image", "settings": { "row": "2" } },
-        { "type": "image", "settings": { "row": "2" } },
-        { "type": "image", "settings": { "row": "2" } }
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
       ]
     }
   ]
