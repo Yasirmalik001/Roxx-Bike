@@ -75,9 +75,9 @@
     text-align: {% if section.settings.desktop_content_alignment == 'center' %}center{% elsif section.settings.desktop_content_alignment == 'flex-end' %}right{% else %}left{% endif %};
     padding: 4rem 0;
   }
+  
   .hero-features__description {
-    color: {{ section.settings.text_color }};
-    opacity: 0.9;
+    color: rgba(var(--color-foreground), 0.9);
     font-size: 1.6rem;
     line-height: 1.5;
     margin-bottom: 3.5rem;
@@ -98,19 +98,19 @@
     max-width: 140px;
   }
 
-  /* Advanced Glassmorphism */
+  /* Advanced Glassmorphism adapting to scheme foreground */
   .hero-features__icon-wrapper {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--color-foreground), 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(var(--color-foreground), 0.15);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 
@@ -118,7 +118,7 @@
     width: 24px;
     height: 24px;
     fill: none;
-    stroke: {{ section.settings.text_color }};
+    stroke: rgb(var(--color-foreground));
   }
 
   .hero-features__custom-icon {
@@ -131,8 +131,17 @@
     font-size: 1.3rem;
     font-weight: 600;
     line-height: 1.4;
-    color: {{ section.settings.text_color }};
+    color: rgb(var(--color-foreground));
     margin: 0;
+  }
+
+  /* Kept custom button structural styling, but color is handled by Dawn's classes */
+  .hero-features__button {
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1.5rem 3.5rem;
+    letter-spacing: 0.05em;
   }
 
   /* Mobile Adjustments */
@@ -153,7 +162,7 @@
   }
 {%- endstyle -%}
 
-<div id="Banner-{{ section.id }}" class="hero-features section-{{ section.id }}-padding">
+<div id="Banner-{{ section.id }}" class="hero-features section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   
   <div class="hero-features__media">
     {%- if section.settings.video != null -%}
@@ -249,8 +258,7 @@
           {%- when 'button' -%}
             {%- if block.settings.button_label != blank -%}
               <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} 
-                 class="button" 
-                 style="background-color: {{ block.settings.button_color }}; color: #000; border-radius: 50px; font-weight: 700; text-transform: uppercase; padding: 1.5rem 3.5rem; border: none; letter-spacing: 0.05em;" 
+                 class="button hero-features__button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}" 
                  {{ block.shopify_attributes }}>
                 {{ block.settings.button_label | escape }}
               </a>
@@ -272,6 +280,12 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
     {
       "type": "video",
       "id": "video",
@@ -460,7 +474,7 @@
         }
       ]
     },
-    {
+  {
       "type": "button",
       "name": "Button",
       "limit": 1,
@@ -477,10 +491,10 @@
           "label": "Button Link"
         },
         {
-          "type": "color",
-          "id": "button_color",
-          "label": "Button Background Color",
-          "default": "#ffe600"
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "Use secondary button style"
         }
       ]
     }
