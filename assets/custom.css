@@ -6,15 +6,6 @@
   letter-spacing: 0%;
   vertical-align: middle;
 }
-@font-face {
-    font-family: "Integral CF";
-    src: url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.eot");
-    src: url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.svg#Integral CF")format("svg");
-}
 .hero-features__heading {
 font-family: Integral CF;
 font-weight: 400;
