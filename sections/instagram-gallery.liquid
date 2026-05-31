@@ -11,6 +11,12 @@
     }
   }
 
+  .roxx-masonry-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
   .roxx-masonry-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -33,7 +39,6 @@
     margin: 0;
   }
 
-  /* CSS Multi-column layout for native Masonry */
   .roxx-masonry-grid {
     column-count: 2;
     column-gap: 16px;
@@ -54,11 +59,11 @@
   }
 
   .roxx-masonry-item {
-    break-inside: avoid; /* Prevents images from splitting across columns */
+    break-inside: avoid;
     margin-bottom: 16px;
     border-radius: 16px;
     overflow: hidden;
-    transform: translateZ(0); /* Forces hardware acceleration for crisp borders */
+    transform: translateZ(0);
   }
 
   @media screen and (min-width: 1024px) {
@@ -72,12 +77,28 @@
     display: block;
     border-radius: 16px;
     object-fit: cover;
+  }
+
+  /* Core aspect ratio settings controlled by the block picker */
+  .roxx-aspect-adapt {
     height: auto;
+  }
+  .roxx-aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+  .roxx-aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+  .roxx-aspect-tall {
+    aspect-ratio: 2 / 3;
+  }
+  .roxx-aspect-landscape {
+    aspect-ratio: 4 / 3;
   }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
-  <div class="roxx-masonry-wrapper page-width">
+  <div class="roxx-masonry-wrapper">
     <div class="roxx-masonry-header">
       {%- if section.settings.heading != blank -%}
         <h2 class="roxx-masonry-heading">{{ section.settings.heading }}</h2>
@@ -94,13 +115,13 @@
             <img
               src="{{ block.settings.image | image_url: width: 800 }}"
               alt="{{ block.settings.image.alt | escape }}"
-              class="roxx-masonry-image"
+              class="roxx-masonry-image roxx-aspect-{{ block.settings.image_ratio }}"
               loading="lazy"
               width="{{ block.settings.image.width }}"
               height="{{ block.settings.image.height }}"
             >
           {%- else -%}
-            {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg' }}
+            {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-aspect-square' }}
           {%- endif -%}
         </div>
       {%- endfor -%}
@@ -111,6 +132,8 @@
 {% schema %}
 {
   "name": "Masonry Gallery",
+  "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "text",
@@ -158,6 +181,19 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_ratio",
+          "label": "Aspect Ratio",
+          "options": [
+            { "value": "adapt", "label": "Adapt to image" },
+            { "value": "square", "label": "Square (1:1)" },
+            { "value": "portrait", "label": "Portrait (3:4)" },
+            { "value": "tall", "label": "Tall Portrait (2:3)" },
+            { "value": "landscape", "label": "Landscape (4:3)" }
+          ],
+          "default": "adapt"
         }
       ]
     }
@@ -166,16 +202,16 @@
     {
       "name": "Masonry Gallery",
       "blocks": [
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" }
+        { "type": "image", "settings": { "image_ratio": "tall" } },
+        { "type": "image", "settings": { "image_ratio": "square" } },
+        { "type": "image", "settings": { "image_ratio": "portrait" } },
+        { "type": "image", "settings": { "image_ratio": "tall" } },
+        { "type": "image", "settings": { "image_ratio": "portrait" } },
+        { "type": "image", "settings": { "image_ratio": "square" } },
+        { "type": "image", "settings": { "image_ratio": "tall" } },
+        { "type": "image", "settings": { "image_ratio": "portrait" } },
+        { "type": "image", "settings": { "image_ratio": "tall" } },
+        { "type": "image", "settings": { "image_ratio": "square" } }
       ]
     }
   ]
