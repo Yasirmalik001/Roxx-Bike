@@ -606,9 +606,9 @@
           "settings": {
             "margin_top": 0,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-            "ratio_top": "adapt",
+            "height_top": 300,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
-            "ratio_bottom": "adapt"
+            "height_bottom": 300
           }
         },
         "column_PxpJ4F": {
@@ -616,9 +616,9 @@
           "settings": {
             "margin_top": 30,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-            "ratio_top": "adapt",
+            "height_top": 300,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
-            "ratio_bottom": "adapt"
+            "height_bottom": 300
           }
         },
         "column_tqGbjU": {
@@ -626,9 +626,9 @@
           "settings": {
             "margin_top": 0,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-            "ratio_top": "adapt",
+            "height_top": 300,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
-            "ratio_bottom": "adapt"
+            "height_bottom": 300
           }
         },
         "column_fMDjad": {
@@ -636,9 +636,9 @@
           "settings": {
             "margin_top": 30,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-            "ratio_top": "adapt",
+            "height_top": 300,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
-            "ratio_bottom": "adapt"
+            "height_bottom": 300
           }
         },
         "column_KctEx6": {
@@ -646,9 +646,9 @@
           "settings": {
             "margin_top": 0,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-            "ratio_top": "adapt",
+            "height_top": 300,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
-            "ratio_bottom": "adapt"
+            "height_bottom": 300
           }
         }
       },
