@@ -232,7 +232,7 @@
       ],
       "name": "Trust Badges",
       "settings": {
-        "background_color": "#ffffff",
+        "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -375,7 +375,7 @@
       ],
       "name": "Customer Reviews Slider",
       "settings": {
-        "background_color": "#ffffff",
+        "color_scheme": "",
         "heading": "OUR CUSTOMER SAY!",
         "heading_size": "h0",
         "show_summary_card": false,
@@ -406,25 +406,19 @@
             "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
           }
         },
-        "slide_8fqVDd": {
+        "slide_UPHXwC": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/persons-of-cycles.png",
             "heading": "WHEN E-BIKE MEETS LIFE",
             "heading_size": "h0",
             "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
           }
         },
-        "slide_kiAErg": {
+        "slide_Hp8gQH": {
           "type": "slide",
           "settings": {
-            "heading": "WHEN E-BIKE MEETS LIFE",
-            "heading_size": "h0",
-            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
-          }
-        },
-        "slide_fi8JAc": {
-          "type": "slide",
-          "settings": {
+            "image": "shopify://shop_images/persons-of-cycles.png",
             "heading": "WHEN E-BIKE MEETS LIFE",
             "heading_size": "h0",
             "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
@@ -433,9 +427,8 @@
       },
       "block_order": [
         "slide_NTY49e",
-        "slide_8fqVDd",
-        "slide_kiAErg",
-        "slide_fi8JAc"
+        "slide_UPHXwC",
+        "slide_Hp8gQH"
       ],
       "name": "Hero Slideshow",
       "settings": {
