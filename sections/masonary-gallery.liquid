@@ -13,67 +13,116 @@
 
   .roxx-masonry-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .roxx-masonry-header {
+      margin-bottom: 3rem;
+    }
   }
 
   .roxx-masonry-heading {
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.5rem 0;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -0.5px;
+    font-size: clamp(20px, 4vw, 32px);
   }
 
   .roxx-masonry-subheading {
-    font-size: clamp(13px, 1.5vw, 15px);
+    font-size: clamp(12px, 1.5vw, 15px);
     font-weight: 500;
     margin: 0;
     opacity: 0.8;
   }
 
+  /* 
+   * ==========================================
+   * MOBILE ONLY: 2-Column Dynamic Masonry
+   * ==========================================
+   */
   .roxx-masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    align-items: start;
-  }
-
-  @media screen and (min-width: 768px) {
-    .roxx-masonry-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    .roxx-masonry-grid {
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
-    }
+    column-count: 2;
+    column-gap: 12px;
+    display: block; /* Overrides any grid behavior on mobile */
+    width: 100%;
   }
 
   .roxx-column-block {
+    display: inline-block;
+    width: 100%;
+    break-inside: avoid;
+    margin-bottom: 12px;
+    transform: translateZ(0);
+  }
+
+  .roxx-column-block-inner {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 100%;
+    gap: 12px;
   }
 
   .roxx-masonry-image {
     width: 100%;
     display: block;
-    border-radius: 16px;
+    border-radius: 8px;
     object-fit: cover;
   }
 
-  /* Applies manual margin and exact height controls to each specific block */
+  /* 
+   * ==========================================
+   * DESKTOP ONLY: Restored Explicit 5-Col Grid
+   * ==========================================
+   */
+  @media screen and (min-width: 1024px) {
+    .roxx-masonry-grid {
+      display: grid;
+      column-count: auto; /* Disables the mobile masonry */
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .roxx-column-block {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+
+    .roxx-column-block-inner {
+      gap: 20px;
+    }
+
+    .roxx-masonry-image {
+      border-radius: 16px;
+    }
+  }
+
+  /* Apply exact Customizer height & margin settings per block */
   {%- for block in section.blocks -%}
+    /* Mobile Settings */
     #roxx-column-{{ block.id }} {
-      margin-top: {{ block.settings.margin_top }}px;
+      margin-top: {{ block.settings.margin_top_mobile }}px;
     }
     #roxx-column-{{ block.id }} .roxx-top-img {
-      height: {{ block.settings.height_top }}px;
+      height: {{ block.settings.height_top_mobile }}px;
     }
     #roxx-column-{{ block.id }} .roxx-bottom-img {
-      height: {{ block.settings.height_bottom }}px;
+      height: {{ block.settings.height_bottom_mobile }}px;
+    }
+
+    /* Desktop Settings */
+    @media screen and (min-width: 1024px) {
+      #roxx-column-{{ block.id }} {
+        margin-top: {{ block.settings.margin_top }}px;
+      }
+      #roxx-column-{{ block.id }} .roxx-top-img {
+        height: {{ block.settings.height_top }}px;
+      }
+      #roxx-column-{{ block.id }} .roxx-bottom-img {
+        height: {{ block.settings.height_bottom }}px;
+      }
     }
   {%- endfor -%}
 {%- endstyle -%}
@@ -94,35 +143,37 @@
       <div class="roxx-masonry-grid">
         {%- for block in section.blocks -%}
           <div class="roxx-column-block" id="roxx-column-{{ block.id }}" {{ block.shopify_attributes }}>
-            
-            <!-- TOP IMAGE -->
-            {%- if block.settings.image_top != blank -%}
-              <img
-                src="{{ block.settings.image_top | image_url: width: 600 }}"
-                alt="{{ block.settings.image_top.alt | escape }}"
-                class="roxx-masonry-image roxx-top-img"
-                loading="lazy"
-                width="{{ block.settings.image_top.width }}"
-                height="{{ block.settings.image_top.height }}"
-              >
-            {%- else -%}
-              {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-top-img' }}
-            {%- endif -%}
+            <div class="roxx-column-block-inner">
+              
+              <!-- TOP IMAGE -->
+              {%- if block.settings.image_top != blank -%}
+                <img
+                  src="{{ block.settings.image_top | image_url: width: 600 }}"
+                  alt="{{ block.settings.image_top.alt | escape }}"
+                  class="roxx-masonry-image roxx-top-img"
+                  loading="lazy"
+                  width="{{ block.settings.image_top.width }}"
+                  height="{{ block.settings.image_top.height }}"
+                >
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-top-img' }}
+              {%- endif -%}
 
-            <!-- BOTTOM IMAGE -->
-            {%- if block.settings.image_bottom != blank -%}
-              <img
-                src="{{ block.settings.image_bottom | image_url: width: 600 }}"
-                alt="{{ block.settings.image_bottom.alt | escape }}"
-                class="roxx-masonry-image roxx-bottom-img"
-                loading="lazy"
-                width="{{ block.settings.image_bottom.width }}"
-                height="{{ block.settings.image_bottom.height }}"
-              >
-            {%- else -%}
-              {{ 'collection-1' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-bottom-img' }}
-            {%- endif -%}
+              <!-- BOTTOM IMAGE -->
+              {%- if block.settings.image_bottom != blank -%}
+                <img
+                  src="{{ block.settings.image_bottom | image_url: width: 600 }}"
+                  alt="{{ block.settings.image_bottom.alt | escape }}"
+                  class="roxx-masonry-image roxx-bottom-img"
+                  loading="lazy"
+                  width="{{ block.settings.image_bottom.width }}"
+                  height="{{ block.settings.image_bottom.height }}"
+                >
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-bottom-img' }}
+              {%- endif -%}
 
+            </div>
           </div>
         {%- endfor -%}
       </div>
@@ -188,7 +239,7 @@
       "settings": [
         {
           "type": "header",
-          "content": "Stagger Control"
+          "content": "Desktop Settings"
         },
         {
           "type": "range",
@@ -198,46 +249,75 @@
           "step": 5,
           "unit": "px",
           "label": "Push Column Down",
-          "info": "Increase this to stagger this column lower than the others.",
           "default": 0
-        },
-        {
-          "type": "header",
-          "content": "Top Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_top",
-          "label": "Image"
         },
         {
           "type": "range",
           "id": "height_top",
           "min": 100,
-          "max": 400,
+          "max": 600,
           "step": 10,
           "unit": "px",
-          "label": "Height",
-          "default": 300
-        },
-        {
-          "type": "header",
-          "content": "Bottom Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_bottom",
-          "label": "Image"
+          "label": "Top Image Height",
+          "default": 350
         },
         {
           "type": "range",
           "id": "height_bottom",
           "min": 100,
-          "max": 400,
+          "max": 600,
           "step": 10,
           "unit": "px",
-          "label": "Height",
+          "label": "Bottom Image Height",
           "default": 250
+        },
+        {
+          "type": "header",
+          "content": "Mobile Settings"
+        },
+        {
+          "type": "range",
+          "id": "margin_top_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Push Column Down (Mobile)",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "height_top_mobile",
+          "min": 80,
+          "max": 400,
+          "step": 5,
+          "unit": "px",
+          "label": "Top Image Height (Mobile)",
+          "default": 180
+        },
+        {
+          "type": "range",
+          "id": "height_bottom_mobile",
+          "min": 80,
+          "max": 400,
+          "step": 5,
+          "unit": "px",
+          "label": "Bottom Image Height (Mobile)",
+          "default": 130
+        },
+        {
+          "type": "header",
+          "content": "Images"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_top",
+          "label": "Top Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_bottom",
+          "label": "Bottom Image"
         }
       ]
     }
@@ -246,11 +326,11 @@
     {
       "name": "Masonry Gallery",
       "blocks": [
-        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250 } },
-        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_bottom": 350 } },
-        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250 } },
-        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_bottom": 350 } },
-        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250 } }
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_bottom_mobile": 130 } },
+        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_bottom": 350, "margin_top_mobile": 24, "height_top_mobile": 130, "height_bottom_mobile": 180 } },
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_bottom_mobile": 130 } },
+        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_bottom": 350, "margin_top_mobile": 0, "height_top_mobile": 130, "height_bottom_mobile": 180 } },
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_bottom_mobile": 130 } }
       ]
     }
   ]
