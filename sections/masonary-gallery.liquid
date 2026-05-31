@@ -11,11 +11,6 @@
     }
   }
 
-  .roxx-masonry-wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
 
   .roxx-masonry-header {
     text-align: center;
@@ -92,7 +87,7 @@
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
-  <div class="roxx-masonry-wrapper">
+  <div class="roxx-masonry-wrapper page-width">
     <div class="roxx-masonry-header">
       {%- if section.settings.heading != blank -%}
         <h2 class="roxx-masonry-heading">{{ section.settings.heading }}</h2>
