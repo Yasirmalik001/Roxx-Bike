@@ -22,7 +22,8 @@
         "heading_VWVA4z": {
           "type": "heading",
           "settings": {
-            "heading": "WHEN E-BIKE MEETS LIFE"
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0"
           }
         },
         "subheading_DAaYnw": {
@@ -483,6 +484,7 @@
       "name": "Discover Bikes Grid",
       "settings": {
         "heading": "DISCOVER OUR BIKES",
+        "heading_size": "h0",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -607,6 +609,7 @@
             "tab_title": "ORIGIN",
             "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
             "heading": "ENGINEERED IN EUROPE. BUILT TO LAST.",
+            "heading_size": "h0",
             "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
           }
         },
@@ -616,6 +619,7 @@
             "tab_title": "QUALITY",
             "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
             "heading": "PREMIUM COMPONENTS FOR PREMIUM RIDES.",
+            "heading_size": "h0",
             "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
           }
         },
@@ -625,6 +629,7 @@
             "tab_title": "MAINTENANCE",
             "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
             "heading": "EASY TO MAINTAIN, HARD TO BREAK.",
+            "heading_size": "h0",
             "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
           }
         },
@@ -634,6 +639,7 @@
             "tab_title": "SECURITY",
             "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
             "heading": "YOUR BIKE, ALWAYS PROTECTED.",
+            "heading_size": "h0",
             "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
           }
         }
@@ -734,6 +740,8 @@
       "name": "Masonry Gallery",
       "settings": {
         "heading": "JOIN OUR ROXX FAMILY",
+        "text_color": "#121212",
+        "heading_size": "h0",
         "subheading": "with thousands who've upgraded their everyday ride.",
         "color_scheme": "",
         "padding_top": 36,
