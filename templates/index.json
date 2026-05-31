@@ -482,6 +482,144 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
+    },
+    "feature_alternating_Y3DYDF": {
+      "type": "feature-alternating",
+      "blocks": {
+        "feature_block_nUaiFE": {
+          "type": "feature_block",
+          "settings": {
+            "layout": "left",
+            "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        },
+        "feature_block_CNymqe": {
+          "type": "feature_block",
+          "settings": {
+            "layout": "right",
+            "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_block_nUaiFE",
+        "feature_block_CNymqe"
+      ],
+      "name": "Alternating Features",
+      "settings": {}
+    },
+    "instagram_gallery_EtcBJN": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_GnwQrP": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_KBgNNM": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_BPX4VP": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_RFwDgY": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_nK6q63": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_dNFyKc": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_ggx7H7": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_jCdFbw": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_QFpEXe": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        },
+        "image_aUhPr9": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "show_icon_on_hover": false
+          }
+        }
+      },
+      "block_order": [
+        "image_GnwQrP",
+        "image_KBgNNM",
+        "image_BPX4VP",
+        "image_RFwDgY",
+        "image_nK6q63",
+        "image_dNFyKc",
+        "image_ggx7H7",
+        "image_jCdFbw",
+        "image_QFpEXe",
+        "image_aUhPr9"
+      ],
+      "name": "Masonry Gallery",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "JOIN OUR ROXX FAMILY",
+        "heading_size": "h0",
+        "description": "with thousands who've upgraded their everyday ride.",
+        "lazy_load": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -492,6 +630,8 @@
     "partner_testimonials_TYE8nf",
     "testimonials_6kM9B3",
     "hero_slideshow_6ejY9C",
-    "keep_discovering_nqKjzK"
+    "keep_discovering_nqKjzK",
+    "feature_alternating_Y3DYDF",
+    "instagram_gallery_EtcBJN"
   ]
 }
