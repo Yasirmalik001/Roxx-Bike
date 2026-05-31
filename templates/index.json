@@ -564,75 +564,78 @@
     "masonary_gallery_3z9FME": {
       "type": "masonary-gallery",
       "blocks": {
-        "image_KfXAJV": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
-          }
-        },
         "image_A9fUrx": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_hN878A": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_tTf6TC": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_MjkYgY": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_DFU8QL": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_fcKxxM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_pfLGYG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_fXKKWj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_kjGgrM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         },
         "image_jXxiFt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PIC.jpg"
+            "image": "shopify://shop_images/PIC.jpg",
+            "image_ratio": "adapt"
           }
         }
       },
       "block_order": [
-        "image_KfXAJV",
         "image_A9fUrx",
         "image_hN878A",
         "image_tTf6TC",
