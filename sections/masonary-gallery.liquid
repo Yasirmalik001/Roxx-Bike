@@ -27,35 +27,33 @@
     font-size: clamp(13px, 1.5vw, 15px);
     font-weight: 500;
     margin: 0;
-    opacity: 0.8; /* Inherits Dawn color scheme naturally */
+    opacity: 0.8;
   }
 
-  /* Core layout flows top to bottom, 2 items per column */
   .roxx-masonry-grid {
-    column-count: 2;
-    column-gap: 16px;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: start;
   }
 
   @media screen and (min-width: 768px) {
     .roxx-masonry-grid {
-      column-count: 3;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
   @media screen and (min-width: 1024px) {
     .roxx-masonry-grid {
-      column-count: 5;
-      column-gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
     }
   }
 
-  .roxx-masonry-item {
-    break-inside: avoid;
-    border-radius: 16px;
-    overflow: hidden;
-    transform: translateZ(0);
-    display: inline-block;
+  .roxx-column-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
   }
 
@@ -66,25 +64,24 @@
     object-fit: cover;
   }
 
-  /* Applies your exact manual margin settings to each specific block */
+  /* Applies manual margin and exact height controls to each specific block */
   {%- for block in section.blocks -%}
-    #roxx-block-{{ block.id }} {
+    #roxx-column-{{ block.id }} {
       margin-top: {{ block.settings.margin_top }}px;
-      margin-bottom: {{ block.settings.margin_bottom }}px;
+    }
+    #roxx-column-{{ block.id }} .roxx-top-img {
+      height: {{ block.settings.height_top }}px;
+    }
+    #roxx-column-{{ block.id }} .roxx-bottom-img {
+      height: {{ block.settings.height_bottom }}px;
     }
   {%- endfor -%}
-
-  /* Aspect Ratio Modifiers */
-  .ratio-adapt { height: auto; }
-  .ratio-square { aspect-ratio: 1 / 1; }
-  .ratio-portrait { aspect-ratio: 3 / 4; }
-  .ratio-tall { aspect-ratio: 2 / 3; }
-  .ratio-landscape { aspect-ratio: 4 / 3; }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="section-{{ section.id }}-padding">
     <div class="page-width">
+      
       <div class="roxx-masonry-header">
         {%- if section.settings.heading != blank -%}
           <h2 class="roxx-masonry-heading h1">{{ section.settings.heading }}</h2>
@@ -96,22 +93,40 @@
 
       <div class="roxx-masonry-grid">
         {%- for block in section.blocks -%}
-          <div class="roxx-masonry-item" id="roxx-block-{{ block.id }}" {{ block.shopify_attributes }}>
-            {%- if block.settings.image != blank -%}
+          <div class="roxx-column-block" id="roxx-column-{{ block.id }}" {{ block.shopify_attributes }}>
+            
+            <!-- TOP IMAGE -->
+            {%- if block.settings.image_top != blank -%}
               <img
-                src="{{ block.settings.image | image_url: width: 800 }}"
-                alt="{{ block.settings.image.alt | escape }}"
-                class="roxx-masonry-image ratio-{{ block.settings.image_ratio }}"
+                src="{{ block.settings.image_top | image_url: width: 600 }}"
+                alt="{{ block.settings.image_top.alt | escape }}"
+                class="roxx-masonry-image roxx-top-img"
                 loading="lazy"
-                width="{{ block.settings.image.width }}"
-                height="{{ block.settings.image.height }}"
+                width="{{ block.settings.image_top.width }}"
+                height="{{ block.settings.image_top.height }}"
               >
             {%- else -%}
-              {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg ratio-square' }}
+              {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-top-img' }}
             {%- endif -%}
+
+            <!-- BOTTOM IMAGE -->
+            {%- if block.settings.image_bottom != blank -%}
+              <img
+                src="{{ block.settings.image_bottom | image_url: width: 600 }}"
+                alt="{{ block.settings.image_bottom.alt | escape }}"
+                class="roxx-masonry-image roxx-bottom-img"
+                loading="lazy"
+                width="{{ block.settings.image_bottom.width }}"
+                height="{{ block.settings.image_bottom.height }}"
+              >
+            {%- else -%}
+              {{ 'collection-1' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-bottom-img' }}
+            {%- endif -%}
+
           </div>
         {%- endfor -%}
       </div>
+
     </div>
   </div>
 </div>
@@ -138,8 +153,7 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color Scheme",
-      "default": "background-1",
-      "info": "Uses your theme's default color settings."
+      "default": "background-1"
     },
     {
       "type": "header",
@@ -168,52 +182,62 @@
   ],
   "blocks": [
     {
-      "type": "image",
-      "name": "Image",
+      "type": "column",
+      "name": "Column (2 Images)",
+      "limit": 5,
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "select",
-          "id": "image_ratio",
-          "label": "Aspect Ratio",
-          "options": [
-            { "value": "adapt", "label": "Adapt to image" },
-            { "value": "square", "label": "Square (1:1)" },
-            { "value": "portrait", "label": "Portrait (3:4)" },
-            { "value": "tall", "label": "Tall Portrait (2:3)" },
-            { "value": "landscape", "label": "Landscape (4:3)" }
-          ],
-          "default": "adapt"
-        },
-        {
           "type": "header",
-          "content": "Manual Layout Control"
+          "content": "Stagger Control"
         },
         {
           "type": "range",
           "id": "margin_top",
           "min": 0,
-          "max": 120,
-          "step": 4,
+          "max": 150,
+          "step": 5,
           "unit": "px",
-          "label": "Margin Top",
-          "info": "Increase this on top-row images to push an entire column down.",
+          "label": "Push Column Down",
+          "info": "Increase this to stagger this column lower than the others.",
           "default": 0
         },
         {
+          "type": "header",
+          "content": "Top Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_top",
+          "label": "Image"
+        },
+        {
           "type": "range",
-          "id": "margin_bottom",
-          "min": 0,
-          "max": 120,
-          "step": 4,
+          "id": "height_top",
+          "min": 100,
+          "max": 400,
+          "step": 10,
           "unit": "px",
-          "label": "Margin Bottom",
-          "info": "Controls the spacing below this specific image.",
-          "default": 20
+          "label": "Height",
+          "default": 300
+        },
+        {
+          "type": "header",
+          "content": "Bottom Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_bottom",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "height_bottom",
+          "min": 100,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Height",
+          "default": 250
         }
       ]
     }
@@ -222,16 +246,11 @@
     {
       "name": "Masonry Gallery",
       "blocks": [
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" }
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250 } },
+        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_bottom": 350 } },
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250 } },
+        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_bottom": 350 } },
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250 } }
       ]
     }
   ]
