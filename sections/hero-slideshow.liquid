@@ -1,3 +1,5 @@
+
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -15,6 +17,7 @@
     position: relative;
     width: 100%;
     min-height: {{ section.settings.mobile_height }}px;
+    background-color: #000;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -70,11 +73,12 @@
 
   .hero-slide__text-box {
     max-width: 500px;
-    color: currentColor;
+    color: #ffffff;
     padding: 2rem 0;
   }
 
   .hero-slide__heading {
+    color: #ffffff;
     font-weight: 800;
     letter-spacing: -0.02em;
     text-transform: uppercase;
@@ -83,9 +87,9 @@
   }
 
   .hero-slide__description {
+    color: #f3f3f3;
     font-size: 1.6rem;
     line-height: 1.5;
-    opacity: 0.9;
   }
 
   .hero-slide__description p {
@@ -211,8 +215,8 @@
             <div class="hero-slide__text-box">
               {%- if block.settings.heading != blank -%}
                 <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.heading }}
-                </h2>
+  {{ block.settings.heading }}
+</h2>
               {%- endif -%}
               
               {%- if block.settings.description != blank -%}
