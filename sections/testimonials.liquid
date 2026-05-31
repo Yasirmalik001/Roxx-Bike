@@ -1,5 +1,4 @@
 
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -36,6 +35,13 @@
     color: #000000;
   }
 
+  .customer-reviews__header-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
   .customer-reviews__brand-logo img {
     height: 30px;
     width: auto;
@@ -47,10 +53,17 @@
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    width: 100%;
+  }
+
+  .customer-reviews__layout--with-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
   }
 
   @media screen and (min-width: 990px) {
-    .customer-reviews__layout {
+    .customer-reviews__layout--with-summary {
       flex-direction: row;
       align-items: stretch;
       gap: 5rem;
@@ -113,30 +126,32 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: #ffd000;
+    background-color: transparent !important;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.12) !important;
+    color: #000000 !important;
+    transition: all 0.2s ease;
   }
 
   .customer-reviews__btn:hover {
-    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    border-color: #000000 !important;
   }
 
   .customer-reviews__btn.swiper-button-disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+    border-color: rgba(0,0,0,0.08) !important;
   }
 
   .customer-reviews__btn svg {
     width: 16px;
     height: 16px;
     fill: none;
-    stroke: #ffffff;
+    stroke: currentColor !important;
     stroke-width: 2.5;
   }
 
@@ -161,15 +176,23 @@
 
   /* Individual Slide Card */
   .review-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-bottom: 3rem;
-    position: relative;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .review-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   }
 
   .review-card__stars {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .review-card__stars img,
@@ -182,7 +205,7 @@
     font-size: 1.4rem;
     line-height: 1.6;
     color: #333333;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     flex-grow: 1;
   }
 
@@ -194,124 +217,204 @@
     align-items: center;
     gap: 0.5rem;
   }
+
+  /* Custom overrides for .slider-template-pagination dots */
+  .section-{{ section.id }}-padding .slider-template-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+    background-color: #000000 !important;
+    opacity: 0.2 !important;
+    margin: 0 !important;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet-active {
+    background-color: #00b67a !important;
+    opacity: 1 !important;
+    transform: scale(1.1);
+  }
+
+  /* Custom styling for progress fill in reviews */
+  .section-{{ section.id }}-padding .slider-template-progress-track {
+    background: rgba(0, 0, 0, 0.08) !important;
+    margin-top: 3rem;
+  }
+
+  .section-{{ section.id }}-padding .slider-template-progress-fill {
+    background: #00b67a !important;
+  }
 {%- endstyle -%}
 
-<div class="customer-reviews section-{{ section.id }}-padding">
-  <div class="page-width">
-    
-    <div class="customer-reviews__header">
-      {%- if section.settings.heading != blank -%}
-        <h2 class="customer-reviews__heading {{ section.settings.heading_size }}">
-          {{ section.settings.heading }}
-        </h2>
-      {%- endif -%}
-
-      {%- if section.settings.brand_logo != blank -%}
-        <div class="customer-reviews__brand-logo">
-          {{ section.settings.brand_logo | image_url: width: 300 | image_tag: loading: 'lazy' }}
-        </div>
-      {%- endif -%}
-    </div>
-
-    <div class="customer-reviews__layout">
+<slider-container class="customer-reviews block" data-block-id="{{ section.id }}">
+  <div class="customer-reviews section-{{ section.id }}-padding">
+    <div class="page-width">
       
-      <div class="customer-reviews__summary-card">
-        <div class="customer-reviews__summary-stars">
-          {%- if section.settings.summary_stars_image != blank -%}
-            {{ section.settings.summary_stars_image | image_url: width: 150 | image_tag: loading: 'lazy' }}
-          {%- else -%}
-            <svg viewBox="0 0 120 24" fill="#00B67A" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-              <path d="M36 17.27L42.18 21l-1.64-7.03L46 9.24l-7.19-.61L36 2 33.19 8.63 26 9.24l5.46 4.73L29.82 21z"/>
-              <path d="M60 17.27L66.18 21l-1.64-7.03L70 9.24l-7.19-.61L60 2 57.19 8.63 50 9.24l5.46 4.73L53.82 21z"/>
-              <path d="M84 17.27L90.18 21l-1.64-7.03L94 9.24l-7.19-.61L84 2 81.19 8.63 74 9.24l5.46 4.73L77.82 21z"/>
-              <path d="M108 17.27L114.18 21l-1.64-7.03L118 9.24l-7.19-.61L108 2 105.19 8.63 98 9.24l5.46 4.73L101.82 21z"/>
-            </svg>
-          {%- endif -%}
-        </div>
-        
-        <p class="customer-reviews__summary-rating">{{ section.settings.summary_rating_text }}</p>
-        <p class="customer-reviews__summary-count">{{ section.settings.summary_count_text }}</p>
+      <div class="customer-reviews__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="customer-reviews__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
 
-        <div class="customer-reviews__nav-buttons">
-          <button class="customer-reviews__btn swiper-prev-{{ section.id }}" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <button class="customer-reviews__btn swiper-next-{{ section.id }}" aria-label="Next slide">
-            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
+        <div class="customer-reviews__header-right">
+          {%- if section.settings.brand_logo != blank -%}
+            <div class="customer-reviews__brand-logo">
+              {{ section.settings.brand_logo | image_url: width: 300 | image_tag: loading: 'lazy' }}
+            </div>
+          {%- endif -%}
+
+          {%- unless section.settings.show_summary_card -%}
+            <div class="customer-reviews__nav-buttons">
+              <button class="customer-reviews__btn js-slider-template-prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="customer-reviews__btn js-slider-template-next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          {%- endunless -%}
         </div>
       </div>
 
-      <div class="customer-reviews__slider-wrapper">
-        <div class="swiper" id="Swiper-{{ section.id }}">
-          <div class="swiper-wrapper">
+      <div class="{% if section.settings.show_summary_card %}customer-reviews__layout--with-summary{% else %}customer-reviews__layout{% endif %}">
+        
+        {%- if section.settings.show_summary_card -%}
+          <div class="customer-reviews__summary-card">
+            <div class="customer-reviews__summary-stars">
+              {%- if section.settings.summary_stars_image != blank -%}
+                {{ section.settings.summary_stars_image | image_url: width: 150 | image_tag: loading: 'lazy' }}
+              {%- else -%}
+                <svg viewBox="0 0 124 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; width: 124px; height: 24px; margin: 0 auto;">
+                  <g>
+                    <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                  </g>
+                  <g transform="translate(25, 0)">
+                    <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                  </g>
+                  <g transform="translate(50, 0)">
+                    <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                  </g>
+                  <g transform="translate(75, 0)">
+                    <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                  </g>
+                  <g transform="translate(100, 0)">
+                    <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                  </g>
+                </svg>
+              {%- endif -%}
+            </div>
             
-            {%- for block in section.blocks -%}
-              <div class="swiper-slide" {{ block.shopify_attributes }}>
-                <div class="review-card">
-                  <div class="review-card__stars">
-                    {%- if block.settings.stars_image != blank -%}
-                      {{ block.settings.stars_image | image_url: width: 150 | image_tag: loading: 'lazy' }}
-                    {%- else -%}
-                       <svg viewBox="0 0 120 24" fill="#00B67A" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                          <path d="M36 17.27L42.18 21l-1.64-7.03L46 9.24l-7.19-.61L36 2 33.19 8.63 26 9.24l5.46 4.73L29.82 21z"/>
-                          <path d="M60 17.27L66.18 21l-1.64-7.03L70 9.24l-7.19-.61L60 2 57.19 8.63 50 9.24l5.46 4.73L53.82 21z"/>
-                          <path d="M84 17.27L90.18 21l-1.64-7.03L94 9.24l-7.19-.61L84 2 81.19 8.63 74 9.24l5.46 4.73L77.82 21z"/>
-                          <path d="M108 17.27L114.18 21l-1.64-7.03L118 9.24l-7.19-.61L108 2 105.19 8.63 98 9.24l5.46 4.73L101.82 21z"/>
-                        </svg>
-                    {%- endif -%}
-                  </div>
-                  <div class="review-card__text rte">
-                    {{ block.settings.text }}
-                  </div>
-                  <div class="review-card__author">
-                    &mdash; {{ block.settings.author }}
+            <p class="customer-reviews__summary-rating">{{ section.settings.summary_rating_text }}</p>
+            <p class="customer-reviews__summary-count">{{ section.settings.summary_count_text }}</p>
+
+            <div class="customer-reviews__nav-buttons">
+              <button class="customer-reviews__btn js-slider-template-prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="customer-reviews__btn js-slider-template-next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+        {%- endif -%}
+
+        <div class="customer-reviews__slider-wrapper">
+          <div
+            class="swiper js-slider-template-swiper slider-template-section__swiper"
+            data-swiper-config='
+              {
+                "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
+                "enableSliderMobile": {{ section.settings.enable_slider_mobile }},
+                "loop": {{ section.settings.enable_loop | default: false }},
+                "autoplay": {{ section.settings.enable_autoplay | default: false }},
+                "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
+                "mobileSlides": {{ section.settings.columns_mobile | plus: 0.0 }},
+                "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
+                "desktopSlides": {{ section.settings.columns_desktop }},
+                "desktopSpacing": {{ section.settings.spacing }}
+              }
+            '
+          >
+            <div class="swiper-wrapper">
+              
+              {%- for block in section.blocks -%}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="review-card">
+                    <div class="review-card__stars">
+                      {%- if block.settings.stars_image != blank -%}
+                        {{ block.settings.stars_image | image_url: width: 150 | image_tag: loading: 'lazy' }}
+                      {%- else -%}
+                         <svg viewBox="0 0 124 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; width: 124px; height: 24px;">
+                            <g>
+                              <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                            </g>
+                            <g transform="translate(25, 0)">
+                              <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                            </g>
+                            <g transform="translate(50, 0)">
+                              <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                            </g>
+                            <g transform="translate(75, 0)">
+                              <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                            </g>
+                            <g transform="translate(100, 0)">
+                              <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" transform="scale(0.8) translate(3, 3)"/>
+                            </g>
+                          </svg>
+                      {%- endif -%}
+                    </div>
+                    <div class="review-card__text rte">
+                      {{ block.settings.text }}
+                    </div>
+                    <div class="review-card__author">
+                      &mdash; {{ block.settings.author }}
+                    </div>
                   </div>
                 </div>
-              </div>
-            {%- endfor -%}
+              {%- endfor -%}
 
+            </div>
+          </div>
+
+          {%- comment -%} Optional slider template pagination indicators {%- endcomment -%}
+          <div class="slider-template-controls slider-template-controls--{{ section.settings.controls_position }}">
+            {%- if section.settings.controls_position == 'bottom' -%}
+              <div class="slider-template-progress-track">
+                <div class="slider-template-progress-fill"></div>
+              </div>
+            {%- endif -%}
+            
+            {%- if section.settings.controls_position == 'dots' -%}
+              <div class="slider-template-pagination"></div>
+            {%- endif -%}
           </div>
         </div>
+
       </div>
 
     </div>
   </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const initReviewSwiper{{ section.id | replace: '-', '_' }} = () => {
-      if (typeof Swiper !== 'undefined') {
-        new Swiper('#Swiper-{{ section.id }}', {
-          slidesPerView: 1,
-          spaceBetween: 30,
-          grabCursor: true,
-          navigation: {
-            nextEl: '.swiper-next-{{ section.id }}',
-            prevEl: '.swiper-prev-{{ section.id }}',
-          },
-          breakpoints: {
-            750: {
-              slidesPerView: 2,
-              spaceBetween: 40
-            },
-            1200: {
-              slidesPerView: 3,
-              spaceBetween: 50
-            }
-          }
-        });
-      } else {
-        setTimeout(initReviewSwiper{{ section.id | replace: '-', '_' }}, 100);
-      }
-    };
-    
-    initReviewSwiper{{ section.id | replace: '-', '_' }}();
-  });
-</script>
+</slider-container>
 
 {% schema %}
 {
@@ -359,6 +462,12 @@
       "content": "Summary Card (Left)"
     },
     {
+      "type": "checkbox",
+      "id": "show_summary_card",
+      "label": "Show summary card on left",
+      "default": false
+    },
+    {
       "type": "image_picker",
       "id": "summary_stars_image",
       "label": "Summary Stars Image (Manual Override)"
@@ -374,6 +483,88 @@
       "id": "summary_count_text",
       "label": "Review Count Text",
       "default": "(Based on 200+ reviews)"
+    },
+    {
+      "type": "header",
+      "content": "Carousel Controls"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider_desktop",
+      "label": "Enable slider on desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider_mobile",
+      "label": "Enable slider on mobile",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "controls_position",
+      "label": "Slider controls type",
+      "options": [
+        { "value": "none", "label": "None (Arrows only)" },
+        { "value": "bottom", "label": "Progress bar" },
+        { "value": "dots", "label": "Dots" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay interval",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "label": "Enable infinite loop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Columns and spacing"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "1",
+      "label": "Number of columns on mobile",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Space between cards",
+      "default": 30
     },
     {
       "type": "header",
@@ -413,7 +604,7 @@
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
           "label": "Review Text"
         },
         {
