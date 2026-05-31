@@ -598,6 +598,60 @@
         "padding_bottom": 80
       }
     },
+    "tabbed_hero_slider_6mVRNX": {
+      "type": "tabbed-hero-slider",
+      "blocks": {
+        "slide_b4r8t7": {
+          "type": "slide",
+          "settings": {
+            "tab_title": "ORIGIN",
+            "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "heading": "ENGINEERED IN EUROPE. BUILT TO LAST.",
+            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
+          }
+        },
+        "slide_xmwqcH": {
+          "type": "slide",
+          "settings": {
+            "tab_title": "QUALITY",
+            "heading": "PREMIUM COMPONENTS FOR PREMIUM RIDES.",
+            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
+          }
+        },
+        "slide_xAGApP": {
+          "type": "slide",
+          "settings": {
+            "tab_title": "MAINTENANCE",
+            "heading": "EASY TO MAINTAIN, HARD TO BREAK.",
+            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
+          }
+        },
+        "slide_DEjRmw": {
+          "type": "slide",
+          "settings": {
+            "tab_title": "SECURITY",
+            "heading": "YOUR BIKE, ALWAYS PROTECTED.",
+            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
+          }
+        }
+      },
+      "block_order": [
+        "slide_b4r8t7",
+        "slide_xmwqcH",
+        "slide_xAGApP",
+        "slide_DEjRmw"
+      ],
+      "name": "Tabbed Hero Slider",
+      "settings": {
+        "desktop_height": 800,
+        "mobile_height": 600,
+        "overlay_opacity": 70,
+        "enable_autoplay": false,
+        "autoplay_interval": 5,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "masonary_gallery_3z9FME": {
       "type": "masonary-gallery",
       "blocks": {
@@ -632,7 +686,7 @@
           "settings": {
             "margin_top": 0,
             "height_top": 400,
-            "height_bottom": 300,
+            "height_bottom": 400,
             "margin_top_mobile": 0,
             "height_top_mobile": 180,
             "height_bottom_mobile": 180,
@@ -728,6 +782,7 @@
     "discover_bikes_VEdLb7",
     "feature_alternating_Y3DYDF",
     "faq_x9aGnf",
+    "tabbed_hero_slider_6mVRNX",
     "masonary_gallery_3z9FME",
     "keep_discovering_nqKjzK"
   ]
