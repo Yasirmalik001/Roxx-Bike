@@ -491,90 +491,6 @@
       "name": "Alternating Features",
       "settings": {}
     },
-    "instagram_gallery_EtcBJN": {
-      "type": "instagram-gallery",
-      "blocks": {
-        "image_GnwQrP": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_BDX9BD": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_3iMWhc": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_J7hzi3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_JgPBbb": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_hKxVBk": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_D4F6bN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_4edjgx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_HwqQgA": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        },
-        "image_yQhtpM": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
-          }
-        }
-      },
-      "block_order": [
-        "image_GnwQrP",
-        "image_BDX9BD",
-        "image_3iMWhc",
-        "image_J7hzi3",
-        "image_JgPBbb",
-        "image_hKxVBk",
-        "image_D4F6bN",
-        "image_4edjgx",
-        "image_HwqQgA",
-        "image_yQhtpM"
-      ],
-      "name": "Masonry Gallery",
-      "settings": {
-        "heading": "JOIN OUR ROXX FAMILY",
-        "subheading": "with thousands who've upgraded their everyday ride.",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "faq_x9aGnf": {
       "type": "faq",
       "blocks": {
@@ -688,7 +604,6 @@
     "testimonials_6kM9B3",
     "hero_slideshow_6ejY9C",
     "feature_alternating_Y3DYDF",
-    "instagram_gallery_EtcBJN",
     "faq_x9aGnf",
     "keep_discovering_nqKjzK"
   ]
