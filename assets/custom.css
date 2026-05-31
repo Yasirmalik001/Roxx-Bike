@@ -616,6 +616,9 @@
 
 /* Rotated Red Sale Badge Pill (1-to-1 matching mockup) */
 .collection-tabs .card-product-tabs .card-product-tabs__badge {
+  position: absolute;
+  top: 22%;
+  left: 70%;
   background: #b3191f;
   color: #ffffff;
   padding: 0.6rem 1.2rem;
