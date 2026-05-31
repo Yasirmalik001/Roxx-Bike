@@ -1,10 +1,21 @@
-<style>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
   .custom-alternating-section {
     display: flex;
     flex-direction: column;
     width: 100%;
     overflow: hidden;
-    background-color: #ffffff;
   }
   
   .alternating-row {
@@ -36,7 +47,7 @@
     width: 100%;
     height: 100%;
     min-height: 550px;
-    background-color: #f3f3f3;
+    background-color: rgba(var(--color-foreground), 0.05);
   }
   
   .alternating-content {
@@ -53,7 +64,6 @@
     margin-bottom: 1.5rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: #111111;
   }
   
   /* Timeline Component Styles */
@@ -69,7 +79,8 @@
     padding-bottom: 3rem;
     font-size: 1.05rem;
     line-height: 1.6;
-    color: #333333;
+    color: currentColor;
+    opacity: 0.85;
   }
   
   .timeline-item:last-child {
@@ -95,7 +106,7 @@
     top: 1.4rem;
     bottom: -0.2rem;
     width: 2px;
-    background-color: #E5E7EB;
+    background-color: rgba(var(--color-foreground), 0.15);
     z-index: 1;
   }
   
@@ -103,7 +114,8 @@
   .alternating-text {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #333333;
+    color: currentColor;
+    opacity: 0.85;
     margin-bottom: 1.5rem;
   }
 
@@ -115,7 +127,7 @@
   .list-heading {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #111;
+    color: currentColor;
     margin-bottom: 0.8rem;
   }
 
@@ -130,7 +142,8 @@
     align-items: flex-start;
     gap: 12px;
     font-size: 0.95rem;
-    color: #333;
+    color: currentColor;
+    opacity: 0.85;
     margin-bottom: 0.8rem;
     line-height: 1.4;
   }
@@ -175,11 +188,11 @@
       padding: 3rem 2rem;
     }
   }
-</style>
+{%- endstyle -%}
 
-<section class="custom-alternating-section">
+<section class="custom-alternating-section section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   {% for block in section.blocks %}
-    <div class="alternating-row {% if block.settings.layout == 'right' %}layout-right{% endif %}" {{ block.shopify_attributes }}>
+    <div class="alternating-row color-{{ block.settings.color_scheme }} gradient {% if block.settings.layout == 'right' %}layout-right{% endif %}" {{ block.shopify_attributes }}>
       
       <div class="alternating-image">
         {% if block.settings.image != blank %}
@@ -231,9 +244,9 @@
                   
                   {% if list_item != blank %}
                     <li class="check-list-item">
-                      <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/0000/svg">
-                        <circle cx="12" cy="12" r="11" stroke="#111" stroke-width="1.5"/>
-                        <path d="M8 12L11 15L16 9" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
                       {{ list_item }}
                     </li>
@@ -264,12 +277,43 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
-    },],
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
   "blocks": [
     {
       "type": "timeline_row",
       "name": "Timeline Row",
       "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "default": "scheme-1"
+        },
         {
           "type": "image_picker",
           "id": "image",
@@ -291,19 +335,19 @@
           "label": "Heading",
           "default": "FROM A SMALL IDEA TO A GROWING E-BIKE BRAND"
         },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
             { "value": "h2", "label": "Small" },
             { "value": "h1", "label": "Medium" },
             { "value": "h0", "label": "Large" },
             { "value": "hxl", "label": "Extra Large" },
             { "value": "hxxl", "label": "Extra Extra Large" }
           ],
-      "default": "h0",
-      "label": "Heading Size"
-    },
+          "default": "h0",
+          "label": "Heading Size"
+        },
         {
           "type": "textarea",
           "id": "bullet_1",
@@ -322,6 +366,12 @@
       "type": "text_row",
       "name": "Text Row",
       "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "default": "scheme-1"
+        },
         {
           "type": "image_picker",
           "id": "image",
@@ -344,6 +394,19 @@
           "default": "BUILT FOR EVERYDAY RIDERS"
         },
         {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" },
+            { "value": "hxl", "label": "Extra Large" },
+            { "value": "hxxl", "label": "Extra Extra Large" }
+          ],
+          "default": "h0",
+          "label": "Heading Size"
+        },
+        {
           "type": "richtext",
           "id": "text",
           "label": "Text",
@@ -355,6 +418,12 @@
       "type": "feature_block",
       "name": "Rich Feature Block",
       "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "default": "scheme-1"
+        },
         {
           "type": "image_picker",
           "id": "image",
@@ -375,6 +444,19 @@
           "id": "heading",
           "label": "Heading",
           "default": "SMART PROTECTION FOR A SMARTER RIDE."
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" },
+            { "value": "hxl", "label": "Extra Large" },
+            { "value": "hxxl", "label": "Extra Extra Large" }
+          ],
+          "default": "h0",
+          "label": "Heading Size"
         },
         {
           "type": "richtext",
