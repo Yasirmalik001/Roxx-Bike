@@ -16,7 +16,7 @@
           "type": "review_badge",
           "settings": {
             "review_text": "4.2★ Verified Reviews",
-            "custom_svg": "<div style=\"display: flex; align-items: center; gap: 6px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"#00b67a\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192L12 .587z\"/></svg><span style=\"color:#00b67a; font-weight:700;\">Trustpilot</span></div>"
+            "custom_svg": "<div style=\"display: flex; align-items: center; gap: 6px;\">\n<svg width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"#00b67a\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192L12 .587z\"></path></svg><span style=\"color:#00b67a; font-weight:700;\">Trustpilot</span>\n</div>"
           }
         },
         "heading_VWVA4z": {
@@ -302,6 +302,15 @@
         "heading_size": "h1",
         "button_label": "View all",
         "button_link": "",
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "dots",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "spacing": 30,
         "background_color": "#1a1a1a",
         "card_background": "#333333",
         "text_color": "#ffffff",
@@ -373,7 +382,6 @@
         "slide_8fqVDd": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/b16241972040657058a53089f76089f2c3c83595.png",
             "heading": "WHEN E-BIKE MEETS LIFE",
             "heading_size": "h0",
             "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
@@ -382,7 +390,6 @@
         "slide_kiAErg": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/b16241972040657058a53089f76089f2c3c83595.png",
             "heading": "WHEN E-BIKE MEETS LIFE",
             "heading_size": "h0",
             "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
@@ -391,7 +398,6 @@
         "slide_fi8JAc": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/b16241972040657058a53089f76089f2c3c83595.png",
             "heading": "WHEN E-BIKE MEETS LIFE",
             "heading_size": "h0",
             "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
