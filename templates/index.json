@@ -328,6 +328,20 @@
             "author": "Lena . J"
           }
         },
+        "review_VtqAdd": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_t7gBRp": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
         "review_cVHFNQ": {
           "type": "review",
           "settings": {
@@ -352,6 +366,8 @@
       },
       "block_order": [
         "review_BXePF7",
+        "review_VtqAdd",
+        "review_t7gBRp",
         "review_cVHFNQ",
         "review_ghb9bL",
         "review_7RfCba"
@@ -361,8 +377,18 @@
         "background_color": "#ffffff",
         "heading": "OUR CUSTOMER SAY!",
         "heading_size": "h0",
+        "show_summary_card": false,
         "summary_rating_text": "4.2 stars / 5",
         "summary_count_text": "(Based on 200+ reviews)",
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "none",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "spacing": 30,
         "padding_top": 60,
         "padding_bottom": 60
       }
