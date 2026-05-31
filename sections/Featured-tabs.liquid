@@ -19,6 +19,17 @@
       "default": "Shop by flow"
     },
     {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h0",
+      "label": "Heading Size"
+    },
+    {
       "type": "url",
       "id": "view_all_link",
       "label": "View All Link"
@@ -79,7 +90,9 @@
   <div class="page-width">
     
     <div class="sr-tabs-header">
-      <h2 class="sr-tabs-title">{{ section.settings.title }}</h2>
+      <h2 class="hero-features__heading {{ section.settings.heading_size }}">
+  {{ section.settings.title }}
+</h2>
       
       {% if section.blocks.size > 0 %}
         <div class="sr-tabs-nav">

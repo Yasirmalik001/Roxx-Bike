@@ -7,7 +7,9 @@
   <div class="slider-wrapper relative-container container-x">
       <div class="l-cat-header">
       <div class="l-cat-title-group">
-        <h2 class="l-cat-main-title-{{ section.id }}">{{ section.settings.title }}</h2>
+        <h2 class="hero-features__heading {{ section.settings.heading_size }}">
+  {{ section.settings.title }}
+</h2>
         {% if section.settings.view_all_link != blank %}
           <a href="{{ section.settings.view_all_link }}" class="view-all">{{ section.settings.view_all_text }}</a>
         {% endif %}
@@ -181,6 +183,17 @@
       "label": "Collection"
     },
     { "type": "text", "id": "title", "label": "Heading", "default": "FOLLOW US ON INSTAGRAM" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h0",
+      "label": "Heading Size"
+    },
     { "type": "url", "id": "view_all_link", "label": "View All Link" },
     { "type": "text", "id": "view_all_text", "label": "View All Link Text", "default": "@luxiaojuneurope" },
     { "type": "header", "content": "⚙️ Configuration" },

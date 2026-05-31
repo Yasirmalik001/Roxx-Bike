@@ -143,7 +143,9 @@
       
       <div class="roxx-masonry-header">
         {%- if section.settings.heading != blank -%}
-          <h2 class="roxx-masonry-heading h1">{{ section.settings.heading }}</h2>
+          <h2 class="hero-features__heading {{ section.settings.heading_size }}">
+  {{ section.settings.heading }}
+</h2>
         {%- endif -%}
         {%- if section.settings.subheading != blank -%}
           <p class="roxx-masonry-subheading">{{ section.settings.subheading }}</p>
@@ -203,6 +205,17 @@
       "id": "heading",
       "label": "Heading",
       "default": "JOIN OUR ROXX FAMILY"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h0",
+      "label": "Heading Size"
     },
     {
       "type": "text",

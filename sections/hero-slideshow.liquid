@@ -214,9 +214,9 @@
           <div class="page-width hero-slide__content-container">
             <div class="hero-slide__text-box">
               {%- if block.settings.heading != blank -%}
-                <h2 class="hero-slide__heading {{ block.settings.heading_size }}">
-                  {{ block.settings.heading }}
-                </h2>
+                <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+  {{ block.settings.heading }}
+</h2>
               {%- endif -%}
               
               {%- if block.settings.description != blank -%}

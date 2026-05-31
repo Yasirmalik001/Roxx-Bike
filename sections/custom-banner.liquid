@@ -183,7 +183,7 @@ letter-spacing: 0%;
             </div>
 
           {%- when 'heading' -%}
-            <h2 class="banner-heading" {{ block.shopify_attributes }}>
+            <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
               {{ block.settings.heading | newline_to_br }}
             </h2>
 
@@ -221,7 +221,7 @@ letter-spacing: 0%;
               <span>{{ block.settings.review_text }}</span>
             </div>
           {%- when 'heading' -%}
-            <h2 class="banner-heading">{{ block.settings.heading | newline_to_br }}</h2>
+            <h2 class="hero-features__heading {{ block.settings.heading_size }}">{{ block.settings.heading | newline_to_br }}</h2>
           {%- when 'subheading' -%}
             <div class="banner-subheading">{{ block.settings.subheading }}</div>
           {%- when 'buttons' -%}
@@ -330,7 +330,18 @@ letter-spacing: 0%;
         {
           "type": "textarea",
           "id": "heading",
-          "label": "Heading Text",
+          "label": "Heading Text"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" }
+          ],
+          "default": "h0",
+          "label": "Heading Size"
         }
       ]
     },

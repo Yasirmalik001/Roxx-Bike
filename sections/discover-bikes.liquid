@@ -129,7 +129,9 @@
 <!-- Utilizes standard Dawn page-width container -->
 <div class="page-width section-{{ section.id }}-padding">
   {%- if section.settings.heading != blank -%}
-    <h2 class="discover-bikes-heading">{{ section.settings.heading }}</h2>
+    <h2 class="hero-features__heading {{ section.settings.heading_size }}">
+  {{ section.settings.heading }}
+</h2>
   {%- endif -%}
 
   <div class="discover-bikes-grid">
@@ -154,7 +156,9 @@
           {%- endif -%}
 
           {%- if block.settings.title != blank -%}
-            <h3 class="discover-card__title">{{ block.settings.title }}</h3>
+            <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+  {{ block.settings.title }}
+</h2>
           {%- endif -%}
 
           {%- if block.settings.text != blank -%}
@@ -180,6 +184,17 @@
       "type": "text",
       "id": "heading",
       "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h0",
+      "label": "Heading Size"
     },
     {
       "type": "header",

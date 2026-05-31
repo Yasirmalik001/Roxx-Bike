@@ -110,7 +110,9 @@
             {%- case block.type -%}
               {%- when 'heading' -%}
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="who-is-heading h1" {{ block.shopify_attributes }}>{{ block.settings.heading }}</h2>
+                  <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+  {{ block.settings.heading }}
+</h2>
                 {%- endif -%}
                 
               {%- when 'text' -%}
@@ -199,7 +201,18 @@
       "name": "Heading",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Who is sereluna?" }
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Who is sereluna?" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h0",
+      "label": "Heading Size"
+    }
       ]
     },
     {

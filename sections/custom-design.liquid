@@ -170,9 +170,9 @@
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'heading' -%}
-                  <h2 class="custom-production-heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-                    {{ block.settings.heading }}
-                  </h2>
+                  <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+  {{ block.settings.heading }}
+</h2>
                 {%- when 'text' -%}
                   <div class="custom-production-body rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                     {{ block.settings.text }}
