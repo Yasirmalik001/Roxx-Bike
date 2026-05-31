@@ -605,8 +605,8 @@
           "type": "column",
           "settings": {
             "margin_top": 0,
-            "height_top": 300,
-            "height_bottom": 300,
+            "height_top": 400,
+            "height_bottom": 400,
             "margin_top_mobile": 0,
             "height_top_mobile": 180,
             "height_bottom_mobile": 180,
@@ -618,8 +618,8 @@
           "type": "column",
           "settings": {
             "margin_top": 30,
-            "height_top": 300,
-            "height_bottom": 300,
+            "height_top": 400,
+            "height_bottom": 400,
             "margin_top_mobile": 30,
             "height_top_mobile": 180,
             "height_bottom_mobile": 180,
@@ -631,7 +631,7 @@
           "type": "column",
           "settings": {
             "margin_top": 0,
-            "height_top": 300,
+            "height_top": 400,
             "height_bottom": 300,
             "margin_top_mobile": 0,
             "height_top_mobile": 180,
@@ -644,8 +644,8 @@
           "type": "column",
           "settings": {
             "margin_top": 30,
-            "height_top": 300,
-            "height_bottom": 300,
+            "height_top": 400,
+            "height_bottom": 400,
             "margin_top_mobile": 30,
             "height_top_mobile": 180,
             "height_bottom_mobile": 180,
@@ -657,8 +657,8 @@
           "type": "column",
           "settings": {
             "margin_top": 0,
-            "height_top": 300,
-            "height_bottom": 300,
+            "height_top": 400,
+            "height_bottom": 400,
             "margin_top_mobile": 0,
             "height_top_mobile": 180,
             "height_bottom_mobile": 180,
