@@ -2196,6 +2196,9 @@ cart-drawer-items {
   .header-promo-bar {
     margin: 1rem 1.5rem 0 1.5rem;
   }
+  .header__button-ride {
+    display: none;
+  }
 }
 
 .scrolled-past-header .header-promo-bar {
