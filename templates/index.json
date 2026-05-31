@@ -601,78 +601,107 @@
     "masonary_gallery_3z9FME": {
       "type": "masonary-gallery",
       "blocks": {
+        "image_im8rnE": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
+          }
+        },
         "image_A9fUrx": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_hN878A": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_tTf6TC": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_MjkYgY": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_DFU8QL": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_fcKxxM": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_pfLGYG": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_fXKKWj": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_kjGgrM": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         },
         "image_jXxiFt": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PIC.jpg",
-            "image_ratio": "adapt"
+            "image_ratio": "adapt",
+            "margin_top": 0,
+            "margin_bottom": 20
           }
         }
       },
       "block_order": [
+        "image_im8rnE",
         "image_A9fUrx",
         "image_hN878A",
         "image_tTf6TC",
@@ -688,6 +717,7 @@
       "settings": {
         "heading": "JOIN OUR ROXX FAMILY",
         "subheading": "with thousands who've upgraded their everyday ride.",
+        "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
