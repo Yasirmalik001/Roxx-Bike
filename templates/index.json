@@ -531,24 +531,20 @@
       "name": "Featured Collection",
       "settings": {
         "collection": "e-bikes",
-        "title": "FOLLOW US ON INSTAGRAM",
-        "view_all_link": "",
-        "view_all_text": "@luxiaojuneurope",
-        "enable_autoplay": false,
-        "autoplay_interval": 3,
-        "desktop_slides": 4,
-        "desktop_spacing": 24,
-        "desktop_arrows": false,
-        "desktop_dots": false,
-        "desktop_scrollbar": false,
-        "desktop_progress_bar": false,
-        "tablet_slides": 3,
-        "mobile_slides": 1.2,
-        "mobile_spacing": 16,
-        "mobile_arrows": false,
-        "mobile_dots": true,
-        "mobile_scrollbar": false,
-        "mobile_progress_bar": true
+        "heading": "E-BIKES",
+        "description": "Whether you're commuting, exploring, or just escaping traffic, Roxx e-bikes are built to fit seamlessly into your lifestyle.",
+        "button_label": "DISCOVER E-BIKES",
+        "button_link": "shopify://collections/e-bikes",
+        "columns_desktop": 3,
+        "gap_desktop": 24,
+        "enable_slider": true,
+        "mobile_slides": 1.3,
+        "show_progress_bar": true,
+        "quick_add": "standard",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "instagram_gallery_EtcBJN": {
@@ -557,61 +553,111 @@
         "image_GnwQrP": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_BDX9BD": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_3iMWhc": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_J7hzi3": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_JgPBbb": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "1"
+>>>>>>> Stashed changes
           }
         },
         "image_hKxVBk": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "2"
+>>>>>>> Stashed changes
           }
         },
         "image_D4F6bN": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "2"
+>>>>>>> Stashed changes
           }
         },
         "image_4edjgx": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "2"
+>>>>>>> Stashed changes
           }
         },
         "image_HwqQgA": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "2"
+>>>>>>> Stashed changes
           }
         },
         "image_yQhtpM": {
           "type": "image",
           "settings": {
+<<<<<<< Updated upstream
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png"
+=======
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "row": "2"
+>>>>>>> Stashed changes
           }
         }
       },
@@ -630,7 +676,12 @@
       "name": "Masonry Gallery",
       "settings": {
         "heading": "JOIN OUR ROXX FAMILY",
+<<<<<<< Updated upstream
         "subheading": "with thousands who've upgraded their everyday ride.",
+=======
+        "heading_size": "h0",
+        "enable_marquee": false,
+>>>>>>> Stashed changes
         "padding_top": 60,
         "padding_bottom": 60
       }
