@@ -10,21 +10,29 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-  .roxx-header {
-    text-align: center;
-    margin-bottom: 3rem;
+
+  .roxx-masonry-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
 
-  .roxx-heading {
+  .roxx-masonry-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .roxx-masonry-heading {
     font-family: inherit;
     font-size: clamp(24px, 4vw, 32px);
     font-weight: 900;
     text-transform: uppercase;
+    letter-spacing: -0.5px;
     margin: 0 0 0.5rem 0;
     color: #000;
   }
 
-  .roxx-subheading {
+  .roxx-masonry-subheading {
     font-size: clamp(13px, 1.5vw, 15px);
     font-weight: 500;
     color: #333;
@@ -32,125 +40,88 @@
   }
 
   /* 
-   * COLCADE.JS CSS SETUP
-   * Exact flexbox structure from the tutorial 
+   * NATIVE CSS MASONRY
+   * This cannot be broken by Shopify's JS iframe 
    */
-  .roxx-grid {
-    display: flex;
-    /* Offset the column padding */
-    margin-left: -10px;
-    margin-right: -10px;
+  .roxx-masonry-grid {
+    column-count: 2;
+    column-gap: 16px;
+    width: 100%;
   }
 
-  .roxx-grid-col {
-    flex: 1;
-    padding: 0 10px; /* Controls the horizontal gap */
+  @media screen and (min-width: 768px) {
+    .roxx-masonry-grid {
+      column-count: 3;
+    }
   }
 
-  /* Hide extra columns on mobile, show 2 */
-  .roxx-grid-col--3,
-  .roxx-grid-col--4,
-  .roxx-grid-col--5 {
-    display: none;
+  @media screen and (min-width: 1024px) {
+    .roxx-masonry-grid {
+      column-count: 5;
+      column-gap: 20px;
+    }
   }
 
-  /* Show 3 columns on tablet */
-  @media (min-width: 768px) {
-    .roxx-grid-col--3 { display: block; }
-  }
-
-  /* Show 5 columns on desktop */
-  @media (min-width: 1024px) {
-    .roxx-grid-col--4,
-    .roxx-grid-col--5 { display: block; }
-  }
-
-  /* The actual image cards */
-  .roxx-grid-item {
-    margin-bottom: 20px; /* Controls the vertical gap */
+  .roxx-masonry-item {
+    break-inside: avoid; /* Forces items not to split across columns */
+    margin-bottom: 16px;
     border-radius: 16px;
     overflow: hidden;
-    position: relative;
+    transform: translateZ(0);
   }
 
-  .roxx-grid-item img {
+  @media screen and (min-width: 1024px) {
+    .roxx-masonry-item {
+      margin-bottom: 20px;
+    }
+  }
+
+  .roxx-masonry-image {
     width: 100%;
     display: block;
     border-radius: 16px;
-    height: auto;
+    object-fit: cover;
   }
+
+  /* Aspect Ratio Modifiers to force the stagger */
+  .ratio-adapt { height: auto; }
+  .ratio-square { aspect-ratio: 1 / 1; }
+  .ratio-portrait { aspect-ratio: 3 / 4; }
+  .ratio-tall { aspect-ratio: 2 / 3; }
+  .ratio-landscape { aspect-ratio: 4 / 3; }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
-  <div class="roxx-container page-width">
-    <div class="roxx-header">
+  <div class="roxx-masonry-wrapper">
+    <div class="roxx-masonry-header">
       {%- if section.settings.heading != blank -%}
-        <h2 class="roxx-heading">{{ section.settings.heading }}</h2>
+        <h2 class="roxx-masonry-heading">{{ section.settings.heading }}</h2>
       {%- endif -%}
       {%- if section.settings.subheading != blank -%}
-        <p class="roxx-subheading">{{ section.settings.subheading }}</p>
+        <p class="roxx-masonry-subheading">{{ section.settings.subheading }}</p>
       {%- endif -%}
     </div>
 
-    <!-- 
-      COLCADE HTML STRUCTURE 
-      The script requires empty columns first, followed by the items. 
-    -->
-    <div class="roxx-grid" id="colcade-grid-{{ section.id }}">
-      
-      <!-- 1. The Empty Columns for Colcade to sort into -->
-      <div class="roxx-grid-col roxx-grid-col--1"></div>
-      <div class="roxx-grid-col roxx-grid-col--2"></div>
-      <div class="roxx-grid-col roxx-grid-col--3"></div>
-      <div class="roxx-grid-col roxx-grid-col--4"></div>
-      <div class="roxx-grid-col roxx-grid-col--5"></div>
-
-      <!-- 2. The Grid Items (Your Shopify Blocks) -->
+    <div class="roxx-masonry-grid">
       {%- for block in section.blocks -%}
-        <div class="roxx-grid-item" {{ block.shopify_attributes }}>
+        <div class="roxx-masonry-item" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
             <img
               src="{{ block.settings.image | image_url: width: 800 }}"
               alt="{{ block.settings.image.alt | escape }}"
+              class="roxx-masonry-image ratio-{{ block.settings.image_ratio }}"
               loading="lazy"
               width="{{ block.settings.image.width }}"
               height="{{ block.settings.image.height }}"
             >
           {%- else -%}
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg ratio-square' }}
           {%- endif -%}
         </div>
       {%- endfor -%}
-      
     </div>
   </div>
 </div>
-
-<!-- 3. The Colcade.js Script from the tutorial -->
-<script src="https://unpkg.com/colcade@0/colcade.js" defer></script>
-
-<script>
-  function initColcade() {
-    // Wait for the script to load from unpkg
-    if (typeof Colcade !== 'undefined') {
-      var colc = new Colcade('#colcade-grid-{{ section.id }}', {
-        columns: '.roxx-grid-col',
-        items: '.roxx-grid-item'
-      });
-    } else {
-      setTimeout(initColcade, 100);
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', initColcade);
-
-  // Ensures it re-loads perfectly inside the Shopify Customizer if you add/remove a block
-  document.addEventListener('shopify:section:load', function(event) {
-    if (event.detail.sectionId === '{{ section.id }}') {
-      initColcade();
-    }
-  });
-</script>
 
 {% schema %}
 {
@@ -204,6 +175,20 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_ratio",
+          "label": "Aspect Ratio",
+          "info": "Mix these up to create the staggered masonry effect.",
+          "options": [
+            { "value": "adapt", "label": "Adapt to image" },
+            { "value": "square", "label": "Square (1:1)" },
+            { "value": "portrait", "label": "Portrait (3:4)" },
+            { "value": "tall", "label": "Tall Portrait (2:3)" },
+            { "value": "landscape", "label": "Landscape (4:3)" }
+          ],
+          "default": "adapt"
         }
       ]
     }
@@ -212,16 +197,16 @@
     {
       "name": "Masonry Gallery",
       "blocks": [
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" }
+        { "type": "image", "settings": { "image_ratio": "tall" } },
+        { "type": "image", "settings": { "image_ratio": "square" } },
+        { "type": "image", "settings": { "image_ratio": "portrait" } },
+        { "type": "image", "settings": { "image_ratio": "tall" } },
+        { "type": "image", "settings": { "image_ratio": "portrait" } },
+        { "type": "image", "settings": { "image_ratio": "square" } },
+        { "type": "image", "settings": { "image_ratio": "tall" } },
+        { "type": "image", "settings": { "image_ratio": "portrait" } },
+        { "type": "image", "settings": { "image_ratio": "tall" } },
+        { "type": "image", "settings": { "image_ratio": "square" } }
       ]
     }
   ]
