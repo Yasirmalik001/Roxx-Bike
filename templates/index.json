@@ -630,9 +630,79 @@
       "name": "Masonry Gallery",
       "settings": {
         "heading": "JOIN OUR ROXX FAMILY",
-        "heading_size": "h0",
+        "subheading": "with thousands who've upgraded their everyday ride.",
         "padding_top": 60,
         "padding_bottom": 60
+      }
+    },
+    "faq_x4Rhax": {
+      "type": "faq",
+      "blocks": {
+        "faq_AHchFw": {
+          "type": "faq",
+          "settings": {
+            "question": "How fast can a Roxx e-bike go?",
+            "answer": "<p>Roxx e-bikes are designed to meet EU regulations, with pedal assist up to 25 km/h. You get a smooth, powerful ride while staying fully road-legal.</p>"
+          }
+        },
+        "faq_9Ub8PF": {
+          "type": "faq",
+          "settings": {
+            "question": "What range can I expect on a full charge?",
+            "answer": "<p>Depending on the model and conditions, you can typically expect a range of 60km to 120km on a single charge.</p>"
+          }
+        },
+        "faq_PgpMqr": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does the battery take to charge?",
+            "answer": "<p>A full charge takes approximately 4 to 6 hours using the included standard charger.</p>"
+          }
+        },
+        "faq_NQDDHx": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I fold and store the bike easily?",
+            "answer": "<p>Yes, specific models feature a quick-fold mechanism allowing you to easily store it in a car trunk or take it on public transport.</p>"
+          }
+        },
+        "faq_JiJJdW": {
+          "type": "faq",
+          "settings": {
+            "question": "What warranty do I get?",
+            "answer": "<p>All Roxx e-bikes come with a 2-year warranty on the frame and electronic components, including the motor and battery.</p>"
+          }
+        },
+        "faq_aYX4Gi": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you provide maintenance or repair services?",
+            "answer": "<p>Yes, we have certified repair centers and provide ongoing maintenance support to keep your ride smooth.</p>"
+          }
+        },
+        "faq_7F6Myw": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return the bike if I'm not satisfied?",
+            "answer": "<p>We offer a 14-day test ride period. If you're not completely satisfied, you can return it for a full refund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_AHchFw",
+        "faq_9Ub8PF",
+        "faq_PgpMqr",
+        "faq_NQDDHx",
+        "faq_JiJJdW",
+        "faq_aYX4Gi",
+        "faq_7F6Myw"
+      ],
+      "name": "Custom FAQ Split",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "FREQUENTLY ASKED\nQUESTIONS",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
@@ -647,6 +717,7 @@
     "keep_discovering_nqKjzK",
     "feature_alternating_Y3DYDF",
     "featured_collection_eJfREB",
-    "instagram_gallery_EtcBJN"
+    "instagram_gallery_EtcBJN",
+    "faq_x4Rhax"
   ]
 }
