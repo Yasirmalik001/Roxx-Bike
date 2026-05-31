@@ -76,7 +76,6 @@
     padding: 4rem 0;
   }
 
-  /* Typography overriding Dawn defaults for specific mock styling */
   .hero-features__heading {
     color: {{ section.settings.text_color }};
   }
@@ -199,7 +198,7 @@
         {%- case block.type -%}
           
           {%- when 'heading' -%}
-            <h2 class="hero-features__heading  h2{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+            <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
               {{ block.settings.heading }}
             </h2>
 
