@@ -51,8 +51,8 @@
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "show_line_separator": true,
         "show_social": false,
-        "enable_country_selector": true,
-        "enable_language_selector": false,
+        "enable_country_selector": false,
+        "enable_language_selector": true,
         "store_location_label": "Store location",
         "store_location_link": ""
       }
