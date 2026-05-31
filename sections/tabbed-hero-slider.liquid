@@ -186,7 +186,7 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding">
+<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   <custom-slider class="tabbed-hero-slider">
     <div class="tabbed-hero-wrapper">
       
@@ -299,6 +299,12 @@ document.addEventListener('DOMContentLoaded', function() {
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
     {
       "type": "range",
       "id": "desktop_height",

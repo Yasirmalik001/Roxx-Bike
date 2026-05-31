@@ -179,7 +179,7 @@
   }
 {%- endstyle -%}
 
-<div class="hero-slider-wrapper section-{{ section.id }}-padding" id="HeroSlider-{{ section.id }}">
+<div class="hero-slider-wrapper section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient" id="HeroSlider-{{ section.id }}">
   
   <div class="swiper hero-swiper" id="Swiper-{{ section.id }}">
     <div class="swiper-wrapper">
@@ -301,6 +301,12 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
     {
       "type": "header",
       "content": "Desktop Layout"

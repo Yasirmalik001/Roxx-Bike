@@ -127,7 +127,7 @@
 {%- endstyle -%}
 
 <!-- Utilizes standard Dawn page-width container -->
-<div class="page-width section-{{ section.id }}-padding">
+<div class="page-width section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   {%- if section.settings.heading != blank -%}
     <h2 class="hero-features__heading {{ section.settings.heading_size }}">
   {{ section.settings.heading }}
@@ -180,6 +180,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
     {
       "type": "text",
       "id": "heading",

@@ -3,7 +3,7 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    background-color: {{ section.settings.background_color }};
+    
   }
 
   @media screen and (min-width: 750px) {
@@ -245,7 +245,7 @@
 {%- endstyle -%}
 
 <slider-container class="customer-reviews block" data-block-id="{{ section.id }}">
-  <div class="customer-reviews section-{{ section.id }}-padding">
+  <div class="customer-reviews section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
     <div class="page-width">
       
       <div class="customer-reviews__header">
@@ -415,11 +415,12 @@
   },
   "settings": [
     {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background Color",
-      "default": "#ffffff"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
     },
+    
     {
       "type": "header",
       "content": "Header Layout"
