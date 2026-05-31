@@ -100,25 +100,56 @@
     align-items: center;
   }
 
-  /* Swiper Pagination Overrides */
-  .swiper-pagination-{{ section.id }} {
-    position: relative !important;
-    bottom: 0 !important;
+  /* Custom overrides for .slider-template-pagination dots */
+  .section-{{ section.id }}-padding .slider-template-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
   }
 
-  .swiper-pagination-{{ section.id }} .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background-color: #ffffff;
-    opacity: 0.6;
-    margin: 0 6px !important;
+  .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+    background-color: #ffffff !important;
+    opacity: 0.6 !important;
+    margin: 0 !important;
     transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 50%;
   }
 
-  .swiper-pagination-{{ section.id }} .swiper-pagination-bullet-active {
-    background-color: #ffe600;
-    opacity: 1;
+  .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet-active {
+    background-color: #ffe600 !important;
+    opacity: 1 !important;
     transform: scale(1.1);
+  }
+
+  /* Custom styling for progress fill in testimonials */
+  .section-{{ section.id }}-padding .slider-template-progress-track {
+    background: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .section-{{ section.id }}-padding .slider-template-progress-fill {
+    background: #ffe600 !important;
+  }
+
+  /* Custom styling for arrows in testimonials */
+  .section-{{ section.id }}-padding .slider-template-arrow {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+  }
+
+  .section-{{ section.id }}-padding .slider-template-arrow:hover {
+    background: #ffe600 !important;
+    color: #000000 !important;
+    border-color: #ffe600 !important;
+  }
+
+  .section-{{ section.id }}-padding .slider-template-arrow.swiper-button-disabled {
+    opacity: 0.4 !important;
+    pointer-events: none !important;
   }
 
   /* Button alignment */
@@ -165,85 +196,93 @@
       </h2>
     {%- endif -%}
 
-    <div class="swiper" id="Swiper-{{ section.id }}">
-      <div class="swiper-wrapper">
+    <slider-container class="partner-testimonials__slider slider-template-section block" data-block-id="{{ section.id }}">
+      <div class="slider-template-section__container">
         
-        {%- for block in section.blocks -%}
-          <div class="swiper-slide" {{ block.shopify_attributes }}>
-            <div class="partner-card">
-              <div class="partner-card__image-wrapper">
-                {%- if block.settings.image != blank -%}
-                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
-                {%- else -%}
-                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                {%- endif -%}
-              </div>
-              <div class="partner-card__content">
-                <div class="partner-card__text rte">
-                  {{ block.settings.text }}
+        <div
+          class="swiper js-slider-template-swiper slider-template-section__swiper"
+          data-swiper-config='
+            {
+              "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
+              "enableSliderMobile": {{ section.settings.enable_slider_mobile }},
+              "loop": {{ section.settings.enable_loop | default: false }},
+              "autoplay": {{ section.settings.enable_autoplay | default: false }},
+              "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
+              "mobileSlides": {{ section.settings.columns_mobile | plus: 0.0 }},
+              "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
+              "desktopSlides": {{ section.settings.columns_desktop }},
+              "desktopSpacing": {{ section.settings.spacing }}
+            }
+          '
+        >
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div class="swiper-slide" {{ block.shopify_attributes }}>
+                <div class="partner-card">
+                  <div class="partner-card__image-wrapper">
+                    {%- if block.settings.image != blank -%}
+                      {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                  <div class="partner-card__content">
+                    <div class="partner-card__text rte">
+                      {{ block.settings.text }}
+                    </div>
+                    <div class="partner-card__author">
+                      {{ block.settings.author }}
+                    </div>
+                  </div>
                 </div>
-                <div class="partner-card__author">
-                  {{ block.settings.author }}
-                </div>
               </div>
-            </div>
+            {%- endfor -%}
           </div>
-        {%- endfor -%}
-
-      </div>
-    </div>
-
-    <div class="partner-slider-footer">
-      <div class="partner-pagination-wrapper">
-        <div class="swiper-pagination-{{ section.id }}"></div>
-      </div>
-      
-      {%- if section.settings.button_label != blank -%}
-        <div class="partner-button-wrapper">
-          <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} 
-             class="partner-button">
-            {{ section.settings.button_label | escape }}
-          </a>
         </div>
-      {%- endif -%}
-    </div>
+
+        <div class="partner-slider-footer">
+          <div class="slider-template-controls slider-template-controls--{{ section.settings.controls_position }}">
+            {%- if section.settings.controls_position == 'bottom' -%}
+              <div class="slider-template-progress-track">
+                <div class="slider-template-progress-fill"></div>
+              </div>
+            {%- endif -%}
+            
+            {%- if section.settings.controls_position == 'dots' -%}
+              <div class="slider-template-pagination partner-pagination-wrapper"></div>
+            {%- endif -%}
+
+            {%- if section.settings.controls_position == 'middle' -%}
+              <div class="slider-template-controls-nav">
+                <button type="button" class="slider-template-arrow js-slider-template-prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="slider-template-arrow js-slider-template-next" aria-label="{{ 'general.slider.next_slide' | t }}">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.button_label != blank -%}
+            <div class="partner-button-wrapper">
+              <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} 
+                 class="partner-button">
+                {{ section.settings.button_label | escape }}
+              </a>
+            </div>
+          {%- endif -%}
+        </div>
+
+      </div>
+    </slider-container>
 
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const initSwiper{{ section.id | replace: '-', '_' }} = () => {
-      // Check if Swiper is loaded from CDN yet
-      if (typeof Swiper !== 'undefined') {
-        new Swiper('#Swiper-{{ section.id }}', {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          grabCursor: true,
-          pagination: {
-            el: '.swiper-pagination-{{ section.id }}',
-            clickable: true,
-          },
-          breakpoints: {
-            750: {
-              slidesPerView: 2,
-              spaceBetween: 30
-            },
-            990: {
-              slidesPerView: 3,
-              spaceBetween: 30
-            }
-          }
-        });
-      } else {
-        // If not loaded, check again in 100ms
-        setTimeout(initSwiper{{ section.id | replace: '-', '_' }}, 100);
-      }
-    };
-    
-    initSwiper{{ section.id | replace: '-', '_' }}();
-  });
-</script>
 
 {% schema %}
 {
@@ -285,6 +324,88 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Carousel Controls"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider_desktop",
+      "label": "Enable slider on desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider_mobile",
+      "label": "Enable slider on mobile",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "controls_position",
+      "label": "Slider controls type",
+      "options": [
+        { "value": "bottom", "label": "Progress bar" },
+        { "value": "middle", "label": "Arrows only" },
+        { "value": "dots", "label": "Dots" }
+      ],
+      "default": "dots"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay interval",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "label": "Enable infinite loop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Columns and spacing"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "1",
+      "label": "Number of columns on mobile",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Space between cards",
+      "default": 30
     },
     {
       "type": "header",
