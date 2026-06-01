@@ -433,6 +433,244 @@
         "padding_bottom": 40
       }
     },
+    "specifications_section_k6Pnef": {
+      "type": "specifications-section",
+      "blocks": {
+        "category_UBbzNa": {
+          "type": "category",
+          "settings": {
+            "title": "Performance & Power"
+          }
+        },
+        "spec_gzf6dN": {
+          "type": "spec",
+          "settings": {
+            "label": "Motor",
+            "value": "250W Mivice rear hub motor"
+          }
+        },
+        "spec_x3EiPa": {
+          "type": "spec",
+          "settings": {
+            "label": "Top Speed",
+            "value": "Up to 25 km/h"
+          }
+        },
+        "spec_3qmtRX": {
+          "type": "spec",
+          "settings": {
+            "label": "Torque Sensor",
+            "value": "Responsive, natural riding feel"
+          }
+        },
+        "spec_rGVRay": {
+          "type": "spec",
+          "settings": {
+            "label": "Range",
+            "value": "Up to ~80 km per charge"
+          }
+        },
+        "category_ezrKg9": {
+          "type": "category",
+          "settings": {
+            "title": "Battery"
+          }
+        },
+        "spec_D84Rax": {
+          "type": "spec",
+          "settings": {
+            "label": "Battery Type",
+            "value": "Samsung lithium"
+          }
+        },
+        "spec_nq4RxX": {
+          "type": "spec",
+          "settings": {
+            "label": "Capacity",
+            "value": "10Ah / 48V"
+          }
+        },
+        "spec_wY4XrP": {
+          "type": "spec",
+          "settings": {
+            "label": "Charging",
+            "value": "Fast and efficient for daily use"
+          }
+        },
+        "spec_giWhMd": {
+          "type": "spec",
+          "settings": {
+            "label": "Warranty",
+            "value": "2 years"
+          }
+        },
+        "category_nd6bcD": {
+          "type": "category",
+          "settings": {
+            "title": "Ride & Build"
+          }
+        },
+        "spec_HwfDqV": {
+          "type": "spec",
+          "settings": {
+            "label": "Drive System",
+            "value": "Carbon belt drive (clean, silent, low maintenance)"
+          }
+        },
+        "spec_KGYKCL": {
+          "type": "spec",
+          "settings": {
+            "label": "Frame",
+            "value": "Lightweight aluminium"
+          }
+        },
+        "spec_YWeRye": {
+          "type": "spec",
+          "settings": {
+            "label": "Wheel Size",
+            "value": "28\" CST tires"
+          }
+        },
+        "spec_Dj6iYF": {
+          "type": "spec",
+          "settings": {
+            "label": "Brakes",
+            "value": "Mechanical disc brakes"
+          }
+        }
+      },
+      "block_order": [
+        "category_UBbzNa",
+        "spec_gzf6dN",
+        "spec_x3EiPa",
+        "spec_3qmtRX",
+        "spec_rGVRay",
+        "category_ezrKg9",
+        "spec_D84Rax",
+        "spec_nq4RxX",
+        "spec_wY4XrP",
+        "spec_giWhMd",
+        "category_nd6bcD",
+        "spec_HwfDqV",
+        "spec_KGYKCL",
+        "spec_YWeRye",
+        "spec_Dj6iYF"
+      ],
+      "name": "Specifications Table",
+      "settings": {
+        "color_scheme": "",
+        "title": "SPECIFICATIONS",
+        "heading_size": "h0",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "product_comparison_WqKGJh": {
+      "type": "product-comparison",
+      "blocks": {
+        "feature_row_e47jF7": {
+          "type": "feature_row",
+          "settings": {
+            "custom_svg": "",
+            "fallback_icon": "rider_height",
+            "text_1": "Suitable for cyclists\nfrom 165-190 cm",
+            "text_2": "Suitable for cyclists\nfrom 155-195 cm"
+          }
+        },
+        "feature_row_qzbajJ": {
+          "type": "feature_row",
+          "settings": {
+            "custom_svg": "",
+            "fallback_icon": "range_dots",
+            "text_1": "Range upto 80-100 km",
+            "text_2": "Range upto 60-80 km"
+          }
+        },
+        "feature_row_VjzrHf": {
+          "type": "feature_row",
+          "settings": {
+            "custom_svg": "",
+            "fallback_icon": "speedometer",
+            "text_1": "Max speed 25 km/h",
+            "text_2": "Max speed 25 km/h"
+          }
+        },
+        "feature_row_W6t6WY": {
+          "type": "feature_row",
+          "settings": {
+            "custom_svg": "",
+            "fallback_icon": "gps_pin",
+            "text_1": "Advanced (GPS\ntracking & alarm)",
+            "text_2": "Standard lock support"
+          }
+        },
+        "feature_row_hEHRbt": {
+          "type": "feature_row",
+          "settings": {
+            "custom_svg": "",
+            "fallback_icon": "drive_belt",
+            "text_1": "Carbon belt drive",
+            "text_2": "Chain drive"
+          }
+        }
+      },
+      "block_order": [
+        "feature_row_e47jF7",
+        "feature_row_qzbajJ",
+        "feature_row_VjzrHf",
+        "feature_row_W6t6WY",
+        "feature_row_hEHRbt"
+      ],
+      "name": "Product Comparison",
+      "settings": {
+        "color_scheme": "",
+        "heading": "NOT SURE WHICH BIKE SUITS YOU?",
+        "heading_size": "h1",
+        "subheading": "check out the handy comparison table below.",
+        "product_1": "",
+        "custom_title_1": "",
+        "desc_1": "Lorem ipsum dolor sit amet consectetur.",
+        "product_2": "",
+        "custom_title_2": "",
+        "desc_2": "Lorem ipsum dolor sit amet consectetur.",
+        "link_label": "More info",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_text_YXALTw": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_kVc3Cw": {
+          "type": "heading",
+          "name": "t:sections.image-with-text.blocks.heading.name",
+          "settings": {
+            "heading": "Afbeelding met tekst",
+            "heading_size": "h1"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_kVc3Cw"
+      ],
+      "name": "Image with contents",
+      "settings": {
+        "media": "image",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_with_features_protect_L3ciHK": {
       "type": "image-with-features-protect",
       "blocks": {
@@ -684,6 +922,9 @@
     "hero_features_banner_UXYq4t",
     "related-products",
     "video_testimonials_gallery_AChKUk",
+    "specifications_section_k6Pnef",
+    "product_comparison_WqKGJh",
+    "image_with_text_YXALTw",
     "image_with_features_protect_L3ciHK",
     "app_features_section_gVYMpE",
     "image_with_hotspots_rJkiKJ",
