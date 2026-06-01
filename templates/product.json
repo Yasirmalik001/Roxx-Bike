@@ -996,6 +996,55 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "feature_alternating_XKMVfA": {
+      "type": "feature-alternating",
+      "blocks": {
+        "feature_block_yUt3cM": {
+          "type": "feature_block",
+          "settings": {
+            "color_scheme": "",
+            "layout": "left",
+            "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
+            "heading_size": "h0",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        },
+        "feature_block_hW8m4a": {
+          "type": "feature_block",
+          "settings": {
+            "color_scheme": "",
+            "layout": "right",
+            "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
+            "heading_size": "h0",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_block_yUt3cM",
+        "feature_block_hW8m4a"
+      ],
+      "name": "Alternating Features",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -1010,6 +1059,7 @@
     "app_features_section_gVYMpE",
     "image_with_hotspots_rJkiKJ",
     "quick_features_slider_GB9B7z",
-    "faq_ekQccb"
+    "faq_ekQccb",
+    "feature_alternating_XKMVfA"
   ]
 }
