@@ -1085,6 +1085,65 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "testimonials_NNYm9Y": {
+      "type": "testimonials",
+      "blocks": {
+        "review_WD4YwF": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_bVCGpk": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_YUHRnw": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_JhceXH": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        }
+      },
+      "block_order": [
+        "review_WD4YwF",
+        "review_bVCGpk",
+        "review_YUHRnw",
+        "review_JhceXH"
+      ],
+      "name": "Customer Reviews Slider",
+      "settings": {
+        "color_scheme": "",
+        "heading": "OUR CUSTOMER SAY!",
+        "heading_size": "h0",
+        "show_summary_card": false,
+        "summary_rating_text": "4.2 stars / 5",
+        "summary_count_text": "(Based on 200+ reviews)",
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "none",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "spacing": 30,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -1101,6 +1160,7 @@
     "quick_features_slider_GB9B7z",
     "faq_ekQccb",
     "feature_alternating_XKMVfA",
-    "promo_cards_section_Y4dTtA"
+    "promo_cards_section_Y4dTtA",
+    "testimonials_NNYm9Y"
   ]
 }
