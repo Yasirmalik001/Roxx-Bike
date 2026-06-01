@@ -641,6 +641,15 @@
     "image_with_text_YXALTw": {
       "type": "image-with-text",
       "blocks": {
+        "text_ipQKQD": {
+          "type": "text",
+          "name": "t:sections.image-with-text.blocks.text.name",
+          "settings": {
+            "text": "<p>Plaats een afbeelding bij stukken tekst om de aandacht op je gekozen product, collectie of blogpost te richten. Voeg details over beschikbaarheid en stijl toe of plaats een productrecensie.</p>",
+            "text_style": "body"
+          },
+          "blocks": {}
+        },
         "heading_kVc3Cw": {
           "type": "heading",
           "name": "t:sections.image-with-text.blocks.heading.name",
@@ -652,6 +661,7 @@
         }
       },
       "block_order": [
+        "text_ipQKQD",
         "heading_kVc3Cw"
       ],
       "name": "Image with contents",
@@ -915,6 +925,77 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "faq_ekQccb": {
+      "type": "faq",
+      "blocks": {
+        "faq_TKBaUm": {
+          "type": "faq",
+          "settings": {
+            "question": "How fast can a Roxx e-bike go?",
+            "answer": "<p>Roxx e-bikes are designed to meet EU regulations, with pedal assist up to 25 km/h. You get a smooth, powerful ride while staying fully road-legal.</p>"
+          }
+        },
+        "faq_9Wac6w": {
+          "type": "faq",
+          "settings": {
+            "question": "What range can I expect on a full charge?",
+            "answer": "<p>Depending on the model and conditions, you can typically expect a range of 60km to 120km on a single charge.</p>"
+          }
+        },
+        "faq_iNdTUL": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does the battery take to charge?",
+            "answer": "<p>A full charge takes approximately 4 to 6 hours using the included standard charger.</p>"
+          }
+        },
+        "faq_tUa4Um": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I fold and store the bike easily?",
+            "answer": "<p>Yes, specific models feature a quick-fold mechanism allowing you to easily store it in a car trunk or take it on public transport.</p>"
+          }
+        },
+        "faq_6eWdVg": {
+          "type": "faq",
+          "settings": {
+            "question": "What warranty do I get?",
+            "answer": "<p>All Roxx e-bikes come with a 2-year warranty on the frame and electronic components, including the motor and battery.</p>"
+          }
+        },
+        "faq_Gn3UmN": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you provide maintenance or repair services?",
+            "answer": "<p>Yes, we have certified repair centers and provide ongoing maintenance support to keep your ride smooth.</p>"
+          }
+        },
+        "faq_cdezka": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return the bike if I'm not satisfied?",
+            "answer": "<p>We offer a 14-day test ride period. If you're not completely satisfied, you can return it for a full refund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_TKBaUm",
+        "faq_9Wac6w",
+        "faq_iNdTUL",
+        "faq_tUa4Um",
+        "faq_6eWdVg",
+        "faq_Gn3UmN",
+        "faq_cdezka"
+      ],
+      "name": "Custom FAQ Split",
+      "settings": {
+        "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
+        "heading": "FREQUENTLY ASKED\nQUESTIONS",
+        "heading_size": "h1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
@@ -928,6 +1009,7 @@
     "image_with_features_protect_L3ciHK",
     "app_features_section_gVYMpE",
     "image_with_hotspots_rJkiKJ",
-    "quick_features_slider_GB9B7z"
+    "quick_features_slider_GB9B7z",
+    "faq_ekQccb"
   ]
 }
