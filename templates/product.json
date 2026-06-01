@@ -433,6 +433,51 @@
         "padding_bottom": 40
       }
     },
+    "image_with_features_protect_L3ciHK": {
+      "type": "image-with-features-protect",
+      "blocks": {
+        "feature_LqfRzc": {
+          "type": "feature",
+          "settings": {
+            "title": "Integrated GPS tracking"
+          }
+        },
+        "feature_8wVwfM": {
+          "type": "feature",
+          "settings": {
+            "title": "Smart alarm system"
+          }
+        },
+        "feature_ctVtbB": {
+          "type": "feature",
+          "settings": {
+            "title": "Real-time location monitoring"
+          }
+        }
+      },
+      "block_order": [
+        "feature_LqfRzc",
+        "feature_8wVwfM",
+        "feature_ctVtbB"
+      ],
+      "name": "Image with Protection",
+      "settings": {
+        "color_scheme": "",
+        "layout": "image_first",
+        "show_tooltip": true,
+        "tooltip_title": "Your bike is moving 🚨",
+        "tooltip_text": "Not you? Track your bike",
+        "tooltip_top": 15,
+        "tooltip_left": 20,
+        "title": "BUILT TO PROTECT",
+        "heading_size": "h1",
+        "text": "<p>Lorem ipsum dolor sit amet consectetur. Morbi fermentum nisl hac cum lobortis sit massa pharetra. A sit nulla pellentesque turpis magna sodales.</p>",
+        "btn_label": "Book a test ride",
+        "btn_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "image_with_hotspots_rJkiKJ": {
       "type": "image-with-hotspots",
       "blocks": {
@@ -572,6 +617,7 @@
     "hero_features_banner_UXYq4t",
     "related-products",
     "video_testimonials_gallery_AChKUk",
+    "image_with_features_protect_L3ciHK",
     "image_with_hotspots_rJkiKJ",
     "quick_features_slider_GB9B7z"
   ]
