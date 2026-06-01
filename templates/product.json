@@ -1110,6 +1110,27 @@
             "author": "Lena . J"
           }
         },
+        "review_Y9g6KC": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_R3FU7i": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_6XQRgT": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
         "review_JhceXH": {
           "type": "review",
           "settings": {
@@ -1122,6 +1143,9 @@
         "review_WD4YwF",
         "review_bVCGpk",
         "review_YUHRnw",
+        "review_Y9g6KC",
+        "review_R3FU7i",
+        "review_6XQRgT",
         "review_JhceXH"
       ],
       "name": "Customer Reviews Slider",
@@ -1129,6 +1153,7 @@
         "color_scheme": "",
         "heading": "OUR CUSTOMER SAY!",
         "heading_size": "h0",
+        "subheading": "<p>Lorem ipsum dolor sit amet consectetur. Luctus faucibus amet ut semper enim. Lacus venenatis risus nulla sit suspendisse purus.</p>",
         "show_summary_card": false,
         "summary_rating_text": "4.2 stars / 5",
         "summary_count_text": "(Based on 200+ reviews)",
