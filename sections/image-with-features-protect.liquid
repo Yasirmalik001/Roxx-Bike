@@ -40,7 +40,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Aligns bike to the bottom */
+    align-items: flex-end; 
   }
 
   .protect-main-image-wrap {
@@ -50,6 +50,7 @@
     max-width: 650px;
     display: flex;
     justify-content: center;
+    /* This ensures absolute positioned waves scale perfectly with the bike */
   }
 
   .protect-main-image {
@@ -57,25 +58,36 @@
     height: auto;
     object-fit: contain;
     display: block;
+    position: relative;
+    z-index: 2;
   }
 
-  .protect-waves-wrap {
+  /* --- TIRE WAVES --- */
+  .protect-wave {
     position: absolute;
-    bottom: -8%; /* Adjusts how far below the bike the waves sit */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120%;
-    max-width: 800px;
-    z-index: 1; /* Keeps waves behind the bike */
+    z-index: 1; /* Keeps waves strictly behind the bike */
     pointer-events: none;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
   }
 
-  .protect-waves-image {
+  .protect-wave img {
     width: 100%;
     height: auto;
     object-fit: contain;
+  }
+
+  .protect-wave--back {
+    width: {{ section.settings.back_wave_size }}%;
+    left: {{ section.settings.back_wave_left }}%;
+    bottom: {{ section.settings.back_wave_bottom }}%;
+  }
+
+  .protect-wave--front {
+    width: {{ section.settings.front_wave_size }}%;
+    left: {{ section.settings.front_wave_left }}%;
+    bottom: {{ section.settings.front_wave_bottom }}%;
   }
 
   /* --- TOOLTIP BUBBLE --- */
@@ -258,7 +270,6 @@
     opacity: 0.8;
   }
 
-  /* Diagonal top-right arrow */
   .protect-button svg {
     width: 18px;
     height: 18px;
@@ -275,6 +286,7 @@
     
     <div class="protect-grid {% if section.settings.layout == 'text_first' %}protect-grid--reverse{% endif %}">
       
+      <!-- Visual Column -->
       <div class="protect-visual-col">
         
         {%- if section.settings.show_tooltip -%}
@@ -297,22 +309,31 @@
           </div>
         {%- endif -%}
 
-        <div class="protect-waves-wrap">
-          {%- if section.settings.waves_image != blank -%}
-            {{ section.settings.waves_image | image_url: width: 1000 | image_tag: class: 'protect-waves-image', loading: 'lazy' }}
-          {%- endif -%}
-        </div>
-
+        <!-- Main Wrapper holding Bike + Waves -->
         <div class="protect-main-image-wrap">
+          
+          <!-- Waves -->
+          {%- if section.settings.waves_image != blank -%}
+            <div class="protect-wave protect-wave--back">
+              {{ section.settings.waves_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            </div>
+            <div class="protect-wave protect-wave--front">
+              {{ section.settings.waves_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            </div>
+          {%- endif -%}
+
+          <!-- Main Bike Image -->
           {%- if section.settings.main_image != blank -%}
             {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'protect-main-image', loading: 'lazy' }}
           {%- else -%}
             {{ 'product-1' | placeholder_svg_tag: 'protect-main-image placeholder-svg' }}
           {%- endif -%}
+
         </div>
 
       </div>
 
+      <!-- Content Column -->
       <div class="protect-content-col">
         {%- if section.settings.title != blank -%}
           <h2 class="protect-heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
@@ -324,6 +345,7 @@
           </div>
         {%- endif -%}
 
+        <!-- Features Blocks -->
         {%- if section.blocks.size > 0 -%}
           <div class="protect-features-grid">
             {%- for block in section.blocks -%}
@@ -343,6 +365,7 @@
           </div>
         {%- endif -%}
 
+        <!-- Button -->
         {%- if section.settings.btn_label != blank -%}
           <a {% if section.settings.btn_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.btn_link }}"{% endif %} class="protect-button">
             {{ section.settings.btn_label | escape }}
@@ -382,7 +405,7 @@
     },
     {
       "type": "header",
-      "content": "Images (Upload SVGs or PNGs)"
+      "content": "Bike Image"
     },
     {
       "type": "image_picker",
@@ -390,10 +413,82 @@
       "label": "Main Image (e.g., Bicycle)"
     },
     {
+      "type": "header",
+      "content": "Tire Waves (Floor Rings)"
+    },
+    {
       "type": "image_picker",
       "id": "waves_image",
-      "label": "Floor Waves Image",
-      "info": "Upload the SVG/PNG for the circular waves on the floor."
+      "label": "Wave Image / SVG",
+      "info": "Upload the circular wave graphic. It will be duplicated for both tires."
+    },
+    {
+      "type": "paragraph",
+      "content": "Rear Tire Alignments"
+    },
+    {
+      "type": "range",
+      "id": "back_wave_size",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Rear Wave Width",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "back_wave_left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Rear Wave X Position (Left)",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "back_wave_bottom",
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Rear Wave Y Position (Bottom)",
+      "default": -5
+    },
+    {
+      "type": "paragraph",
+      "content": "Front Tire Alignments"
+    },
+    {
+      "type": "range",
+      "id": "front_wave_size",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Front Wave Width",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "front_wave_left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Front Wave X Position (Left)",
+      "default": 75
+    },
+    {
+      "type": "range",
+      "id": "front_wave_bottom",
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Front Wave Y Position (Bottom)",
+      "default": 0
     },
     {
       "type": "header",
@@ -430,7 +525,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "Desktop Vertical Position (Top)",
+      "label": "Tooltip Position (Top)",
       "default": 15
     },
     {
@@ -440,7 +535,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "Desktop Horizontal Position (Left)",
+      "label": "Tooltip Position (Left)",
       "default": 20
     },
     {
