@@ -1,0 +1,320 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .app-intro-section {
+    overflow: hidden;
+  }
+
+  /* Header Styles */
+  .app-intro-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 5rem auto;
+  }
+
+  .app-intro-heading {
+    margin: 0 0 1.5rem 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .app-intro-description {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: rgba(var(--color-foreground), 0.75);
+    margin: 0;
+  }
+
+  /* Grid Layout */
+  .app-intro-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .app-intro-grid {
+      flex-direction: row;
+      align-items: center;
+      gap: 6rem;
+    }
+    .app-image-col {
+      width: 55%;
+    }
+    .app-card-col {
+      width: 45%;
+    }
+  }
+
+  /* Left Column: Composite Image */
+  .app-image-col {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .app-main-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Right Column: Feature Card */
+  .app-card-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .app-feature-card {
+    background-color: rgb(var(--color-background));
+    border-radius: 24px;
+    padding: 5rem 4rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(var(--color-foreground), 0.03);
+  }
+
+  .app-features-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    row-gap: 5rem;
+  }
+
+  /* Individual Feature Block */
+  .app-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .app-feature-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(var(--color-foreground), 0.1); /* The light gray circle behind icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .app-feature-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .app-feature-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgb(var(--color-foreground));
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .app-feature-card {
+      padding: 4rem 2rem;
+    }
+    .app-features-wrapper {
+      column-gap: 2rem;
+      row-gap: 4rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="app-intro-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
+  <div class="page-width">
+    
+    <!-- Top Centered Header -->
+    <div class="app-intro-header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="app-intro-heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <div class="app-intro-description rte">
+          {{ section.settings.description }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Main 2-Column Grid -->
+    <div class="app-intro-grid">
+      
+      <!-- Left: App & Bike Image -->
+      <div class="app-image-col">
+        {%- if section.settings.main_image != blank -%}
+          {{ section.settings.main_image | image_url: width: 1400 | image_tag: class: 'app-main-image', loading: 'lazy' }}
+        {%- else -%}
+          {{ 'product-apparel-1' | placeholder_svg_tag: 'app-main-image placeholder-svg' }}
+        {%- endif -%}
+      </div>
+
+      <!-- Right: Floating Features Card -->
+      <div class="app-card-col">
+        <div class="app-feature-card color-{{ section.settings.card_color_scheme }}">
+          
+          {%- if section.blocks.size > 0 -%}
+            <div class="app-features-wrapper">
+              {%- for block in section.blocks -%}
+                <div class="app-feature-item" {{ block.shopify_attributes }}>
+                  
+                  <div class="app-feature-icon">
+                    {%- if block.settings.icon != blank -%}
+                      {{ block.settings.icon | image_url: width: 100 | image_tag: loading: 'lazy' }}
+                    {%- endif -%}
+                    <!-- If no icon is uploaded, it leaves the blank gray circle from the mockup -->
+                  </div>
+
+                  {%- if block.settings.title != blank -%}
+                    <h3 class="app-feature-title">{{ block.settings.title | escape }}</h3>
+                  {%- endif -%}
+                  
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "App Features Intro",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section Background Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "INTRODUCING OUR ALL IN ONE APP"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>The Roxx JX electric bike works with an app specifically designed for this model and an advanced all-in-one system.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Visuals"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Composite App & Bike Image",
+      "info": "Upload the main image showing the bike and phone screens together."
+    },
+    {
+      "type": "color_scheme",
+      "id": "card_color_scheme",
+      "label": "Feature Card Color Scheme",
+      "default": "background-1",
+      "info": "Controls the background color of the floating features card."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "App Feature",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Upload Icon Image or SVG"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title",
+          "default": "4G remote communication"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "App Features Intro",
+      "blocks": [
+        { "type": "feature", "settings": { "title": "4G remote communication" } },
+        { "type": "feature", "settings": { "title": "Cycling track" } },
+        { "type": "feature", "settings": { "title": "Bluetooth near field communication" } },
+        { "type": "feature", "settings": { "title": "Multiple alarm modes" } },
+        { "type": "feature", "settings": { "title": "Multiple unlocking methods" } },
+        { "type": "feature", "settings": { "title": "Geo-fence" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
