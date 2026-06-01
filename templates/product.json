@@ -1169,6 +1169,24 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "call_to_action_banner_3Jbhre": {
+      "type": "call-to-action-banner",
+      "name": "CTA Banner Overlay",
+      "settings": {
+        "color_scheme": "",
+        "section_height": 60,
+        "image_position": "center center",
+        "image_darken": 30,
+        "overlay_opacity": 100,
+        "title": "READY TO RIDE SMARTER?",
+        "heading_size": "h1",
+        "text": "Upgrade your everyday commute with the Roxx Joieem X.",
+        "btn_label": "BOOK A TEST RIDE",
+        "btn_link": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -1186,6 +1204,7 @@
     "faq_ekQccb",
     "feature_alternating_XKMVfA",
     "promo_cards_section_Y4dTtA",
-    "testimonials_NNYm9Y"
+    "testimonials_NNYm9Y",
+    "call_to_action_banner_3Jbhre"
   ]
 }
