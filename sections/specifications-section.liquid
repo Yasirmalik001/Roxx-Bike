@@ -1,0 +1,308 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .specs-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .specs-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      align-items: flex-start;
+    }
+  }
+
+  /* --- LEFT COLUMN: HEADING & IMAGE --- */
+  .specs-left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .specs-heading {
+    margin: 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: rgb(var(--color-foreground));
+  }
+
+  .specs-image-wrap {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .specs-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* --- RIGHT COLUMN: SPECIFICATION TABLES --- */
+  .specs-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-top: 1rem; /* Aligns visually with the heading on desktop */
+  }
+
+  .spec-category {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .spec-category-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: rgb(var(--color-foreground));
+  }
+
+  .spec-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Alternating Row Colors */
+  .spec-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.4rem 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+
+  .spec-row:nth-child(odd) {
+    background-color: rgba(var(--color-foreground), 0.04);
+  }
+
+  .spec-label {
+    flex: 0 0 35%;
+    padding-right: 1.5rem;
+    color: rgba(var(--color-foreground), 0.6); /* Lighter gray for the label */
+    font-weight: 400;
+  }
+
+  .spec-value {
+    flex: 1;
+    color: rgb(var(--color-foreground)); /* Dark color for the value */
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 749px) {
+    .spec-row {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1.2rem;
+    }
+    .spec-label {
+      flex: 0 0 100%;
+      padding-right: 0;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
+  <div class="page-width">
+    <div class="specs-container">
+      
+      <!-- Left Column -->
+      <div class="specs-left-col">
+        {%- if section.settings.title != blank -%}
+          <h2 class="specs-heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+
+        <div class="specs-image-wrap">
+          {%- if section.settings.image != blank -%}
+            {{ section.settings.image | image_url: width: 1200 | image_tag: class: 'specs-image', loading: 'lazy' }}
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'specs-image placeholder-svg' }}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Right Column: Dynamic Blocks -->
+      <div class="specs-right-col">
+        {%- assign first_category = true -%}
+
+        {%- for block in section.blocks -%}
+
+          {%- if block.type == 'category' -%}
+            {%- unless first_category -%}
+              </div> <!-- Close previous .spec-table -->
+              </div> <!-- Close previous .spec-category -->
+            {%- endunless -%}
+            
+            <div class="spec-category" {{ block.shopify_attributes }}>
+              <h3 class="spec-category-title">{{ block.settings.title | escape }}</h3>
+              <div class="spec-table">
+            
+            {%- assign first_category = false -%}
+
+          {%- elsif block.type == 'spec' -%}
+            
+            {%- if first_category -%}
+              <!-- Failsafe: if a spec is added before a category block -->
+              <div class="spec-category">
+                <div class="spec-table">
+              {%- assign first_category = false -%}
+            {%- endif -%}
+
+            <div class="spec-row" {{ block.shopify_attributes }}>
+              <div class="spec-label">{{ block.settings.label | escape }}</div>
+              <div class="spec-value">{{ block.settings.value | escape }}</div>
+            </div>
+
+          {%- endif -%}
+
+        {%- endfor -%}
+
+        {%- unless first_category -%}
+            </div> <!-- Close last .spec-table -->
+          </div> <!-- Close last .spec-category -->
+        {%- endunless -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Specifications Table",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Left Column Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "SPECIFICATIONS"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h0",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product Image"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Header",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title",
+          "default": "Performance & Power",
+          "info": "This groups the specification rows below it."
+        }
+      ]
+    },
+    {
+      "type": "spec",
+      "name": "Specification Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Motor"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "250W Mivice rear hub motor"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specifications Table",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Performance & Power" } },
+        { "type": "spec", "settings": { "label": "Motor", "value": "250W Mivice rear hub motor" } },
+        { "type": "spec", "settings": { "label": "Top Speed", "value": "Up to 25 km/h" } },
+        { "type": "spec", "settings": { "label": "Torque Sensor", "value": "Responsive, natural riding feel" } },
+        { "type": "spec", "settings": { "label": "Range", "value": "Up to ~80 km per charge" } },
+        { "type": "category", "settings": { "title": "Battery" } },
+        { "type": "spec", "settings": { "label": "Battery Type", "value": "Samsung lithium" } },
+        { "type": "spec", "settings": { "label": "Capacity", "value": "10Ah / 48V" } },
+        { "type": "spec", "settings": { "label": "Charging", "value": "Fast and efficient for daily use" } },
+        { "type": "spec", "settings": { "label": "Warranty", "value": "2 years" } },
+        { "type": "category", "settings": { "title": "Ride & Build" } },
+        { "type": "spec", "settings": { "label": "Drive System", "value": "Carbon belt drive (clean, silent, low maintenance)" } },
+        { "type": "spec", "settings": { "label": "Frame", "value": "Lightweight aluminium" } },
+        { "type": "spec", "settings": { "label": "Wheel Size", "value": "28\" CST tires" } },
+        { "type": "spec", "settings": { "label": "Brakes", "value": "Mechanical disc brakes" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
