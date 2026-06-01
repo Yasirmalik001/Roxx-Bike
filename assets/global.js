@@ -218,6 +218,7 @@ class QuantityInput extends HTMLElement {
   constructor() {
     super();
     this.input = this.querySelector('input');
+    if (!this.input) return;
     this.changeEvent = new Event('change', { bubbles: true });
     this.input.addEventListener('change', this.onInputChange.bind(this));
     this.querySelectorAll('button').forEach((button) =>
@@ -228,6 +229,7 @@ class QuantityInput extends HTMLElement {
   quantityUpdateUnsubscriber = undefined;
 
   connectedCallback() {
+    if (!this.input) return;
     this.validateQtyRules();
     this.quantityUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.quantityUpdate, this.validateQtyRules.bind(this));
   }
@@ -244,6 +246,7 @@ class QuantityInput extends HTMLElement {
 
   onButtonClick(event) {
     event.preventDefault();
+    if (!this.input) return;
     const previousValue = this.input.value;
 
     if (event.target.name === 'plus') {
@@ -264,15 +267,20 @@ class QuantityInput extends HTMLElement {
   }
 
   validateQtyRules() {
+    if (!this.input) return;
     const value = parseInt(this.input.value);
     if (this.input.min) {
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
-      buttonMinus.classList.toggle('disabled', parseInt(value) <= parseInt(this.input.min));
+      if (buttonMinus) {
+        buttonMinus.classList.toggle('disabled', parseInt(value) <= parseInt(this.input.min));
+      }
     }
     if (this.input.max) {
       const max = parseInt(this.input.max);
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
-      buttonPlus.classList.toggle('disabled', value >= max);
+      if (buttonPlus) {
+        buttonPlus.classList.toggle('disabled', value >= max);
+      }
     }
   }
 }
