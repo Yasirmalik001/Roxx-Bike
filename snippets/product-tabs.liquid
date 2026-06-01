@@ -1,13 +1,13 @@
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ block.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ block.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ block.settings.padding_top }}px;
+      padding-bottom: {{ block.settings.padding_bottom }}px;
     }
   }
 
@@ -105,8 +105,8 @@
   }
 
   .feature-grid-icon {
-    width: {{ section.settings.icon_size | plus: 26 }}px;
-    height: {{ section.settings.icon_size | plus: 26 }}px;
+    width: {{ block.settings.icon_size | plus: 26 }}px;
+    height: {{ block.settings.icon_size | plus: 26 }}px;
     background-color: rgba(var(--color-foreground), 0.04);
     border-radius: 8px;
     display: flex;
@@ -116,8 +116,8 @@
   }
 
   .feature-grid-icon svg {
-    width: {{ section.settings.icon_size }}px;
-    height: {{ section.settings.icon_size }}px;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
   }
 
   .feature-grid-label {
@@ -239,7 +239,7 @@
   }
 {%- endstyle -%}
 
-<div class="product-tabs-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" id="ProductTabs-{{ section.id }}" {{ section.shopify_attributes }}>
+<div class="product-tabs-section color-{{ block.settings.color_scheme }} gradient section-{{ section.id }}-padding" id="ProductTabs-{{ section.id }}" {{ section.shopify_attributes }}>
   <div class="page-width">
     <div class="product-tabs-grid">
       
@@ -247,61 +247,61 @@
       <div class="product-tabs-left">
         <div class="product-tabs-nav-wrapper">
           <div class="product-tabs-nav" role="tablist">
-            {%- if section.settings.description != blank or product.description != blank -%}
-              <button class="product-tab-btn is-active" role="tab" data-tab="tab-desc" aria-selected="true">{{ section.settings.tab_1_title }}</button>
+            {%- if block.settings.description != blank or product.description != blank -%}
+              <button class="product-tab-btn is-active" role="tab" data-tab="tab-desc" aria-selected="true">{{ block.settings.tab_1_title }}</button>
             {%- endif -%}
-            {%- if section.settings.features != blank -%}
-              <button class="product-tab-btn" role="tab" data-tab="tab-features" aria-selected="false">{{ section.settings.tab_2_title }}</button>
+            {%- if block.settings.features != blank -%}
+              <button class="product-tab-btn" role="tab" data-tab="tab-features" aria-selected="false">{{ block.settings.tab_2_title }}</button>
             {%- endif -%}
-            {%- if section.settings.specifications != blank -%}
-              <button class="product-tab-btn" role="tab" data-tab="tab-specs" aria-selected="false">{{ section.settings.tab_3_title }}</button>
+            {%- if block.settings.specifications != blank -%}
+              <button class="product-tab-btn" role="tab" data-tab="tab-specs" aria-selected="false">{{ block.settings.tab_3_title }}</button>
             {%- endif -%}
-            {%- if section.settings.accessories != blank -%}
-              <button class="product-tab-btn" role="tab" data-tab="tab-accessories" aria-selected="false">{{ section.settings.tab_4_title }}</button>
+            {%- if block.settings.accessories != blank -%}
+              <button class="product-tab-btn" role="tab" data-tab="tab-accessories" aria-selected="false">{{ block.settings.tab_4_title }}</button>
             {%- endif -%}
-            {%- if section.settings.faq != blank -%}
-              <button class="product-tab-btn" role="tab" data-tab="tab-faq" aria-selected="false">{{ section.settings.tab_5_title }}</button>
+            {%- if block.settings.faq != blank -%}
+              <button class="product-tab-btn" role="tab" data-tab="tab-faq" aria-selected="false">{{ block.settings.tab_5_title }}</button>
             {%- endif -%}
           </div>
         </div>
         
         <div class="product-tabs-content">
-          {%- if section.settings.description != blank or product.description != blank -%}
+          {%- if block.settings.description != blank or product.description != blank -%}
             <div class="product-tab-panel is-active" id="tab-desc" role="tabpanel">
               <div class="rte">
-                {{ section.settings.description | default: product.description }}
+                {{ block.settings.description | default: product.description }}
               </div>
             </div>
           {%- endif -%}
           
-          {%- if section.settings.features != blank -%}
+          {%- if block.settings.features != blank -%}
             <div class="product-tab-panel" id="tab-features" role="tabpanel">
               <div class="rte">
-                {{ section.settings.features }}
+                {{ block.settings.features }}
               </div>
             </div>
           {%- endif -%}
           
-          {%- if section.settings.specifications != blank -%}
+          {%- if block.settings.specifications != blank -%}
             <div class="product-tab-panel" id="tab-specs" role="tabpanel">
               <div class="rte">
-                {{ section.settings.specifications }}
+                {{ block.settings.specifications }}
               </div>
             </div>
           {%- endif -%}
           
-          {%- if section.settings.accessories != blank -%}
+          {%- if block.settings.accessories != blank -%}
             <div class="product-tab-panel" id="tab-accessories" role="tabpanel">
               <div class="rte">
-                {{ section.settings.accessories }}
+                {{ block.settings.accessories }}
               </div>
             </div>
           {%- endif -%}
           
-          {%- if section.settings.faq != blank -%}
+          {%- if block.settings.faq != blank -%}
             <div class="product-tab-panel" id="tab-faq" role="tabpanel">
               <div class="rte">
-                {{ section.settings.faq }}
+                {{ block.settings.faq }}
               </div>
             </div>
           {%- endif -%}
@@ -316,9 +316,9 @@
             {%- capture icon_key -%}feature_icon_{{ i }}{%- endcapture -%}
             {%- capture svg_key -%}feature_custom_svg_{{ i }}{%- endcapture -%}
             
-            {%- assign label_val = section.settings[label_key] -%}
-            {%- assign icon_val = section.settings[icon_key] -%}
-            {%- assign svg_val = section.settings[svg_key] -%}
+            {%- assign label_val = block.settings[label_key] -%}
+            {%- assign icon_val = block.settings[icon_key] -%}
+            {%- assign svg_val = block.settings[svg_key] -%}
             
             {%- if label_val != blank -%}
               <div class="feature-grid-item">
@@ -357,8 +357,8 @@
 </div>
 
 <!-- Bottom Sticky Bar -->
-{%- if section.settings.enable_sticky_bar -%}
-<div class="product-sticky-bar color-{{ section.settings.color_scheme }}" id="ProductStickyBar-{{ section.id }}">
+{%- if block.settings.enable_sticky_bar -%}
+<div class="product-sticky-bar color-{{ block.settings.color_scheme }}" id="ProductStickyBar-{{ section.id }}">
   <div class="page-width sticky-bar-inner">
     
     <div class="sticky-bar-left">
@@ -367,14 +367,14 @@
     </div>
     
     <div class="sticky-bar-right">
-      {%- if section.settings.btn1_text != blank -%}
-        <button type="button" class="sticky-btn-outline" onclick="{% if section.settings.btn1_link != blank %}window.location.href='{{ section.settings.btn1_link }}'{% else %}document.querySelector('.product-form__buttons .button--secondary')?.click() || alert('Action triggered'){% endif %}">
-          {{ section.settings.btn1_text }}
+      {%- if block.settings.btn1_text != blank -%}
+        <button type="button" class="sticky-btn-outline" onclick="{% if block.settings.btn1_link != blank %}window.location.href='{{ block.settings.btn1_link }}'{% else %}document.querySelector('.product-form__buttons .button--secondary')?.click() || alert('Action triggered'){% endif %}">
+          {{ block.settings.btn1_text }}
         </button>
       {%- endif -%}
-      {%- if section.settings.btn2_text != blank -%}
+      {%- if block.settings.btn2_text != blank -%}
         <button type="button" class="sticky-btn-solid" onclick="document.querySelector('.product-form__buttons button[type=submit]')?.click()">
-          {{ section.settings.btn2_text }}
+          {{ block.settings.btn2_text }}
         </button>
       {%- endif -%}
     </div>
