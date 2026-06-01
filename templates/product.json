@@ -464,6 +464,8 @@
       "settings": {
         "color_scheme": "",
         "layout": "image_first",
+        "main_image": "shopify://shop_images/18e4bf5ddd9dd480c0c1f0c20f5a5dd83dd87f96_1.png",
+        "waves_image": "shopify://shop_images/Group_43.svg",
         "show_tooltip": true,
         "tooltip_title": "Your bike is moving 🚨",
         "tooltip_text": "Not you? Track your bike",
