@@ -1,0 +1,393 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .hero-features-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: {{ section.settings.min_height }}vh;
+    overflow: hidden;
+  }
+
+  .hero-features-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-features-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+  }
+
+  .hero-features-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    /* Gradient fades from transparent to the exact background color of the selected color scheme */
+    background: linear-gradient(to bottom, rgba(var(--color-background), 0) 30%, rgba(var(--color-background), 0.8) 60%, rgba(var(--color-background), 1) 90%);
+  }
+
+  .hero-features-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-features-subheading {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: rgba(var(--color-foreground), 0.8);
+  }
+
+  .hero-features-heading {
+    margin: 0 0 1.5rem 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-features-desc {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: rgba(var(--color-foreground), 0.7);
+    max-width: 60rem;
+    margin: 0 auto 5rem auto;
+  }
+
+  .hero-features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 150px;
+  }
+
+  .hero-feature-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(var(--color-foreground), 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--color-foreground));
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .hero-feature-item:hover .hero-feature-icon {
+    transform: scale(1.05);
+    background-color: rgba(var(--color-foreground), 0.15);
+  }
+
+  .hero-feature-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero-feature-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgb(var(--color-foreground));
+    line-height: 1.4;
+  }
+
+  .hero-features-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 4rem;
+    border-radius: 40px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  
+  .hero-features-button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .hero-features-grid {
+      gap: 2rem;
+    }
+    .hero-feature-item {
+      width: calc(50% - 2rem);
+    }
+    .hero-features-button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="hero-features-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
+  
+  {%- if section.settings.image != blank -%}
+    <div class="hero-features-bg">
+      {{ section.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+    </div>
+    <div class="hero-features-overlay"></div>
+  {%- endif -%}
+
+  <div class="hero-features-content page-width">
+    
+    {%- if section.settings.subheading != blank -%}
+      <div class="hero-features-subheading">{{ section.settings.subheading | escape }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.title != blank -%}
+      <h2 class="hero-features-heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="hero-features-desc rte">
+        {{ section.settings.text }}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="hero-features-grid">
+        {%- for block in section.blocks -%}
+          <div class="hero-feature-item" {{ block.shopify_attributes }}>
+            <div class="hero-feature-icon">
+              {%- if block.settings.custom_svg != blank -%}
+                {{ block.settings.custom_svg }}
+              {%- else -%}
+                {%- case block.settings.icon -%}
+                  {%- when 'gear' -%}
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  {%- when 'radar' -%}
+                    <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M12 6a6 6 0 1 0 0 12M12 2a10 10 0 1 0 0 20"></path><circle cx="12" cy="12" r="2" fill="currentColor"></circle></svg>
+                  {%- when 'power' -%}
+                    <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                  {%- when 'battery' -%}
+                    <svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="10" rx="2" ry="2"></rect><line x1="22" y1="11" x2="22" y2="13"></line></svg>
+                  {%- when 'shield' -%}
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                {%- endcase -%}
+              {%- endif -%}
+            </div>
+            {%- if block.settings.title != blank -%}
+              <span class="hero-feature-title">{{ block.settings.title | escape }}</span>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <a {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %} class="button button--primary hero-features-button">
+        {{ section.settings.button_label | escape }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero with Features",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "top center", "label": "Top center" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom center" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1",
+      "info": "The gradient overlay will fade into this background color."
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Minimum section height",
+      "default": 90
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Less effort. More freedom."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "POWER YOU CAN FEEL"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description",
+      "default": "<p>Lorem ipsum dolor sit amet consectetur. Blandit lectus tincidunt elit sapien vestibulum pellentesque sed gravida mauris.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Book a test ride"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 160
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Icon",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Standard Icon",
+          "options": [
+            { "value": "gear", "label": "Gear Settings" },
+            { "value": "radar", "label": "Signal/Radar" },
+            { "value": "power", "label": "Lightning Power" },
+            { "value": "battery", "label": "Battery" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": "gear"
+        },
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Code",
+          "info": "Overrides the standard icon selection above."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Label",
+          "default": "250W Direct power"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero with Features",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "gear", "title": "250W Direct power" } },
+        { "type": "feature", "settings": { "icon": "radar", "title": "Carbon belt drive" } },
+        { "type": "feature", "settings": { "icon": "power", "title": "Powerful engine" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
