@@ -1045,6 +1045,46 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "promo_cards_section_Y4dTtA": {
+      "type": "promo-cards-section",
+      "blocks": {
+        "card_qcWnGD": {
+          "type": "card",
+          "settings": {
+            "title": "VISIT A NEARBY STORE",
+            "btn_label": "FIND A STORE",
+            "link": ""
+          }
+        },
+        "card_eHGUch": {
+          "type": "card",
+          "settings": {
+            "title": "FLEXIBLE PRICING",
+            "btn_label": "PAY IN INSTALLMENT",
+            "link": ""
+          }
+        },
+        "card_gkgMXK": {
+          "type": "card",
+          "settings": {
+            "title": "DISCOVER ALL OUR BIKES",
+            "btn_label": "SHOW ALL",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_qcWnGD",
+        "card_eHGUch",
+        "card_gkgMXK"
+      ],
+      "name": "Promotional Cards",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
@@ -1060,6 +1100,7 @@
     "image_with_hotspots_rJkiKJ",
     "quick_features_slider_GB9B7z",
     "faq_ekQccb",
-    "feature_alternating_XKMVfA"
+    "feature_alternating_XKMVfA",
+    "promo_cards_section_Y4dTtA"
   ]
 }
