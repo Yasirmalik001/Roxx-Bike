@@ -253,7 +253,7 @@
             "feature_custom_svg_4": "",
             "feature_label_4": "Close-loop chains",
             "feature_icon_5": "gps",
-            "feature_custom_svg_5": "",
+            "feature_custom_svg_5": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"28\" viewbox=\"0 0 20 28\" fill=\"none\">\n<path d=\"M9.64516 0.5C4.59355 0.5 0.5 4.59355 0.5 9.64516C0.5 14.6968 9.64516 27.5 9.64516 27.5C9.64516 27.5 18.7903 14.6968 18.7903 9.64516C18.7903 4.59355 14.6968 0.5 9.64516 0.5ZM9.64516 14.6968C6.85806 14.6968 4.59355 12.4323 4.59355 9.64516C4.59355 6.85806 6.85806 4.59355 9.64516 4.59355C12.4323 4.59355 14.6968 6.85806 14.6968 9.64516C14.6968 12.4323 12.4323 14.6968 9.64516 14.6968Z\" stroke=\"black\" stroke-miterlimit=\"10\" stroke-linejoin=\"round\"></path>\n</svg>",
             "feature_label_5": "GPS Tracking",
             "feature_icon_6": "padlock",
             "feature_custom_svg_6": "",
