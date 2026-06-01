@@ -1,0 +1,306 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .cta-banner-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: {{ section.settings.section_height }}vh;
+    overflow: hidden;
+  }
+
+  /* Background Image */
+  .cta-banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .cta-banner-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+  }
+
+  /* Bottom Gradient Overlay (Controlled by Schema & Color Scheme) */
+  .cta-banner-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    /* Fades from transparent at the top to the exact color scheme background at the bottom */
+    background: linear-gradient(to top, rgba(var(--color-background), {{ section.settings.overlay_opacity | divided_by: 100.0 }}) 0%, rgba(var(--color-background), 0) 60%);
+  }
+
+  /* Optional Full Image Darken */
+  .cta-banner-darken {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0, {{ section.settings.image_darken | divided_by: 100.0 }});
+  }
+
+  /* Content Wrapper */
+  .cta-banner-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 80rem;
+    padding: 0 2rem;
+  }
+
+  .cta-banner-heading {
+    margin: 0 0 1rem 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #ffffff; /* Forced white to pop on background */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .cta-banner-subheading {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #ffffff; /* Forced white */
+    margin: 0 0 3.5rem 0;
+    max-width: 50rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  /* Button styling to match the rest of the design system */
+  .cta-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.4rem 4rem;
+    border-radius: 40px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    background-color: #ffd000;
+    color: #000000;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-banner-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+
+  .cta-banner-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cta-banner-btn {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
+  <div class="cta-banner-wrapper">
+    
+    {%- if section.settings.image != blank -%}
+      <div class="cta-banner-bg">
+        {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000' }}
+      </div>
+      <div class="cta-banner-darken"></div>
+    {%- endif -%}
+
+    <!-- The dynamic bottom gradient overlay -->
+    <div class="cta-banner-overlay"></div>
+
+    <div class="cta-banner-content">
+      {%- if section.settings.title != blank -%}
+        <h2 class="cta-banner-heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <p class="cta-banner-subheading">{{ section.settings.text | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.btn_label != blank -%}
+        <a {% if section.settings.btn_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.btn_link }}"{% endif %} class="cta-banner-btn">
+          {{ section.settings.btn_label | escape }}
+          <svg viewBox="0 0 24 24">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CTA Banner Overlay",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1",
+      "info": "The bottom gradient will smoothly fade into this background color."
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Section Height",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "top center", "label": "Top center" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom center" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "range",
+      "id": "image_darken",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Overall Image Darken",
+      "default": 30,
+      "info": "Adds a slight overall tint so the white text is readable."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Bottom Gradient Overlay Opacity",
+      "default": 100,
+      "info": "Controls how strong the bottom gradient blends into the next section."
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "READY TO RIDE SMARTER?"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Subheading",
+      "default": "Upgrade your everyday commute with the Roxx Joieem X."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "BOOK A TEST RIDE"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Banner Overlay"
+    }
+  ]
+}
+{% endschema %}
