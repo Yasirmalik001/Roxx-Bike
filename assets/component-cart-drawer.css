@@ -566,7 +566,7 @@ button#CartDrawer-Checkout:hover {
     font-size: 16px;
     letter-spacing: 0;
     text-decoration: none;
-    font-family: inter;
+    font-family: inherit;
 }
 .recommendation-item span.badge.price__badge-sale {
     display: none;

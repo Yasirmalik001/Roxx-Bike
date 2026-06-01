@@ -1,3 +1,18 @@
+/* ==========================================================================
+   Global Form Element Font Reset
+   Browsers (especially Windows) do NOT inherit font-family on button/input/
+   select/textarea — they fall back to system UI / Arial by default.
+   This single rule forces every form element in the store to use the body
+   font ("Suisse Int'l Trial") set in theme.liquid.
+   ========================================================================== */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
 .product__text {
   font-weight: 400;
   font-style: Regular;
