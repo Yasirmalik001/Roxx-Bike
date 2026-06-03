@@ -2192,15 +2192,13 @@ cart-drawer-items {
 /* Bottom Promo Bar Glassmorphic Style */
 .header-promo-bar {
   margin: 1rem 5rem 0 5rem;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
   color: #ffffff;
   box-sizing: border-box;
   transition: opacity 0.3s ease;
-  z-index: 11;
+  z-index: 1;
   position: relative;
 }
 
