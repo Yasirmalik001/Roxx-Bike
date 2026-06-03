@@ -30,6 +30,18 @@
     height: auto;
   }
 
+  /* Fallback grid if Swiper disables itself on desktop */
+  @media screen and (min-width: 990px) {
+    .slider-template-section__swiper:not(.swiper-initialized) .swiper-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      gap: {{ section.settings.spacing }}px;
+    }
+    .slider-template-section__swiper:not(.swiper-initialized) .swiper-slide {
+      width: calc((100% - ({{ section.settings.spacing }}px * {{ section.settings.columns_desktop | minus: 1 }})) / {{ section.settings.columns_desktop }});
+    }
+  }
+
   /* Card Styling */
   .partner-card {
     border-radius: 16px;
@@ -199,9 +211,7 @@
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
-  </div>
 
-<<<<<<< Updated upstream
     <slider-container class="partner-testimonials__slider slider-template-section block" data-block-id="{{ section.id }}">
       <div class="slider-template-section__container">
           
@@ -218,7 +228,7 @@
                 "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
                 "desktopSlides": {{ section.settings.columns_desktop }},
                 "desktopSpacing": {{ section.settings.spacing }},
-                "centeredSlides": {{ section.settings.center_slides | json }}
+                "centeredSlides": {{ section.settings.center_slides | default: false | json }}
               }
             '
           >
@@ -232,42 +242,6 @@
                       {%- else -%}
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                       {%- endif -%}
-=======
-  <slider-container class="partner-testimonials__slider slider-template-section block" data-block-id="{{ section.id }}">
-    <div class="slider-template-section__container">
-        
-        <div
-          class="swiper js-slider-template-swiper slider-template-section__swiper"
-          data-swiper-config='
-            {
-              "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
-              "enableSliderMobile": {{ section.settings.enable_slider_mobile }},
-              "loop": {{ section.settings.enable_loop | default: false }},
-              "autoplay": {{ section.settings.enable_autoplay | default: false }},
-              "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
-              "mobileSlides": {{ section.settings.columns_mobile | plus: 0.0 }},
-              "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
-              "desktopSlides": {{ section.settings.columns_desktop }},
-              "desktopSpacing": {{ section.settings.spacing }},
-              "centeredSlides": {{ section.settings.center_slides | default: true | json }}
-            }
-          '
-        >
-          <div class="swiper-wrapper">
-            {%- for block in section.blocks -%}
-              <div class="swiper-slide" {{ block.shopify_attributes }}>
-                <div class="partner-card">
-                  <div class="partner-card__image-wrapper">
-                    {%- if block.settings.image != blank -%}
-                      {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
-                    {%- else -%}
-                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                    {%- endif -%}
-                  </div>
-                  <div class="partner-card__content">
-                    <div class="partner-card__text rte">
-                      {{ block.settings.text }}
->>>>>>> Stashed changes
                     </div>
                     <div class="partner-card__content">
                       <div class="partner-card__text rte">
@@ -323,10 +297,7 @@
 
       </div>
     </slider-container>
-<<<<<<< Updated upstream
   </div>
-=======
->>>>>>> Stashed changes
 </div>
 
 {% schema %}
