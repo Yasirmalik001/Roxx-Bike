@@ -84,7 +84,7 @@
 .megamenu-product-card {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  text-align: center;
 }
 
 .megamenu-product-image {
