@@ -2398,3 +2398,7 @@ cart-drawer-items {
   .utility-bar-desktop__icon svg { width: 1.4rem !important; height: 1.4rem !important; margin-right: 0.4rem !important; }
   .utility-bar-desktop__icon { margin-right: 0.2rem; }
 }
+
+/* Fix header stacking context over promo bar */
+.header-wrapper header.header { position: relative; z-index: 4; }
+
