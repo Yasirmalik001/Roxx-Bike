@@ -209,7 +209,8 @@
               "mobileSlides": {{ section.settings.columns_mobile | plus: 0.0 }},
               "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
               "desktopSlides": {{ section.settings.columns_desktop }},
-              "desktopSpacing": {{ section.settings.spacing }}
+              "desktopSpacing": {{ section.settings.spacing }},
+              "centeredSlides": {{ section.settings.center_slides | default: true | json }}
             }
           '
         >
@@ -396,12 +397,20 @@
     {
       "type": "select",
       "id": "columns_mobile",
-      "default": "1",
+      "default": "1.2",
       "label": "Number of columns on mobile",
       "options": [
         { "value": "1", "label": "1 column" },
+        { "value": "1.2", "label": "1.2 columns" },
+        { "value": "1.5", "label": "1.5 columns" },
         { "value": "2", "label": "2 columns" }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "center_slides",
+      "label": "Center slides",
+      "default": true
     },
     {
       "type": "range",
