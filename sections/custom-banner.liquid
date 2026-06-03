@@ -195,10 +195,10 @@ letter-spacing: 0%;
           {%- when 'buttons' -%}
             <div class="btn-custom-banner" {{ block.shopify_attributes }}>
               {% if block.settings.button_text != blank %}
-                <a href="{{ block.settings.button_link }}" class="button button--primary">{{ block.settings.button_text }}</a>
+                <a href="{{ block.settings.button_link }}" class="button button--primary">{{ block.settings.button_text }} {% render 'shop-arrow' %}</a>
               {% endif %}
               {% if block.settings.button_text2 != blank %}
-                <a href="{{ block.settings.button_link2 }}" class="button button--secondary">{{ block.settings.button_text2 }}</a>
+                <a href="{{ block.settings.button_link2 }}" class="button button--secondary">{{ block.settings.button_text2 }}{% render 'shop-arrow' %}</a>
               {% endif %}
             </div>
 
