@@ -2344,7 +2344,6 @@ cart-drawer-items {
   position: relative;
   z-index: 101;
 }
-
 @media (max-width: 768px){
   .header-promo-bar__close{
     display: none;
