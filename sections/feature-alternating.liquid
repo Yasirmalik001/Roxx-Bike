@@ -176,353 +176,49 @@
   
   /* Responsive Breakpoints */
   @media screen and (max-width: 990px) {
+    .alternating-row {
+      flex-direction: column !important; /* Force image on top for ALL layouts on mobile */
+      margin-bottom: 2rem;
+    }
+    
     .alternating-image, .alternating-content {
       width: 100%;
     }
     
     .alternating-image img, .alternating-image svg {
-      min-height: 400px;
+      min-height: 250px; /* Reduced height for mobile */
+      max-height: 300px;
     }
     
     .alternating-content {
-      padding: 3rem 2rem;
+      padding: 2rem 1.5rem;
+      background-color: #F8F9FA; /* Light gray background matching screenshot */
+    }
+
+    .alternating-heading {
+      font-size: 1.6rem; /* Scaled down heading */
+      margin-bottom: 1rem;
+    }
+
+    .alternating-text {
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .check-list-item {
+      font-size: 0.85rem;
+      gap: 8px;
+    }
+
+    .check-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .feature-btn {
+      width: 100%; /* Full width button on mobile */
+      padding: 12px 20px;
+      font-size: 0.8rem;
     }
   }
 {%- endstyle -%}
-
-<section class="custom-alternating-section section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
-  {% for block in section.blocks %}
-    <div class="alternating-row color-{{ block.settings.color_scheme }} gradient {% if block.settings.layout == 'right' %}layout-right{% endif %}" {{ block.shopify_attributes }}>
-      
-      <div class="alternating-image">
-        {% if block.settings.image != blank %}
-          {{ block.settings.image | image_url: width: 1500 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 50vw, 100vw' }}
-        {% else %}
-          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-        {% endif %}
-      </div>
-
-      <div class="alternating-content">
-        {% if block.settings.heading != blank %}
-          <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h2>
-        {% endif %}
-
-        {% if block.type == 'timeline_row' %}
-          <ul class="alternating-timeline">
-            {% if block.settings.bullet_1 != blank %}
-              <li class="timeline-item">{{ block.settings.bullet_1 }}</li>
-            {% endif %}
-            {% if block.settings.bullet_2 != blank %}
-              <li class="timeline-item">{{ block.settings.bullet_2 }}</li>
-            {% endif %}
-          </ul>
-
-        {% elsif block.type == 'text_row' %}
-          {% if block.settings.text != blank %}
-            <div class="alternating-text">
-              {{ block.settings.text }}
-            </div>
-          {% endif %}
-
-        {% elsif block.type == 'feature_block' %}
-          {% if block.settings.text != blank %}
-            <div class="alternating-text">
-              {{ block.settings.text }}
-            </div>
-          {% endif %}
-
-          {% if block.settings.list_item_1 != blank or block.settings.list_item_2 != blank or block.settings.list_item_3 != blank or block.settings.list_item_4 != blank %}
-            <div class="feature-list-wrapper">
-              {% if block.settings.list_heading != blank %}
-                <div class="list-heading">{{ block.settings.list_heading }}</div>
-              {% endif %}
-              
-              <ul class="check-list">
-                {% for i in (1..4) %}
-                  {% capture list_item_key %}list_item_{{ i }}{% endcapture %}
-                  {% assign list_item = block.settings[list_item_key] %}
-                  
-                  {% if list_item != blank %}
-                    <li class="check-list-item">
-                      <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                      {{ list_item }}
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-          {% endif %}
-
-          {% if block.settings.button_label != blank %}
-            <a href="{{ block.settings.button_link }}" class="feature-btn">
-              {{ block.settings.button_label }}
-            </a>
-          {% endif %}
-        {% endif %}
-      </div>
-      
-    </div>
-  {% endfor %}
-</section>
-
-{% schema %}
-{
-  "name": "Alternating Features",
-  "settings": [
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "Section Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 36
-    }
-  ],
-  "blocks": [
-    {
-      "type": "timeline_row",
-      "name": "Timeline Row",
-      "settings": [
-        {
-          "type": "color_scheme",
-          "id": "color_scheme",
-          "label": "Color scheme",
-          "default": "scheme-1"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "select",
-          "id": "layout",
-          "label": "Image Placement",
-          "options": [
-            { "value": "left", "label": "Image on Left" },
-            { "value": "right", "label": "Image on Right" }
-          ],
-          "default": "left"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "FROM A SMALL IDEA TO A GROWING E-BIKE BRAND"
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            { "value": "h2", "label": "Small" },
-            { "value": "h1", "label": "Medium" },
-            { "value": "h0", "label": "Large" },
-            { "value": "hxl", "label": "Extra Large" },
-            { "value": "hxxl", "label": "Extra Extra Large" }
-          ],
-          "default": "h0",
-          "label": "Heading Size"
-        },
-        {
-          "type": "textarea",
-          "id": "bullet_1",
-          "label": "First Bullet Text",
-          "default": "Lorem ipsum dolor sit amet consectetur. Velit eu justo adipiscing nec nam nibh turpis et consectetur."
-        },
-        {
-          "type": "textarea",
-          "id": "bullet_2",
-          "label": "Second Bullet Text",
-          "default": "Lorem ipsum dolor sit amet consectetur. Et facilisi quis consequat nulla nibh amet mi est proin."
-        }
-      ]
-    },
-    {
-      "type": "text_row",
-      "name": "Text Row",
-      "settings": [
-        {
-          "type": "color_scheme",
-          "id": "color_scheme",
-          "label": "Color scheme",
-          "default": "scheme-1"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "select",
-          "id": "layout",
-          "label": "Image Placement",
-          "options": [
-            { "value": "left", "label": "Image on Left" },
-            { "value": "right", "label": "Image on Right" }
-          ],
-          "default": "right"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "BUILT FOR EVERYDAY RIDERS"
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            { "value": "h2", "label": "Small" },
-            { "value": "h1", "label": "Medium" },
-            { "value": "h0", "label": "Large" },
-            { "value": "hxl", "label": "Extra Large" },
-            { "value": "hxxl", "label": "Extra Extra Large" }
-          ],
-          "default": "h0",
-          "label": "Heading Size"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text",
-          "default": "<p>From city commuting to weekend adventures, our bikes are designed to make every ride feel effortless.</p>"
-        }
-      ]
-    },
-    {
-      "type": "feature_block",
-      "name": "Rich Feature Block",
-      "settings": [
-        {
-          "type": "color_scheme",
-          "id": "color_scheme",
-          "label": "Color scheme",
-          "default": "scheme-1"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "select",
-          "id": "layout",
-          "label": "Image Placement",
-          "options": [
-            { "value": "left", "label": "Image on Left" },
-            { "value": "right", "label": "Image on Right" }
-          ],
-          "default": "left"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "SMART PROTECTION FOR A SMARTER RIDE."
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            { "value": "h2", "label": "Small" },
-            { "value": "h1", "label": "Medium" },
-            { "value": "h0", "label": "Large" },
-            { "value": "hxl", "label": "Extra Large" },
-            { "value": "hxxl", "label": "Extra Extra Large" }
-          ],
-          "default": "h0",
-          "label": "Heading Size"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>"
-        },
-        {
-          "type": "header",
-          "content": "Checkmark List"
-        },
-        {
-          "type": "text",
-          "id": "list_heading",
-          "label": "List Title",
-          "default": "What's covered:"
-        },
-        {
-          "type": "text",
-          "id": "list_item_1",
-          "label": "List Item 1",
-          "default": "Theft protection"
-        },
-        {
-          "type": "text",
-          "id": "list_item_2",
-          "label": "List Item 2",
-          "default": "Damage & accident coverage"
-        },
-        {
-          "type": "text",
-          "id": "list_item_3",
-          "label": "List Item 3",
-          "default": "Peace of mind, wherever you park"
-        },
-        {
-          "type": "text",
-          "id": "list_item_4",
-          "label": "List Item 4 (Optional)"
-        },
-        {
-          "type": "header",
-          "content": "Button"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button Label",
-          "default": "EXPLORE INSURANCE"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Alternating Features",
-      "blocks": [
-        { "type": "feature_block" },
-        { "type": "feature_block", "settings": { "layout": "right", "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW" } }
-      ]
-    }
-  ]
-}
-{% endschema %}
