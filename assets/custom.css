@@ -2344,7 +2344,20 @@ cart-drawer-items {
   position: relative;
   z-index: 101;
 }
+.desktop-show{
+  display: block;
+}
+.desktop-show{
+  display: block;
+}
 
+.mobile-show{
+  display: block;
+}
+
+.mobile-show{
+  display: block;
+}
 @media (max-width: 768px){
   .header-promo-bar__close{
     display: none;
