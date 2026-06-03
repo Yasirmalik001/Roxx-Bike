@@ -1,474 +1,555 @@
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-{%- liquid
-  assign social_icons = true
-  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
-    assign social_icons = false
-  endif
-  if section.settings.enable_country_selector or section.settings.enable_language_selector
-    assign language_country_selector = true
-  endif
-  if section.blocks.size > 0
-    assign announcement_bar = true
-  endif
--%}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
 
-{% if social_icons %}
-  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
-{% endif %}
+  .hero-slider-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: {{ section.settings.mobile_height }}px;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
 
-<!-- 1. CUSTOM DESKTOP LAYOUT (Visible on Desktop only) -->
-<div class="utility-bar-desktop desktop-show color-{{ section.settings.color_scheme }} gradient small-hide medium-hide">
-  <div class="page-width utility-bar-desktop__container">
+  @media screen and (min-width: 750px) {
+    .hero-slider-wrapper {
+      min-height: {{ section.settings.desktop_height }}px;
+    }
+  }
+
+  /* Swiper Slide Styling */
+  .hero-swiper {
+    width: 100%;
+    height: 100%;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+  }
+
+  .hero-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-slide__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-slide__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-slide__content-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 8rem; /* Space for the bottom features */
+  }
+
+  .hero-slide__text-box {
+    max-width: 500px;
+    color: #ffffff;
+    padding: 2rem 0;
+  }
+
+  .hero-slide__heading {
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+  }
+
+  .hero-slide__description {
+    color: #f3f3f3;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .hero-slide__description p {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Persistent Bottom Features Overlay */
+  .hero-features-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    padding: 6rem 0 3rem;
+  }
+
+  .hero-features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    color: #ffffff;
+  }
+
+  @media screen and (min-width: 750px) {
+    .hero-features-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+    }
+  }
+
+  .hero-feature__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-feature__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+  }
+
+  .hero-feature__text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  /* Swiper Pagination */
+  .swiper-pagination-{{ section.id }} {
+    position: absolute;
+    bottom: 3rem !important;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+  }
+
+  .swiper-pagination-bullet {
+    background: #ffffff !important;
+    opacity: 0.5;
+    width: 8px;
+    height: 8px;
+    margin: 0 6px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  /* ----------------------------------------------------
+     CUSTOM MOBILE LAYOUT (Matches Mockup) 
+     ---------------------------------------------------- */
+  @media screen and (max-width: 749px) {
+    .hero-slider-wrapper {
+      min-height: auto !important;
+      background-color: #f7f7f7; 
+      display: block; /* Removes flex stretching */
+    }
     
-    <!-- Left side announcements -->
-    <div class="utility-bar-desktop__announcements">
+    .hero-swiper, 
+    .hero-swiper .swiper-wrapper {
+      position: relative !important;
+      height: auto !important; /* Kills Swiper's huge inline height */
+    }
+    
+    .hero-slide {
+      flex-direction: column;
+      height: auto !important;
+      display: block !important;
+    }
+    
+    .hero-slide__media {
+      position: relative;
+      height: 50vh; /* Better responsive height */
+      min-height: 350px;
+      width: 100%;
+    }
+    
+    .hero-slide__content-container {
+      position: relative;
+      padding: 3rem 1.5rem 1rem !important;
+      background: #f7f7f7;
+      width: 100%;
+      box-sizing: border-box; /* Fixes off-screen scrolling */
+      display: block;
+    }
+    
+    .hero-slide__text-box {
+      max-width: 100%;
+      padding: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .hero-slide__heading {
+      color: #000000 !important;
+      font-size: 2.8rem !important; 
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.05em;
+      word-wrap: break-word;
+    }
+    
+    .hero-slide__description {
+      color: #333333 !important;
+      font-size: 1.4rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .hero-slide__description p {
+      color: #333333 !important;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-slide__description p:last-child {
+      margin-bottom: 0; /* Pulls features tighter to text */
+    }
+
+    .hero-features-overlay {
+      position: relative;
+      background: #f7f7f7; 
+      padding: 1rem 1.5rem 4rem; 
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .hero-features-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .hero-feature__item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #e0e0e0; 
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .hero-feature__item:last-child {
+      border-bottom: none; 
+    }
+    
+    .hero-feature__title {
+      color: #000000 !important;
+      font-size: 1.5rem;
+      font-weight: 800; /* Extra bold like mockup */
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .hero-feature__text {
+      color: #333333 !important;
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    .swiper-pagination-{{ section.id }} {
+      bottom: 1.5rem !important;
+    }
+    
+    .swiper-pagination-bullet {
+      background: #000000 !important;
+    }
+  }
+{%- endstyle -%}
+
+<div class="hero-slider-wrapper section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient" id="HeroSlider-{{ section.id }}">
+  
+  <div class="swiper hero-swiper" id="Swiper-{{ section.id }}">
+    <div class="swiper-wrapper">
+      
       {%- for block in section.blocks -%}
-        <div class="utility-bar-desktop__announcement" {{ block.shopify_attributes }}>
-          {%- if block.settings.text != blank -%}
-            {%- if block.settings.link != blank -%}
-              <a href="{{ block.settings.link }}" class="utility-bar-desktop__link">
+        <div class="swiper-slide hero-slide" {{ block.shopify_attributes }}>
+          
+          <div class="hero-slide__media">
+            {%- if block.settings.image != blank -%}
+              {%- liquid
+                assign fetch_priority = 'auto'
+                assign loading_attr = 'lazy'
+                if forloop.first
+                  assign fetch_priority = 'high'
+                  assign loading_attr = 'eager'
+                endif
+                assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
+              -%}
+              {{ block.settings.image | image_url: width: 3840 | image_tag:
+                loading: loading_attr,
+                fetchpriority: fetch_priority,
+                width: block.settings.image.width,
+                height: image_height,
+                sizes: '100vw',
+                widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+              }}
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
             {%- endif -%}
-            
-            {%- if block.settings.icon != 'none' -%}
-              <span class="utility-bar-desktop__icon">
-                {%- case block.settings.icon -%}
-                  {%- when 'shipping' -%}
-                    <svg class="icon icon-shipping" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <line x1="2" y1="8" x2="6" y2="8"></line>
-                      <line x1="1" y1="12" x2="5" y2="12"></line>
-                      <line x1="3" y1="16" x2="7" y2="16"></line>
-                      <path d="M12 2L20 6.5V15.5L12 20L4 15.5V6.5L12 2Z"></path>
-                      <path d="M12 20V11"></path>
-                      <path d="M12 11L20 6.5"></path>
-                      <path d="M12 11L4 6.5"></path>
-                    </svg>
-                  {%- when 'payment' -%}
-                    <svg class="icon icon-payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                      <line x1="2" y1="10" x2="22" y2="10"></line>
-                      <path d="M16 14l2 2 4-4"></path>
-                    </svg>
-                  {%- when 'warranty' -%}
-                    <svg class="icon icon-warranty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                      <path d="M9 11l2 2 4-4"></path>
-                    </svg>
-                {%- endcase -%}
-              </span>
-            {%- endif -%}
-            
-            <span class="utility-bar-desktop__text">{{ block.settings.text | escape }}</span>
-            
-            {%- if block.settings.link != blank -%}
-              </a>
-            {%- endif -%}
-          {%- endif -%}
-        </div>
-        
-        {%- unless forloop.last -%}
-          <span class="utility-bar-desktop__separator">|</span>
-        {%- endunless -%}
-      {%- endfor -%}
-    </div>
-    
-    <!-- Right side selectors and store location link -->
-    <div class="utility-bar-desktop__right">
-      {%- if section.settings.enable_country_selector and localization.available_countries.size >= 1 -%}
-        <localization-form>
-          {%- form 'localization', id: 'AnnouncementCountryFormDesktop', class: 'localization-form' -%}
-            <div>
-              <h2 class="visually-hidden" id="AnnouncementCountryLabelDesktop">{{ 'localization.country_label' | t }}</h2>
-              {%- render 'country-localization', localPosition: 'AnnouncementCountry' -%}
-            </div>
-          {%- endform -%}
-        </localization-form>
-      {% endif %}
-
-      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-        <localization-form>
-          {%- form 'localization', id: 'AnnouncementLanguageFormDesktop', class: 'localization-form' -%}
-            <div>
-              <h2 class="visually-hidden" id="AnnouncementLanguageLabelDesktop">{{ 'localization.language_label' | t }}</h2>
-              {%- render 'language-localization', localPosition: 'AnnouncementLanguage' -%}
-            </div>
-          {%- endform -%}
-        </localization-form>
-      {%- endif -%}
-
-      {%- if section.settings.store_location_label != blank -%}
-        <a 
-          {% if section.settings.store_location_link != blank %}href="{{ section.settings.store_location_link }}"{% else %}href="#"{% endif %}
-          class="utility-bar-desktop__store-location link link--text caption-large"
-        >
-          <span class="utility-bar-desktop__store-location-icon" style="display: inline-flex; align-items: center; justify-content: center;">
-            <svg class="icon icon-map-pin" viewBox="0 0 20 20" fill="currentColor" style="width: 1.6rem; height: 1.6rem; display: block;">
-              <path fill-rule="evenodd" d="m9.91 18.59 5.036-8.78c2.228-3.886-.525-8.777-4.942-8.777-4.385 0-7.147 4.822-4.992 8.713zM10.004 0C4.845 0 1.593 5.673 4.13 10.255l5.212 9.41a.64.64 0 0 0 1.12.009l5.358-9.342C18.445 5.755 15.202 0 10.004 0"/>
-              <path d="M13 6.796c0 1.76-1.399 3.187-3.124 3.187S6.752 8.556 6.752 6.796s1.399-3.187 3.124-3.187S13 5.036 13 6.796M9.876 8.949c1.166 0 2.11-.964 2.11-2.153s-.944-2.153-2.11-2.153-2.11.964-2.11 2.153.944 2.153 2.11 2.153"/>
-            </svg>
-          </span>
-          <span>{{ section.settings.store_location_label | escape }}</span>
-        </a>
-      {%- endif -%}
-    </div>
-    
-  </div>
-</div>
-
-<!-- 2. NATIVE MOBILE/TABLET LAYOUT (Visible on Mobile/Tablet only) -->
-<div
-  class="utility-bar desktop-show color-{{ section.settings.color_scheme }} gradient large-up-hide{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
->
-  <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
-    {%- if section.settings.show_social and social_icons -%}
-      {%- render 'social-icons' -%}
-    {%- endif -%}
-    {%- if section.blocks.size == 1 -%}
-      <div
-        class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
-        role="region"
-        aria-label="{{ 'sections.header.announcement' | t }}"
-        {{ section.blocks.first.shopify_attributes }}
-      >
-        {%- if section.blocks.first.settings.text != blank -%}
-          {%- if section.blocks.first.settings.link != blank -%}
-            <a
-              href="{{ section.blocks.first.settings.link }}"
-              class="announcement-bar__link link link--text focus-inset animate-arrow"
-            >
-          {%- endif -%}
-          <p class="announcement-bar__message h5">
-            {%- if section.blocks.first.settings.icon != 'none' -%}
-              <span class="announcement-bar__icon-span" style="display: inline-flex; align-items: center; justify-content: center; margin-right: 0.8rem; vertical-align: middle;">
-                {%- case section.blocks.first.settings.icon -%}
-                  {%- when 'shipping' -%}
-                    <svg class="icon icon-shipping" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <line x1="2" y1="8" x2="6" y2="8"></line>
-                      <line x1="1" y1="12" x2="5" y2="12"></line>
-                      <line x1="3" y1="16" x2="7" y2="16"></line>
-                      <path d="M12 2L20 6.5V15.5L12 20L4 15.5V6.5L12 2Z"></path>
-                      <path d="M12 20V11"></path>
-                      <path d="M12 11L20 6.5"></path>
-                      <path d="M12 11L4 6.5"></path>
-                    </svg>
-                  {%- when 'payment' -%}
-                    <svg class="icon icon-payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                      <line x1="2" y1="10" x2="22" y2="10"></line>
-                      <path d="M16 14l2 2 4-4"></path>
-                    </svg>
-                  {%- when 'warranty' -%}
-                    <svg class="icon icon-warranty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                      <path d="M9 11l2 2 4-4"></path>
-                    </svg>
-                {%- endcase -%}
-              </span>
-            {%- endif -%}
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            {%- endif -%}
-          </p>
-          {%- if section.blocks.first.settings.link != blank -%}
-            </a>
-          {%- endif -%}
-        {%- endif -%}
-      </div>
-    {%- elsif section.blocks.size > 1 -%}
-      <slideshow-component
-        class="announcement-bar"
-        role="region"
-        aria-roledescription="{{ 'sections.announcements.carousel' | t }}"
-        aria-label="{{ 'sections.announcements.announcement_bar' | t }}"
-      >
-        <div class="announcement-bar-slider slider-buttons">
-          <button
-            type="button"
-            class="slider-button slider-button--prev"
-            name="previous"
-            aria-label="{{ 'sections.announcements.previous_announcement' | t }}"
-            aria-controls="Slider-{{ section.id }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-          <div
-            class="grid grid--1-col slider slider--everywhere"
-            id="Slider-{{ section.id }}"
-            aria-live="polite"
-            aria-atomic="true"
-            data-autoplay="{{ section.settings.auto_rotate }}"
-            data-speed="{{ section.settings.change_slides_speed }}"
-          >
-            {%- for block in section.blocks -%}
-              <div
-                class="slideshow__slide slider__slide grid__item grid--1-col"
-                id="Slide-{{ section.id }}-{{ forloop.index }}"
-                {{ block.shopify_attributes }}
-                role="group"
-                aria-roledescription="{{ 'sections.announcements.announcement' | t }}"
-                aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-                tabindex="-1"
-              >
-                <div
-                  class="announcement-bar__announcement"
-                  role="region"
-                  aria-label="{{ 'sections.header.announcement' | t }}"
-                >
-                  {%- if block.settings.text != blank -%}
-                    {%- if block.settings.link != blank -%}
-                      <a
-                        href="{{ block.settings.link }}"
-                        class="announcement-bar__link link link--text focus-inset animate-arrow"
-                      >
-                    {%- endif -%}
-                    <p class="announcement-bar__message h5">
-                      {%- if block.settings.icon != 'none' -%}
-                        <span class="announcement-bar__icon-span" style="display: inline-flex; align-items: center; justify-content: center; margin-right: 0.8rem; vertical-align: middle;">
-                          {%- case block.settings.icon -%}
-                            {%- when 'shipping' -%}
-                              <svg class="icon icon-shipping" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                                <line x1="2" y1="8" x2="6" y2="8"></line>
-                                <line x1="1" y1="12" x2="5" y2="12"></line>
-                                <line x1="3" y1="16" x2="7" y2="16"></line>
-                                <path d="M12 2L20 6.5V15.5L12 20L4 15.5V6.5L12 2Z"></path>
-                                <path d="M12 20V11"></path>
-                                <path d="M12 11L20 6.5"></path>
-                                <path d="M12 11L4 6.5"></path>
-                              </svg>
-                            {%- when 'payment' -%}
-                              <svg class="icon icon-payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                                <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="2" y1="10" x2="22" y2="10"></line>
-                                <path d="M16 14l2 2 4-4"></path>
-                              </svg>
-                            {%- when 'warranty' -%}
-                              <svg class="icon icon-warranty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <path d="M9 11l2 2 4-4"></path>
-                              </svg>
-                          {%- endcase -%}
-                        </span>
-                      {%- endif -%}
-                      <span>{{ block.settings.text | escape }}</span>
-                      {%- if block.settings.link != blank -%}
-                        {{- 'icon-arrow.svg' | inline_asset_content -}}
-                      {%- endif -%}
-                    </p>
-                    {%- if block.settings.link != blank -%}
-                      </a>
-                    {%- endif -%}
-                  {%- endif -%}
-                </div>
-              </div>
-            {%- endfor -%}
           </div>
-          <button
-            type="button"
-            class="slider-button slider-button--next"
-            name="next"
-            aria-label="{{ 'sections.announcements.next_announcement' | t }}"
-            aria-controls="Slider-{{ section.id }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
+
+          <div class="page-width hero-slide__content-container">
+            <div class="hero-slide__text-box">
+              {%- if block.settings.heading != blank -%}
+                <h2 class="hero-slide__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.heading }}
+                </h2>
+              {%- endif -%}
+              
+              {%- if block.settings.description != blank -%}
+                <div class="hero-slide__description rte">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
         </div>
-      </slideshow-component>
-      {%- if request.design_mode -%}
-        <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-        <style>
-          /* theme editor power preview fix */
-          .announcement-bar-slider .slider__slide[aria-hidden='true'] {
-            visibility: hidden;
-          }
-        </style>
-      {%- endif -%}
-    {%- endif -%}
-    <div class="localization-wrapper" style="display: flex; align-items: center; gap: 2rem;">
-      {%- if section.settings.enable_country_selector and localization.available_countries.size >= 1 -%}
-        <localization-form class="small-hide medium-hide">
-          {%- form 'localization', id: 'AnnouncementCountryForm', class: 'localization-form' -%}
-            <div>
-              <h2 class="visually-hidden" id="AnnouncementCountryLabel">{{ 'localization.country_label' | t }}</h2>
-              {%- render 'country-localization', localPosition: 'AnnouncementCountry' -%}
-            </div>
-          {%- endform -%}
-        </localization-form>
-      {% endif %}
+      {%- endfor -%}
 
-      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-        <localization-form class="small-hide medium-hide">
-          {%- form 'localization', id: 'AnnouncementLanguageForm', class: 'localization-form' -%}
-            <div>
-              <h2 class="visually-hidden" id="AnnouncementLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-              {%- render 'language-localization', localPosition: 'AnnouncementLanguage' -%}
-            </div>
-          {%- endform -%}
-        </localization-form>
-      {%- endif -%}
-
-      {%- if section.settings.store_location_label != blank -%}
-        <a 
-          {% if section.settings.store_location_link != blank %}href="{{ section.settings.store_location_link }}"{% else %}href="#"{% endif %}
-          class="announcement-bar__store-location-link link link--text caption-large"
-          style="display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; font-size: 1.3rem; font-weight: 500; color: rgba(var(--color-foreground), 0.85); transition: color var(--duration-short) ease;"
-          onmouseover="this.style.color='rgb(var(--color-foreground))'"
-          onmouseout="this.style.color='rgba(var(--color-foreground), 0.85)'"
-        >
-          <span style="display: inline-flex; align-items: center; justify-content: center;">
-            <svg class="icon icon-map-pin" viewBox="0 0 20 20" fill="currentColor" style="width: 1.6rem; height: 1.6rem; display: block;">
-              <path fill-rule="evenodd" d="m9.91 18.59 5.036-8.78c2.228-3.886-.525-8.777-4.942-8.777-4.385 0-7.147 4.822-4.992 8.713zM10.004 0C4.845 0 1.593 5.673 4.13 10.255l5.212 9.41a.64.64 0 0 0 1.12.009l5.358-9.342C18.445 5.755 15.202 0 10.004 0"/>
-              <path d="M13 6.796c0 1.76-1.399 3.187-3.124 3.187S6.752 8.556 6.752 6.796s1.399-3.187 3.124-3.187S13 5.036 13 6.796M9.876 8.949c1.166 0 2.11-.964 2.11-2.153s-.944-2.153-2.11-2.153-2.11.964-2.11 2.153.944 2.153 2.11 2.153"/>
-            </svg>
-          </span>
-          <span>{{ section.settings.store_location_label | escape }}</span>
-        </a>
-      {%- endif -%}
     </div>
   </div>
+
+  <div class="hero-features-overlay">
+    <div class="page-width">
+      <div class="hero-features-grid">
+        
+        {%- if section.settings.feature_1_title != blank or section.settings.feature_1_text != blank -%}
+          <div class="hero-feature__item">
+            <h3 class="hero-feature__title">{{ section.settings.feature_1_title }}</h3>
+            <p class="hero-feature__text">{{ section.settings.feature_1_text }}</p>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.feature_2_title != blank or section.settings.feature_2_text != blank -%}
+          <div class="hero-feature__item">
+            <h3 class="hero-feature__title">{{ section.settings.feature_2_title }}</h3>
+            <p class="hero-feature__text">{{ section.settings.feature_2_text }}</p>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.feature_3_title != blank or section.settings.feature_3_text != blank -%}
+          <div class="hero-feature__item">
+            <h3 class="hero-feature__title">{{ section.settings.feature_3_title }}</h3>
+            <p class="hero-feature__text">{{ section.settings.feature_3_text }}</p>
+          </div>
+        {%- endif -%}
+
+      </div>
+    </div>
+    <div class="swiper-pagination-{{ section.id }}"></div>
+  </div>
 </div>
-<div class="utility-bar-desktop__announcements mobile-show"><div class="utility-bar-desktop__announcement"><span class="utility-bar-desktop__icon"><svg class="icon icon-shipping" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <line x1="2" y1="8" x2="6" y2="8"></line>
-                      <line x1="1" y1="12" x2="5" y2="12"></line>
-                      <line x1="3" y1="16" x2="7" y2="16"></line>
-                      <path d="M12 2L20 6.5V15.5L12 20L4 15.5V6.5L12 2Z"></path>
-                      <path d="M12 20V11"></path>
-                      <path d="M12 11L20 6.5"></path>
-                      <path d="M12 11L4 6.5"></path>
-                    </svg></span><span class="utility-bar-desktop__text">Free Shipping from $79.95</span></div><span class="utility-bar-desktop__separator">|</span><div class="utility-bar-desktop__announcement"><span class="utility-bar-desktop__icon"><svg class="icon icon-payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                      <line x1="2" y1="10" x2="22" y2="10"></line>
-                      <path d="M16 14l2 2 4-4"></path>
-                    </svg></span><span class="utility-bar-desktop__text">Pay in Installments</span></div><span class="utility-bar-desktop__separator">|</span><div class="utility-bar-desktop__announcement"><span class="utility-bar-desktop__icon"><svg class="icon icon-warranty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.8rem; height: 1.8rem; display: block;">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                      <path d="M9 11l2 2 4-4"></path>
-                    </svg></span><span class="utility-bar-desktop__text">2-Year Warranty</span></div></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const initHeroSwiper{{ section.id | replace: '-', '_' }} = () => {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('#Swiper-{{ section.id }}', {
+          slidesPerView: 1,
+          effect: 'fade', 
+          fadeEffect: {
+            crossFade: true
+          },
+          autoHeight: true, /* Added to ensure Swiper calculates height correctly */
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination-{{ section.id }}',
+            clickable: true,
+          }
+        });
+      } else {
+        setTimeout(initHeroSwiper{{ section.id | replace: '-', '_' }}, 100);
+      }
+    };
+    
+    initHeroSwiper{{ section.id | replace: '-', '_' }}();
+  });
+</script>
 
 {% schema %}
 {
-  "name": "t:sections.announcement-bar.name",
-  "max_blocks": 12,
-  "class": "announcement-bar-section",
-  "enabled_on": {
-    "groups": ["header"]
+  "name": "Hero Slideshow",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
   },
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "auto_rotate",
-      "label": "t:sections.announcement-bar.settings.auto_rotate.label",
-      "default": false
-    },
-    {
-      "type": "range",
-      "id": "change_slides_speed",
-      "min": 3,
-      "max": 10,
-      "step": 1,
-      "unit": "s",
-      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
-      "default": 5
-    },    
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
-      "default": "scheme-4"
-    },  
-    {
-      "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
+      "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "t:sections.announcement-bar.settings.heading_utilities.content"
+      "content": "Desktop Layout"
     },
     {
-      "type": "paragraph",
-         "content": "t:sections.announcement-bar.settings.paragraph.content"
-    },             
-    {
-      "type": "checkbox",
-      "id": "show_social",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.show_social.label",
-      "info": "t:sections.announcement-bar.settings.show_social.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_country_selector.label",
-      "info": "t:sections.announcement-bar.settings.enable_country_selector.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_language_selector.label",
-      "info": "t:sections.announcement-bar.settings.enable_language_selector.info"
+      "type": "range",
+      "id": "desktop_height",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "label": "Desktop Minimum Height",
+      "default": 750
     },
     {
       "type": "header",
-      "content": "Store Location Settings"
+      "content": "Mobile Layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile Minimum Height",
+      "default": 650
+    },
+    {
+      "type": "header",
+      "content": "Persistent Bottom Features"
     },
     {
       "type": "text",
-      "id": "store_location_label",
-      "label": "Store Location Label",
-      "default": "Store location"
+      "id": "feature_1_title",
+      "label": "Feature 1 Title",
+      "default": "Fold & Go"
     },
     {
-      "type": "url",
-      "id": "store_location_link",
-      "label": "Store Location Link"
+      "type": "textarea",
+      "id": "feature_1_text",
+      "label": "Feature 1 Description",
+      "default": "Compact designs that fit your city, your car, your life."
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 Title",
+      "default": "Power You Can Feel"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_text",
+      "label": "Feature 2 Description",
+      "default": "Fast acceleration and long-range performance for daily freedom."
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 Title",
+      "default": "Built for Everyday"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_text",
+      "label": "Feature 3 Description",
+      "default": "Reliable, comfortable, and ready for every ride — rain or shine."
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 0
     }
   ],
   "blocks": [
     {
-      "type": "announcement",
-      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "type": "slide",
+      "name": "Slide",
       "settings": [
         {
-          "type": "text",
-          "id": "text",
-          "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
         },
         {
-          "type": "url",
-          "id": "link",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "WHEN E-BIKE MEETS LIFE"
         },
         {
           "type": "select",
-          "id": "icon",
+          "id": "heading_size",
           "options": [
-            { "value": "none", "label": "None" },
-            { "value": "shipping", "label": "Shipping / Box" },
-            { "value": "payment", "label": "Payment / Card" },
-            { "value": "warranty", "label": "Warranty / Shield" }
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" },
+            { "value": "hxl", "label": "Extra Large" },
+            { "value": "hxxl", "label": "Extra Extra Large" }
           ],
-          "default": "none",
-          "label": "Icon"
+          "default": "h0",
+          "label": "Heading Size"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.announcement-bar.presets.name",
+      "name": "Hero Slideshow",
       "blocks": [
-        {
-          "type": "announcement"
-        }
+        { "type": "slide" },
+        { "type": "slide" }
       ]
     }
   ]
