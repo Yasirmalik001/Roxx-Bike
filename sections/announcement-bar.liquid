@@ -1,555 +1,276 @@
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  .custom-announcement-bar {
+    padding: 0.8rem 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Optional subtle separator */
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-
-  .hero-slider-wrapper {
-    position: relative;
-    width: 100%;
-    min-height: {{ section.settings.mobile_height }}px;
-    background-color: #000;
-    overflow: hidden;
+  .custom-announcement-wrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
 
-  @media screen and (min-width: 750px) {
-    .hero-slider-wrapper {
-      min-height: {{ section.settings.desktop_height }}px;
-    }
-  }
-
-  /* Swiper Slide Styling */
-  .hero-swiper {
-    width: 100%;
-    height: 100%;
-    position: absolute !important;
-    top: 0;
-    left: 0;
-  }
-
-  .hero-slide {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  .custom-announcement-group {
     display: flex;
     align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
   }
 
-  .hero-slide__media {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-  .hero-slide__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .hero-slide__content-container {
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
+  .custom-announcement-item {
     display: flex;
     align-items: center;
-    padding-bottom: 8rem; /* Space for the bottom features */
+    gap: 0.6rem;
+    text-decoration: none;
+    color: inherit;
+    line-height: 1.2;
   }
 
-  .hero-slide__text-box {
-    max-width: 500px;
-    color: #ffffff;
-    padding: 2rem 0;
-  }
-
-  .hero-slide__heading {
-    color: #ffffff;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    line-height: 1.1;
-  }
-
-  .hero-slide__description {
-    color: #f3f3f3;
-    font-size: 1.6rem;
-    line-height: 1.5;
-  }
-
-  .hero-slide__description p {
-    margin-bottom: 1.5rem;
-  }
-
-  /* Persistent Bottom Features Overlay */
-  .hero-features-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-    padding: 6rem 0 3rem;
-  }
-
-  .hero-features-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    color: #ffffff;
-  }
-
-  @media screen and (min-width: 750px) {
-    .hero-features-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4rem;
-    }
-  }
-
-  .hero-feature__item {
+  .custom-announcement-icon {
     display: flex;
-    flex-direction: column;
-  }
-
-  .hero-feature__title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.8rem;
-    color: #ffffff;
-  }
-
-  .hero-feature__text {
-    font-size: 1.4rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 0;
-  }
-
-  /* Swiper Pagination */
-  .swiper-pagination-{{ section.id }} {
-    position: absolute;
-    bottom: 3rem !important;
-    left: 0;
-    width: 100%;
-    display: flex;
+    align-items: center;
     justify-content: center;
-    z-index: 20;
   }
 
-  .swiper-pagination-bullet {
-    background: #ffffff !important;
-    opacity: 0.5;
-    width: 8px;
-    height: 8px;
-    margin: 0 6px !important;
+  .custom-announcement-icon svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: block;
   }
 
-  .swiper-pagination-bullet-active {
-    opacity: 1;
-    transform: scale(1.2);
+  .custom-announcement-separator {
+    opacity: 0.4;
+    font-size: 1.2rem;
+    user-select: none;
+  }
+
+  .custom-announcement-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* Target Dawn's native localization dropdowns so they sit inline */
+  .custom-announcement-right .localization-form {
+    margin: 0;
+    padding: 0;
+  }
+  .custom-announcement-right .disclosure__button {
+    font-size: 1.2rem;
   }
 
   /* ----------------------------------------------------
-     CUSTOM MOBILE LAYOUT (Matches Mockup) 
+     MOBILE LAYOUT (Matches Figma precisely) 
      ---------------------------------------------------- */
-  @media screen and (max-width: 749px) {
-    .hero-slider-wrapper {
-      min-height: auto !important;
-      background-color: #f7f7f7; 
-      display: block; /* Removes flex stretching */
+  @media screen and (max-width: 800px) {
+    .custom-announcement-bar {
+      padding: 0.8rem 1rem;
     }
     
-    .hero-swiper, 
-    .hero-swiper .swiper-wrapper {
-      position: relative !important;
-      height: auto !important; /* Kills Swiper's huge inline height */
-    }
-    
-    .hero-slide {
-      flex-direction: column;
-      height: auto !important;
-      display: block !important;
-    }
-    
-    .hero-slide__media {
-      position: relative;
-      height: 50vh; /* Better responsive height */
-      min-height: 350px;
-      width: 100%;
-    }
-    
-    .hero-slide__content-container {
-      position: relative;
-      padding: 3rem 1.5rem 1rem !important;
-      background: #f7f7f7;
-      width: 100%;
-      box-sizing: border-box; /* Fixes off-screen scrolling */
-      display: block;
-    }
-    
-    .hero-slide__text-box {
-      max-width: 100%;
-      padding: 0;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .hero-slide__heading {
-      color: #000000 !important;
-      font-size: 2.8rem !important; 
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.05em;
-      word-wrap: break-word;
-    }
-    
-    .hero-slide__description {
-      color: #333333 !important;
-      font-size: 1.4rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .hero-slide__description p {
-      color: #333333 !important;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-    }
-    
-    .hero-slide__description p:last-child {
-      margin-bottom: 0; /* Pulls features tighter to text */
+    .custom-announcement-wrapper {
+      justify-content: center; /* Center everything */
     }
 
-    .hero-features-overlay {
-      position: relative;
-      background: #f7f7f7; 
-      padding: 1rem 1.5rem 4rem; 
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .hero-features-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .hero-feature__item {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid #e0e0e0; 
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .hero-feature__item:last-child {
-      border-bottom: none; 
-    }
-    
-    .hero-feature__title {
-      color: #000000 !important;
-      font-size: 1.5rem;
-      font-weight: 800; /* Extra bold like mockup */
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-    }
-    
-    .hero-feature__text {
-      color: #333333 !important;
-      font-size: 1.3rem;
-      margin: 0;
+    .custom-announcement-group {
+      justify-content: center;
+      row-gap: 0.6rem;
+      column-gap: 0.8rem;
     }
 
-    .swiper-pagination-{{ section.id }} {
-      bottom: 1.5rem !important;
+    .custom-announcement-right {
+      display: none; /* Hide language and store location on mobile like mockup */
+    }
+
+    .custom-announcement-item {
+      font-size: 1.1rem; /* Slightly scale down text for mobile */
     }
     
-    .swiper-pagination-bullet {
-      background: #000000 !important;
+    .custom-announcement-icon svg {
+      width: 1.4rem;
+      height: 1.4rem;
     }
   }
 {%- endstyle -%}
 
-<div class="hero-slider-wrapper section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient" id="HeroSlider-{{ section.id }}">
-  
-  <div class="swiper hero-swiper" id="Swiper-{{ section.id }}">
-    <div class="swiper-wrapper">
-      
+<div class="custom-announcement-bar color-{{ section.settings.color_scheme }} gradient">
+  <div class="custom-announcement-wrapper">
+    
+    <div class="custom-announcement-group">
       {%- for block in section.blocks -%}
-        <div class="swiper-slide hero-slide" {{ block.shopify_attributes }}>
+        <div class="custom-announcement-item" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="custom-announcement-item" style="text-decoration: none;">
+          {%- endif -%}
           
-          <div class="hero-slide__media">
-            {%- if block.settings.image != blank -%}
-              {%- liquid
-                assign fetch_priority = 'auto'
-                assign loading_attr = 'lazy'
-                if forloop.first
-                  assign fetch_priority = 'high'
-                  assign loading_attr = 'eager'
-                endif
-                assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
-              -%}
-              {{ block.settings.image | image_url: width: 3840 | image_tag:
-                loading: loading_attr,
-                fetchpriority: fetch_priority,
-                width: block.settings.image.width,
-                height: image_height,
-                sizes: '100vw',
-                widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-              }}
-            {%- else -%}
-              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-          </div>
-
-          <div class="page-width hero-slide__content-container">
-            <div class="hero-slide__text-box">
-              {%- if block.settings.heading != blank -%}
-                <h2 class="hero-slide__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.heading }}
-                </h2>
-              {%- endif -%}
-              
-              {%- if block.settings.description != blank -%}
-                <div class="hero-slide__description rte">
-                  {{ block.settings.description }}
-                </div>
-              {%- endif -%}
-            </div>
-          </div>
-
+          {%- if block.settings.icon != 'none' -%}
+            <span class="custom-announcement-icon">
+              {%- case block.settings.icon -%}
+                {%- when 'shipping' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="8" x2="6" y2="8"></line><line x1="1" y1="12" x2="5" y2="12"></line><line x1="3" y1="16" x2="7" y2="16"></line><path d="M12 2L20 6.5V15.5L12 20L4 15.5V6.5L12 2Z"></path><path d="M12 20V11"></path><path d="M12 11L20 6.5"></path><path d="M12 11L4 6.5"></path></svg>
+                {%- when 'payment' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line><path d="M16 14l2 2 4-4"></path></svg>
+                {%- when 'warranty' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 11l2 2 4-4"></path></svg>
+              {%- endcase -%}
+            </span>
+          {%- endif -%}
+          
+          <span>{{ block.settings.text | escape }}</span>
+          
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- endif -%}
         </div>
-      {%- endfor -%}
-
-    </div>
-  </div>
-
-  <div class="hero-features-overlay">
-    <div class="page-width">
-      <div class="hero-features-grid">
         
-        {%- if section.settings.feature_1_title != blank or section.settings.feature_1_text != blank -%}
-          <div class="hero-feature__item">
-            <h3 class="hero-feature__title">{{ section.settings.feature_1_title }}</h3>
-            <p class="hero-feature__text">{{ section.settings.feature_1_text }}</p>
-          </div>
-        {%- endif -%}
-
-        {%- if section.settings.feature_2_title != blank or section.settings.feature_2_text != blank -%}
-          <div class="hero-feature__item">
-            <h3 class="hero-feature__title">{{ section.settings.feature_2_title }}</h3>
-            <p class="hero-feature__text">{{ section.settings.feature_2_text }}</p>
-          </div>
-        {%- endif -%}
-
-        {%- if section.settings.feature_3_title != blank or section.settings.feature_3_text != blank -%}
-          <div class="hero-feature__item">
-            <h3 class="hero-feature__title">{{ section.settings.feature_3_title }}</h3>
-            <p class="hero-feature__text">{{ section.settings.feature_3_text }}</p>
-          </div>
-        {%- endif -%}
-
-      </div>
+        {%- unless forloop.last -%}
+          <span class="custom-announcement-separator">|</span>
+        {%- endunless -%}
+      {%- endfor -%}
     </div>
-    <div class="swiper-pagination-{{ section.id }}"></div>
+
+    <div class="custom-announcement-right">
+      {%- if section.settings.enable_country_selector and localization.available_countries.size >= 1 -%}
+        <localization-form>
+          {%- form 'localization', id: 'AnnouncementCountryForm', class: 'localization-form' -%}
+            <div>
+              <h2 class="visually-hidden" id="AnnouncementCountryLabel">{{ 'localization.country_label' | t }}</h2>
+              {%- render 'country-localization', localPosition: 'AnnouncementCountry' -%}
+            </div>
+          {%- endform -%}
+        </localization-form>
+      {% endif %}
+
+      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+        <localization-form>
+          {%- form 'localization', id: 'AnnouncementLanguageForm', class: 'localization-form' -%}
+            <div>
+              <h2 class="visually-hidden" id="AnnouncementLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+              {%- render 'language-localization', localPosition: 'AnnouncementLanguage' -%}
+            </div>
+          {%- endform -%}
+        </localization-form>
+      {%- endif -%}
+
+      {%- if section.settings.store_location_label != blank -%}
+        <a {% if section.settings.store_location_link != blank %}href="{{ section.settings.store_location_link }}"{% else %}href="#"{% endif %} class="custom-announcement-item">
+          <span class="custom-announcement-icon">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="m9.91 18.59 5.036-8.78c2.228-3.886-.525-8.777-4.942-8.777-4.385 0-7.147 4.822-4.992 8.713zM10.004 0C4.845 0 1.593 5.673 4.13 10.255l5.212 9.41a.64.64 0 0 0 1.12.009l5.358-9.342C18.445 5.755 15.202 0 10.004 0"/><path d="M13 6.796c0 1.76-1.399 3.187-3.124 3.187S6.752 8.556 6.752 6.796s1.399-3.187 3.124-3.187S13 5.036 13 6.796M9.876 8.949c1.166 0 2.11-.964 2.11-2.153s-.944-2.153-2.11-2.153-2.11.964-2.11 2.153.944 2.153 2.11 2.153"/></svg>
+          </span>
+          <span>{{ section.settings.store_location_label | escape }}</span>
+        </a>
+      {%- endif -%}
+    </div>
+
   </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const initHeroSwiper{{ section.id | replace: '-', '_' }} = () => {
-      if (typeof Swiper !== 'undefined') {
-        new Swiper('#Swiper-{{ section.id }}', {
-          slidesPerView: 1,
-          effect: 'fade', 
-          fadeEffect: {
-            crossFade: true
-          },
-          autoHeight: true, /* Added to ensure Swiper calculates height correctly */
-          autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.swiper-pagination-{{ section.id }}',
-            clickable: true,
-          }
-        });
-      } else {
-        setTimeout(initHeroSwiper{{ section.id | replace: '-', '_' }}, 100);
-      }
-    };
-    
-    initHeroSwiper{{ section.id | replace: '-', '_' }}();
-  });
-</script>
-
 {% schema %}
 {
-  "name": "Hero Slideshow",
-  "tag": "section",
-  "class": "section",
-  "disabled_on": {
-    "groups": ["header", "footer"]
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:sections.announcement-bar.settings.auto_rotate.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
+      "default": 5
+    },    
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
+      "default": "scheme-4"
+    },  
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_country_selector.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_language_selector.label"
     },
     {
       "type": "header",
-      "content": "Desktop Layout"
-    },
-    {
-      "type": "range",
-      "id": "desktop_height",
-      "min": 400,
-      "max": 1000,
-      "step": 50,
-      "unit": "px",
-      "label": "Desktop Minimum Height",
-      "default": 750
-    },
-    {
-      "type": "header",
-      "content": "Mobile Layout"
-    },
-    {
-      "type": "range",
-      "id": "mobile_height",
-      "min": 400,
-      "max": 1000,
-      "step": 50,
-      "unit": "px",
-      "label": "Mobile Minimum Height",
-      "default": 650
-    },
-    {
-      "type": "header",
-      "content": "Persistent Bottom Features"
+      "content": "Store Location Settings"
     },
     {
       "type": "text",
-      "id": "feature_1_title",
-      "label": "Feature 1 Title",
-      "default": "Fold & Go"
+      "id": "store_location_label",
+      "label": "Store Location Label",
+      "default": "Store location"
     },
     {
-      "type": "textarea",
-      "id": "feature_1_text",
-      "label": "Feature 1 Description",
-      "default": "Compact designs that fit your city, your car, your life."
-    },
-    {
-      "type": "text",
-      "id": "feature_2_title",
-      "label": "Feature 2 Title",
-      "default": "Power You Can Feel"
-    },
-    {
-      "type": "textarea",
-      "id": "feature_2_text",
-      "label": "Feature 2 Description",
-      "default": "Fast acceleration and long-range performance for daily freedom."
-    },
-    {
-      "type": "text",
-      "id": "feature_3_title",
-      "label": "Feature 3 Title",
-      "default": "Built for Everyday"
-    },
-    {
-      "type": "textarea",
-      "id": "feature_3_text",
-      "label": "Feature 3 Description",
-      "default": "Reliable, comfortable, and ready for every ride — rain or shine."
-    },
-    {
-      "type": "header",
-      "content": "Section Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Top Padding",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Bottom Padding",
-      "default": 0
+      "type": "url",
+      "id": "store_location_link",
+      "label": "Store Location Link"
     }
   ],
   "blocks": [
     {
-      "type": "slide",
-      "name": "Slide",
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Background Image"
+          "type": "text",
+          "id": "text",
+          "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
         },
         {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "WHEN E-BIKE MEETS LIFE"
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
         },
         {
           "type": "select",
-          "id": "heading_size",
+          "id": "icon",
           "options": [
-            { "value": "h2", "label": "Small" },
-            { "value": "h1", "label": "Medium" },
-            { "value": "h0", "label": "Large" },
-            { "value": "hxl", "label": "Extra Large" },
-            { "value": "hxxl", "label": "Extra Extra Large" }
+            { "value": "none", "label": "None" },
+            { "value": "shipping", "label": "Shipping / Box" },
+            { "value": "payment", "label": "Payment / Card" },
+            { "value": "warranty", "label": "Warranty / Shield" }
           ],
-          "default": "h0",
-          "label": "Heading Size"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description",
-          "default": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          "default": "none",
+          "label": "Icon"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Hero Slideshow",
+      "name": "t:sections.announcement-bar.presets.name",
       "blocks": [
-        { "type": "slide" },
-        { "type": "slide" }
+        {
+          "type": "announcement"
+        }
       ]
     }
   ]
