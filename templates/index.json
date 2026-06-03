@@ -441,6 +441,51 @@
         "padding_bottom": 36
       }
     },
+    "trust_badges_NAabnt": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_ELpAf4": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "text": "Free and Fast delivery"
+          }
+        },
+        "badge_mAphhp": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "text": "Secure payment"
+          }
+        },
+        "badge_nmcpwP": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "text": "Strong customer service"
+          }
+        },
+        "badge_XEyVEC": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "text": "2-years warranty"
+          }
+        }
+      },
+      "block_order": [
+        "badge_ELpAf4",
+        "badge_mAphhp",
+        "badge_nmcpwP",
+        "badge_XEyVEC"
+      ],
+      "name": "Trust Badges",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "testimonials_6kM9B3": {
       "type": "testimonials",
       "blocks": {
@@ -828,6 +873,7 @@
     "featured_collection_JkAQec",
     "partner_testimonials_TYE8nf",
     "discover_bikes_VEdLb7",
+    "trust_badges_NAabnt",
     "testimonials_6kM9B3",
     "feature_alternating_Y3DYDF",
     "faq_x9aGnf",
