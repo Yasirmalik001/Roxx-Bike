@@ -2347,15 +2347,15 @@ cart-drawer-items {
 .desktop-show{
   display: block;
 }
-.desktop-show{
-  display: block;
-}
 
 .mobile-show{
   display: block;
 }
 
 @media (max-width: 768px){
+  .desktop-show{
+    display: none;
+  }
   .mobile-show{
     display: block;
   }
