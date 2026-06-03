@@ -15,19 +15,19 @@
   .faqrs-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 48px;
   }
 
   @media screen and (min-width: 990px) {
     .faqrs-grid {
       grid-template-columns: 1fr 1fr; /* Matches the screenshot's left/right balance */
-      gap: 1rem;
+      gap: 16px;
     }
   }
 
   .faqrs-heading {
     margin: 0;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(32px, 4vw, 48px);
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -48,13 +48,13 @@
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
+    gap: 24px;
+    padding: 24px 0;
     background: transparent;
     border: none;
     cursor: pointer;
     text-align: left;
-    font-size: 1.1rem;
+    font-size: 17.6px;
     color: currentColor;
     transition: opacity 0.2s ease;
 }
@@ -98,9 +98,9 @@
   }
 
   .faqrs-answer-inner {
-    padding-bottom: 1.5rem;
-    padding-left: 3rem; /* Aligns text with the question, pushing past the icon */
-    font-size: 0.95rem;
+    padding-bottom: 24px;
+    padding-left: 48px; /* Aligns text with the question, pushing past the icon */
+    font-size: 15.2px;
     line-height: 1.6;
     color: rgba(var(--color-foreground), 0.75);
   }
