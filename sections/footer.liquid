@@ -289,65 +289,55 @@
   {%- endif -%}
 
   <div class="footer__content-bottom">
-    <div class="footer__bottom-main-row">
-      <div class="footer__bottom-left">
-        <div class="footer__brand-logo-wrap">
-          {%- if section.settings.brand_image != blank -%}
-            {%- assign brand_image_height = section.settings.brand_image_width
-              | divided_by: section.settings.brand_image.aspect_ratio
-            -%}
-            <img
-              src="{{ section.settings.brand_image | image_url: width: 300 }}"
-              alt="{{ shop.name }}"
-              width="{{ section.settings.brand_image_width }}"
-              height="{{ brand_image_height }}"
-              class="footer__brand-logo-img"
-            >
-          {%- else -%}
-            <span class="footer__brand-logo-text">ROXX</span>
-          {%- endif -%}
+    <div class="footer__bottom-brand">
+      <div class="footer__brand-logo-wrap">
+        {%- if section.settings.brand_image != blank -%}
+          {%- assign brand_image_height = section.settings.brand_image_width
+            | divided_by: section.settings.brand_image.aspect_ratio
+          -%}
+          <img
+            src="{{ section.settings.brand_image | image_url: width: 300 }}"
+            alt="{{ shop.name }}"
+            width="{{ section.settings.brand_image_width }}"
+            height="{{ brand_image_height }}"
+            class="footer__brand-logo-img"
+          >
+        {%- else -%}
+          <span class="footer__brand-logo-text">ROXX</span>
+        {%- endif -%}
+      </div>
+      
+      {%- if section.settings.show_social -%}
+        <div class="footer__social-icons-wrap">
+          {%- render 'social-icons', class: 'footer__list-social' -%}
         </div>
-        
-        {%- if section.settings.show_social -%}
-          <div class="footer__social-icons-wrap">
-            {%- render 'social-icons', class: 'footer__list-social' -%}
-          </div>
-        {%- endif -%}
-      </div>
-
-      <div class="footer__bottom-right">
-        {%- if section.settings.enable_country_selector -%}
-          <div class="footer__localization isolate">
-            <localization-form>
-              {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-                <div>
-                  <h2 class="visually-hidden" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                  {%- render 'country-localization', localPosition: 'FooterCountry' -%}
-                </div>
-              {%- endform -%}
-            </localization-form>
-          </div>
-        {%- endif -%}
-      </div>
+      {%- endif -%}
     </div>
 
-    <div class="footer__bottom-bar ">
-      <div class="footer__bottom-bar-left">
-        <small class="copyright__content">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} . All rights reserved.</small>
-      </div>
-      
-      <div class="footer__bottom-bar-center">
-        <div class="footer__trustpilot">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="#00b67a" style="display: block;">
-            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-          </svg>
-          <span><strong>Trustpilot</strong> 4.2/5 (based on 200+)</span>
+    <div class="footer__bottom-localization">
+      {%- if section.settings.enable_country_selector -%}
+        <div class="footer__localization isolate">
+          <localization-form>
+            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
+                {%- render 'country-localization', localPosition: 'FooterCountry' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
         </div>
-      </div>
-      
-      <div class="footer__bottom-bar-right">
-        <!-- Optional space -->
-      </div>
+      {%- endif -%}
+    </div>
+
+    <div class="footer__bottom-trustpilot">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="#00b67a" style="display: block; margin-right: 8px;">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+      </svg>
+      <span><strong>Trustpilot</strong> 4.2/5 (based on 200+)</span>
+    </div>
+
+    <div class="footer__bottom-copyright">
+      <small class="copyright__content">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} . All rights reserved.</small>
     </div>
   </div>
 </footer>
