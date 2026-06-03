@@ -713,16 +713,6 @@ nav-container:hover .header__menu-item .icon-caret {
 }
 }
 
-@media screen and (min-width: 750px) {
-    .accordion-icon {
-        display: none;
-    }
-
-    .footer-block__details-content {
-        display: block !important;
-    }
-}
-
 /* --------------------------------------------------------------------------
    11. CUSTOM PRICE BLOCK (PDP)
    -------------------------------------------------------------------------- */
