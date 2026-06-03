@@ -206,9 +206,6 @@
                               {%- if grandchildlink.type == 'product_link' -%}
                                 {%- assign item_product = grandchildlink.object -%}
                                 <div class="megamenu-product-card">
-                                  <a href="{{ item_product.url }}" class="megamenu-product-image">
-                                    <img src="{{ item_product.featured_image | img_url: '400x' }}" alt="{{ item_product.title | escape }}" loading="lazy" width="200" height="200">
-                                  </a>
                                   <div class="megamenu-product-info">
                                     <h4 class="megamenu-product-title"><a href="{{ item_product.url }}">{{ item_product.title | escape }}</a></h4>
                                     <div class="megamenu-product-prices">
@@ -219,6 +216,9 @@
                                     </div>
                                     <a href="{{ item_product.url }}" class="megamenu-product-discover">Discover</a>
                                   </div>
+                                  <a href="{{ item_product.url }}" class="megamenu-product-image">
+                                    <img src="{{ item_product.featured_image | img_url: '400x' }}" alt="{{ item_product.title | escape }}" loading="lazy" width="200" height="200">
+                                  </a>
                                 </div>
                               {%- else -%}
                                 <!-- Fallback for non-product links -->
