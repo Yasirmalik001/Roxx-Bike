@@ -2357,7 +2357,7 @@ cart-drawer-items {
     display: none !important;
   }
 .mobile-show {
-    display: block !important;
+    display: flex !important;
 }
   .header-promo-bar__close{
     display: none;
