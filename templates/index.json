@@ -205,8 +205,8 @@
         "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
         "desktop_height": 750,
         "mobile_height": 650,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 36,
+        "padding_bottom": 40
       }
     },
     "featured_collection_qTdATG": {
