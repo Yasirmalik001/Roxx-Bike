@@ -616,6 +616,48 @@
         "unit": "px",
         "label": "t:settings_schema.global.settings.blur.label",
         "default": 0
+      },
+      {
+        "type": "header",
+        "content": "ROXX Custom Card Settings"
+      },
+      {
+        "type": "text",
+        "id": "roxx_shop_now_text",
+        "label": "Shop Now Button Text",
+        "default": "SHOP NOW"
+      },
+      {
+        "type": "text",
+        "id": "roxx_test_ride_text",
+        "label": "Test Ride Button Text",
+        "default": "BOOK A TEST RIDE"
+      },
+      {
+        "type": "url",
+        "id": "roxx_test_ride_link",
+        "label": "Test Ride Button Link"
+      },
+      {
+        "type": "text",
+        "id": "roxx_payment_text",
+        "label": "Payment Strip Text",
+        "default": "Pay in 3 interest-free installments"
+      },
+      {
+        "type": "image_picker",
+        "id": "roxx_payment_logo_1",
+        "label": "Payment Logo 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "roxx_payment_logo_2",
+        "label": "Payment Logo 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "roxx_payment_logo_3",
+        "label": "Payment Logo 3"
       }
     ]
   },
