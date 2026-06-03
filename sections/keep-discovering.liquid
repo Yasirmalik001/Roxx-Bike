@@ -122,7 +122,6 @@
   .kd-card__icon-wrapper {
     display: flex;
     justify-content: flex-start;
-    margin-top: auto;
   }
 
   .kd-card__icon-external svg {
@@ -136,7 +135,7 @@
   }
 {%- endstyle -%}
 
-<div class="keep-discovering-wrapper section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+<div class="keep-discovering-wrapper section-{{ section.id }}-padding">
   <div class="keep-discovering-bg">
     {%- if section.settings.image != blank -%}
       {%- assign mobile_image = section.settings.mobile_image | default: section.settings.image -%}
@@ -184,12 +183,6 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
     {
       "type": "header",
       "content": "Background Images"
