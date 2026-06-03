@@ -2412,3 +2412,130 @@ cart-drawer-items {
 /* Fix header stacking context over promo bar */
 .header-wrapper header.header { position: relative; z-index: 4; }
 
+/* ==========================================================================
+   Footer Overhaul
+   ========================================================================== */
+.footer-block__newsletter { margin-bottom: 2rem; }
+.footer-block__newsletter .newsletter-form__field-wrapper .field { position: relative; }
+.footer-block__newsletter .newsletter-form__field-wrapper .field__input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1rem 0;
+  color: #fff;
+}
+.footer-block__newsletter .newsletter-form__field-wrapper .field__input:focus {
+  border-bottom-color: #fff;
+  box-shadow: none;
+  outline: none;
+}
+.footer-block__newsletter .newsletter-form__field-wrapper .field__label { display: none; }
+.footer-block__newsletter .newsletter-form__button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  width: auto;
+  cursor: pointer;
+}
+.footer-block__newsletter .newsletter-form__button:hover { opacity: 0.8; }
+
+/* Desktop Top Section */
+.footer__content-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  padding-bottom: 4rem;
+}
+.footer__blocks-wrapper { flex: 1; display: flex; gap: 2rem; justify-content: space-between; margin-bottom: 0; }
+.footer-block--newsletter { flex: 0 0 35%; margin-top: 0; }
+
+/* Desktop Bottom Section */
+.footer__bottom-brand { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 3rem; }
+.footer__brand-logo-img { max-width: 250px; height: auto; }
+.footer__social-icons-wrap { margin-top: 1.5rem; }
+.footer__list-social.list-social { justify-content: flex-start; gap: 1rem; }
+.footer__list-social.list-social .list-social__item .icon { color: #ffe600; width: 20px; height: 20px; }
+
+.footer__content-bottom {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+    "brand . localization"
+    "copyright trustpilot .";
+  align-items: flex-end;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 4rem;
+  margin-top: 4rem;
+}
+
+.footer__bottom-brand { grid-area: brand; }
+.footer__bottom-localization { grid-area: localization; justify-self: end; margin-bottom: 3rem; }
+.footer__bottom-copyright { grid-area: copyright; padding-top: 2rem; }
+.footer__bottom-trustpilot { grid-area: trustpilot; justify-self: center; display: flex; align-items: center; padding-top: 2rem; }
+
+/* Desktop horizontal separator */
+.footer__content-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 4.5rem;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+}
+
+.footer__localization .localization-form__select {
+  background: #2b2b2b;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  box-shadow: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.footer__localization .localization-form__select .icon-caret { margin-left: 0.8rem; }
+
+/* Mobile View */
+@media screen and (max-width: 749px) {
+  .footer__content-top {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .footer-block--newsletter { order: -1; }
+  .footer__blocks-wrapper { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer__content-bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: none;
+    padding-top: 2rem;
+    margin-top: 2rem;
+  }
+  .footer__content-bottom::after { display: none; }
+  
+  .footer__bottom-localization { order: 1; width: 48%; justify-content: flex-start; margin-bottom: 3rem; }
+  .footer__bottom-trustpilot { order: 1; width: 48%; justify-content: flex-end; padding-top: 0; margin-bottom: 3rem; }
+  
+  .footer__bottom-brand { order: 2; width: 100%; align-items: center; margin-bottom: 3rem; }
+  .footer__brand-logo-img { max-width: 180px; }
+  .footer__list-social.list-social { justify-content: center; }
+  
+  .footer__bottom-copyright { order: 3; width: 100%; text-align: center; padding-top: 0; margin-bottom: 2rem; }
+}
