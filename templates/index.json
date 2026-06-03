@@ -179,7 +179,7 @@
         "enable_slider_mobile": true,
         "loop": false,
         "autoplay": false,
-        "autoplay_interval": 5000,
+        "autoplay_interval": 9000,
         "desktop_slides": 1,
         "desktop_spacing": 0,
         "mobile_slides": "1",
@@ -187,12 +187,6 @@
         "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
         "desktop_height": 750,
         "mobile_height": 650,
-        "feature_1_title": "Fold & Go",
-        "feature_1_text": "Compact designs that fit your city, your car, your life.",
-        "feature_2_title": "Power You Can Feel",
-        "feature_2_text": "Fast acceleration and long-range performance for daily freedom.",
-        "feature_3_title": "Built for Everyday",
-        "feature_3_text": "Reliable, comfortable, and ready for every ride — rain or shine.",
         "padding_top": 0,
         "padding_bottom": 0
       }
