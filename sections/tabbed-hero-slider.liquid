@@ -55,16 +55,16 @@
   .th-slide-content {
     position: absolute;
     z-index: 3;
-    bottom: 80px; /* Space for the tabs */
+    bottom: 80px; 
     left: 0;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 32px;
   }
 
   @media screen and (min-width: 990px) {
     .th-slide-content {
       bottom: 120px;
-      padding: 0 6rem;
+      padding: 0 96px;
       max-width: 800px;
     }
   }
@@ -108,12 +108,12 @@
     width: 100%;
     z-index: 5;
     background: transparent;
-    padding: 0 2rem 2rem 2rem;
+    padding: 0 32px 32px 32px;
   }
 
   @media screen and (min-width: 990px) {
     .th-nav-wrapper {
-      padding: 0 6rem 3rem 6rem;
+      padding: 0 96px 48px 96px;
     }
   }
 
@@ -173,14 +173,54 @@
     font-weight: 400;
   }
 
+  .th-mobile-active-text {
+    display: none;
+  }
+
+  /* --- Mobile Overrides to Match Mockup --- */
   @media screen and (max-width: 767px) {
     .th-nav-list {
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       border-top: none;
+      gap: 8px; /* Gap between line segments */
+      margin-bottom: 16px;
     }
+    
     .th-nav-item {
-      flex: 0 0 50%;
-      border-top: 1px solid rgba(var(--color-foreground), 0.2);
+      flex: 1;
+      padding: 0;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.2); /* Inactive gray line */
+      border: none;
+      opacity: 1;
+    }
+    
+    .th-nav-item.is-active {
+      background-color: #ffe600; /* Active yellow line */
+    }
+    
+    .th-nav-item::before {
+      display: none; /* Hide the desktop line */
+    }
+    
+    .th-nav-text-content {
+      display: none; /* Hide button text to make it a line segment */
+    }
+    
+    .th-mobile-active-text {
+      display: block;
+      color: currentColor;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .th-mobile-active-text .js-mobile-index {
+      margin-right: 4px;
+    }
+
+    .th-slide-content {
+      bottom: 100px; /* Push content up slightly to make room for new text layout */
     }
   }
 {%- endstyle -%}
@@ -244,10 +284,17 @@
       <div class="th-nav-wrapper">
         <div class="th-nav-list">
           {%- for block in section.blocks -%}
-            <button class="th-nav-item {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}">
-              <span class="th-nav-index">0{{ forloop.index }}.</span> {{ block.settings.tab_title | default: "Tab" }}
+            <button class="th-nav-item {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" data-title="{{ block.settings.tab_title | default: 'Tab' | escape }}">
+              <span class="th-nav-text-content">
+                <span class="th-nav-index">0{{ forloop.index }}.</span> {{ block.settings.tab_title | default: "Tab" }}
+              </span>
             </button>
           {%- endfor -%}
+        </div>
+        
+        <div class="th-mobile-active-text">
+          <span class="js-mobile-index">01.</span>
+          <span class="js-mobile-title">{{ section.blocks.first.settings.tab_title | default: "Tab" }}</span>
         </div>
       </div>
 
@@ -262,6 +309,8 @@ document.addEventListener('DOMContentLoaded', function() {
   sliders.forEach(slider => {
     const swiperEl = slider.querySelector('swiper-container');
     const tabs = slider.querySelectorAll('.th-nav-item');
+    const mobileIndex = slider.querySelector('.js-mobile-index');
+    const mobileTitle = slider.querySelector('.js-mobile-title');
 
     if (!swiperEl || tabs.length === 0) return;
 
@@ -281,9 +330,18 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle Swiper Slide Changes
         swiperEl.addEventListener('swiperslidechange', (e) => {
           const activeIndex = e.detail[0].activeIndex;
+          
           tabs.forEach(tab => tab.classList.remove('is-active'));
+          
           if (tabs[activeIndex]) {
             tabs[activeIndex].classList.add('is-active');
+            
+            // Update Mobile Text
+            if (mobileIndex && mobileTitle) {
+              const newTitle = tabs[activeIndex].getAttribute('data-title');
+              mobileIndex.textContent = `0${activeIndex + 1}.`;
+              mobileTitle.textContent = newTitle;
+            }
           }
         });
       }
