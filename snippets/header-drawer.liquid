@@ -18,37 +18,7 @@
     </summary>
     <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
       <div class="menu-drawer__inner-container">
-        
-        <!-- Drawer Header -->
-        <div class="menu-drawer__header">
-          <button class="menu-drawer__close-icon-btn" aria-label="Close menu" onclick="this.closest('details').removeAttribute('open')">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-          
-          <div class="menu-drawer__logo">
-            <a href="{{ routes.root_url }}">
-              {%- if section.settings.logo != blank -%}
-                <img src="{{ section.settings.logo | image_url: width: 150 }}" alt="{{ shop.name }}" width="100" height="auto">
-              {%- else -%}
-                <span class="menu-drawer__logo-text">ROXX</span>
-              {%- endif -%}
-            </a>
-          </div>
-          
-          <a href="{{ routes.cart_url }}" class="menu-drawer__cart-btn" id="cart-icon-bubble-drawer">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            {%- if cart != empty -%}
-              <span class="cart-count-bubble-drawer">{{ cart.item_count }}</span>
-            {%- endif -%}
-          </a>
-        </div>
+
 
         <!-- Navigation List -->
         <div class="menu-drawer__navigation-container">
@@ -213,14 +183,6 @@
   .menu-drawer {
     width: 100vw !important;
     max-width: 100vw !important;
-  }
-  .menu-drawer__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
-    background-color: #fff;
   }
   .menu-drawer__close-icon-btn {
     background: none;
