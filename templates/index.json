@@ -397,7 +397,7 @@
         "enable_loop": false,
         "columns_desktop": 3,
         "columns_mobile": "1.2",
-        "center_slides": true,
+        "center_slides": false,
         "spacing": 30,
         "padding_top": 60,
         "padding_bottom": 60
