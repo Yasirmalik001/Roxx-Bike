@@ -189,13 +189,14 @@
   <div class="page-width">
     
     {%- if section.settings.heading != blank -%}
-      <h2 class="hero-features__heading {{ section.settings.heading_size }}">
+      <h2 class="partner-testimonials__heading {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
+  </div>
 
-    <slider-container class="partner-testimonials__slider slider-template-section block" data-block-id="{{ section.id }}">
-      <div class="slider-template-section__container">
+  <slider-container class="partner-testimonials__slider slider-template-section block" data-block-id="{{ section.id }}">
+    <div class="slider-template-section__container">
         
         <div
           class="swiper js-slider-template-swiper slider-template-section__swiper"
@@ -279,8 +280,6 @@
 
       </div>
     </slider-container>
-
-  </div>
 </div>
 
 {% schema %}
@@ -379,7 +378,7 @@
       "type": "checkbox",
       "id": "enable_loop",
       "label": "Enable infinite loop",
-      "default": false
+      "default": true
     },
     {
       "type": "header",
