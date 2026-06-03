@@ -25,6 +25,11 @@
     margin-bottom: 48px;
   }
 
+  /* Force swiper slides to equal height */
+  .partner-testimonials__slider .swiper-slide {
+    height: auto;
+  }
+
   /* Card Styling */
   .partner-card {
     border-radius: 16px;
@@ -42,15 +47,15 @@
     overflow: hidden;
   }
 
-.partner-card__image-wrapper img {
+  .partner-card__image-wrapper img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
-}
+  }
+
   .partner-card__content {
     padding: 32px 24px;
     display: flex;
@@ -211,7 +216,7 @@
                 "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
                 "desktopSlides": {{ section.settings.columns_desktop }},
                 "desktopSpacing": {{ section.settings.spacing }},
-                "centeredSlides": {{ section.settings.center_slides | default: true | json }}
+                "centeredSlides": {{ section.settings.center_slides | json }}
               }
             '
           >
@@ -416,7 +421,7 @@
       "type": "checkbox",
       "id": "center_slides",
       "label": "Center slides",
-      "default": true
+      "default": false
     },
     {
       "type": "range",
