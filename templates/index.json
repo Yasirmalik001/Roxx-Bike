@@ -238,51 +238,6 @@
         "padding_bottom": 36
       }
     },
-    "trust_badges_4dfJAk": {
-      "type": "trust-badges",
-      "blocks": {
-        "badge_NyeRjB": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "text": "Feature description"
-          }
-        },
-        "badge_EBVTWy": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "text": "Feature description"
-          }
-        },
-        "badge_cXJ8yT": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "text": "Feature description"
-          }
-        },
-        "badge_ft6zmw": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "text": "Feature description"
-          }
-        }
-      },
-      "block_order": [
-        "badge_NyeRjB",
-        "badge_EBVTWy",
-        "badge_cXJ8yT",
-        "badge_ft6zmw"
-      ],
-      "name": "Trust Badges",
-      "settings": {
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "hero_banner_features_7JX3dk": {
       "type": "hero-banner-features",
       "blocks": {
@@ -840,7 +795,6 @@
     "collections_tabs_CftkD8",
     "hero_slideshow_6ejY9C",
     "featured_collection_qTdATG",
-    "trust_badges_4dfJAk",
     "hero_banner_features_7JX3dk",
     "partner_testimonials_TYE8nf",
     "testimonials_6kM9B3",
