@@ -2345,19 +2345,19 @@ cart-drawer-items {
   z-index: 101;
 }
 .desktop-show{
-  display: block;
+  display: block !important;
 }
 
 .mobile-show{
-  display: block;
+  display: none !important;
 }
 
 @media (max-width: 768px){
   .desktop-show{
-    display: none;
+    display: none !important;
   }
   .mobile-show{
-    display: block;
+    display: block !important;
   }
   .header-promo-bar__close{
     display: none;
