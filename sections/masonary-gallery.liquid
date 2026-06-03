@@ -105,6 +105,10 @@
     .roxx-masonry-image {
       border-radius: 16px;
     }
+    
+    .hide-middle-desktop {
+      display: none !important;
+    }
   }
 
   /* Apply exact Customizer height & margin settings per block */
@@ -115,6 +119,9 @@
     }
     #roxx-column-{{ block.id }} .roxx-top-img {
       height: {{ block.settings.height_top_mobile }}px;
+    }
+    #roxx-column-{{ block.id }} .roxx-middle-img {
+      height: {{ block.settings.height_middle_mobile }}px;
     }
     #roxx-column-{{ block.id }} .roxx-bottom-img {
       height: {{ block.settings.height_bottom_mobile }}px;
@@ -127,6 +134,9 @@
       }
       #roxx-column-{{ block.id }} .roxx-top-img {
         height: {{ block.settings.height_top }}px;
+      }
+      #roxx-column-{{ block.id }} .roxx-middle-img {
+        height: {{ block.settings.height_middle }}px;
       }
       #roxx-column-{{ block.id }} .roxx-bottom-img {
         height: {{ block.settings.height_bottom }}px;
@@ -166,6 +176,17 @@
                 >
               {%- else -%}
                 {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-top-img' }}
+              {%- endif -%}
+
+              {%- if block.settings.image_middle != blank -%}
+                <img
+                  src="{{ block.settings.image_middle | image_url: width: 600 }}"
+                  alt="{{ block.settings.image_middle.alt | escape }}"
+                  class="roxx-masonry-image roxx-middle-img {% if block.settings.hide_middle_desktop %}hide-middle-desktop{% endif %}"
+                  loading="lazy"
+                  width="{{ block.settings.image_middle.width }}"
+                  height="{{ block.settings.image_middle.height }}"
+                >
               {%- endif -%}
 
               {%- if block.settings.image_bottom != blank -%}
@@ -253,7 +274,7 @@
   "blocks": [
     {
       "type": "column",
-      "name": "Column (2 Images)",
+      "name": "Image Column",
       "limit": 5,
       "settings": [
         {
@@ -279,6 +300,16 @@
           "unit": "px",
           "label": "Top Image Height",
           "default": 350
+        },
+        {
+          "type": "range",
+          "id": "height_middle",
+          "min": 100,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "label": "Middle Image Height",
+          "default": 200
         },
         {
           "type": "range",
@@ -316,6 +347,16 @@
         },
         {
           "type": "range",
+          "id": "height_middle_mobile",
+          "min": 80,
+          "max": 400,
+          "step": 5,
+          "unit": "px",
+          "label": "Middle Image Height (Mobile)",
+          "default": 130
+        },
+        {
+          "type": "range",
           "id": "height_bottom_mobile",
           "min": 80,
           "max": 400,
@@ -335,6 +376,18 @@
         },
         {
           "type": "image_picker",
+          "id": "image_middle",
+          "label": "Middle Image (Optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_middle_desktop",
+          "label": "Hide Middle Image on Desktop",
+          "info": "Check this to only show the middle image on mobile screens.",
+          "default": false
+        },
+        {
+          "type": "image_picker",
           "id": "image_bottom",
           "label": "Bottom Image"
         }
@@ -345,11 +398,11 @@
     {
       "name": "Masonry Gallery",
       "blocks": [
-        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_bottom_mobile": 130 } },
-        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_bottom": 350, "margin_top_mobile": 24, "height_top_mobile": 130, "height_bottom_mobile": 180 } },
-        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_bottom_mobile": 130 } },
-        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_bottom": 350, "margin_top_mobile": 0, "height_top_mobile": 130, "height_bottom_mobile": 180 } },
-        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_bottom_mobile": 130 } }
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_middle": 200, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_middle_mobile": 130, "height_bottom_mobile": 130 } },
+        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_middle": 200, "height_bottom": 350, "margin_top_mobile": 24, "height_top_mobile": 130, "height_middle_mobile": 130, "height_bottom_mobile": 180 } },
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_middle": 200, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_middle_mobile": 130, "height_bottom_mobile": 130 } },
+        { "type": "column", "settings": { "margin_top": 40, "height_top": 250, "height_middle": 200, "height_bottom": 350, "margin_top_mobile": 0, "height_top_mobile": 130, "height_middle_mobile": 130, "height_bottom_mobile": 180 } },
+        { "type": "column", "settings": { "margin_top": 0, "height_top": 350, "height_middle": 200, "height_bottom": 250, "margin_top_mobile": 0, "height_top_mobile": 180, "height_middle_mobile": 130, "height_bottom_mobile": 130 } }
       ]
     }
   ]
