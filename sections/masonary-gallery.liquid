@@ -13,17 +13,17 @@
 
   .roxx-masonry-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 32px; /* 2rem */
   }
 
   @media screen and (min-width: 768px) {
     .roxx-masonry-header {
-      margin-bottom: 3rem;
+      margin-bottom: 48px; /* 3rem */
     }
   }
 
   .roxx-masonry-heading {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 8px 0; /* 0.5rem */
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -0.5px;
@@ -37,22 +37,22 @@
     opacity: 0.8;
   }
 
-  /* 
-   * ==========================================
+  /* * ==========================================
    * MOBILE ONLY: CSS Horizontal Scroll Slider
+   * Exactly 3 columns per view (3 3 3)
    * ==========================================
    */
   .roxx-masonry-grid {
     display: flex;
     flex-wrap: nowrap;
-    gap: 12px;
+    gap: 8px; /* Tighter gap for mobile */
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 16px; /* Space for native scrollbar if visible */
-    scrollbar-width: none; /* Firefox: hide scrollbar */
+    padding-bottom: 16px; 
+    scrollbar-width: none; 
   }
 
   /* Hide scrollbar for Chrome/Safari/Edge */
@@ -61,9 +61,8 @@
   }
 
   .roxx-column-block {
-    /* 32vw ensures roughly 3 cards fit on screen, teasing the next one */
-    flex: 0 0 30vw; 
-    min-width: 120px;
+    /* Exactly 3 items fit on screen: 100% minus the two 8px gaps, divided by 3 */
+    flex: 0 0 calc((100% - 16px) / 3); 
     scroll-snap-align: start;
     transform: translateZ(0);
   }
@@ -71,7 +70,7 @@
   .roxx-column-block-inner {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px; /* Tighter vertical gap for mobile */
   }
 
   .roxx-masonry-image {
@@ -81,8 +80,7 @@
     object-fit: cover;
   }
 
-  /* 
-   * ==========================================
+  /* * ==========================================
    * DESKTOP ONLY: Restored Explicit 5-Col Grid
    * ==========================================
    */
@@ -144,8 +142,8 @@
       <div class="roxx-masonry-header">
         {%- if section.settings.heading != blank -%}
           <h2 class="hero-features__heading {{ section.settings.heading_size }}">
-  {{ section.settings.heading }}
-</h2>
+            {{ section.settings.heading }}
+          </h2>
         {%- endif -%}
         {%- if section.settings.subheading != blank -%}
           <p class="roxx-masonry-subheading">{{ section.settings.subheading }}</p>
@@ -157,7 +155,6 @@
           <div class="roxx-column-block" id="roxx-column-{{ block.id }}" {{ block.shopify_attributes }}>
             <div class="roxx-column-block-inner">
               
-              <!-- TOP IMAGE -->
               {%- if block.settings.image_top != blank -%}
                 <img
                   src="{{ block.settings.image_top | image_url: width: 600 }}"
@@ -171,7 +168,6 @@
                 {{ 'image' | placeholder_svg_tag: 'roxx-masonry-image placeholder-svg roxx-top-img' }}
               {%- endif -%}
 
-              <!-- BOTTOM IMAGE -->
               {%- if block.settings.image_bottom != blank -%}
                 <img
                   src="{{ block.settings.image_bottom | image_url: width: 600 }}"
@@ -205,7 +201,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "JOIN OUR ROXX FAMILY"
-<<<<<<< Updated upstream
     },
     {
       "type": "select",
@@ -217,21 +212,6 @@
       ],
       "default": "h0",
       "label": "Heading Size"
-=======
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
-            { "value": "h2", "label": "Small" },
-            { "value": "h1", "label": "Medium" },
-            { "value": "h0", "label": "Large" },
-            { "value": "hxl", "label": "Extra Large" },
-            { "value": "hxxl", "label": "Extra Extra Large" }
-          ],
-      "default": "h0",
-      "label": "Heading Size"
->>>>>>> Stashed changes
     },
     {
       "type": "text",
