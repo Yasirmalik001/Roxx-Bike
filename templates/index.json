@@ -197,6 +197,32 @@
         "padding_bottom": 0
       }
     },
+    "featured_collection_qTdATG": {
+      "type": "featured-collection",
+      "name": "Featured Collection",
+      "settings": {
+        "collection": "e-bikes",
+        "title": "FOLLOW US ON INSTAGRAM",
+        "heading_size": "h0",
+        "view_all_link": "",
+        "view_all_text": "@luxiaojuneurope",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "desktop_slides": 4,
+        "desktop_spacing": 24,
+        "desktop_arrows": true,
+        "desktop_dots": false,
+        "desktop_scrollbar": false,
+        "desktop_progress_bar": true,
+        "tablet_slides": 3,
+        "mobile_slides": 1.2,
+        "mobile_spacing": 16,
+        "mobile_arrows": false,
+        "mobile_dots": true,
+        "mobile_scrollbar": false,
+        "mobile_progress_bar": true
+      }
+    },
     "trust_badges_4dfJAk": {
       "type": "trust-badges",
       "blocks": {
@@ -798,6 +824,7 @@
     "custom_banner_XE8idV",
     "collections_tabs_CftkD8",
     "hero_slideshow_6ejY9C",
+    "featured_collection_qTdATG",
     "trust_badges_4dfJAk",
     "hero_banner_features_7JX3dk",
     "partner_testimonials_TYE8nf",
