@@ -2343,7 +2343,6 @@ cart-drawer-items {
 .announcement-bar-section {
   position: relative;
   z-index: 101;
-<<<<<<< Updated upstream
 }
 .desktop-show{
   display: block !important;
@@ -2364,7 +2363,6 @@ cart-drawer-items {
     display: none;
   }
 }
-
 /* Mobile Responsiveness for Announcement Bar */
 @media screen and (max-width: 749px) {
   .utility-bar-desktop.small-hide.medium-hide {
