@@ -2,7 +2,6 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    
   }
 
   @media screen and (min-width: 750px) {
@@ -18,27 +17,28 @@
 
   .partner-testimonials__heading {
     text-align: center;
-    font-weight: 800;
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 36px);
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    margin-bottom: 4rem;
+    margin-top: 0;
+    margin-bottom: 48px;
   }
 
   /* Card Styling */
   .partner-card {
-    background-color: rgba(var(--color-foreground), 0.03);
-    border: 1px solid rgba(var(--color-foreground), 0.08);
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
+    border: none;
   }
 
   .partner-card__image-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 65%; /* Aspect ratio for the images */
+    padding-bottom: 60%; /* Aspect ratio for the images */
     overflow: hidden;
   }
 
@@ -52,35 +52,36 @@
   }
 
   .partner-card__content {
-    padding: 3rem 2.5rem;
+    padding: 32px 24px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
   .partner-card__text {
-    font-size: 1.4rem;
+    font-size: 14px;
     line-height: 1.6;
-    margin-bottom: 2.5rem;
+    margin-bottom: 32px;
     opacity: 0.85;
   }
 
+  .partner-card__text p {
+    margin: 0;
+  }
+
   .partner-card__author {
-    font-weight: 600;
-    font-size: 1.4rem;
+    font-weight: 500;
+    font-size: 14px;
     margin-top: auto;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 8px;
+    opacity: 0.9;
   }
 
   .partner-card__author::before {
-    content: "";
+    content: "—";
     display: inline-block;
-    width: 20px;
-    height: 1px;
-    background-color: currentColor;
-    opacity: 0.5;
   }
 
   /* Swiper Footer Controls */
@@ -89,7 +90,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 50px;
+    min-height: 48px;
+    margin-top: 48px;
   }
 
   .partner-pagination-wrapper {
@@ -103,14 +105,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem;
+    gap: 8px;
   }
 
   .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet {
-    width: 1rem;
-    height: 1rem;
-    background-color: currentColor !important;
-    opacity: 0.2 !important;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff !important;
+    opacity: 0.3 !important;
     margin: 0 !important;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -120,7 +122,7 @@
   .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet-active {
     background-color: #ffe600 !important;
     opacity: 1 !important;
-    transform: scale(1.1);
+    transform: scale(1);
   }
 
   /* Custom styling for progress fill in testimonials */
@@ -156,31 +158,30 @@
   }
 
   .partner-button {
-    background-color: rgba(var(--color-foreground), 0.05);
-    color: currentColor;
-    border: 1px solid rgba(var(--color-foreground), 0.15);
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
     border-radius: 50px;
-    padding: 1.2rem 3rem;
-    font-weight: 600;
-    font-size: 1.4rem;
+    padding: 12px 32px;
+    font-weight: 700;
+    font-size: 14px;
     text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: opacity 0.2s ease;
     display: inline-block;
   }
 
   .partner-button:hover {
-    transform: scale(1.03);
-    border-color: currentColor;
+    opacity: 0.85;
   }
 
   @media screen and (max-width: 989px) {
     .partner-slider-footer {
       flex-direction: column;
-      gap: 3rem;
+      gap: 32px;
     }
     .partner-button-wrapper {
       position: static;
-      display: none;
+      display: block;
     }
   }
 {%- endstyle -%}
@@ -193,93 +194,93 @@
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
-  </div>
 
-  <slider-container class="partner-testimonials__slider slider-template-section block" data-block-id="{{ section.id }}">
-    <div class="slider-template-section__container">
-        
-        <div
-          class="swiper js-slider-template-swiper slider-template-section__swiper"
-          data-swiper-config='
-            {
-              "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
-              "enableSliderMobile": {{ section.settings.enable_slider_mobile }},
-              "loop": {{ section.settings.enable_loop | default: false }},
-              "autoplay": {{ section.settings.enable_autoplay | default: false }},
-              "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
-              "mobileSlides": {{ section.settings.columns_mobile | plus: 0.0 }},
-              "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
-              "desktopSlides": {{ section.settings.columns_desktop }},
-              "desktopSpacing": {{ section.settings.spacing }},
-              "centeredSlides": {{ section.settings.center_slides | default: true | json }}
-            }
-          '
-        >
-          <div class="swiper-wrapper">
-            {%- for block in section.blocks -%}
-              <div class="swiper-slide" {{ block.shopify_attributes }}>
-                <div class="partner-card">
-                  <div class="partner-card__image-wrapper">
-                    {%- if block.settings.image != blank -%}
-                      {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
-                    {%- else -%}
-                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                    {%- endif -%}
-                  </div>
-                  <div class="partner-card__content">
-                    <div class="partner-card__text rte">
-                      {{ block.settings.text }}
+    <slider-container class="partner-testimonials__slider slider-template-section block" data-block-id="{{ section.id }}">
+      <div class="slider-template-section__container">
+          
+          <div
+            class="swiper js-slider-template-swiper slider-template-section__swiper"
+            data-swiper-config='
+              {
+                "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
+                "enableSliderMobile": {{ section.settings.enable_slider_mobile }},
+                "loop": {{ section.settings.enable_loop | default: false }},
+                "autoplay": {{ section.settings.enable_autoplay | default: false }},
+                "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
+                "mobileSlides": {{ section.settings.columns_mobile | plus: 0.0 }},
+                "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
+                "desktopSlides": {{ section.settings.columns_desktop }},
+                "desktopSpacing": {{ section.settings.spacing }},
+                "centeredSlides": {{ section.settings.center_slides | default: true | json }}
+              }
+            '
+          >
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="partner-card color-{{ section.settings.card_color_scheme }} gradient">
+                    <div class="partner-card__image-wrapper">
+                      {%- if block.settings.image != blank -%}
+                        {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
+                      {%- else -%}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
                     </div>
-                    <div class="partner-card__author">
-                      {{ block.settings.author }}
+                    <div class="partner-card__content">
+                      <div class="partner-card__text rte">
+                        {{ block.settings.text }}
+                      </div>
+                      <div class="partner-card__author">
+                        {{ block.settings.author }}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            {%- endfor -%}
-          </div>
-        </div>
-
-        <div class="partner-slider-footer">
-          <div class="slider-template-controls slider-template-controls--{{ section.settings.controls_position }}">
-            {%- if section.settings.controls_position == 'bottom' -%}
-              <div class="slider-template-progress-track">
-                <div class="slider-template-progress-fill"></div>
-              </div>
-            {%- endif -%}
-            
-            {%- if section.settings.controls_position == 'dots' -%}
-              <div class="slider-template-pagination partner-pagination-wrapper"></div>
-            {%- endif -%}
-
-            {%- if section.settings.controls_position == 'middle' -%}
-              <div class="slider-template-controls-nav">
-                <button type="button" class="slider-template-arrow js-slider-template-prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-                <button type="button" class="slider-template-arrow js-slider-template-next" aria-label="{{ 'general.slider.next_slide' | t }}">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
-            {%- endif -%}
-          </div>
-
-          {%- if section.settings.button_label != blank -%}
-            <div class="partner-button-wrapper">
-              <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} 
-                 class="partner-button">
-                {{ section.settings.button_label | escape }}
-              </a>
+              {%- endfor -%}
             </div>
-          {%- endif -%}
-        </div>
+          </div>
+
+          <div class="partner-slider-footer">
+            <div class="slider-template-controls slider-template-controls--{{ section.settings.controls_position }}">
+              {%- if section.settings.controls_position == 'bottom' -%}
+                <div class="slider-template-progress-track">
+                  <div class="slider-template-progress-fill"></div>
+                </div>
+              {%- endif -%}
+              
+              {%- if section.settings.controls_position == 'dots' -%}
+                <div class="slider-template-pagination partner-pagination-wrapper"></div>
+              {%- endif -%}
+
+              {%- if section.settings.controls_position == 'middle' -%}
+                <div class="slider-template-controls-nav">
+                  <button type="button" class="slider-template-arrow js-slider-template-prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button type="button" class="slider-template-arrow js-slider-template-next" aria-label="{{ 'general.slider.next_slide' | t }}">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- if section.settings.button_label != blank -%}
+              <div class="partner-button-wrapper">
+                <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} 
+                   class="partner-button">
+                  {{ section.settings.button_label | escape }}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
 
       </div>
     </slider-container>
+  </div>
 </div>
 
 {% schema %}
@@ -294,8 +295,14 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Section Color Scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "card_color_scheme",
+      "label": "Card Color Scheme",
+      "default": "scheme-2"
     },
     {
       "type": "text",
