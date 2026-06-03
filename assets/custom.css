@@ -2393,7 +2393,7 @@ cart-drawer-items {
   .utility-bar-desktop__container { padding: 0.5rem; justify-content: center; overflow-x: hidden; }
   .utility-bar-desktop__announcements { flex-wrap: wrap; justify-content: center; width: 100%; white-space: normal; padding: 10px; }
   .utility-bar-desktop__announcement { margin: 0.2rem 0; }
-  .utility-bar-desktop__separator { margin: 0 0.5rem; font-size: 1rem; }
+  .utility-bar-desktop__separator { margin: 0 1.5rem; font-size: 1rem; }
   .utility-bar-desktop__text { font-size: 1rem; letter-spacing: 0; }
   .utility-bar-desktop__icon svg { width: 1.4rem !important; height: 1.4rem !important; margin-right: 0.4rem !important; }
   .utility-bar-desktop__icon { margin-right: 0.2rem; }
