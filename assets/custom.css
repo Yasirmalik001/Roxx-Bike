@@ -2355,10 +2355,10 @@ cart-drawer-items {
   display: block;
 }
 
-.mobile-show{
-  display: block;
-}
 @media (max-width: 768px){
+  .mobile-show{
+    display: block;
+  }
   .header-promo-bar__close{
     display: none;
   }
