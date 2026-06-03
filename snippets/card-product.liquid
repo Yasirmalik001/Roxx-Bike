@@ -15,6 +15,9 @@
 <style>
   /* ROXX Custom Design Overrides - 1:1 Match */
   .roxx-product-card {
+    background-color: #F8F9FA !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -138,13 +141,14 @@
     gap: 4px;
   }
   .roxx-payment-logos img {
-    height: 14px; /* Adjust height based on your payment logo image */
+    height: 14px; 
     width: auto;
   }
   
   /* Hide standard card info to replace with Roxx layout */
   .roxx-product-card > .card__content { padding: 0 !important; }
 </style>
+
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
@@ -167,10 +171,10 @@
       endif
     endfor
     
-    assign text_shop_now = section.settings.shop_now_text | default: 'SHOP NOW'
-    assign text_test_ride = section.settings.test_ride_text | default: 'BOOK A TEST RIDE'
-    assign link_test_ride = section.settings.test_ride_link | default: '/pages/contact'
-    assign text_payment = section.settings.payment_text | default: 'Pay in 3 interest-free installments'
+    assign text_shop_now = settings.roxx_shop_now_text | default: 'SHOP NOW'
+    assign text_test_ride = settings.roxx_test_ride_text | default: 'BOOK A TEST RIDE'
+    assign link_test_ride = settings.roxx_test_ride_link | default: '/pages/contact'
+    assign text_payment = settings.roxx_payment_text | default: 'Pay in 3 interest-free installments'
   -%}
   
   <div class="card-wrapper product-card-wrapper underline-links-hover roxx-product-card">
@@ -250,11 +254,13 @@
         <a href="{{ card_product.url }}" style="text-decoration: none;">
           <h3 class="roxx-card-title">{{ card_product.title | escape }}</h3>
         </a>
-      
+        
+        <!-- Dynamic Subtitle -->
         {% if card_product.metafields.custom.subtitle != blank %}
           <p class="roxx-card-subtitle">{{ card_product.metafields.custom.subtitle }}</p>
         {% endif %}
 
+        <!-- Dynamic Specs Grid -->
         <div class="roxx-specs-grid">
           {% if card_product.metafields.custom.spec_1 != blank %}
             <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_1 }}">
@@ -387,15 +393,22 @@
 
         <div class="roxx-payment-strip">
           <div class="roxx-payment-logos">
-             <!-- If using an image uploaded to theme settings for logos, otherwise fallbacks to text -->
-            {% if section.settings.payment_logos_image != blank %}
-              <img src="{{ section.settings.payment_logos_image | image_url: width: 200 }}" alt="Payment Methods" loading="lazy">
-            {% else %}
-               <!-- Replace this mock HTML with your actual asset if needed -->
+            {%- if settings.roxx_payment_logo_1 != blank or settings.roxx_payment_logo_2 != blank or settings.roxx_payment_logo_3 != blank -%}
+              {%- if settings.roxx_payment_logo_1 != blank -%}
+                <img src="{{ settings.roxx_payment_logo_1 | image_url: height: 28 }}" alt="Payment Method 1" loading="lazy" style="height: 14px; width: auto;">
+              {%- endif -%}
+              {%- if settings.roxx_payment_logo_2 != blank -%}
+                <img src="{{ settings.roxx_payment_logo_2 | image_url: height: 28 }}" alt="Payment Method 2" loading="lazy" style="height: 14px; width: auto;">
+              {%- endif -%}
+              {%- if settings.roxx_payment_logo_3 != blank -%}
+                <img src="{{ settings.roxx_payment_logo_3 | image_url: height: 28 }}" alt="Payment Method 3" loading="lazy" style="height: 14px; width: auto;">
+              {%- endif -%}
+            {%- else -%}
+               <!-- Fallback if no images are uploaded -->
                <span style="color:#0076B6;font-weight:900;font-size:0.5rem;font-style:italic;">SPRAYPAY</span>
                <span style="background:#fff;border:1px solid #000;border-radius:3px;padding:1px 3px;font-weight:900;font-size:0.5rem;">in3</span>
                <span style="background:#FFA8C2;color:#000;border-radius:3px;padding:1px 3px;font-weight:900;font-size:0.5rem;">Klarna.</span>
-            {% endif %}
+            {%- endif -%}
           </div>
           <span>{{ text_payment }}</span>
         </div>
