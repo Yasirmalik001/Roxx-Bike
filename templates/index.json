@@ -385,7 +385,7 @@
       "name": "Partner Slider",
       "settings": {
         "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
-        "card_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "card_color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
         "heading": "WHAT OUR PARTNER SAYS!",
         "heading_size": "h1",
         "button_label": "View all",
@@ -756,11 +756,15 @@
           "settings": {
             "margin_top": 0,
             "height_top": 400,
+            "height_middle": 200,
             "height_bottom": 400,
             "margin_top_mobile": 0,
             "height_top_mobile": 180,
+            "height_middle_mobile": 130,
             "height_bottom_mobile": 180,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
+            "hide_middle_desktop": true,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
           }
         },
@@ -769,11 +773,15 @@
           "settings": {
             "margin_top": 30,
             "height_top": 400,
+            "height_middle": 200,
             "height_bottom": 400,
             "margin_top_mobile": 30,
             "height_top_mobile": 180,
+            "height_middle_mobile": 130,
             "height_bottom_mobile": 180,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/9922956ec6231c593093b7a0a416bee6ced415b7.jpg",
+            "hide_middle_desktop": true,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
           }
         },
@@ -782,11 +790,15 @@
           "settings": {
             "margin_top": 0,
             "height_top": 400,
+            "height_middle": 200,
             "height_bottom": 400,
             "margin_top_mobile": 0,
             "height_top_mobile": 180,
+            "height_middle_mobile": 130,
             "height_bottom_mobile": 180,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": true,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
           }
         },
@@ -795,11 +807,14 @@
           "settings": {
             "margin_top": 30,
             "height_top": 400,
+            "height_middle": 200,
             "height_bottom": 400,
             "margin_top_mobile": 30,
             "height_top_mobile": 180,
+            "height_middle_mobile": 130,
             "height_bottom_mobile": 180,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": false,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
           }
         },
@@ -808,11 +823,14 @@
           "settings": {
             "margin_top": 0,
             "height_top": 400,
+            "height_middle": 200,
             "height_bottom": 400,
             "margin_top_mobile": 0,
             "height_top_mobile": 180,
+            "height_middle_mobile": 130,
             "height_bottom_mobile": 180,
             "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": false,
             "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
           }
         }
