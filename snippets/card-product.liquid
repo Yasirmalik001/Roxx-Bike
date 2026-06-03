@@ -256,7 +256,7 @@
         {% if card_product.metafields.custom.subtitle != blank %}
           <p class="roxx-card-subtitle">{{ card_product.metafields.custom.subtitle }}</p>
         {% endif %}
-
+          {% if card_product.metafields.custom.spec_1 != blank %}
         <!-- Dynamic Specs Grid -->
         <div class="roxx-specs-grid">
           {% if card_product.metafields.custom.spec_1 != blank %}
@@ -280,6 +280,7 @@
             </div>
           {% endif %}
         </div>
+          {% endif %}
 
         <div class="roxx-price-row">
           <span class="roxx-price-current">{{ card_product.price | money }}</span>
