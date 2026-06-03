@@ -250,13 +250,11 @@
         <a href="{{ card_product.url }}" style="text-decoration: none;">
           <h3 class="roxx-card-title">{{ card_product.title | escape }}</h3>
         </a>
-        
-        <!-- Dynamic Subtitle -->
+      
         {% if card_product.metafields.custom.subtitle != blank %}
           <p class="roxx-card-subtitle">{{ card_product.metafields.custom.subtitle }}</p>
         {% endif %}
 
-        <!-- Dynamic Specs Grid -->
         <div class="roxx-specs-grid">
           {% if card_product.metafields.custom.spec_1 != blank %}
             <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_1 }}">
