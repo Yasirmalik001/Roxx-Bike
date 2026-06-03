@@ -192,6 +192,57 @@
         "padding_bottom": 0
       }
     },
+    "hero_slideshow_6ejY9C": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "slide_NTY49e": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/persons-of-cycles.png",
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0",
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          }
+        },
+        "slide_UPHXwC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/persons-of-cycles.png",
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0",
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          }
+        },
+        "slide_Hp8gQH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/persons-of-cycles.png",
+            "heading": "WHEN E-BIKE MEETS LIFE",
+            "heading_size": "h0",
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NTY49e",
+        "slide_UPHXwC",
+        "slide_Hp8gQH"
+      ],
+      "name": "Hero Slideshow",
+      "settings": {
+        "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
+        "desktop_height": 750,
+        "mobile_height": 650,
+        "feature_1_title": "Fold & Go",
+        "feature_1_text": "Compact designs that fit your city, your car, your life.",
+        "feature_2_title": "Power You Can Feel",
+        "feature_2_text": "Fast acceleration and long-range performance for daily freedom.",
+        "feature_3_title": "Built for Everyday",
+        "feature_3_text": "Reliable, comfortable, and ready for every ride — rain or shine.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "trust_badges_4dfJAk": {
       "type": "trust-badges",
       "blocks": {
@@ -376,6 +427,7 @@
         "color_scheme": "",
         "heading": "OUR CUSTOMER SAY!",
         "heading_size": "h0",
+        "subheading": "<p>Lorem ipsum dolor sit amet consectetur. Luctus faucibus amet ut semper enim. Lacus venenatis risus nulla sit suspendisse purus.</p>",
         "show_summary_card": false,
         "summary_rating_text": "4.2 stars / 5",
         "summary_count_text": "(Based on 200+ reviews)",
@@ -390,57 +442,6 @@
         "spacing": 30,
         "padding_top": 60,
         "padding_bottom": 60
-      }
-    },
-    "hero_slideshow_6ejY9C": {
-      "type": "hero-slideshow",
-      "blocks": {
-        "slide_NTY49e": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/persons-of-cycles.png",
-            "heading": "WHEN E-BIKE MEETS LIFE",
-            "heading_size": "h0",
-            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
-          }
-        },
-        "slide_UPHXwC": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/persons-of-cycles.png",
-            "heading": "WHEN E-BIKE MEETS LIFE",
-            "heading_size": "h0",
-            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
-          }
-        },
-        "slide_Hp8gQH": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/persons-of-cycles.png",
-            "heading": "WHEN E-BIKE MEETS LIFE",
-            "heading_size": "h0",
-            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "slide_NTY49e",
-        "slide_UPHXwC",
-        "slide_Hp8gQH"
-      ],
-      "name": "Hero Slideshow",
-      "settings": {
-        "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
-        "desktop_height": 750,
-        "mobile_height": 650,
-        "feature_1_title": "Fold & Go",
-        "feature_1_text": "Compact designs that fit your city, your car, your life.",
-        "feature_2_title": "Power You Can Feel",
-        "feature_2_text": "Fast acceleration and long-range performance for daily freedom.",
-        "feature_3_title": "Built for Everyday",
-        "feature_3_text": "Reliable, comfortable, and ready for every ride — rain or shine.",
-        "padding_top": 0,
-        "padding_bottom": 0
       }
     },
     "discover_bikes_VEdLb7": {
@@ -787,11 +788,11 @@
   "order": [
     "custom_banner_XE8idV",
     "collections_tabs_CftkD8",
-    "hero_banner_features_7JX3dk",
+    "hero_slideshow_6ejY9C",
     "trust_badges_4dfJAk",
+    "hero_banner_features_7JX3dk",
     "partner_testimonials_TYE8nf",
     "testimonials_6kM9B3",
-    "hero_slideshow_6ejY9C",
     "discover_bikes_VEdLb7",
     "feature_alternating_Y3DYDF",
     "faq_x9aGnf",
