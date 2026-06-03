@@ -2392,13 +2392,12 @@ cart-drawer-items {
 @media screen and (max-width: 749px) {
   .hero-features__heading{
     font-family: Integral CF;
-font-weight: 400;
-font-style: Regular;
-font-size: 24px;
-leading-trim: NONE;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: center;
 
   }
   .utility-bar-desktop__container { padding: 0.5rem; justify-content: center; overflow-x: hidden; }
