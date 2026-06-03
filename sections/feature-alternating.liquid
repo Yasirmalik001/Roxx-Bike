@@ -58,10 +58,10 @@
   
   .alternating-heading {
     font-family: inherit;
-    font-size: 2.2rem;
+    font-size: 35.2px; /* 2.2rem */
     font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px; /* 1.5rem */
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
@@ -75,9 +75,9 @@
   
   .timeline-item {
     position: relative;
-    padding-left: 2.5rem;
-    padding-bottom: 3rem;
-    font-size: 1.05rem;
+    padding-left: 40px; /* 2.5rem */
+    padding-bottom: 48px; /* 3rem */
+    font-size: 16.8px; /* 1.05rem */
     line-height: 1.6;
     color: currentColor;
     opacity: 0.85;
@@ -91,7 +91,7 @@
     content: '';
     position: absolute;
     left: 0;
-    top: 0.4rem;
+    top: 6.4px; /* 0.4rem */
     width: 14px;
     height: 14px;
     background-color: #FFD100;
@@ -103,8 +103,8 @@
     content: '';
     position: absolute;
     left: 6px;
-    top: 1.4rem;
-    bottom: -0.2rem;
+    top: 22.4px; /* 1.4rem */
+    bottom: -3.2px; /* -0.2rem */
     width: 2px;
     background-color: rgba(var(--color-foreground), 0.15);
     z-index: 1;
@@ -112,23 +112,23 @@
   
   /* Standard Paragraph Styles */
   .alternating-text {
-    font-size: 0.95rem;
+    font-size: 15.2px; /* 0.95rem */
     line-height: 1.6;
     color: currentColor;
     opacity: 0.85;
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px; /* 1.5rem */
   }
 
   /* --- NEW: Feature Block Styles (Checkmarks & Buttons) --- */
   .feature-list-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 32px; /* 2rem */
   }
   
   .list-heading {
-    font-size: 0.95rem;
+    font-size: 15.2px; /* 0.95rem */
     font-weight: 600;
     color: currentColor;
-    margin-bottom: 0.8rem;
+    margin-bottom: 12.8px; /* 0.8rem */
   }
 
   .check-list {
@@ -141,10 +141,10 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-size: 0.95rem;
+    font-size: 15.2px; /* 0.95rem */
     color: currentColor;
     opacity: 0.85;
-    margin-bottom: 0.8rem;
+    margin-bottom: 12.8px; /* 0.8rem */
     line-height: 1.4;
   }
 
@@ -163,7 +163,7 @@
     color: #000000;
     padding: 14px 28px;
     border-radius: 30px;
-    font-size: 0.85rem;
+    font-size: 13.6px; /* 0.85rem */
     font-weight: 800;
     text-transform: uppercase;
     text-decoration: none;
@@ -178,7 +178,7 @@
   @media screen and (max-width: 990px) {
     .alternating-row {
       flex-direction: column !important; /* Force image on top for ALL layouts on mobile */
-      margin-bottom: 2rem;
+      margin-bottom: 32px; /* 2rem */
     }
     
     .alternating-image, .alternating-content {
@@ -191,30 +191,33 @@
     }
     
     .alternating-content {
-      padding: 2rem 1.5rem;
+      padding: 32px 24px; /* 2rem 1.5rem */
       background-color: #F8F9FA; /* Light gray background matching screenshot */
     }
 
     .alternating-heading {
-      font-size: 1.6rem; /* Scaled down heading */
-      margin-bottom: 1rem;
+      font-size: 25.6px; /* 1.6rem */
+      margin-bottom: 16px; /* 1rem */
     }
 
     .alternating-text {
-      font-size: 0.85rem;
-      margin-bottom: 1.2rem;
+      font-size: 13.6px; /* 0.85rem */
+      margin-bottom: 19.2px; /* 1.2rem */
     }
 
     .check-list-item {
-      font-size: 0.85rem;
+      font-size: 13.6px; /* 0.85rem */
       gap: 8px;
     }
-.custom-alternating-section {
-    padding-inline: 2rem;
-}
-.custom-alternating-section  .hero-features__heading{
-  text-align: left;
-}
+
+    .custom-alternating-section {
+      padding-inline: 32px; /* 2rem */
+    }
+
+    .custom-alternating-section  .hero-features__heading{
+      text-align: left;
+    }
+
     .check-icon {
       width: 16px;
       height: 16px;
@@ -223,7 +226,7 @@
     .feature-btn {
       width: 100%; /* Full width button on mobile */
       padding: 12px 20px;
-      font-size: 0.8rem;
+      font-size: 12.8px; /* 0.8rem */
     }
   }
 {%- endstyle -%}
