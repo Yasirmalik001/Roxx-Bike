@@ -2539,3 +2539,6 @@ cart-drawer-items {
   
   .footer__bottom-copyright { order: 3; width: 100%; text-align: center; padding-top: 0; margin-bottom: 2rem; }
 }
+.card__content {
+    background: #F7F7F7;
+}
