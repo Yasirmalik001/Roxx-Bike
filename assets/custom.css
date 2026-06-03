@@ -2426,6 +2426,7 @@ cart-drawer-items {
   padding: 1rem 0;
   color: #fff;
 }
+<<<<<<< Updated upstream
 .footer-block__newsletter .newsletter-form__field-wrapper .field__input:focus {
   border-bottom-color: #fff;
   box-shadow: none;
@@ -2542,3 +2543,69 @@ cart-drawer-items {
 .card__content {
     background: #F7F7F7;
 }
+=======
+
+/* FORCE FOOTER OVERRIDES FOR MOBILE */
+#shopify-section-footer .footer__content-top {
+  display: flex !important;
+}
+@media screen and (max-width: 749px) {
+  #shopify-section-footer .footer__content-top {
+    flex-direction: column !important;
+  }
+  #shopify-section-footer .footer-block--newsletter {
+    order: -1 !important;
+  }
+  #shopify-section-footer .footer__blocks-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+  #shopify-section-footer .footer__blocks-wrapper .footer-block {
+    width: 100% !important;
+  }
+  /* FORCE details-content to be visible without accordion */
+  #shopify-section-footer .footer-block__details-content {
+    display: block !important;
+    opacity: 1 !important;
+    height: auto !important;
+    visibility: visible !important;
+    margin-top: 1rem !important;
+  }
+  #shopify-section-footer .footer-block__heading {
+    margin-bottom: 0 !important;
+    cursor: default !important;
+  }
+  #shopify-section-footer .footer__content-bottom {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+  }
+  #shopify-section-footer .footer__bottom-localization {
+    order: 1 !important;
+    width: 48% !important;
+    justify-content: flex-start !important;
+    display: flex !important;
+  }
+  #shopify-section-footer .footer__bottom-trustpilot {
+    order: 1 !important;
+    width: 48% !important;
+    justify-content: flex-end !important;
+    display: flex !important;
+  }
+  #shopify-section-footer .footer__bottom-brand {
+    order: 2 !important;
+    width: 100% !important;
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  #shopify-section-footer .footer__bottom-copyright {
+    order: 3 !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+  }
+}
+>>>>>>> Stashed changes
