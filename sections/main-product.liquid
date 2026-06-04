@@ -74,6 +74,21 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
+    <!-- Breadcrumbs at the top of the product page -->
+    <nav class="custom-breadcrumbs product-breadcrumbs" aria-label="breadcrumbs">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span class="breadcrumb-separator">></span>
+      {%- if product.collections.size > 0 -%}
+        {%- assign collection = product.collections.first -%}
+        <a href="{{ collection.url }}">{{ collection.title | escape }}</a>
+        <span class="breadcrumb-separator">></span>
+      {%- else -%}
+        <a href="/collections/all">Bikes</a>
+        <span class="breadcrumb-separator">></span>
+      {%- endif -%}
+      <span class="active-breadcrumb">{{ product.title | escape }}</span>
+    </nav>
+
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
@@ -126,12 +141,21 @@
     {%- endif -%}
   </div>
               {%- when 'price' -%}
+                {%- style -%}
+                  #price-{{ section.id }} {
+                    --save-badge-bg: {{ block.settings.save_badge_bg | default: '#b3191f' }};
+                    --save-badge-text: {{ block.settings.save_badge_text | default: '#ffffff' }};
+                    --klarna-pill-bg: {{ block.settings.klarna_pill_bg | default: '#f8f8f8' }};
+                    --klarna-pill-text: {{ block.settings.klarna_pill_text | default: '#555555' }};
+                  }
+                {%- endstyle -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'custom-price',
                     product: product,
                     use_variant: true,
                     show_badges: true,
-                    price_class: 'price--large'
+                    price_class: 'price--large',
+                    block: block
                   -%}
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
@@ -181,56 +205,15 @@
               {%- when 'upsell_product' -%}
                 {% render 'upsell', block: block %}
               {%- when 'inventory' -%}
-                <p
-                  class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
-                  {{ block.shopify_attributes }}
-                  id="Inventory-{{ section.id }}"
-                  role="status"
-                >
-                  {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
-                    {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
-                      {%- if product.selected_or_first_available_variant.inventory_quantity
-                          <= block.settings.inventory_threshold
-                      -%}
-                        <span class="svg-wrapper" style="color: rgb(238, 148, 65)">
-                          {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                        </span>
-                        {%- if block.settings.show_inventory_quantity -%}
-                          {{-
-                            'products.product.inventory_low_stock_show_count'
-                            | t: quantity: product.selected_or_first_available_variant.inventory_quantity
-                          -}}
-                        {%- else -%}
-                          {{- 'products.product.inventory_low_stock' | t -}}
-                        {%- endif -%}
-                      {%- else -%}
-                        <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                          {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                        </span>
-                        {%- if block.settings.show_inventory_quantity -%}
-                          {{-
-                            'products.product.inventory_in_stock_show_count'
-                            | t: quantity: product.selected_or_first_available_variant.inventory_quantity
-                          -}}
-                        {%- else -%}
-                          {{- 'products.product.inventory_in_stock' | t -}}
-                        {%- endif -%}
-                      {%- endif -%}
-                    {%- else -%}
-                      {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
-                        <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                          {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                        </span>
-                        {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
-                      {%- else -%}
-                        <span class="svg-wrapper" style="color: rgb(200, 200, 200)">
-                          {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                        </span>
-                        {{- 'products.product.inventory_out_of_stock' | t -}}
-                      {%- endif -%}
-                    {%- endif -%}
+                <div class="product-stock-status" {{ block.shopify_attributes }}>
+                  {%- if product.selected_or_first_available_variant.available -%}
+                    <span class="stock-dot stock-dot--green"></span>
+                    <span class="stock-text">{{ block.settings.in_stock_text | default: 'In stock. Delivery in 4-5 days' }}</span>
+                  {%- else -%}
+                    <span class="stock-dot stock-dot--red"></span>
+                    <span class="stock-text">{{ block.settings.out_of_stock_text | default: 'Out of stock' }}</span>
                   {%- endif -%}
-                </p>
+                </div>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
@@ -522,6 +505,17 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
+                {%- style -%}
+                  #ProductSubmitButton-{{ section.id }} {
+                    --add-to-cart-bg: {{ block.settings.add_to_cart_bg | default: '#ffd000' }};
+                    --add-to-cart-text: {{ block.settings.add_to_cart_text | default: '#000000' }};
+                  }
+                  .book-test-ride-button-{{ section.id }} {
+                    --book-test-ride-bg: {{ block.settings.book_test_ride_bg | default: '#ffffff' }};
+                    --book-test-ride-border: {{ block.settings.book_test_ride_border | default: '#e5e5e5' }};
+                    --book-test-ride-text: {{ block.settings.book_test_ride_text_color | default: '#000000' }};
+                  }
+                {%- endstyle -%}
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
@@ -889,7 +883,41 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Save Badge Settings"
+        },
+        {
+          "type": "color",
+          "id": "save_badge_bg",
+          "label": "Save Badge Background Color",
+          "default": "#b3191f"
+        },
+        {
+          "type": "color",
+          "id": "save_badge_text",
+          "label": "Save Badge Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Klarna Installment Pill Settings"
+        },
+        {
+          "type": "color",
+          "id": "klarna_pill_bg",
+          "label": "Klarna Pill Background Color",
+          "default": "#f8f8f8"
+        },
+        {
+          "type": "color",
+          "id": "klarna_pill_text",
+          "label": "Klarna Pill Text Color",
+          "default": "#555555"
+        }
+      ]
     },
     {
       "type": "product-reviews",
@@ -1528,39 +1556,16 @@
       "limit": 1,
       "settings": [
         {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__2.label"
-            },
-            {
-              "value": "uppercase",
-              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.main-product.blocks.inventory.settings.text_style.label"
+          "type": "text",
+          "id": "in_stock_text",
+          "label": "In Stock Text",
+          "default": "In stock. Delivery in 4-5 days"
         },
         {
-          "type": "range",
-          "id": "inventory_threshold",
-          "label": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.label",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 10
-        },
-        {
-          "type": "checkbox",
-          "id": "show_inventory_quantity",
-          "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
-          "default": true
+          "type": "text",
+          "id": "out_of_stock_text",
+          "label": "Out of Stock Text",
+          "default": "Out of stock"
         }
       ]
     },
@@ -1718,6 +1723,51 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "text",
+          "id": "book_test_ride_text",
+          "label": "Book Test Ride Button Text",
+          "default": "BOOK A TEST RIDE"
+        },
+        {
+          "type": "url",
+          "id": "book_test_ride_link",
+          "label": "Book Test Ride Link"
+        },
+        {
+          "type": "header",
+          "content": "Button Colors"
+        },
+        {
+          "type": "color",
+          "id": "add_to_cart_bg",
+          "label": "Add to Cart Background Color",
+          "default": "#ffd000"
+        },
+        {
+          "type": "color",
+          "id": "add_to_cart_text",
+          "label": "Add to Cart Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "book_test_ride_bg",
+          "label": "Book Test Ride Background Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "book_test_ride_border",
+          "label": "Book Test Ride Border Color",
+          "default": "#e5e5e5"
+        },
+        {
+          "type": "color",
+          "id": "book_test_ride_text_color",
+          "label": "Book Test Ride Text Color",
+          "default": "#000000"
         }
       ]
     },

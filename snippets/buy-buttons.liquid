@@ -88,11 +88,25 @@
               {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
+                <!-- Circle Plus Icon -->
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; vertical-align: middle; display: inline-block;">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
           </button>
+          
+          <!-- Book a Test Ride Action Button -->
+          {%- if block.settings.book_test_ride_text != blank -%}
+            <a href="{{ block.settings.book_test_ride_link | default: '/pages/book-a-test-ride' }}" class="book-test-ride-button book-test-ride-button-{{ section_id }} button button--secondary button--full-width">
+              {{ block.settings.book_test_ride_text }}
+            </a>
+          {%- endif -%}
+
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}

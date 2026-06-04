@@ -16,8 +16,16 @@
           {%- if img_val != blank -%}
             <img src="{{ img_val | image_url: width: 120 }}" alt="Rider testimonial {{ i }}" loading="lazy" width="60" height="60">
           {%- else -%}
-            <!-- Placeholder icon/initials -->
-            <div class="rider-placeholder">R</div>
+            {%- case i -%}
+              {%- when 1 -%}
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="Rider testimonial 1" loading="lazy" width="60" height="60">
+              {%- when 2 -%}
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Rider testimonial 2" loading="lazy" width="60" height="60">
+              {%- when 3 -%}
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&h=120&q=80" alt="Rider testimonial 3" loading="lazy" width="60" height="60">
+              {%- when 4 -%}
+                <img src="https://images.unsplash.com/photo-1489980508314-941910ded1f4?auto=format&fit=crop&w=120&h=120&q=80" alt="Rider testimonial 4" loading="lazy" width="60" height="60">
+            {%- endcase -%}
           {%- endif -%}
           
           <div class="rider-play-overlay">

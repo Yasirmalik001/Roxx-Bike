@@ -45,6 +45,14 @@
 {% comment %} Styles moved to sereluna.css {% endcomment %}
 
 {%- unless target == null and placeholder == null -%}
+  <!-- Dynamic Save Badge in the top right of the card -->
+  {%- if compare_at_price > price -%}
+    {%- assign save_amount = compare_at_price | minus: price -%}
+    <div class="product-save-badge">
+      Save {{ save_amount | money }}
+    </div>
+  {%- endif -%}
+
   <div class="custom-price-wrapper {%- if price_class %} {{ price_class }}{% endif -%}">
     <!-- Current Price -->
     <div class="custom-price-current">
@@ -64,9 +72,6 @@
           {{ compare_at_price | money }}
         {% endif %}
       </div>
-      {%- if discount_percentage > 0 -%}
-        <div class="custom-oval-badge">{{ discount_percentage }}% Off</div>
-      {%- endif -%}
     {%- endif -%}
 
     <!-- "Per PC" Badge from Metafield -->
@@ -82,5 +87,19 @@
         measurement: product.selected_or_first_available_variant.unit_price_measurement
       %}
     {%- endif -%}
+  </div>
+
+  <!-- Klarna Installments Pill -->
+  <div class="product-klarna-installment-pill">
+    <span class="klarna-badge">Klarna.</span>
+    <span class="afterpay-badge">afterpay</span>
+    <span class="installment-text">Pay in 3 interest-free installments</span>
+    <span class="info-icon">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12" y2="8"></line>
+      </svg>
+    </span>
   </div>
 {% endunless %}

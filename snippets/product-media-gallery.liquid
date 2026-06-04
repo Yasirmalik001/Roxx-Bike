@@ -351,6 +351,11 @@
           {%- endunless -%}
         {%- endfor -%}
       </ul>
+      <div class="thumbnail-scroll-down-arrow" onclick="document.querySelector('slider-component.thumbnail-slider ul.thumbnail-list')?.scrollBy({ top: 100, behavior: 'smooth' });">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
     </slider-component>
   {%- endif -%}
 </media-gallery>

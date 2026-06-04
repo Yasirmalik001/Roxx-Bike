@@ -112,6 +112,13 @@
             "link": ""
           }
         },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "in_stock_text": "In stock. Delivery in 4-5 days",
+            "out_of_stock_text": "Out of stock"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -276,6 +283,7 @@
         "variant_picker",
         "custom_option_accessories_custom",
         "custom_option_insurance_custom",
+        "inventory",
         "buy_buttons",
         "delivery_payment_mB6BTN",
         "pills_xFGRwJ",
