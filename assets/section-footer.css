@@ -18,9 +18,6 @@
     justify-content: center;
 }
 @media screen and (max-width: 749px) {
-  .footer .grid {
-    display: block;
-  }
 .footer {
   padding: 0px 1.5rem 0px 1.5rem;
 }
