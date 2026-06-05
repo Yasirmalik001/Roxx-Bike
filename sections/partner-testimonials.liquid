@@ -15,6 +15,16 @@
     overflow: hidden;
   }
 
+  .partner-testimonials__heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 36px);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-top: 0;
+    margin-bottom: 48px;
+  }
+
   /* Force swiper slides to equal height */
   .partner-testimonials__slider .swiper-slide {
     height: auto;
@@ -197,7 +207,7 @@
   <div class="page-width">
     
     {%- if section.settings.heading != blank -%}
-      <h2 class="hero-features__heading {{ section.settings.heading_size }}">
+      <h2 class="partner-testimonials__heading {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
@@ -218,7 +228,8 @@
                 "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
                 "desktopSlides": {{ section.settings.columns_desktop }},
                 "desktopSpacing": {{ section.settings.spacing }},
-                "centeredSlides": {{ section.settings.center_slides | default: false | json }}
+                "centeredSlides": {{ section.settings.center_slides | default: false | json }},
+                "initialSlide": {% if section.settings.center_slides and section.blocks.size >= 3 %}1{% else %}0{% endif %}
               }
             '
           >
