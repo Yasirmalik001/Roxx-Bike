@@ -80,10 +80,10 @@
       media-gallery.media-gallery--side-by-side .thumbnail-list__item {
         width: 100% !important;
         max-width: 100% !important;
-        border-radius: 8px !important;
+        border-radius: 16px !important;
       }
       media-gallery.media-gallery--side-by-side .thumbnail {
-        border-radius: 8px !important;
+        border-radius: 16px !important;
         overflow: hidden !important;
         border: 2px solid transparent !important;
       }
@@ -381,7 +381,7 @@
           {%- endunless -%}
         {%- endfor -%}
       </ul>
-      <div class="thumbnail-scroll-down-arrow" onclick="document.querySelector('#GalleryViewer-{{ section.id }} .slider-button--next')?.click();">
+      <div class="thumbnail-scroll-down-arrow" onclick="document.getElementById('Slider-Thumbnails-{{ section.id }}').scrollBy({top: 120, behavior: 'smooth'});">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
