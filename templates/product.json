@@ -889,6 +889,110 @@
         "padding_bottom": 60
       }
     },
+       "masonary_gallery_3z9FME": {
+      "type": "masonary-gallery",
+      "blocks": {
+        "column_fgtRtb": {
+          "type": "column",
+          "settings": {
+            "margin_top": 0,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 0,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
+            "hide_middle_desktop": true,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        },
+        "column_PxpJ4F": {
+          "type": "column",
+          "settings": {
+            "margin_top": 30,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 30,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/9922956ec6231c593093b7a0a416bee6ced415b7.jpg",
+            "hide_middle_desktop": true,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        },
+        "column_tqGbjU": {
+          "type": "column",
+          "settings": {
+            "margin_top": 0,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 0,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": true,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        },
+        "column_fMDjad": {
+          "type": "column",
+          "settings": {
+            "margin_top": 30,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 30,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": false,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        },
+        "column_KctEx6": {
+          "type": "column",
+          "settings": {
+            "margin_top": 0,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 0,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": false,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_fgtRtb",
+        "column_PxpJ4F",
+        "column_tqGbjU",
+        "column_fMDjad",
+        "column_KctEx6"
+      ],
+      "name": "Masonry Gallery",
+      "settings": {
+        "heading": "JOIN OUR ROXX FAMILY",
+        "heading_size": "h0",
+        "subheading": "with thousands who've upgraded their everyday ride.",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_with_features_protect_L3ciHK": {
       "type": "image-with-features-protect",
       "blocks": {
@@ -1212,6 +1316,7 @@
     "image_with_text_YXALTw",
     "call_to_action_banner_gDyYaG",
     "testimonials_NNYm9Y",
+        "masonary_gallery_3z9FME",
     "image_with_features_protect_L3ciHK",
     "app_features_section_gVYMpE",
     "image_with_hotspots_rJkiKJ",
