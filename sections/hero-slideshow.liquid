@@ -149,7 +149,7 @@
   @media screen and (max-width: 749px) {
     .hero-slider-wrapper {
       min-height: auto;
-      background-color: rgb(var(--color-background));
+      background-color: #f7f7f7; /* Light background for the whole section */
     }
     
     .hero-swiper {
@@ -170,59 +170,47 @@
     }
     
     .hero-slide__content-container {
-      background: rgb(var(--color-background));
+      background: #f7f7f7;
       align-items: flex-start;
     }
     
     .hero-slide__text-box {
       max-width: 100%;
-      padding: 0 2rem;
+      padding: 0;
     }
     
-    .hero-slide__heading {
-      color: rgb(var(--color-foreground)) !important;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-    }
     
     .hero-slide__description {
-      color: rgba(var(--color-foreground), 0.8) !important;
+      color: #333333 !important;
       font-size: 1.4rem;
     }
     
     .hero-slide__description p {
-      color: rgba(var(--color-foreground), 0.8) !important;
+      color: #333333 !important;
     }
 
     .hero-features-overlay {
       position: relative;
-      background: rgb(var(--color-background));
+      background: #f7f7f7; /* Remove dark gradient, match light bg */
     }
     
     .hero-features-grid {
       display: flex;
       flex-direction: column;
       gap: 0;
-      padding: 0 2rem;
     }
     
     .hero-feature__item {
       padding: 2rem 0;
-      border-bottom: 1px solid rgba(var(--color-foreground), 0.15); /* Separator lines */
+      border-bottom: 1px solid #dcdcdc; /* Separator lines */
     }
     
     .hero-feature__item:last-child {
       border-bottom: none; /* Hide line on the last item */
     }
-
-    .hero-feature__title {
-      color: rgb(var(--color-foreground)) !important;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
     
     .hero-feature__text {
-      color: rgba(var(--color-foreground), 0.8) !important;
+      color: #333333 !important;
       font-size: 1.3rem;
     }
 
@@ -231,12 +219,7 @@
     }
     
     .swiper-pagination-bullet {
-      background: rgb(var(--color-foreground)) !important; /* Dynamic bullets for light/dark bg */
-      opacity: 0.5;
-    }
-
-    .swiper-pagination-bullet-active {
-      opacity: 1;
+      background: #000000 !important; /* Dark bullets for light bg */
     }
   }
 {%- endstyle -%}
