@@ -699,28 +699,40 @@
     "image_with_text_YXALTw": {
       "type": "image-with-text",
       "blocks": {
-        "text_ipQKQD": {
-          "type": "text",
-          "name": "t:sections.image-with-text.blocks.text.name",
-          "settings": {
-            "text": "<p>Plaats een afbeelding bij stukken tekst om de aandacht op je gekozen product, collectie of blogpost te richten. Voeg details over beschikbaarheid en stijl toe of plaats een productrecensie.</p>",
-            "text_style": "body"
-          },
-          "blocks": {}
-        },
         "heading_kVc3Cw": {
           "type": "heading",
           "name": "t:sections.image-with-text.blocks.heading.name",
           "settings": {
-            "heading": "Afbeelding met tekst",
-            "heading_size": "h1"
+            "heading": "Personalise your route with accessories and add-ons",
+            "heading_size": "h2"
+          },
+          "blocks": {}
+        },
+        "text_ipQKQD": {
+          "type": "text",
+          "name": "t:sections.image-with-text.blocks.text.name",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Luctus faucibus amet ut semper enim. Lacus venenatis risus nulla sit suspendisse purus. Ipsum malesuada lorem nunc ornare mattis pharetra nulla lacus diam.</p>",
+            "text_style": "body"
+          },
+          "blocks": {}
+        },
+        "button_XbVjPD": {
+          "type": "button",
+          "name": "t:sections.image-with-text.blocks.button.name",
+          "settings": {
+            "button_label": "Shop Accessories",
+            "button_link": "shopify://collections/accessoires",
+            "button_style_secondary": false,
+            "center_on_mobile": false
           },
           "blocks": {}
         }
       },
       "block_order": [
+        "heading_kVc3Cw",
         "text_ipQKQD",
-        "heading_kVc3Cw"
+        "button_XbVjPD"
       ],
       "name": "Image with contents",
       "settings": {
