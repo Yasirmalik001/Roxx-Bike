@@ -2,31 +2,33 @@
   {%- if block.settings.heading != blank -%}
     <h3 class="insurance-heading">{{ block.settings.heading | escape }}</h3>
   {%- endif -%}
-  
+
   <label class="insurance-card-label">
-    <input type="checkbox" name="properties[Insurance]" value="{{ block.settings.title | escape }}" class="insurance-checkbox-input">
+    <input type="checkbox" name="insurance_option" value="selected" class="insurance-checkbox-input">
+    
     <div class="insurance-card-content">
-      
-      <div class="insurance-left">
-        <!-- Logo placeholder/ROXX text -->
-        <div class="insurance-logo-wrap">
-          <span class="insurance-logo-text">ROXX</span>
-        </div>
+      <div class="insurance-logo-wrapper">
+        {%- if block.settings.logo != blank -%}
+          <img src="{{ block.settings.logo | image_url: width: 160 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="80" height="80">
+        {%- else -%}
+          <!-- Placeholder if no logo is uploaded -->
+          <div class="insurance-logo-placeholder">LOGO</div>
+        {%- endif -%}
       </div>
       
       <div class="insurance-details">
-        <div class="insurance-details-top">
-          <span class="insurance-title">{{ block.settings.title | escape }}</span>
-          {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" class="insurance-learn-more" target="_blank" onclick="event.stopPropagation();">Learn more</a>
-          {%- endif -%}
-        </div>
+        <span class="insurance-title">{{ block.settings.title | escape }}</span>
         
-        <p class="insurance-desc">{{ block.settings.description | escape }}</p>
-        <span class="insurance-price">{{ block.settings.price | escape }}</span>
+        <p class="insurance-description">
+          {{ block.settings.description | escape }}
+        </p>
+        
+        {%- if block.settings.link != blank -%}
+          <a href="{{ block.settings.link }}" target="_blank" class="insurance-link">Learn more</a>
+        {%- endif -%}
       </div>
       
-      <div class="insurance-check-indicator"></div>
+      <div class="insurance-radio-indicator"></div>
     </div>
   </label>
 </div>
@@ -34,108 +36,126 @@
 <style>
   .product-option-insurance {
     margin: 2.5rem 0;
+    display: block;
+    font-family: inherit;
   }
   .insurance-heading {
-    font-size: 1.3rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #555;
-    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #121212;
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
   .insurance-card-label {
     display: block;
     cursor: pointer;
+    margin: 0;
   }
   .insurance-checkbox-input {
-    display: none; /* Hide default checkbox */
+    display: none;
   }
+  
+  /* Main Card Layout */
   .insurance-card-content {
     display: flex;
-    align-items: center;
-    padding: 1.6rem;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    background-color: #fafafa;
-    transition: all 0.2s ease;
-    position: relative;
-    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 16px;
+    border: 2px solid transparent; 
+    border-radius: 12px;
+    background-color: #f7f7f7;
+    transition: all 0.2s ease-in-out;
   }
-  .insurance-left {
-    flex-shrink: 0;
-  }
-  .insurance-logo-wrap {
-    background-color: #ffd000;
-    color: #000;
-    font-weight: 900;
-    font-size: 1.3rem;
-    width: 64px;
-    height: 40px;
+  
+  /* Logo Box */
+  .insurance-logo-wrapper {
+    width: 80px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
-    letter-spacing: 0.05em;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-right: 16px;
+    padding: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   }
+  
+  .insurance-logo-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .insurance-logo-placeholder {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ccc;
+  }
+  
+  /* Text Details */
   .insurance-details {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     text-align: left;
     flex-grow: 1;
+    padding-top: 4px;
   }
-  .insurance-details-top {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.3rem;
-  }
+  
   .insurance-title {
     font-size: 1.4rem;
-    font-weight: 800;
-    color: #000;
+    font-weight: 600;
+    color: #121212;
+    margin-bottom: 8px;
+    line-height: 1.2;
   }
-  .insurance-learn-more {
-    font-size: 1.2rem;
-    color: #888;
-    text-decoration: underline;
-  }
-  .insurance-desc {
-    font-size: 1.2rem;
-    color: #666;
-    margin: 0 0 0.5rem 0;
+  
+  .insurance-description {
+    font-size: 1.3rem;
+    color: #444;
+    margin: 0 0 12px 0;
     line-height: 1.4;
   }
-  .insurance-price {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #333;
+
+  .insurance-link {
+    font-size: 1.3rem;
+    color: #121212;
+    text-decoration: underline;
+    font-weight: 500;
+    text-underline-offset: 3px;
   }
-  .insurance-check-indicator {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc;
+  
+  /* Checkbox Indicator (Unselected) */
+  .insurance-radio-indicator {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #dcdcdc;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
-    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    background-color: #ffffff;
     flex-shrink: 0;
+    margin-left: 12px;
+    margin-top: 4px;
   }
   
-  /* Sibling selectors for active state styling */
+  /* Selected State */
   .insurance-checkbox-input:checked + .insurance-card-content {
-    border-color: #ffd000;
-    background-color: #fffdec;
+    background-color: #ffffff;
+    border-color: #ffcc00;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   }
-  .insurance-checkbox-input:checked + .insurance-card-content .insurance-check-indicator {
-    border-color: #ffd000;
-    background-color: #ffd000;
-  }
-  .insurance-checkbox-input:checked + .insurance-card-content .insurance-check-indicator::after {
-    content: '\2713'; /* checkmark */
-    font-size: 1rem;
-    color: #000;
-    font-weight: 900;
+  
+  .insurance-checkbox-input:checked + .insurance-card-content .insurance-radio-indicator {
+    border-color: #ffcc00;
+    background-color: #ffcc00;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath fill-rule='evenodd' d='M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z'/%3E%3C/svg%3E");
+    background-size: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 </style>
