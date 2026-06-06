@@ -2106,9 +2106,9 @@ cart-drawer-items {
 .header-hovered .header__icon--cart,
 .header-wrapper:not(.header-transparent) .header__icon--account,
 .header-wrapper:not(.header-transparent) .header__icon--cart {
-  background: rgba(0, 0, 0, 0.05);
+background: #FFFFFF1C;
+backdrop-filter: blur(4px)
   color: #000000;
-  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .header-scrolled .header__icon--account:hover,
