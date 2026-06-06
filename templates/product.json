@@ -148,7 +148,7 @@
           "type": "riders_experience",
           "name": "Riders experience",
           "settings": {
-            "Heading": "Riders experience",
+            "Heading": "Real people reviews",
             "video_margin_top": 20,
             "video_margin_bottom": 20,
             "use_metafields": false,
@@ -176,7 +176,7 @@
         "product_tabs_custom": {
           "type": "product_tabs",
           "settings": {
-            "padding_top": 56,
+            "padding_top": 100,
             "padding_bottom": 40,
             "description": "<p>Experience the ultimate ride with the Roxx Bike. Features a powerful motor, long-lasting battery, and premium styling built for comfort.</p>",
             "tab_1": "Description",
