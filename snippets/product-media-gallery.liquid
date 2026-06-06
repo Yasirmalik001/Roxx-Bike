@@ -127,6 +127,57 @@
 >
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
   <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
+    <div class="product-gallery-badges">
+      <div class="gallery-badge bestseller-badge">Bestseller</div>
+      <div class="gallery-badge trustpilot-badge">
+        <div class="trustpilot-stars" style="display:flex; gap: 2px;">
+          {% for i in (1..4) %}
+            <div style="width: 20px; height: 20px; background-color: #00B67A; display:flex; justify-content:center; align-items:center;">
+              <svg viewBox="0 0 512 512" width="14" height="14" fill="white"><path d="M256 14.5l75.5 152.9 168.7 24.5-122.1 119 28.8 168L256 399.7l-150.9 79.4 28.8-168-122.1-119 168.7-24.5z"/></svg>
+            </div>
+          {% endfor %}
+          <div style="width: 20px; height: 20px; background: linear-gradient(90deg, #00B67A 50%, #D3D3D5 50%); display:flex; justify-content:center; align-items:center;">
+             <svg viewBox="0 0 512 512" width="14" height="14" fill="white"><path d="M256 14.5l75.5 152.9 168.7 24.5-122.1 119 28.8 168L256 399.7l-150.9 79.4 28.8-168-122.1-119 168.7-24.5z"/></svg>
+          </div>
+        </div>
+        <div class="trustpilot-text">4.4 / 5 (based on 200+)</div>
+      </div>
+    </div>
+    <style>
+      .product-gallery-badges {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+      }
+      .bestseller-badge {
+        background-color: #FFD000;
+        color: #000;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 1.3rem;
+      }
+      .trustpilot-badge {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .trustpilot-text {
+        font-size: 1.1rem;
+        color: #333;
+      }
+      @media screen and (max-width: 749px) {
+        .product-gallery-badges {
+          position: static;
+          margin-bottom: 10px;
+          padding: 0 1.5rem;
+        }
+      }
+    </style>
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
