@@ -1875,7 +1875,7 @@ a.product__text {
 .product__info-wrapper .price {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .product__info-wrapper .price__container {
