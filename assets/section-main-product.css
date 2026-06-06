@@ -1908,10 +1908,16 @@ text-align: center;
 }
 
 .product__info-wrapper .price--large .price-item--regular {
-  color: #888888;
-  font-size: 18px;
-  text-decoration: line-through;
-  margin-top: 4px;
+  color: #AFAFAF;
+font-family: Integral CF;
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+text-decoration: line-through;
 }
 
 /* Installment text styling */
