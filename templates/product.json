@@ -66,6 +66,13 @@
             "show_variant_images_in_swatches": false
           }
         },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "in_stock_text": "In stock. Delivery in 4-5 days",
+            "out_of_stock_text": "Out of stock"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -131,19 +138,13 @@
         },
         "divider_Yr8NHi": {
           "type": "divider",
+          "disabled": true,
           "settings": {
             "thickness": 1,
             "color": "#e5e5e5",
             "opacity": 100,
             "margin_top": 0,
             "margin_bottom": 0
-          }
-        },
-        "inventory": {
-          "type": "inventory",
-          "settings": {
-            "in_stock_text": "In stock. Delivery in 4-5 days",
-            "out_of_stock_text": "Out of stock"
           }
         },
         "gallery_specifications_custom": {
@@ -158,6 +159,16 @@
             "icon_3": "shopify://shop_images/Group_22.svg",
             "label_3": "Max Range",
             "value_3": "80-100 km"
+          }
+        },
+        "divider_pfUTYa": {
+          "type": "divider",
+          "settings": {
+            "thickness": 1,
+            "color": "#e5e5e5",
+            "opacity": 100,
+            "margin_top": 0,
+            "margin_bottom": 0
           }
         },
         "riders_experience_custom": {
@@ -178,6 +189,16 @@
             "video_text_4": "",
             "video_5": "shopify://files/videos/Trobionthebeat.mp4",
             "video_text_5": ""
+          }
+        },
+        "divider_yCHJm6": {
+          "type": "divider",
+          "settings": {
+            "thickness": 1,
+            "color": "#e5e5e5",
+            "opacity": 100,
+            "margin_top": 0,
+            "margin_bottom": 0
           }
         },
         "multi_icon_yitwEw": {
@@ -240,15 +261,17 @@
         "text_YJpJae",
         "shipping_info_UmQ3xw",
         "variant_picker",
+        "inventory",
         "buy_buttons",
         "divider_xVH3eG",
         "custom_option_accessories_custom",
         "divider_kMDJjk",
         "custom_option_insurance_custom",
         "divider_Yr8NHi",
-        "inventory",
         "gallery_specifications_custom",
+        "divider_pfUTYa",
         "riders_experience_custom",
+        "divider_yCHJm6",
         "multi_icon_yitwEw",
         "product_tabs_custom"
       ],
