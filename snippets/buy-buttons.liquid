@@ -94,7 +94,11 @@
                   <line x1="12" y1="8" x2="12" y2="16"></line>
                   <line x1="8" y1="12" x2="16" y2="12"></line>
                 </svg>
-                {{ 'products.product.add_to_cart' | t }}
+                {%- if block.settings.add_to_cart_custom_text != blank -%}
+                  {{ block.settings.add_to_cart_custom_text }}
+                {%- else -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- endif -%}
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
@@ -110,6 +114,19 @@
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
+
+          {%- comment -%} Custom Payment Icons {%- endcomment -%}
+          <div class="custom-payment-icons" style="display: flex; gap: 10px; margin-top: 15px; align-items: center; flex-wrap: wrap;">
+            {%- for i in (1..10) -%}
+              {%- assign icon_key = 'payment_icon_' | append: i -%}
+              {%- assign payment_icon = block.settings[icon_key] -%}
+              {%- if payment_icon != blank -%}
+                <div class="payment-icon-wrapper" style="width: 40px; height: 25px; display: flex; align-items: center; justify-content: center; border: 1px solid #e5e5e5; border-radius: 4px; padding: 2px; background: #fff;">
+                  <img src="{{ payment_icon | image_url: width: 80 }}" alt="{{ payment_icon.alt | escape }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
         </div>
       {%- endform -%}
     </product-form>
