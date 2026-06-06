@@ -106,12 +106,7 @@
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
         {% comment %} {% render 'product-media-gallery-swiper', variant_images: variant_images %} {% endcomment %}
-        
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'gallery_specifications' -%}
-            {% render 'gallery-specifications-strip', block: block %}
-          {%- endif -%}
-        {%- endfor -%}
+      
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
