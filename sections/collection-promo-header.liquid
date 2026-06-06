@@ -1,0 +1,296 @@
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* --- Breadcrumb Styles --- */
+  .promo-header__breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    color: rgba(var(--color-foreground), 0.7);
+    margin-bottom: 3.2rem;
+    text-decoration: none;
+  }
+  
+  .promo-header__breadcrumbs a {
+    color: rgba(var(--color-foreground), 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .promo-header__breadcrumbs a:hover {
+    color: rgb(var(--color-foreground));
+  }
+
+  .promo-header__breadcrumbs svg {
+    width: 10px;
+    height: 10px;
+    opacity: 0.6;
+  }
+
+  /* --- Header Content Styles --- */
+  .promo-header__content {
+    text-align: center;
+    max-width: 76.8rem;
+    margin: 0 auto 4rem auto;
+  }
+
+  .promo-header__title {
+    margin-bottom: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .promo-header__description {
+    font-size: 1.5rem;
+    color: rgba(var(--color-foreground), 0.8);
+    line-height: 1.5;
+  }
+
+  /* --- Promo Bar Styles --- */
+  .promo-header__bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem 3.2rem;
+    border-radius: 4px;
+    gap: 1.6rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .promo-header__bar {
+      flex-direction: row;
+      gap: 3.2rem;
+    }
+  }
+
+  .promo-header__bar-text {
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+  }
+
+  .promo-header__bar-timer {
+    font-size: 1.4rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.main_color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    
+    {%- if section.settings.show_breadcrumbs -%}
+      <nav class="promo-header__breadcrumbs" aria-label="breadcrumbs">
+        <a href="{{ routes.root_url }}">{{ 'general.breadcrumbs.home' | t | default: 'Home' }}</a>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 1L7 5L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span aria-current="page">{{ collection.title | default: page.title | default: section.settings.title }}</span>
+      </nav>
+    {%- endif -%}
+
+    <div class="promo-header__content">
+      <h1 class="promo-header__title {{ section.settings.heading_size }}">
+        {%- if section.settings.title != blank -%}
+          {{ section.settings.title | escape }}
+        {%- elsif collection.title != blank -%}
+          {{ collection.title | escape }}
+        {%- else -%}
+          ACCESSORIES
+        {%- endif -%}
+      </h1>
+      
+      <div class="promo-header__description rte">
+        {%- if section.settings.description != blank -%}
+          {{ section.settings.description }}
+        {%- elsif collection.description != blank -%}
+          {{ collection.description }}
+        {%- else -%}
+          <p>Discover the complete accessory range. From safety locks and GPS trackers to saddles, lighting, and battery chargers — everything you need</p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.promo_text != blank or section.settings.countdown_end != blank -%}
+      <div class="promo-header__bar color-{{ section.settings.promo_color_scheme }}">
+        <p class="promo-header__bar-text">
+          {{ section.settings.promo_text }}
+        </p>
+        
+        {%- if section.settings.countdown_end != blank -%}
+          <countdown-timer class="promo-header__bar-timer" data-end-date="{{ section.settings.countdown_end }}">
+            00 d : 00 hr : 00 min : 00 sec
+          </countdown-timer>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{%- if section.settings.countdown_end != blank -%}
+  <script>
+    if (!customElements.get('countdown-timer')) {
+      customElements.define('countdown-timer', class CountdownTimer extends HTMLElement {
+        constructor() {
+          super();
+          this.endDate = new Date(this.dataset.endDate).getTime();
+          if (isNaN(this.endDate)) {
+            console.error('Invalid date format for countdown timer. Use YYYY-MM-DDTHH:MM:SS');
+            return;
+          }
+          this.init();
+        }
+
+        init() {
+          this.updateTimer();
+          this.interval = setInterval(this.updateTimer.bind(this), 1000);
+        }
+
+        updateTimer() {
+          const now = new Date().getTime();
+          const distance = this.endDate - now;
+
+          if (distance < 0) {
+            clearInterval(this.interval);
+            this.innerHTML = "Offer Ended";
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          this.innerHTML = `${days} d : ${hours} hr : ${minutes} min : ${seconds} sec`;
+        }
+      });
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Promo Header",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Main Settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "main_color_scheme",
+      "label": "Section Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "default": true,
+      "label": "Show breadcrumbs"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "info": "Leave blank to use the Collection or Page title automatically."
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "info": "Leave blank to use the Collection description automatically."
+    },
+    {
+      "type": "header",
+      "content": "Promo Bar Settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "promo_color_scheme",
+      "label": "Promo Bar Color Scheme",
+      "default": "scheme-4",
+      "info": "Use an inverse or dark scheme to match the design."
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Promo Text",
+      "default": "Holiday pay deals Upto 500 discount + free folding lock"
+    },
+    {
+      "type": "text",
+      "id": "countdown_end",
+      "label": "Countdown End Date",
+      "info": "Format: YYYY-MM-DDTHH:MM:SS (e.g. 2026-12-31T23:59:59). Leave blank to hide timer."
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo Header"
+    }
+  ]
+}
+{% endschema %}
