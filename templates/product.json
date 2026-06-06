@@ -437,6 +437,102 @@
         "padding_bottom": 40
       }
     },
+    "quick_features_slider_GB9B7z": {
+      "type": "quick-features-slider",
+      "blocks": {
+        "feature_3Hiqp4": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a.jpg",
+            "title": "LIGHT WEIGHT FRAME",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
+        "feature_9CVgzr": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/K1.png",
+            "title": "REMOVABLE BATTERY",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
+        "feature_fVixTb": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/K1.png",
+            "title": "REMOVABLE BATTERY",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
+        "feature_QU4chA": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/K1.png",
+            "title": "REMOVABLE BATTERY",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
+        "feature_riXQxc": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/K1.png",
+            "title": "REMOVABLE BATTERY",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
+        "feature_MCDgtx": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/b53dba1553b2351ae4f7acb4fd7f6cd2327df0fc.jpg",
+            "title": "ALL IN ONE APP",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        },
+        "feature_Dyg89G": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/b53dba1553b2351ae4f7acb4fd7f6cd2327df0fc.jpg",
+            "title": "AESTHETICS",
+            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_3Hiqp4",
+        "feature_9CVgzr",
+        "feature_fVixTb",
+        "feature_QU4chA",
+        "feature_riXQxc",
+        "feature_MCDgtx",
+        "feature_Dyg89G"
+      ],
+      "name": "Quick Features Slider",
+      "settings": {
+        "color_scheme": "",
+        "heading": "QUICK FEATURES OF ROXX JX BLACK",
+        "heading_size": "h1",
+        "accent_color": "#ffd000",
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "enable_loop": false,
+        "enable_centered_slides": false,
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "columns_desktop": 3,
+        "columns_mobile": 1.2,
+        "spacing_desktop": 24,
+        "spacing_mobile": 15,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "specifications_section_k6Pnef": {
       "type": "specifications-section",
       "blocks": {
@@ -834,102 +930,6 @@
         "padding_bottom": 60
       }
     },
-    "quick_features_slider_GB9B7z": {
-      "type": "quick-features-slider",
-      "blocks": {
-        "feature_3Hiqp4": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a.jpg",
-            "title": "LIGHT WEIGHT FRAME",
-            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
-            "link": ""
-          }
-        },
-        "feature_9CVgzr": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/K1.png",
-            "title": "REMOVABLE BATTERY",
-            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
-            "link": ""
-          }
-        },
-        "feature_fVixTb": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/K1.png",
-            "title": "REMOVABLE BATTERY",
-            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
-            "link": ""
-          }
-        },
-        "feature_QU4chA": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/K1.png",
-            "title": "REMOVABLE BATTERY",
-            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
-            "link": ""
-          }
-        },
-        "feature_riXQxc": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/K1.png",
-            "title": "REMOVABLE BATTERY",
-            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
-            "link": ""
-          }
-        },
-        "feature_MCDgtx": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/b53dba1553b2351ae4f7acb4fd7f6cd2327df0fc.jpg",
-            "title": "ALL IN ONE APP",
-            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
-            "link": ""
-          }
-        },
-        "feature_Dyg89G": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/b53dba1553b2351ae4f7acb4fd7f6cd2327df0fc.jpg",
-            "title": "AESTHETICS",
-            "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "feature_3Hiqp4",
-        "feature_9CVgzr",
-        "feature_fVixTb",
-        "feature_QU4chA",
-        "feature_riXQxc",
-        "feature_MCDgtx",
-        "feature_Dyg89G"
-      ],
-      "name": "Quick Features Slider",
-      "settings": {
-        "color_scheme": "",
-        "heading": "QUICK FEATURES OF ROXX JX BLACK",
-        "heading_size": "h1",
-        "accent_color": "#ffd000",
-        "enable_slider_desktop": true,
-        "enable_slider_mobile": true,
-        "enable_loop": false,
-        "enable_centered_slides": false,
-        "enable_autoplay": false,
-        "autoplay_interval": 3,
-        "columns_desktop": 3,
-        "columns_mobile": 1.2,
-        "spacing_desktop": 24,
-        "spacing_mobile": 15,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "faq_ekQccb": {
       "type": "faq",
       "blocks": {
@@ -1199,13 +1199,13 @@
     "hero_features_banner_UXYq4t",
     "related-products",
     "video_testimonials_gallery_AChKUk",
+    "quick_features_slider_GB9B7z",
     "specifications_section_k6Pnef",
     "product_comparison_WqKGJh",
     "image_with_text_YXALTw",
     "image_with_features_protect_L3ciHK",
     "app_features_section_gVYMpE",
     "image_with_hotspots_rJkiKJ",
-    "quick_features_slider_GB9B7z",
     "faq_ekQccb",
     "feature_alternating_XKMVfA",
     "promo_cards_section_Y4dTtA",
