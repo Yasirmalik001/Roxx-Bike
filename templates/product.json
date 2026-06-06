@@ -152,7 +152,7 @@
         "multi_icon_yitwEw": {
           "type": "multi-icon",
           "settings": {
-            "icon-1": "shopify://shop_images/Vector_8.svg",
+            "icon-1": "shopify://shop_images/Vector_10.svg",
             "icon_size_1": 46,
             "icon_size_m_1": 30,
             "text-1": "Free Shipping from $79.95",
@@ -160,6 +160,7 @@
             "icon_size_2": 46,
             "icon_size_m_2": 30,
             "text-2": "2-Year Warranty",
+            "icon-3": "shopify://shop_images/Vector_8.svg",
             "icon_size_3": 46,
             "icon_size_m_3": 30,
             "text-3": "14 days money back guarantee",
