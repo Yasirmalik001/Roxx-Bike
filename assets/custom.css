@@ -2825,6 +2825,11 @@ backdrop-filter: blur(4px)
   font-size: 1.2rem !important;
   color: #cccccc !important;
 }
+.product-breadcrumbs svg {
+  width: 10px !important;
+  height: 10px !important;
+  color: #cccccc !important;
+}
 .product-breadcrumbs .active-breadcrumb {
   color: #888888 !important;
   font-weight: 400 !important;
