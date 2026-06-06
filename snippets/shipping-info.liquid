@@ -103,7 +103,7 @@
       {%- if block.settings.icon_image != blank -%}
         {{ block.settings.icon_image | image_url: width: 100 | image_tag: loading: 'lazy' }}
       {%- else -%}
-        <div class="green-dot-fallback"></div>
+        <div class="green-dot-fallback"> </div>
       {%- endif -%}
     </div>
 
