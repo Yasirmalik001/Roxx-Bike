@@ -39,9 +39,11 @@
     assign media_width = 0.55
   elsif section.settings.media_size == 'small'
     assign media_width = 0.45
-{%- endif -%}
+  endif
+-%}
 
-<style>
+{%- if section.settings.thumbnail_side_by_side -%}
+  <style>
     @media screen and (min-width: 990px) {
       media-gallery.media-gallery--side-by-side {
         display: flex !important;
@@ -114,11 +116,12 @@
       }
     }
   </style>
+{%- endif -%}
 
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
-  class="media-gallery--side-by-side"
+  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if section.settings.thumbnail_side_by_side %} media-gallery--side-by-side{% endif %}"
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
@@ -248,7 +251,7 @@
       {%- endfor -%}
     </ul>
     <div class="slider-buttons quick-add-hidden{% if media_count < 2 %} small-hide{% endif %}{% if hide_mobile_slider %} small-hide--disabled{% endif %}">
-      <button
+      {% comment %} <button
         type="button"
         class="slider-button slider-button--prev"
         name="previous"
@@ -259,7 +262,7 @@
             <path d="M20 12L4 12M4 12L10 6M4 12L10 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </span>
-      </button>
+      </button> {% endcomment %}
       <div class="slider-counter caption">
         <span class="slider-counter--current">1</span>
         <span aria-hidden="true"> / </span>
