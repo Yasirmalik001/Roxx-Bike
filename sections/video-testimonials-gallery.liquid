@@ -23,14 +23,13 @@
     margin: 0;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: -0.02em; /* Adjusted to match exactly */
+    letter-spacing: -0.02em;
   }
 
-  /* 1:1 Matched Rating Section */
   .vt-gallery-rating-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Right align both stars and text */
+    align-items: flex-end;
     gap: 0.6rem;
     padding-bottom: 0.5rem;
   }
@@ -40,7 +39,6 @@
     gap: 2px;
   }
 
-  /* Green Square with White Star (Trustpilot style) */
   .vt-gallery-star-box {
     background-color: #00b67a;
     width: 20px;
@@ -80,7 +78,7 @@
     }
 
     .vt-gallery-rating-wrapper {
-      align-items: flex-start; /* Left align on mobile */
+      align-items: flex-start;
     }
     
     .vt-gallery-grid {
@@ -105,7 +103,7 @@
     }
   }
 
-  /* Card and Aspect Ratio Styling */
+  /* Card and Height Styling */
   .vt-gallery-item {
     position: relative;
     border-radius: {{ section.settings.card_corner_radius }}px;
@@ -117,12 +115,13 @@
     position: relative;
     width: 100%;
     display: block;
-    aspect-ratio: {{ section.settings.aspect_ratio_desktop }};
+    /* Height Control instead of Aspect Ratio */
+    height: {{ section.settings.card_height_desktop }}px;
   }
 
   @media screen and (max-width: 749px) {
     .vt-gallery-media-wrap {
-      aspect-ratio: {{ section.settings.aspect_ratio_mobile }};
+      height: {{ section.settings.card_height_mobile }}px;
     }
   }
 
@@ -136,7 +135,7 @@
     object-fit: cover;
   }
 
-  /* Play Button Overlay (1:1 Match) */
+  /* Play Button Overlay */
   .vt-gallery-play-btn {
     position: absolute;
     top: 50%;
@@ -167,7 +166,7 @@
     width: 18px;
     height: 18px;
     fill: currentColor;
-    margin-left: 3px; /* Visual centering adjustment for play triangle */
+    margin-left: 3px;
   }
 {%- endstyle -%}
 
@@ -294,18 +293,24 @@
       "default": 2.5
     },
     {
-      "type": "text",
-      "id": "aspect_ratio_desktop",
-      "label": "Desktop Aspect Ratio",
-      "default": "1 / 1.3",
-      "info": "Width / Height format. Use '1 / 1.3' for portrait cards shown in image."
+      "type": "range",
+      "id": "card_height_desktop",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop Card Height",
+      "default": 550
     },
     {
-      "type": "text",
-      "id": "aspect_ratio_mobile",
-      "label": "Mobile Aspect Ratio",
-      "default": "1 / 1.3",
-      "info": "Width / Height format."
+      "type": "range",
+      "id": "card_height_mobile",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Card Height",
+      "default": 450
     },
     {
       "type": "range",
