@@ -328,7 +328,6 @@
           "type": "feature",
           "settings": {
             "icon": "gear",
-            "custom_svg": "",
             "title": "250W Direct power"
           }
         },
@@ -336,7 +335,6 @@
           "type": "feature",
           "settings": {
             "icon": "radar",
-            "custom_svg": "",
             "title": "Carbon belt drive"
           }
         },
@@ -344,7 +342,6 @@
           "type": "feature",
           "settings": {
             "icon": "power",
-            "custom_svg": "",
             "title": "Powerful engine"
           }
         }
@@ -356,8 +353,9 @@
       ],
       "name": "Hero with Features",
       "settings": {
+        "video": "shopify://files/videos/joieemcomm-ezgif.com-mute-video (1).mp4",
         "image_position": "center center",
-        "color_scheme": "",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "min_height": 90,
         "subheading": "Less effort. More freedom.",
         "title": "POWER YOU CAN FEEL",
