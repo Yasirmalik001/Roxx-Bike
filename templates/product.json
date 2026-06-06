@@ -78,37 +78,21 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle",
-            "show_variant_images_in_swatches": false,
-            "size_guide_page": true,
-            "trigger_tag": "størrelse",
-            "trigger_label": "Size Guide",
-            "color_primary": "#8a2468",
-            "color_secondary": "#fb499b",
-            "color_tertiary": "#fceced",
-            "title": "Size Guide",
-            "show_xs": true,
-            "val_xs_int": "34 - 36",
-            "val_xs_cm": "88 - 93",
-            "show_s": true,
-            "val_s_int": "38",
-            "val_s_cm": "94 - 99",
-            "show_m": true,
-            "val_m_int": "40 - 42",
-            "val_m_cm": "100 - 105",
-            "show_l": true,
-            "val_l_int": "44",
-            "val_l_cm": "106 - 111",
-            "show_xl": true,
-            "val_xl_int": "46",
-            "val_xl_cm": "112 - 117",
-            "show_xxl": true,
-            "val_xxl_int": "48 - 50",
-            "val_xxl_cm": "118 - 123",
-            "box_title": "How to measure?",
-            "bullet_1": "Stand naturally and measure around your hips at the widest point, where your body is fullest.",
-            "bullet_2": "Keep the measuring tape snug but not tight, and make sure it's level all the way around.",
-            "bullet_3": "For best accuracy, measure directly on your body or over thin clothing, and measure twice to be sure.",
-            "note_text": "If you come between the two sizes, choose the small one."
+            "show_variant_images_in_swatches": false
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false,
+            "book_test_ride_text": "BOOK A TEST RIDE",
+            "book_test_ride_link": "",
+            "add_to_cart_bg": "#ffd000",
+            "add_to_cart_text": "#000000",
+            "book_test_ride_bg": "#ffffff",
+            "book_test_ride_border": "#e5e5e5",
+            "book_test_ride_text_color": "#000000"
           }
         },
         "custom_option_accessories_custom": {
@@ -139,20 +123,6 @@
           "settings": {
             "in_stock_text": "In stock. Delivery in 4-5 days",
             "out_of_stock_text": "Out of stock"
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false,
-            "book_test_ride_text": "BOOK A TEST RIDE",
-            "book_test_ride_link": "",
-            "add_to_cart_bg": "#ffd000",
-            "add_to_cart_text": "#000000",
-            "book_test_ride_bg": "#ffffff",
-            "book_test_ride_border": "#e5e5e5",
-            "book_test_ride_text_color": "#000000"
           }
         },
         "delivery_payment_mB6BTN": {
@@ -298,10 +268,10 @@
         "multi_icon_xn8fhg",
         "shipping_info_UmQ3xw",
         "variant_picker",
+        "buy_buttons",
         "custom_option_accessories_custom",
         "custom_option_insurance_custom",
         "inventory",
-        "buy_buttons",
         "delivery_payment_mB6BTN",
         "pills_xFGRwJ",
         "text_e49ryr",
@@ -333,8 +303,6 @@
         "enable_group_by_color": true,
         "color_option_name": "Color",
         "fancybox_show_all": false,
-        "trigger_label": "Size Guide",
-        "default_metric": true,
         "thumbnail_side_by_side": true,
         "padding_top": 36,
         "padding_bottom": 12
