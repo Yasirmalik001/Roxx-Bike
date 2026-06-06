@@ -6,10 +6,9 @@
     position: relative;
     width: 100%;
     min-height: {{ section.settings.desktop_height }}px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    display: flex; /* Flex container */
     background-color: #111111;
+    overflow: hidden;
   }
 
   .custom-hero-bg {
@@ -47,16 +46,16 @@
     z-index: 2;
   }
 
+  /* Combined page-width and content wrapper */
   .custom-hero-content {
     position: relative;
     z-index: 3;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 3rem;
-    padding-bottom: 2rem;
+    width: 100%; /* Ensures page-width spans full available width */
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 1; /* Stretches to fill the min-height of the parent */
+    padding-top: 3rem;
+    padding-bottom: 2rem;
   }
 
   .custom-hero-center {
@@ -81,14 +80,14 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    margin-top: auto;
+    margin-top: auto; /* Pushes to the bottom */
   }
 
   .custom-breadcrumbs {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     color: #ffffff;
     font-weight: 500;
   }
@@ -108,13 +107,6 @@
     opacity: 0.8;
   }
 
-  @media screen and (max-width: 990px) {
-    .custom-hero-content {
-      padding-top: 3rem;
-      padding-bottom: 2rem;
-    }
-  }
-
   @media screen and (max-width: 749px) {
     .custom-collection-hero {
       min-height: {{ section.settings.mobile_height }}px;
@@ -130,9 +122,6 @@
 </style>
 
 <div class="custom-collection-hero">
-<div class="page-width">
-
-  <!-- Background Image -->
   <div class="custom-hero-bg">
     {%- if section.settings.show_collection_image and collection.image -%}
       <img
@@ -156,11 +145,9 @@
     {%- endif -%}
   </div>
 
-  <!-- Dark Overlay for Text Legibility -->
   <div class="custom-hero-overlay"></div>
 
-  <!-- Content & Breadcrumbs -->
-  <div class="custom-hero-content">
+  <div class="page-width custom-hero-content">
     <div class="custom-hero-center">
       <h1 class="custom-hero-title">
         <span class="visually-hidden">Collection: </span>
@@ -174,8 +161,6 @@
       </div>
     {% endif %}
   </div>
-  </div>
-
 </div>
 
 {% schema %}
