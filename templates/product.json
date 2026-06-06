@@ -140,7 +140,6 @@
             "video_1": "shopify://files/videos/joieemcomm-ezgif.com-mute-video (1).mp4",
             "video_text_1": "",
             "video_2": "shopify://files/videos/Gordonroxxbreed-ezgif.com-mute-video.mp4",
-            "thumb_2": "shopify://shop_images/c7bb27a1ca6c370b409b944de3a433dfa2fbcecc.png",
             "video_text_2": "",
             "video_3": "shopify://files/videos/1.RijRoxx-16x9-ezgif.com-mute-video.mp4",
             "video_text_3": "",
@@ -150,12 +149,21 @@
             "video_text_5": ""
           }
         },
-        "custom_trust_badges_custom": {
-          "type": "custom_trust_badges",
+        "multi_icon_yitwEw": {
+          "type": "multi-icon",
           "settings": {
-            "text_1": "Free shipping from €79,00",
-            "text_2": "2-Years Warranty",
-            "text_3": "14-days money back guarantee"
+            "icon-1": "shopify://shop_images/Vector_8.svg",
+            "icon_size_1": 46,
+            "icon_size_m_1": 30,
+            "text-1": "Free Shipping from $79.95",
+            "icon-2": "shopify://shop_images/Vector_7.svg",
+            "icon_size_2": 46,
+            "icon_size_m_2": 30,
+            "text-2": "2-Year Warranty",
+            "icon_size_3": 46,
+            "icon_size_m_3": 30,
+            "text-3": "14 days money back guarantee",
+            "text-size": 14
           }
         },
         "product_tabs_custom": {
@@ -201,7 +209,7 @@
         "delivery_payment_mB6BTN",
         "gallery_specifications_custom",
         "riders_experience_custom",
-        "custom_trust_badges_custom",
+        "multi_icon_yitwEw",
         "product_tabs_custom"
       ],
       "settings": {
