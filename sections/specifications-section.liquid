@@ -128,7 +128,7 @@ letter-spacing: 0%;
       <!-- Left Column -->
       <div class="specs-left-col">
         {%- if section.settings.title != blank -%}
-          <h2 class="specs-heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+          <h2 class="{{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
         {%- endif -%}
 
         <div class="specs-image-wrap">
