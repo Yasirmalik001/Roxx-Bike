@@ -33,11 +33,14 @@
     text-transform: uppercase;
     color: rgb(var(--color-foreground));
     padding-bottom: 0.5rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.5px;
+    opacity: 0.6;
+    cursor: pointer;
   }
 
   .custom-tab-item.is-active {
-    border-bottom: 3px solid #FFD100; /* Exact Yellow from design */
+    opacity: 1;
+    border-bottom: 3px solid #FFD000;
   }
 
   .custom-bike-actions {
@@ -102,26 +105,26 @@
   .custom-feature-item {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: flex-start;
   }
 
   .custom-feature-icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: auto;
     color: rgb(var(--color-foreground));
   }
 
-  .custom-feature-icon svg {
+  .custom-feature-icon img {
     width: 100%;
-    height: 100%;
-    stroke-width: 1.5;
+    height: auto;
+    display: block;
   }
 
   .custom-feature-label {
-    font-size: 1.4rem;
-    line-height: 1.4;
-    color: rgb(var(--color-foreground));
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: #333333;
     max-width: 200px;
   }
 
@@ -184,23 +187,10 @@
       {%- for block in section.blocks -%}
         <div class="custom-feature-item" {{ block.shopify_attributes }}>
           <div class="custom-feature-icon">
-            {%- if block.settings.custom_svg != blank -%}
-              {{ block.settings.custom_svg }}
+            {%- if block.settings.icon_image != blank -%}
+              <img src="{{ block.settings.icon_image | image_url: width: 64 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="32" height="auto" style="display: block; max-width: 100%;">
             {%- else -%}
-              {%- case block.settings.icon -%}
-                {%- when 'cyclist' -%}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m-4-4h8M8 8h8M6 12h12"/></svg>
-                {%- when 'seat' -%}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M12 10v10m-3-3h6"/></svg>
-                {%- when 'shield' -%}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                {%- when 'frame' -%}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18L10 6h4l6 12M5 13h14"/></svg>
-                {%- when 'gps' -%}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                {%- when 'brakes' -%}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/></svg>
-              {%- endcase -%}
+              <div style="width: 32px; height: 32px; background-color: #f4f4f4; border-radius: 4px;"></div>
             {%- endif -%}
           </div>
           <div class="custom-feature-label">{{ block.settings.title }}</div>
@@ -272,23 +262,9 @@
       "limit": 6,
       "settings": [
         {
-          "type": "select",
-          "id": "icon",
-          "label": "Select Icon",
-          "options": [
-            { "value": "cyclist", "label": "Cyclist Height" },
-            { "value": "seat", "label": "Comfort Seat" },
-            { "value": "shield", "label": "Safety Shield" },
-            { "value": "frame", "label": "Bike Frame" },
-            { "value": "gps", "label": "GPS Tracking" },
-            { "value": "brakes", "label": "Brakes" }
-          ],
-          "default": "shield"
-        },
-        {
-          "type": "html",
-          "id": "custom_svg",
-          "label": "Custom SVG (Overrides default icon)"
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
         },
         {
           "type": "inline_richtext",
@@ -303,12 +279,12 @@
     {
       "name": "Product Overview Grid",
       "blocks": [
-        { "type": "feature", "settings": { "icon": "cyclist", "title": "Suitable for cyclists from 160 to 200 cm" } },
-        { "type": "feature", "settings": { "icon": "seat", "title": "Comfortable sitting position" } },
-        { "type": "feature", "settings": { "icon": "shield", "title": "Safety features" } },
-        { "type": "feature", "settings": { "icon": "frame", "title": "Step-through frame" } },
-        { "type": "feature", "settings": { "icon": "gps", "title": "GPS tracking" } },
-        { "type": "feature", "settings": { "icon": "brakes", "title": "Mechanical brakes" } }
+        { "type": "feature", "settings": { "title": "Suitable for cyclists from 160 to 200 cm" } },
+        { "type": "feature", "settings": { "title": "Comfortable sitting position" } },
+        { "type": "feature", "settings": { "title": "Safety features" } },
+        { "type": "feature", "settings": { "title": "Step-through frame" } },
+        { "type": "feature", "settings": { "title": "GPS tracking" } },
+        { "type": "feature", "settings": { "title": "Mechanical brakes" } }
       ]
     }
   ]
