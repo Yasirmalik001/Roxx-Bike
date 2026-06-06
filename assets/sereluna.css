@@ -811,7 +811,7 @@ letter-spacing: 0%;
     width: var(--icon-size, 45px);
     height: var(--icon-size, 45px);
     max-width: 30px;
-    max-height: 40px;
+    max-height: 30px;
     object-fit: contain;
     mix-blend-mode: multiply;
 }
