@@ -975,10 +975,6 @@ a.product__text {
 }
 
 @media screen and (min-width: 750px) {
-  .product--thumbnail_slider .thumbnail-slider {
-    display: flex;
-    align-items: center;
-  }
 
   .thumbnail-slider .thumbnail-list.slider--tablet-up {
     display: flex;
