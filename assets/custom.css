@@ -3201,3 +3201,10 @@ slider-component.thumbnail-slider .thumbnail {
     background-color: #ffd000 !important;
   }
 }
+
+
+span.cc-svg-ride {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
