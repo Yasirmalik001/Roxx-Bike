@@ -96,13 +96,8 @@
   <div class="page-width section-{{ section.id }}-padding">
     
     {%- if section.settings.show_breadcrumbs -%}
-      <nav class="promo-header__breadcrumbs" aria-label="breadcrumbs">
-        <a href="{{ routes.root_url }}">{{ 'general.breadcrumbs.home' | t | default: 'Home' }}</a>
-        <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 1L7 5L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span aria-current="page">{{ collection.title | default: page.title | default: section.settings.title }}</span>
-      </nav>
+      {%- assign promo_title = collection.title | default: page.title | default: section.settings.title -%}
+      {% render 'breadcrumbs', class: 'promo-header__breadcrumbs', use_svg_separator: true, current_title: promo_title %}
     {%- endif -%}
 
     <div class="promo-header__content">

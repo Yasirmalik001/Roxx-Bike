@@ -1,0 +1,86 @@
+{%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
+{%- assign t = template | split: '.' | first -%}
+
+{%- assign home_title = 'general.breadcrumbs.home' | t -%}
+{%- if home_title contains 'translation missing' or home_title == blank -%}
+  {%- assign home_title = 'Home' -%}
+{%- endif -%}
+
+{%- comment -%}
+Variables parameters:
+- class: string (wrapper nav CSS class)
+- separator: string (default '›')
+- use_svg_separator: boolean (default false)
+- current_title: string (override active leaf page title)
+{%- endcomment -%}
+
+{%- assign breadcrumbs_class = class | default: 'custom-breadcrumbs' -%}
+
+{%- if use_svg_separator -%}
+  {%- capture separator_markup -%}
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 1L7 5L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  {%- endcapture -%}
+{%- else -%}
+  {%- capture separator_markup -%}
+    <span class="breadcrumb-separator" aria-hidden="true">{{ separator | default: '›' }}</span>
+  {%- endcapture -%}
+{%- endif -%}
+
+{%- assign default_current_title = collection.title | default: page.title | default: page_title -%}
+{%- assign active_title = current_title | default: default_current_title -%}
+
+<nav class="{{ breadcrumbs_class }}" aria-label="breadcrumbs">
+  <a href="{{ routes.root_url }}">{{ home_title }}</a>
+
+  {%- case t -%}
+    {%- when 'page' -%}
+      {{ separator_markup }}
+      <span class="active-breadcrumb" aria-current="page">{{ active_title | escape }}</span>
+
+    {%- when 'product' -%}
+      {{ separator_markup }}
+      {%- if product.collections.size > 0 -%}
+        {%- assign prod_collection = product.collections.first -%}
+        <a href="{{ prod_collection.url }}">{{ prod_collection.title | escape }}</a>
+        {{ separator_markup }}
+      {%- else -%}
+        <a href="/collections/all">Bikes</a>
+        {{ separator_markup }}
+      {%- endif -%}
+      <span class="active-breadcrumb" aria-current="page">{{ active_title | escape }}</span>
+
+    {%- when 'collection' and collection.handle -%}
+      {{ separator_markup }}
+      {%- if current_tags -%}
+        {%- capture url -%}/collections/{{ collection.handle }}{%- endcapture -%}
+        {{ collection.title | link_to: url }}
+        {{ separator_markup }}
+        <span class="active-breadcrumb">{{ current_tags | join: " + " }}</span>
+      {%- else -%}
+        <span class="active-breadcrumb" aria-current="page">{{ active_title | escape }}</span>
+      {%- endif -%}
+
+    {%- when 'blog' -%}
+      {{ separator_markup }}
+      {%- if current_tags -%}
+        {{ blog.title | link_to: blog.url }}
+        {{ separator_markup }}
+        <span class="active-breadcrumb">{{ current_tags | join: " + " }}</span>
+      {%- else -%}
+        <span class="active-breadcrumb" aria-current="page">{{ active_title }}</span>
+      {%- endif -%}
+
+    {%- when 'article' -%}
+      {{ separator_markup }}
+      {{ blog.title | link_to: blog.url }}
+      {{ separator_markup }}
+      <span class="active-breadcrumb" aria-current="page">{{ active_title }}</span>
+
+    {%- else -%}
+      {{ separator_markup }}
+      <span class="active-breadcrumb" aria-current="page">{{ active_title }}</span>
+  {%- endcase -%}
+</nav>
+{%- endunless -%}

@@ -75,19 +75,7 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <!-- Breadcrumbs at the top of the product page -->
-    <nav class="custom-breadcrumbs product-breadcrumbs" aria-label="breadcrumbs">
-      <a href="{{ routes.root_url }}">Home</a>
-      <span class="breadcrumb-separator">></span>
-      {%- if product.collections.size > 0 -%}
-        {%- assign collection = product.collections.first -%}
-        <a href="{{ collection.url }}">{{ collection.title | escape }}</a>
-        <span class="breadcrumb-separator">></span>
-      {%- else -%}
-        <a href="/collections/all">Bikes</a>
-        <span class="breadcrumb-separator">></span>
-      {%- endif -%}
-      <span class="active-breadcrumb">{{ product.title | escape }}</span>
-    </nav>
+    {% render 'breadcrumbs', class: 'custom-breadcrumbs product-breadcrumbs', separator: '>' %}
 
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">

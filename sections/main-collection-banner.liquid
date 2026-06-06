@@ -166,11 +166,7 @@
     
     {% if section.settings.show_breadcrumbs %}
       <div class="custom-hero-bottom">
-        <nav class="custom-breadcrumbs" aria-label="breadcrumbs">
-          <a href="{{ routes.root_url }}">Home</a>
-          <span class="breadcrumb-separator">›</span>
-          <span>{{ collection.title | escape }}</span>
-        </nav>
+        {% render 'breadcrumbs', class: 'custom-breadcrumbs' %}
       </div>
     {% endif %}
   </div>
