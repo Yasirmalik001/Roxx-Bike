@@ -42,68 +42,17 @@
   endif
 -%}
 
-
-
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
-  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if section.settings.thumbnail_side_by_side %} media-gallery--side-by-side{% endif %}"
+  {% if section.settings.enable_sticky_info %}
+    class="product__column-sticky"
+  {% endif %}
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
   <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
-    <div class="product-gallery-badges">
-      <div class="gallery-badge bestseller-badge">Bestseller</div>
-      <div class="gallery-badge trustpilot-badge">
-        <div class="trustpilot-stars" style="display:flex; gap: 2px;">
-          {% for i in (1..4) %}
-            <div style="width: 20px; height: 20px; background-color: #00B67A; display:flex; justify-content:center; align-items:center;">
-              <svg viewBox="0 0 512 512" width="14" height="14" fill="white"><path d="M256 14.5l75.5 152.9 168.7 24.5-122.1 119 28.8 168L256 399.7l-150.9 79.4 28.8-168-122.1-119 168.7-24.5z"/></svg>
-            </div>
-          {% endfor %}
-          <div style="width: 20px; height: 20px; background: linear-gradient(90deg, #00B67A 50%, #D3D3D5 50%); display:flex; justify-content:center; align-items:center;">
-             <svg viewBox="0 0 512 512" width="14" height="14" fill="white"><path d="M256 14.5l75.5 152.9 168.7 24.5-122.1 119 28.8 168L256 399.7l-150.9 79.4 28.8-168-122.1-119 168.7-24.5z"/></svg>
-          </div>
-        </div>
-        <div class="trustpilot-text">4.4 / 5 (based on 200+)</div>
-      </div>
-    </div>
-    <style>
-      .product-gallery-badges {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        z-index: 2;
-        display: flex;
-        gap: 15px;
-        align-items: flex-start;
-      }
-      .bestseller-badge {
-        background-color: #FFD000;
-        color: #000;
-        font-weight: 700;
-        padding: 6px 12px;
-        border-radius: 4px;
-        font-size: 1.3rem;
-      }
-      .trustpilot-badge {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .trustpilot-text {
-        font-size: 1.1rem;
-        color: #333;
-      }
-      @media screen and (max-width: 749px) {
-        .product-gallery-badges {
-          position: static;
-          margin-bottom: 10px;
-          padding: 0 1.5rem;
-        }
-      }
-    </style>
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
@@ -176,7 +125,7 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
-    <div class="slider-buttons quick-add-hidden{% if media_count < 2 %} small-hide{% endif %}{% if hide_mobile_slider %} small-hide--disabled{% endif %}">
+    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -184,9 +133,7 @@
         aria-label="{{ 'general.slider.previous_slide' | t }}"
       >
         <span class="svg-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M20 12L4 12M4 12L10 6M4 12L10 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
+          {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
       <div class="slider-counter caption">
@@ -202,9 +149,7 @@
         aria-label="{{ 'general.slider.next_slide' | t }}"
       >
         <span class="svg-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M4 12L20 12M20 12L14 18M20 12L14 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
+          {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
     </div>
