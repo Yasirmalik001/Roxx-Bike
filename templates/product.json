@@ -112,6 +112,7 @@
           "type": "custom_option_insurance",
           "settings": {
             "heading": "Insurance",
+            "logo": "shopify://shop_images/29b69f13d2ad6a76d12bf836f7881207b92861f7_2.png",
             "title": "Roxx Insurance",
             "description": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at.",
             "price": "+ € 150,00",
