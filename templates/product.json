@@ -77,7 +77,11 @@
             "add_to_cart_text": "#000000",
             "book_test_ride_bg": "#ffffff",
             "book_test_ride_border": "#e5e5e5",
-            "book_test_ride_text_color": "#000000"
+            "book_test_ride_text_color": "#000000",
+            "payment_icon_1": "shopify://shop_images/e28c38cf50c3b27a71073b6fc52b0f6cc99cccb9.png",
+            "payment_icon_2": "shopify://shop_images/Frame_1.svg",
+            "payment_icon_3": "shopify://shop_images/Group_125.svg",
+            "payment_icon_4": "shopify://shop_images/ideal-logo-svgrepo-com.svg"
           }
         },
         "divider_xVH3eG": {
