@@ -51,9 +51,9 @@
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: var(--page-width, 1400px);
     margin: 0 auto;
-    padding: 3rem 5rem 2rem 5rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -110,7 +110,8 @@
 
   @media screen and (max-width: 990px) {
     .custom-hero-content {
-      padding: 3rem 3rem 2rem 3rem;
+      padding-top: 3rem;
+      padding-bottom: 2rem;
     }
   }
 
@@ -119,7 +120,8 @@
       min-height: {{ section.settings.mobile_height }}px;
     }
     .custom-hero-content {
-      padding: 2rem 2rem 1.5rem 2rem;
+      padding-top: 2rem;
+      padding-bottom: 1.5rem;
     }
     .custom-hero-title {
       font-size: 2.8rem;
