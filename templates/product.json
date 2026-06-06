@@ -793,18 +793,6 @@
         "padding_bottom": 0
       }
     },
-    "call_to_action_banner_3Jbhre": {
-      "type": "call-to-action-banner",
-      "name": "CTA Banner Overlay",
-      "settings": {
-        "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-        "overlay_opacity": 100,
-        "desktop_height": 600,
-        "mobile_height": 500,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "testimonials_NNYm9Y": {
       "type": "testimonials",
       "blocks": {
@@ -889,7 +877,7 @@
         "padding_bottom": 60
       }
     },
-       "masonary_gallery_3z9FME": {
+    "masonary_gallery_3z9FME": {
       "type": "masonary-gallery",
       "blocks": {
         "column_fgtRtb": {
@@ -988,6 +976,55 @@
         "heading": "JOIN OUR ROXX FAMILY",
         "heading_size": "h0",
         "subheading": "with thousands who've upgraded their everyday ride.",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "feature_alternating_XKMVfA": {
+      "type": "feature-alternating",
+      "blocks": {
+        "feature_block_yUt3cM": {
+          "type": "feature_block",
+          "settings": {
+            "color_scheme": "",
+            "layout": "left",
+            "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
+            "heading_size": "h1",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        },
+        "feature_block_hW8m4a": {
+          "type": "feature_block",
+          "settings": {
+            "color_scheme": "",
+            "layout": "right",
+            "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
+            "heading_size": "h1",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_block_yUt3cM",
+        "feature_block_hW8m4a"
+      ],
+      "name": "Alternating Features",
+      "settings": {
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
@@ -1215,55 +1252,6 @@
         "padding_bottom": 80
       }
     },
-    "feature_alternating_XKMVfA": {
-      "type": "feature-alternating",
-      "blocks": {
-        "feature_block_yUt3cM": {
-          "type": "feature_block",
-          "settings": {
-            "color_scheme": "",
-            "layout": "left",
-            "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
-            "heading_size": "h0",
-            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
-            "list_heading": "What's covered:",
-            "list_item_1": "Theft protection",
-            "list_item_2": "Damage & accident coverage",
-            "list_item_3": "Peace of mind, wherever you park",
-            "list_item_4": "",
-            "button_label": "EXPLORE INSURANCE",
-            "button_link": ""
-          }
-        },
-        "feature_block_hW8m4a": {
-          "type": "feature_block",
-          "settings": {
-            "color_scheme": "",
-            "layout": "right",
-            "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
-            "heading_size": "h0",
-            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
-            "list_heading": "What's covered:",
-            "list_item_1": "Theft protection",
-            "list_item_2": "Damage & accident coverage",
-            "list_item_3": "Peace of mind, wherever you park",
-            "list_item_4": "",
-            "button_label": "EXPLORE INSURANCE",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "feature_block_yUt3cM",
-        "feature_block_hW8m4a"
-      ],
-      "name": "Alternating Features",
-      "settings": {
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "promo_cards_section_Y4dTtA": {
       "type": "promo-cards-section",
       "blocks": {
@@ -1303,6 +1291,18 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "call_to_action_banner_3Jbhre": {
+      "type": "call-to-action-banner",
+      "name": "CTA Banner Overlay",
+      "settings": {
+        "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+        "overlay_opacity": 100,
+        "desktop_height": 600,
+        "mobile_height": 500,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -1316,12 +1316,12 @@
     "image_with_text_YXALTw",
     "call_to_action_banner_gDyYaG",
     "testimonials_NNYm9Y",
-        "masonary_gallery_3z9FME",
+    "masonary_gallery_3z9FME",
+    "feature_alternating_XKMVfA",
     "image_with_features_protect_L3ciHK",
     "app_features_section_gVYMpE",
     "image_with_hotspots_rJkiKJ",
     "faq_ekQccb",
-    "feature_alternating_XKMVfA",
     "promo_cards_section_Y4dTtA",
     "call_to_action_banner_3Jbhre"
   ]
