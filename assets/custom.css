@@ -630,24 +630,25 @@ textarea {
   display: none;
 }
 
-/* Rotated Red Sale Badge Pill (1-to-1 matching mockup) */
 .collection-tabs .card-product-tabs .card-product-tabs__badge {
-  position: absolute;
-  top: 22%;
-  left: 70%;
-  background: #b3191f;
-  color: #ffffff;
-  padding: 0.7rem 1.6rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 4px;
-  border: none;
-  width: auto;
-  max-width: fit-content;
-  white-space: nowrap;
-  display: inline-block;
-  line-height: 1.1;
-  z-index: 10;
+    position: absolute;
+    top: 22%;
+    left: 70%;
+    background: #b3191f;
+    color: #ffffff;
+    padding: 0.7rem 1.6rem;
+    font-size: 12PX;
+    /* font-weight: 700; */
+    border-radius: 6px;
+    border: none;
+    width: auto;
+    max-width: fit-content;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 1.1;
+    z-index: 10;
+    font-family: 'Suisse Int\'l Trial';
+    transform: skewX(-15deg);
 }
 
 @media screen and (max-width: 749px) {
