@@ -44,21 +44,6 @@
             "text_style": "body"
           }
         },
-        "multi_icon_xn8fhg": {
-          "type": "multi-icon",
-          "settings": {
-            "icon_size_1": 46,
-            "icon_size_m_1": 30,
-            "text-1": "Absorbs equivalent of 5 tampons",
-            "icon_size_2": 46,
-            "icon_size_m_2": 30,
-            "text-2": "Absorbs equivalent of 5 tampons",
-            "icon_size_3": 46,
-            "icon_size_m_3": 30,
-            "text-3": "Absorbs equivalent of 5 tampons",
-            "text-size": 14
-          }
-        },
         "shipping_info_UmQ3xw": {
           "type": "shipping-info",
           "settings": {
@@ -207,7 +192,6 @@
         "title",
         "price",
         "text_YJpJae",
-        "multi_icon_xn8fhg",
         "shipping_info_UmQ3xw",
         "variant_picker",
         "buy_buttons",
