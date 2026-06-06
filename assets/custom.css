@@ -6,7 +6,11 @@ select,
 textarea {
   font-family: inherit;
 }
-
+span.cc-svg-ride {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .product__text {
   font-weight: 400;
   font-size: 14px;
@@ -3201,10 +3205,4 @@ slider-component.thumbnail-slider .thumbnail {
     background-color: #ffd000 !important;
   }
 }
-
-
-span.cc-svg-ride {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
