@@ -2,7 +2,6 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    
   }
 
   @media screen and (min-width: 750px) {
@@ -17,13 +16,13 @@
   }
 
   .quick-features__heading {
-    margin: 0 0 3rem 0;
+    margin: 0 0 4rem 0;
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
   }
 
-  /* Card Styling */
+  /* --- Card Styling --- */
   .feature-card {
     position: relative;
     border-radius: 12px;
@@ -32,15 +31,15 @@
     flex-direction: column;
     justify-content: flex-end;
     background-color: rgba(var(--color-foreground), 0.03);
-    min-height: 400px;
+    min-height: 420px;
     height: 100%;
     text-decoration: none;
-    transform: translateZ(0); /* Fixes Safari overflow bug during hover */
+    transform: translateZ(0);
   }
 
   @media screen and (min-width: 750px) {
     .feature-card {
-      min-height: 480px;
+      min-height: 500px;
     }
   }
 
@@ -64,14 +63,22 @@
     transform: scale(1.05);
   }
 
+  /* 1:1 Matched Inset Box */
   .feature-card__content {
     position: relative;
     z-index: 2;
-    background: linear-gradient(to top, rgba(15, 20, 25, 0.95) 0%, rgba(15, 20, 25, 0.7) 70%, transparent 100%);
-    padding: 3rem 2rem 2.5rem 2rem;
+    background-color: rgba(20, 20, 20, 0.85); /* Dark transparent box */
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    margin: 1.5rem; /* Pushes the box inwards from card edges */
+    padding: 2rem;
     color: #ffffff;
-    width: 100%;
-    margin-top: auto; /* Pushes to bottom */
+    margin-top: auto;
+    transition: background-color 0.3s ease;
+  }
+
+  .feature-card:hover .feature-card__content {
+    background-color: rgba(10, 10, 10, 0.95);
   }
 
   .feature-card__header {
@@ -85,11 +92,13 @@
     font-size: 1.4rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
     margin: 0;
     color: #ffffff;
+    padding-right: 1rem;
   }
 
+  /* 1:1 Plus Icon */
   .feature-card__icon {
     flex-shrink: 0;
     width: 24px;
@@ -98,12 +107,12 @@
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
   }
 
   .feature-card:hover .feature-card__icon {
     color: {{ section.settings.accent_color }};
-    transform: rotate(90deg);
+    transform: rotate(90deg); /* Spins the plus on hover */
   }
 
   .feature-card__icon svg {
@@ -117,7 +126,7 @@
   .feature-card__text {
     font-size: 1.3rem;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -125,21 +134,21 @@
     overflow: hidden;
   }
 
-  /* Footer Controls Styling */
+  /* --- Footer Controls Styling --- */
   .quick-features__footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 4rem;
-    gap: 2rem;
+    gap: 4rem;
   }
 
-  /* Custom Swiper Scrollbar */
+  /* 1:1 Thin Custom Scrollbar */
   .quick-features__scrollbar-container {
     flex-grow: 1;
-    height: 5px;
-    background: rgba(var(--color-foreground), 0.08);
-    border-radius: 4px;
+    height: 3px;
+    background: rgba(var(--color-foreground), 0.1);
+    border-radius: 3px;
     position: relative;
     overflow: hidden;
   }
@@ -153,33 +162,33 @@
     border-radius: inherit;
   }
 
-  /* Custom Navigation Buttons */
+  /* 1:1 Solid Yellow Navigation Buttons */
   .quick-features__nav {
     display: flex;
     gap: 1.5rem;
+    flex-shrink: 0;
   }
 
   .quick-features__btn {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background-color: rgba(var(--color-foreground), 0.05);
-    color: currentColor;
-    border: 1px solid rgba(var(--color-foreground), 0.15);
+    background-color: {{ section.settings.accent_color }};
+    color: #000000;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
   .quick-features__btn:hover {
     transform: scale(1.05);
-    border-color: currentColor;
   }
 
   .quick-features__btn.swiper-button-disabled {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: not-allowed;
     transform: none;
   }
@@ -200,7 +209,7 @@
       gap: 3rem;
     }
     .quick-features__scrollbar-container {
-      max-width: 100%;
+      width: 100%;
     }
   }
 {%- endstyle -%}
@@ -209,7 +218,7 @@
   <div class="page-width">
     
     {%- if section.settings.heading != blank -%}
-      <h2 class="hero-features__heading h1 {{ section.settings.heading_size }}">
+      <h2 class="quick-features__heading h1 {{ section.settings.heading_size }}">
         {{ section.settings.heading | escape }}
       </h2>
     {%- endif -%}
@@ -315,7 +324,7 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Color Scheme",
       "default": "scheme-1"
     },
     {
@@ -345,7 +354,7 @@
       "type": "color",
       "id": "accent_color",
       "label": "Accent Color (Buttons & Bar)",
-      "default": "#ffd000"
+      "default": "#FFD100"
     },
     {
       "type": "header",
