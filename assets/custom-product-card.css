@@ -53,7 +53,7 @@
 .product__info-container .product-save-badge {
     position: absolute;
     top: -34px;
-    right: 5px;
+    right: 0px;
     background-color: #AE1C28;
     color: #ffffff;
     font-size: 1.2rem;
@@ -61,7 +61,6 @@
     padding: 6px 12px;
     border-radius: 6px 6px 0 0;
     z-index: 10;
-    box-shadow: 0 4px 10px rgba(179, 25, 31, 0.3);
 }
 
 /* Custom Price Centering */
