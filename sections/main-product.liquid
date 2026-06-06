@@ -3194,49 +3194,27 @@
         }
       ]
     },
-    {
-      "type": "gallery_specifications",
-      "name": "Gallery Specifications",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "label_1",
-          "default": "Battery",
-          "label": "Spec 1 Label"
-        },
-        {
-          "type": "text",
-          "id": "value_1",
-          "default": "Samsung Lithium, 48V",
-          "label": "Spec 1 Value"
-        },
-        {
-          "type": "text",
-          "id": "label_2",
-          "default": "Max speed",
-          "label": "Spec 2 Label"
-        },
-        {
-          "type": "text",
-          "id": "value_2",
-          "default": "25km/h",
-          "label": "Spec 2 Value"
-        },
-        {
-          "type": "text",
-          "id": "label_3",
-          "default": "Max Range",
-          "label": "Spec 3 Label"
-        },
-        {
-          "type": "text",
-          "id": "value_3",
-          "default": "80-100 km",
-          "label": "Spec 3 Value"
-        }
-      ]
-    },
+ {
+  "type": "gallery_specifications",
+  "name": "Gallery Specifications",
+  "limit": 1,
+  "settings": [
+    { "type": "header", "content": "Specification 1" },
+    { "type": "image_picker", "id": "icon_1", "label": "Icon 1" },
+    { "type": "text", "id": "label_1", "default": "Battery", "label": "Spec 1 Label" },
+    { "type": "text", "id": "value_1", "default": "Samsung Lithium, 48V", "label": "Spec 1 Value" },
+
+    { "type": "header", "content": "Specification 2" },
+    { "type": "image_picker", "id": "icon_2", "label": "Icon 2" },
+    { "type": "text", "id": "label_2", "default": "Max speed", "label": "Spec 2 Label" },
+    { "type": "text", "id": "value_2", "default": "25km/h", "label": "Spec 2 Value" },
+
+    { "type": "header", "content": "Specification 3" },
+    { "type": "image_picker", "id": "icon_3", "label": "Icon 3" },
+    { "type": "text", "id": "label_3", "default": "Max Range", "label": "Spec 3 Label" },
+    { "type": "text", "id": "value_3", "default": "80-100 km", "label": "Spec 3 Value" }
+  ]
+},
     {
       "type": "rating_badge",
       "name": "Rating Badge Bar",
