@@ -25,7 +25,16 @@ span.cc-svg-ride {
   margin: 0 0 40px;
   font-size: 40px;
 }
-
+.headingCustom {
+font-family: Suisse Intl Trial;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+}
 
 .sr-newsletter-subtext {
   margin-top: 20px;
