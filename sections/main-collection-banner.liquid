@@ -121,6 +121,7 @@
   }
 </style>
 
+<!-- Removed page-width from the outer container so the background is full width -->
 <div class="custom-collection-hero">
   <div class="custom-hero-bg">
     {%- if section.settings.show_collection_image and collection.image -%}
@@ -147,6 +148,7 @@
 
   <div class="custom-hero-overlay"></div>
 
+  <!-- Kept page-width ONLY on the inner content container to apply the proper left/right padding constraint -->
   <div class="page-width custom-hero-content">
     <div class="custom-hero-center">
       <h1 class="custom-hero-title">
