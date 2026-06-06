@@ -26,7 +26,12 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "save_badge_bg": "#b3191f",
+            "save_badge_text": "#ffffff",
+            "klarna_pill_bg": "#f8f8f8",
+            "klarna_pill_text": "#555555"
+          }
         },
         "text_YJpJae": {
           "type": "text",
@@ -92,14 +97,13 @@
           "type": "custom_option_accessories",
           "settings": {
             "heading": "Accessories",
-            "acc_title_1": "Accessories package 1",
-            "acc_price_1": "€ 1.599,00",
-            "acc_title_2": "Accessories package 2",
-            "acc_price_2": "€ 529,00",
-            "acc_title_3": "Accessories package 3",
-            "acc_price_3": "€ 239,00",
-            "acc_title_4": "Accessories package 4",
-            "acc_price_4": "€ 139,00"
+            "accessory_products": [
+              "20-inch-binnenband",
+              "20-inch-buitenband",
+              "accesoires-pakket-1",
+              "all-in-pakket",
+              "accesoires-pakket-2"
+            ]
           }
         },
         "custom_option_insurance_custom": {
@@ -123,7 +127,14 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
+            "show_gift_card_recipient": false,
+            "book_test_ride_text": "BOOK A TEST RIDE",
+            "book_test_ride_link": "",
+            "add_to_cart_bg": "#ffd000",
+            "add_to_cart_text": "#000000",
+            "book_test_ride_bg": "#ffffff",
+            "book_test_ride_border": "#e5e5e5",
+            "book_test_ride_text_color": "#000000"
           }
         },
         "delivery_payment_mB6BTN": {
