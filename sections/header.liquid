@@ -606,7 +606,11 @@
           </div>
         {%- endif -%}
       </a>
-      {%- if section.settings.header_button_label != blank -%}
+      {%- assign show_ride_button = false -%}
+      {%- if request.page_type == 'index' or request.page_type == 'product' -%}
+        {%- assign show_ride_button = true -%}
+      {%- endif -%}
+      {%- if section.settings.header_button_label != blank and show_ride_button -%}
         <a href="{{ section.settings.header_button_link | default: '#' }}" class="header__button-ride">
           {{ section.settings.header_button_label }}
         </a>

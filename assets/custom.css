@@ -2132,14 +2132,20 @@ backdrop-filter: blur(4px)
 .header__icons .cart-count-bubble {
   background-color: #ffd500;
   color: #000000;
-  font-weight: 700;
-  font-size: 1rem;
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  min-width: 0.9rem;
+  min-height: 0.9rem;
   border-radius: 50%;
   border: 1.5px solid #000000;
-  top: -0.4rem;
-  left: 2.6rem;
+  top: -0.1rem;
+  left: 2.5rem;
+  padding: 0;
+  display: block;
+}
+
+.header__icons .cart-count-bubble span[aria-hidden="true"] {
+  display: none !important;
 }
 
 .header-transparent:not(.header-scrolled):not(.header-hovered) .cart-count-bubble {
