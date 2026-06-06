@@ -3247,322 +3247,82 @@
         }
       ]
     },
-    {
-      "type": "product_tabs",
-      "name": "Product Tabs Section",
-      "limit": 1,
-      "settings": [
-       {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "background-1"
-    },
-    {
-      "type": "header",
-      "content": "Tabs Content"
-    },
-    {
-      "type": "text",
-      "id": "tab_1_title",
-      "label": "Tab 1 Title",
-      "default": "Description"
-    },
+{
+  "type": "custom_bike_tabs",
+  "name": "Bike Info & Features",
+  "limit": 1,
+  "settings": [
     {
       "type": "richtext",
       "id": "description",
-      "label": "Description Content",
-      "info": "Leave blank to use the product's default description."
-    },
-    {
-      "type": "text",
-      "id": "tab_2_title",
-      "label": "Tab 2 Title",
-      "default": "Features"
-    },
-    {
-      "type": "richtext",
-      "id": "features",
-      "label": "Features Content"
-    },
-    {
-      "type": "text",
-      "id": "tab_3_title",
-      "label": "Tab 3 Title",
-      "default": "Specifications"
-    },
-    {
-      "type": "richtext",
-      "id": "specifications",
-      "label": "Specifications Content"
-    },
-    {
-      "type": "text",
-      "id": "tab_4_title",
-      "label": "Tab 4 Title",
-      "default": "Accessories"
-    },
-    {
-      "type": "richtext",
-      "id": "accessories",
-      "label": "Accessories Content"
-    },
-    {
-      "type": "text",
-      "id": "tab_5_title",
-      "label": "Tab 5 Title",
-      "default": "FAQ"
-    },
-    {
-      "type": "richtext",
-      "id": "faq",
-      "label": "FAQ Content"
+      "label": "Description Text (Leaves empty to use product desc)",
+      "default": "<p>The Joieem X represents the next generation of smart e-bikes. With a powerful yet smooth ride, <strong>up to 80-100 km of range</strong>, and intelligent app-connected features like GPS tracking and anti-theft protection, it adapts seamlessly to your everyday life.</p><p>Designed for effortless performance and minimal maintenance.</p>"
     },
     {
       "type": "header",
-      "content": "Features Grid Settings"
-    },
-    {
-      "type": "range",
-      "id": "icon_size",
-      "min": 16,
-      "max": 64,
-      "step": 2,
-      "unit": "px",
-      "label": "Icon size",
-      "default": 18
-    },
-    {
-      "type": "paragraph",
-      "content": "Feature 1"
-    },
-    {
-      "type": "select",
-      "id": "feature_icon_1",
-      "label": "Icon",
-      "options": [
-        { "value": "ruler", "label": "Ruler" },
-        { "value": "seat", "label": "Seat" },
-        { "value": "gear", "label": "Gear" },
-        { "value": "chain", "label": "Chain" },
-        { "value": "gps", "label": "GPS" },
-        { "value": "padlock", "label": "Padlock" },
-        { "value": "battery", "label": "Battery" },
-        { "value": "speed", "label": "Speed/Gauge" }
-      ],
-      "default": "ruler"
-    },
-    {
-      "type": "html",
-      "id": "feature_custom_svg_1",
-      "label": "Custom SVG Code",
-      "info": "Overrides the icon selection above."
-    },
-    {
-      "type": "text",
-      "id": "feature_label_1",
-      "default": "Suitable for custom size 160-195 cm",
-      "label": "Feature 1 Label"
-    },
-    {
-      "type": "paragraph",
-      "content": "Feature 2"
-    },
-    {
-      "type": "select",
-      "id": "feature_icon_2",
-      "label": "Icon",
-      "options": [
-        { "value": "ruler", "label": "Ruler" },
-        { "value": "seat", "label": "Seat" },
-        { "value": "gear", "label": "Gear" },
-        { "value": "chain", "label": "Chain" },
-        { "value": "gps", "label": "GPS" },
-        { "value": "padlock", "label": "Padlock" }
-      ],
-      "default": "seat"
-    },
-    {
-      "type": "html",
-      "id": "feature_custom_svg_2",
-      "label": "Custom SVG Code"
-    },
-    {
-      "type": "text",
-      "id": "feature_label_2",
-      "default": "Comfortable riding position",
-      "label": "Feature 2 Label"
-    },
-    {
-      "type": "paragraph",
-      "content": "Feature 3"
-    },
-    {
-      "type": "select",
-      "id": "feature_icon_3",
-      "label": "Icon",
-      "options": [
-        { "value": "ruler", "label": "Ruler" },
-        { "value": "seat", "label": "Seat" },
-        { "value": "gear", "label": "Gear" },
-        { "value": "chain", "label": "Chain" },
-        { "value": "gps", "label": "GPS" },
-        { "value": "padlock", "label": "Padlock" }
-      ],
-      "default": "gear"
-    },
-    {
-      "type": "html",
-      "id": "feature_custom_svg_3",
-      "label": "Custom SVG Code"
-    },
-    {
-      "type": "text",
-      "id": "feature_label_3",
-      "default": "Shimano Nexus",
-      "label": "Feature 3 Label"
-    },
-    {
-      "type": "paragraph",
-      "content": "Feature 4"
-    },
-    {
-      "type": "select",
-      "id": "feature_icon_4",
-      "label": "Icon",
-      "options": [
-        { "value": "ruler", "label": "Ruler" },
-        { "value": "seat", "label": "Seat" },
-        { "value": "gear", "label": "Gear" },
-        { "value": "chain", "label": "Chain" },
-        { "value": "gps", "label": "GPS" },
-        { "value": "padlock", "label": "Padlock" }
-      ],
-      "default": "chain"
-    },
-    {
-      "type": "html",
-      "id": "feature_custom_svg_4",
-      "label": "Custom SVG Code"
-    },
-    {
-      "type": "text",
-      "id": "feature_label_4",
-      "default": "Close-loop chains",
-      "label": "Feature 4 Label"
-    },
-    {
-      "type": "paragraph",
-      "content": "Feature 5"
-    },
-    {
-      "type": "select",
-      "id": "feature_icon_5",
-      "label": "Icon",
-      "options": [
-        { "value": "ruler", "label": "Ruler" },
-        { "value": "seat", "label": "Seat" },
-        { "value": "gear", "label": "Gear" },
-        { "value": "chain", "label": "Chain" },
-        { "value": "gps", "label": "GPS" },
-        { "value": "padlock", "label": "Padlock" }
-      ],
-      "default": "gps"
-    },
-    {
-      "type": "html",
-      "id": "feature_custom_svg_5",
-      "label": "Custom SVG Code"
-    },
-    {
-      "type": "text",
-      "id": "feature_label_5",
-      "default": "GPS Tracking",
-      "label": "Feature 5 Label"
-    },
-    {
-      "type": "paragraph",
-      "content": "Feature 6"
-    },
-    {
-      "type": "select",
-      "id": "feature_icon_6",
-      "label": "Icon",
-      "options": [
-        { "value": "ruler", "label": "Ruler" },
-        { "value": "seat", "label": "Seat" },
-        { "value": "gear", "label": "Gear" },
-        { "value": "chain", "label": "Chain" },
-        { "value": "gps", "label": "GPS" },
-        { "value": "padlock", "label": "Padlock" }
-      ],
-      "default": "padlock"
-    },
-    {
-      "type": "html",
-      "id": "feature_custom_svg_6",
-      "label": "Custom SVG Code"
-    },
-    {
-      "type": "text",
-      "id": "feature_label_6",
-      "default": "Electronic Lock",
-      "label": "Feature 6 Label"
-    },
-    {
-      "type": "header",
-      "content": "Sticky Bar Settings"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_sticky_bar",
-      "label": "Enable Sticky Bar",
-      "default": true
+      "content": "Action Buttons"
     },
     {
       "type": "text",
       "id": "btn1_text",
-      "label": "Outline Button Text",
-      "default": "Book a free test ride"
+      "label": "Button 1 Text",
+      "default": "Book a Free Test Ride"
     },
     {
       "type": "url",
       "id": "btn1_link",
-      "label": "Outline Button Link",
-      "info": "Leave blank to trigger standard secondary product button"
+      "label": "Button 1 Link"
     },
     {
       "type": "text",
       "id": "btn2_text",
-      "label": "Solid Button Text (Add to Cart)",
-      "default": "Add to cart"
+      "label": "Button 2 Text",
+      "default": "Add to Cart"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Feature 1"
     },
+    { "type": "image_picker", "id": "f1_image", "label": "Upload SVG/PNG 1" },
+    { "type": "select", "id": "f1_icon", "label": "Fallback Icon 1", "options": [{"value":"cyclist","label":"Cyclist Height"},{"value":"seat","label":"Comfort Seat"},{"value":"shield","label":"Safety Shield"},{"value":"frame","label":"Bike Frame"},{"value":"gps","label":"GPS Tracking"},{"value":"brakes","label":"Brakes"}], "default": "cyclist" },
+    { "type": "inline_richtext", "id": "f1_title", "label": "Feature 1 Title", "default": "Suitable for cyclists from 160 to 200 cm" },
     {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 40
+      "type": "header",
+      "content": "Feature 2"
     },
+    { "type": "image_picker", "id": "f2_image", "label": "Upload SVG/PNG 2" },
+    { "type": "select", "id": "f2_icon", "label": "Fallback Icon 2", "options": [{"value":"cyclist","label":"Cyclist Height"},{"value":"seat","label":"Comfort Seat"},{"value":"shield","label":"Safety Shield"},{"value":"frame","label":"Bike Frame"},{"value":"gps","label":"GPS Tracking"},{"value":"brakes","label":"Brakes"}], "default": "seat" },
+    { "type": "inline_richtext", "id": "f2_title", "label": "Feature 2 Title", "default": "Comfortable sitting position" },
     {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 40
-    }
-      ]
-    }
+      "type": "header",
+      "content": "Feature 3"
+    },
+    { "type": "image_picker", "id": "f3_image", "label": "Upload SVG/PNG 3" },
+    { "type": "select", "id": "f3_icon", "label": "Fallback Icon 3", "options": [{"value":"cyclist","label":"Cyclist Height"},{"value":"seat","label":"Comfort Seat"},{"value":"shield","label":"Safety Shield"},{"value":"frame","label":"Bike Frame"},{"value":"gps","label":"GPS Tracking"},{"value":"brakes","label":"Brakes"}], "default": "shield" },
+    { "type": "inline_richtext", "id": "f3_title", "label": "Feature 3 Title", "default": "Safety features" },
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    { "type": "image_picker", "id": "f4_image", "label": "Upload SVG/PNG 4" },
+    { "type": "select", "id": "f4_icon", "label": "Fallback Icon 4", "options": [{"value":"cyclist","label":"Cyclist Height"},{"value":"seat","label":"Comfort Seat"},{"value":"shield","label":"Safety Shield"},{"value":"frame","label":"Bike Frame"},{"value":"gps","label":"GPS Tracking"},{"value":"brakes","label":"Brakes"}], "default": "frame" },
+    { "type": "inline_richtext", "id": "f4_title", "label": "Feature 4 Title", "default": "Step-through frame" },
+    {
+      "type": "header",
+      "content": "Feature 5"
+    },
+    { "type": "image_picker", "id": "f5_image", "label": "Upload SVG/PNG 5" },
+    { "type": "select", "id": "f5_icon", "label": "Fallback Icon 5", "options": [{"value":"cyclist","label":"Cyclist Height"},{"value":"seat","label":"Comfort Seat"},{"value":"shield","label":"Safety Shield"},{"value":"frame","label":"Bike Frame"},{"value":"gps","label":"GPS Tracking"},{"value":"brakes","label":"Brakes"}], "default": "gps" },
+    { "type": "inline_richtext", "id": "f5_title", "label": "Feature 5 Title", "default": "GPS tracking" },
+    {
+      "type": "header",
+      "content": "Feature 6"
+    },
+    { "type": "image_picker", "id": "f6_image", "label": "Upload SVG/PNG 6" },
+    { "type": "select", "id": "f6_icon", "label": "Fallback Icon 6", "options": [{"value":"cyclist","label":"Cyclist Height"},{"value":"seat","label":"Comfort Seat"},{"value":"shield","label":"Safety Shield"},{"value":"frame","label":"Bike Frame"},{"value":"gps","label":"GPS Tracking"},{"value":"brakes","label":"Brakes"}], "default": "brakes" },
+    { "type": "inline_richtext", "id": "f6_title", "label": "Feature 6 Title", "default": "Mechanical brakes" }
+  ]
+}
   ],
   "settings": [
     {
