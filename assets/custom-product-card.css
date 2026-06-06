@@ -52,19 +52,18 @@
   color: #333333;
 }
 
-/* Save Badge sticking out top right */
 .product__info-container .product-save-badge {
-  position: absolute;
-  top: -15px;
-  right: -10px;
-  background-color: #b3191f;
-  color: #ffffff;
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 6px;
-  z-index: 10;
-  box-shadow: 0 4px 10px rgba(179, 25, 31, 0.3);
+    position: absolute;
+    top: -34px;
+    right: 5px;
+    background-color: #AE1C28;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px 6px 0 0;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(179, 25, 31, 0.3);
 }
 
 /* Custom Price Centering */
