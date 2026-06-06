@@ -133,19 +133,6 @@
             "margin_bottom": 16
           }
         },
-        "pills_xFGRwJ": {
-          "type": "pills",
-          "settings": {
-            "text_color": "#962071",
-            "custom_svg": "",
-            "benefit_1": "Waterproof",
-            "benefit_2": "2 Year Warranty",
-            "benefit_3": "Swiss Movement",
-            "benefit_4": "Premium Leather",
-            "benefit_5": "",
-            "benefit_6": ""
-          }
-        },
         "text_e49ryr": {
           "type": "text",
           "settings": {
@@ -274,7 +261,6 @@
         "custom_option_insurance_custom",
         "inventory",
         "delivery_payment_mB6BTN",
-        "pills_xFGRwJ",
         "text_e49ryr",
         "faq_blocks_NkWNgc",
         "faq_blocks_CkKVjD",
