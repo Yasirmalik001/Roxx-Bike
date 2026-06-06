@@ -39,14 +39,14 @@
     object-position: {{ section.settings.image_position }};
   }
 
-  /* 300px Bottom Shadow */
+  /* 300px Bottom Black Shadow */
   .hero-bottom-shadow {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 300px;
-    background: linear-gradient(to top, rgb(var(--color-background)) 15%, rgba(var(--color-background), 0.6) 55%, rgba(var(--color-background), 0) 100%);
+    background: linear-gradient(to top, #000000 15%, rgba(0,0,0,0.6) 55%, transparent 100%);
     z-index: 2;
     pointer-events: none;
   }
@@ -106,13 +106,13 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    color: rgb(var(--color-foreground));
+    color: #ffffff; /* Forced white to contrast shadow */
   }
 
   .hero-features-desc {
     font-size: 1.4rem;
     line-height: 1.6;
-    color: rgba(var(--color-foreground), 0.8);
+    color: rgba(255,255,255, 0.8);
     max-width: 60rem;
     margin: 0 auto 5rem auto;
   }
@@ -137,18 +137,18 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background-color: rgba(var(--color-foreground), 0.05);
-    border: 1px solid rgba(var(--color-foreground), 0.15);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(var(--color-foreground));
+    color: #ffffff;
     transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
   .hero-feature-item:hover .hero-feature-icon {
     transform: scale(1.05);
-    background-color: rgba(var(--color-foreground), 0.15);
+    background-color: rgba(255, 255, 255, 0.2);
   }
 
   .hero-feature-icon img {
@@ -170,7 +170,7 @@
   .hero-feature-title {
     font-size: 1.3rem;
     font-weight: 500;
-    color: rgb(var(--color-foreground));
+    color: #ffffff;
     line-height: 1.4;
   }
 
@@ -181,8 +181,8 @@
     gap: 1rem;
     padding: 1.5rem 4rem;
     border-radius: 40px;
-    background: rgb(var(--color-button));
-    color: rgb(var(--color-button-text));
+    background: #FFD100;
+    color: #000000;
     font-weight: 800;
     font-size: 1.4rem;
     text-transform: uppercase;
@@ -231,7 +231,7 @@
     {%- endif -%}
   </div>
   
-  <div class="hero-bottom-shadow"></div>
+  <div class="hero-bottom-shadow"> </div>
 
   <div class="hero-features-content page-width">
     
@@ -358,12 +358,6 @@
       "unit": "vh",
       "label": "Minimum section height",
       "default": 90
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
     },
     {
       "type": "header",
