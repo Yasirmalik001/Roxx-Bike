@@ -146,7 +146,7 @@
         },
         "riders_experience_custom": {
           "type": "riders_experience",
-          "name": "c",
+          "name": "Riders experience",
           "settings": {}
         },
         "custom_trust_badges_custom": {
