@@ -459,6 +459,11 @@
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </div>
+              {%- for block in section.blocks -%}
+          {%- if block.type == 'gallery_specifications' -%}
+            {% render 'gallery-specifications-strip', block: block %}
+          {%- endif -%}
+        {%- endfor -%}
     </slider-component>
   {%- endif -%}
 </media-gallery>
