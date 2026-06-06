@@ -79,7 +79,7 @@ font-size: 14px;
 leading-trim: NONE;
 line-height: 100%;
 letter-spacing: 0%;
-    margin-bottom: 20px;
+  margin-bottom: 0;
 }
 .banner-review-stars {
   display: flex;
@@ -137,16 +137,14 @@ letter-spacing: 0%;
 
   #custom-banner-{{ section.id }} .banner-heading {
     font-size: {{ section.settings.heading_size_mobile }}px;
-    margin-bottom: 120px;
+    margin-bottom: 0;
   }
   #custom-banner-{{ section.id }} .banner-content {
     text-align: center;
     max-width: 650px;
     align-items: center;
-    justify-content: end;
-    gap:0px;
-    padding-bottom: 0px;
-}
+    gap: 15px;
+  }
 }
 
 @media (min-width: 800px) {
