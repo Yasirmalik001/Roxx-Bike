@@ -629,7 +629,6 @@
         "feature_row_e47jF7": {
           "type": "feature_row",
           "settings": {
-            "custom_svg": "",
             "fallback_icon": "rider_height",
             "text_1": "Suitable for cyclists\nfrom 165-190 cm",
             "text_2": "Suitable for cyclists\nfrom 155-195 cm"
@@ -638,7 +637,6 @@
         "feature_row_qzbajJ": {
           "type": "feature_row",
           "settings": {
-            "custom_svg": "",
             "fallback_icon": "range_dots",
             "text_1": "Range upto 80-100 km",
             "text_2": "Range upto 60-80 km"
@@ -647,7 +645,6 @@
         "feature_row_VjzrHf": {
           "type": "feature_row",
           "settings": {
-            "custom_svg": "",
             "fallback_icon": "speedometer",
             "text_1": "Max speed 25 km/h",
             "text_2": "Max speed 25 km/h"
@@ -656,7 +653,6 @@
         "feature_row_W6t6WY": {
           "type": "feature_row",
           "settings": {
-            "custom_svg": "",
             "fallback_icon": "gps_pin",
             "text_1": "Advanced (GPS\ntracking & alarm)",
             "text_2": "Standard lock support"
@@ -665,7 +661,6 @@
         "feature_row_hEHRbt": {
           "type": "feature_row",
           "settings": {
-            "custom_svg": "",
             "fallback_icon": "drive_belt",
             "text_1": "Carbon belt drive",
             "text_2": "Chain drive"
@@ -1038,18 +1033,21 @@
         "feature_LqfRzc": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Vector_17.svg",
             "title": "Integrated GPS tracking"
           }
         },
         "feature_8wVwfM": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_41.svg",
             "title": "Smart alarm system"
           }
         },
         "feature_ctVtbB": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_9.svg",
             "title": "Real-time location monitoring"
           }
         }
