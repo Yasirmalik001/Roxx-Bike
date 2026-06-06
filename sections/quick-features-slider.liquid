@@ -15,13 +15,6 @@
     overflow: hidden;
   }
 
-  .quick-features__heading {
-    margin: 0 0 4rem 0;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-  }
-
   /* --- Card Styling --- */
   .feature-card {
     position: relative;
@@ -218,7 +211,7 @@
   <div class="page-width">
     
     {%- if section.settings.heading != blank -%}
-      <h2 class="quick-features__heading h1 {{ section.settings.heading_size }}">
+      <h2 class="quick-features__heading  {{ section.settings.heading_size }}">
         {{ section.settings.heading | escape }}
       </h2>
     {%- endif -%}
