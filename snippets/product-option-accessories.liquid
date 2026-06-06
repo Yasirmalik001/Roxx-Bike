@@ -1,130 +1,5 @@
-<product-accessories-selector class="product-option-accessories" {{ block.shopify_attributes }}>
-  {%- if block.settings.heading != blank -%}
-    <h3 class="accessory-heading">{{ block.settings.heading | escape }}</h3>
-  {%- endif -%}
-  
-  <div class="accessories-list">
-    {%- for accessory_product in block.settings.accessory_products -%}
-      {%- assign first_variant = accessory_product.selected_or_first_available_variant -%}
-      {%- if accessory_product != blank -%}
-        <label class="accessory-card-label">
-          <input type="checkbox" name="accessory_items" value="{{ first_variant.id }}" class="accessory-checkbox-input">
-          <div class="accessory-card-content">
-            <div class="accessory-image">
-              {%- if accessory_product.featured_image != blank -%}
-                <img src="{{ accessory_product.featured_image | image_url: width: 120 }}" alt="{{ accessory_product.title | escape }}" loading="lazy" width="44" height="44">
-              {%- else -%}
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                </svg>
-              {%- endif -%}
-            </div>
-            
-            <div class="accessory-details">
-              <span class="accessory-title">{{ accessory_product.title | escape }}</span>
-              <span class="accessory-price">{{ accessory_product.price | money }}</span>
-            </div>
-            
-            <div class="accessory-radio-indicator"></div>
-          </div>
-        </label>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
-</product-accessories-selector>
-
 <style>
-  .product-option-accessories {
-    margin: 2.5rem 0;
-    display: block;
-  }
-  
-  .accessory-heading {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #1a1a1a;
-    margin-bottom: 1.5rem;
-    text-align: left;
-  }
-
-  .accessories-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .accessory-card-label {
-    display: block;
-    cursor: pointer;
-  }
-
-  .accessory-checkbox-input {
-    display: none;
-  }
-
-  /* --- 1:1 Design Card Container --- */
-  .accessory-card-content {
-    display: flex;
-    align-items: center;
-    padding: 1.2rem 1.6rem;
-    border: 2px solid transparent;
-    border-radius: 16px;
-    background-color: #f7f7f7; /* Exact light gray from screenshot */
-    transition: all 0.2s ease;
-  }
-
-  .accessory-image {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    border-radius: 10px;
-    margin-right: 1.5rem;
-    overflow: hidden;
-    padding: 4px;
-    flex-shrink: 0;
-  }
-
-  .accessory-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  .accessory-details {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    flex-grow: 1;
-  }
-
-  .accessory-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 0.3rem;
-  }
-
-  .accessory-price {
-    font-size: 1.3rem;
-    color: #555;
-    font-weight: 500;
-  }
-
-  /* --- Radio/Checkbox Indicator --- */
-  .accessory-radio-indicator {
-    width: 28px;
-    height: 28px;
-    border: 2px solid #e0e0e0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    background-color: #fff;
-  }
+  /* ... (Pichle styles waise hi rakhein) ... */
 
   /* Active/Checked State (Yellow border and yellow bg) */
   .accessory-checkbox-input:checked + .accessory-card-content {
@@ -136,11 +11,39 @@
     background-color: #FFD000;
   }
 
-  .accessory-checkbox-input:checked + .accessory-card-content .accessory-radio-indicator::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: #fff;
-    border-radius: 50%;
+  /* SVG Checkmark Logic */
+  .accessory-radio-indicator svg {
+    width: 14px;
+    height: 14px;
+    display: none; /* Hide by default */
+    stroke: #ffffff;
+    stroke-width: 3;
+    fill: none;
+  }
+
+  .accessory-checkbox-input:checked + .accessory-card-content .accessory-radio-indicator svg {
+    display: block; /* Show on checked */
   }
 </style>
+
+<label class="accessory-card-label">
+  <input type="checkbox" name="accessory_items" value="{{ first_variant.id }}" class="accessory-checkbox-input">
+  <div class="accessory-card-content">
+    <div class="accessory-image">
+      {%- if accessory_product.featured_image != blank -%}
+        <img src="{{ accessory_product.featured_image | image_url: width: 120 }}" alt="{{ accessory_product.title | escape }}" loading="lazy" width="44" height="44">
+      {%- endif -%}
+    </div>
+    
+    <div class="accessory-details">
+      <span class="accessory-title">{{ accessory_product.title | escape }}</span>
+      <span class="accessory-price">{{ accessory_product.price | money }}</span>
+    </div>
+    
+    <div class="accessory-radio-indicator">
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+  </div>
+</label>
