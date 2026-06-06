@@ -1,12 +1,12 @@
-
 <style>
+  /* --- Original Popup & Base Styles (Untouched for functionality) --- */
   .video-thumbnails .swiper-slide video{width:100%;height:auto;object-fit:cover;border:2px solid transparent;cursor:pointer;}
   .video-popup{position:fixed;top:0;left:0;right:0;bottom:0;margin:0 !important;inset:0;z-index:20000;display:none;justify-content:center;align-items:center;transform:none !important;background:rgba(0,0,0,0.8);width:100%;height:100%;backdrop-filter:blur(25px);}
-  .swiper-wrapper-md{padding-block:10px;display:flex;align-items:center;gap:15px;margin-top:var(--video-margin-top,20px);margin-bottom:var(--video-margin-bottom,20px);flex-wrap:nowrap;overflow-x:scroll !important;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;transform:translate3d(0,0,0);right:-100%;scrollbar-width:none;}
-  .headingCustom span{z-index:2;}
-    .video-thumbnails-container {
-        margin-top: 50px !important;
-    }
+  .swiper-wrapper-md{padding-block:10px;display:flex;align-items:center;gap:20px;margin-top:var(--video-margin-top,20px);margin-bottom:var(--video-margin-bottom,20px);flex-wrap:nowrap;overflow-x:scroll !important;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;transform:translate3d(0,0,0);right:-100%;scrollbar-width:none; justify-content: center;}
+  
+  .video-thumbnails-container {
+      margin-top: 50px !important;
+  }
   .preview-title-story{font-size:12px;line-height:16px;max-width:128px !important;font-weight:400;text-align:center;word-wrap:break-word;}
   .video-popup.active{display:flex !important;}
   body:has(.video-popup.active){overflow:hidden;height:100vh;position:fixed;width:100%;}
@@ -26,16 +26,12 @@
   .video-popup .thumbnail-strip{width:auto;margin-left:20px;position:absolute;left:0;top:50%;display:flex;align-items:center;flex-direction:column;gap:6px;}
   .video-popup .thumbnail-strip .swiper-slide video{width:84px;height:84px;object-fit:cover;}
   #closeVideoModal{position:fixed;top:20px;left:20px;font-size:30px;color:#fff;background:none;border:none;cursor:pointer;z-index:200001;width:40px;height:40px;}
-  .video-popup.active{display:flex !important;}
   .swiper-button-prev-thumb,.swiper-button-next-thumb{color:#fff;width:28px;height:28px;border-radius:50%;position:absolute;z-index:10;display:flex;justify-content:center;align-items:center;font-size:18px;cursor:pointer;}
   .swiper-button-prev-thumb{top:-50px;transform:rotate(180deg);}
   .swiper-button-next-thumb{bottom:-45px;}
   video.desktop-video-md{width:100%;height:200px;cursor:pointer;}
   .swiper-popup-thumbs .swiper-slide-active video{border:1px solid #fff;}
-  .swiper-slide-md{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;cursor:pointer;}
-  .swiper-slide-md video{aspect-ratio:9/16;width:unset !important;margin:0 auto;overflow:hidden;height:227px;object-fit:cover;}
   .swiper-main-video button{position:absolute;top:14px;right:7px;background-color:transparent;border:1px solid transparent;border-radius:50%;cursor:pointer;display:flex;height:48px;justify-content:center;width:48px;z-index:9999;}
-  .swiper-slide-md:hover video{transform:scale(1.04);transition:transform 0.18s ease-in-out;}
   .swiper-main-video .speaker-btn .mute-btn{display:none;}
   .swiper-main-video .pause-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;cursor:pointer;background:rgba(0,0,0,0.2);}
   .swiper-main-video .pause-overlay svg{width:74px;height:74px;}
@@ -45,6 +41,78 @@
   @media screen and (max-width:1024px){
     .video-popup .main-video{max-width:100%;}
     .thumbnail-strip{display:none !important;}
+  }
+
+  /* --- NEW UPDATED DESIGN STYLES FOR THE CIRCULAR THUMBNAILS --- */
+  
+  .headingCustom {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 25px;
+  }
+  .headingCustom span{z-index:2;}
+  
+  .swiper-slide-md {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative; /* Required to place the play icon over it */
+    width: 100px;  /* Size of the circle */
+    height: 100px; /* Size of the circle */
+  }
+
+  /* The Video Circle */
+  .swiper-slide-md video {
+    aspect-ratio: 1 / 1;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    border-radius: 50%; /* Makes it a perfect circle */
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Optional: gives a nice subtle shadow */
+  }
+
+  /* The White Play Triangle Overlay */
+  .swiper-slide-md::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%); /* slightly offset for optical center of a triangle */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid #ffffff;
+    z-index: 2;
+    pointer-events: none; /* Allows the click to pass through to the video */
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3)); /* Makes it visible on light videos */
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Hover Animation */
+  .swiper-slide-md:hover video {
+    transform: scale(1.05);
+  }
+  .swiper-slide-md:hover::after {
+    transform: translate(-40%, -50%) scale(1.1);
+  }
+  
+  /* Mobile styling adjustment */
+  @media screen and (max-width: 768px) {
+    .swiper-wrapper-md {
+      justify-content: flex-start; /* Allows normal horizontal scroll on mobile */
+      padding-left: 15px;
+    }
+    .swiper-slide-md {
+      width: 90px;
+      height: 90px;
+    }
   }
 </style>
 <div class="video-thumbnails-container">
