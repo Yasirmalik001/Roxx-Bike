@@ -12,6 +12,14 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "rating_badge_djC6y6": {
+          "type": "rating_badge",
+          "settings": {
+            "badge_label": "Bestseller",
+            "rating_score": "4.4",
+            "rating_text": "Trusted on 200+"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -265,6 +273,7 @@
         }
       },
       "block_order": [
+        "rating_badge_djC6y6",
         "title",
         "price",
         "text_YJpJae",
