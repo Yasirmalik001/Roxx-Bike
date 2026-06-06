@@ -68,8 +68,8 @@ product-info {
 
   .product--large:not(.product--no-media) .product__info-wrapper {
     padding: 0 0 0 10rem;
-    max-width: 35%;
-    width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: 40%;
+    width: calc(40% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media).product--right .product__info-wrapper {
@@ -1622,10 +1622,10 @@ a.product__text {
   padding: 0;
 }
 
-.quick-add-modal .product__media-list{
+.quick-add-modal .product__media-list {
   margin-left: 0rem;
   margin-bottom: 3rem;
-  width: calc(100% );
+  width: calc(100%);
 }
 
 .quick-add-modal .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide),
@@ -1635,7 +1635,7 @@ a.product__text {
   margin-right: -1.5rem;
 }
 
-.quick-add-modal .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide){
+.quick-add-modal .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
   margin-inline: 0px;
 }
 
@@ -1686,12 +1686,13 @@ a.product__text {
   pointer-events: none;
   z-index: 2;
 }
-.quick-add-modal media-gallery .slider-buttons{
+
+.quick-add-modal media-gallery .slider-buttons {
   opacity: 0;
   transition: all 0.2s ease;
 }
 
-.quick-add-modal  media-gallery slider-component:hover .slider-buttons{
+.quick-add-modal media-gallery slider-component:hover .slider-buttons {
   opacity: 1;
   transition: all 0.2s ease;
 }
@@ -1815,8 +1816,8 @@ a.product__text {
     column-gap: 40px;
     grid-auto-flow: dense;
   }
-  
-  .product__info-wrapper .product__info-container > * {
+
+  .product__info-wrapper .product__info-container>* {
     grid-column: 1 / -1;
   }
 
@@ -1881,12 +1882,14 @@ a.product__text {
   flex-direction: column;
   align-items: flex-end;
 }
+
 .product__info-wrapper .price__container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 0;
 }
+
 .product__info-wrapper .price-item {
   text-align: right;
   line-height: 1.1;
@@ -1903,6 +1906,7 @@ a.product__text {
   font-size: 32px;
   font-weight: 700;
 }
+
 .product__info-wrapper .price--large .price-item--regular {
   color: #888888;
   font-size: 18px;
@@ -1915,6 +1919,7 @@ a.product__text {
   color: #888888;
   font-size: 13px;
 }
+
 .product__info-wrapper .installment strong {
   color: #121212;
   font-weight: 700;
