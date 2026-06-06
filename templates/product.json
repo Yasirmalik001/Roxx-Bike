@@ -66,13 +66,6 @@
             "show_variant_images_in_swatches": false
           }
         },
-        "inventory": {
-          "type": "inventory",
-          "settings": {
-            "in_stock_text": "In stock. Delivery in 4-5 days",
-            "out_of_stock_text": "Out of stock"
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -134,17 +127,6 @@
             "description": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at.",
             "price": "+ € 150,00",
             "link": ""
-          }
-        },
-        "divider_Yr8NHi": {
-          "type": "divider",
-          "disabled": true,
-          "settings": {
-            "thickness": 1,
-            "color": "#e5e5e5",
-            "opacity": 100,
-            "margin_top": 0,
-            "margin_bottom": 0
           }
         },
         "gallery_specifications_custom": {
@@ -261,13 +243,11 @@
         "text_YJpJae",
         "shipping_info_UmQ3xw",
         "variant_picker",
-        "inventory",
         "buy_buttons",
         "divider_xVH3eG",
         "custom_option_accessories_custom",
         "divider_kMDJjk",
         "custom_option_insurance_custom",
-        "divider_Yr8NHi",
         "gallery_specifications_custom",
         "divider_pfUTYa",
         "riders_experience_custom",
