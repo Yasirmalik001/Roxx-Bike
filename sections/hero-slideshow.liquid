@@ -67,13 +67,12 @@
 
   .hero-slide__text-box {
     max-width: 500px;
-    color: #ffffff;
-    padding: 2rem 0;
+    color: rgb(var(--color-foreground));
   }
 
 
   .hero-slide__description {
-    color: #f3f3f3;
+    color: rgba(var(--color-foreground), 0.8);
     font-size: 1.6rem;
     line-height: 1.5;
   }
@@ -89,22 +88,22 @@
     left: 0;
     width: 100%;
     z-index: 10;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(var(--color-background), 0.9) 0%, rgba(var(--color-background), 0.5) 60%, transparent 100%);
   }
 
   .hero-features-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    color: #ffffff;
+    color: rgb(var(--color-foreground));
   }
 
   @media screen and (min-width: 750px) {
-.hero-features-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;
-    padding-bottom: 6rem;
-}
+    .hero-features-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+      padding-bottom: 6rem;
+    }
   }
 
   .hero-feature__item {
@@ -115,7 +114,7 @@
   .hero-feature__text {
     font-size: 1.4rem;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(var(--color-foreground), 0.8);
     margin: 0;
   }
 
@@ -149,7 +148,7 @@
   @media screen and (max-width: 749px) {
     .hero-slider-wrapper {
       min-height: auto;
-      background-color: #f7f7f7; /* Light background for the whole section */
+      background-color: transparent; /* Wrapper is transparent to let slide scheme handle background */
     }
     
     .hero-swiper {
@@ -170,7 +169,7 @@
     }
     
     .hero-slide__content-container {
-      background: #f7f7f7;
+      background: rgb(var(--color-background));
       align-items: flex-start;
     }
     
@@ -179,38 +178,50 @@
       padding: 0 2rem;
     }
     
+    .hero-slide__heading {
+      color: rgb(var(--color-foreground)) !important;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
     
     .hero-slide__description {
-      color: #333333 !important;
+      color: rgba(var(--color-foreground), 0.8) !important;
       font-size: 1.4rem;
     }
     
     .hero-slide__description p {
-      color: #333333 !important;
+      color: rgba(var(--color-foreground), 0.8) !important;
     }
 
     .hero-features-overlay {
       position: relative;
-      background: #f7f7f7; /* Remove dark gradient, match light bg */
+      background: rgb(var(--color-background));
     }
     
     .hero-features-grid {
       display: flex;
       flex-direction: column;
       gap: 0;
+      padding: 0 2rem;
     }
     
     .hero-feature__item {
       padding: 2rem 0;
-      border-bottom: 1px solid #dcdcdc; /* Separator lines */
+      border-bottom: 1px solid rgba(var(--color-foreground), 0.15); /* Dynamic Separator lines */
     }
     
     .hero-feature__item:last-child {
       border-bottom: none; /* Hide line on the last item */
     }
+
+    .hero-feature__title {
+      color: rgb(var(--color-foreground)) !important;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
     
     .hero-feature__text {
-      color: #333333 !important;
+      color: rgba(var(--color-foreground), 0.8) !important;
       font-size: 1.3rem;
     }
 
@@ -219,7 +230,12 @@
     }
     
     .swiper-pagination-bullet {
-      background: #000000 !important; /* Dark bullets for light bg */
+      background: rgb(var(--color-foreground)) !important; /* Dynamic bullets for light/dark bg */
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
     }
   }
 {%- endstyle -%}
@@ -245,7 +261,7 @@
     <div class="swiper-wrapper">
       
       {%- for block in section.blocks -%}
-        <div class="swiper-slide hero-slide" {{ block.shopify_attributes }}>
+        <div class="swiper-slide hero-slide color-{{ block.settings.color_scheme }} gradient" {{ block.shopify_attributes }}>
           
           <div class="hero-slide__media">
             {%- if block.settings.image != blank -%}
@@ -479,6 +495,12 @@
       "type": "slide",
       "name": "Slide",
       "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-1"
+        },
         {
           "type": "image_picker",
           "id": "image",
