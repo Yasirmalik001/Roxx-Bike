@@ -146,13 +146,8 @@
         },
         "riders_experience_custom": {
           "type": "riders_experience",
-          "settings": {
-            "heading": "Riders experience",
-            "video_url_1": "",
-            "video_url_2": "",
-            "video_url_3": "",
-            "video_url_4": ""
-          }
+          "name": "c",
+          "settings": {}
         },
         "custom_trust_badges_custom": {
           "type": "custom_trust_badges",
