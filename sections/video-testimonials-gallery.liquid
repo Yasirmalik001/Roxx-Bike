@@ -19,13 +19,6 @@
     gap: 2rem;
   }
 
-  .vt-gallery-heading {
-    margin: 0;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-  }
-
   .vt-gallery-rating-wrapper {
     display: flex;
     flex-direction: column;
@@ -162,7 +155,7 @@
     
     <div class="vt-gallery-header">
       {%- if section.settings.title != blank -%}
-        <h2 class="vt-gallery-heading h1 {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+        <h2 class="{{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
       {%- endif -%}
 
       {%- if section.settings.show_rating -%}
