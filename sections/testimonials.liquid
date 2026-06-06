@@ -24,11 +24,13 @@
     text-align: center;
     margin-bottom: 4rem;
     width: 100%;
+    gap: 2rem;
   }
 
   .customer-reviews__header-title-wrap {
     max-width: 800px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0;
+    width: 100%;
   }
 
   .customer-reviews__subheading {
@@ -45,45 +47,91 @@
   /* Row for Trustpilot and arrows */
   .customer-reviews__header-row {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 1rem;
-    flex-wrap: wrap;
+    margin-top: 0;
     gap: 2rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .customer-reviews__header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+
+    .customer-reviews__header-title-wrap {
+      max-width: 45%;
+      width: auto;
+    }
+
+    .customer-reviews__header-row {
+      width: auto;
+      flex-grow: 1;
+      justify-content: space-between;
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .customer-reviews__header-row {
+      flex-direction: column;
+      gap: 1.5rem;
+      justify-content: center;
+    }
   }
 
   .customer-reviews__trustpilot-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background-color:#F4F4F4;
-    padding: 2.2rem 2.4rem;
-    flex-wrap: wrap;
+    gap: 1.5rem;
+    background-color: #F4F4F4;
+    padding: 1rem 1.6rem;
+    border-radius: 6px;
+    flex-wrap: nowrap;
   }
 
   .customer-reviews__trustpilot-stars {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .customer-reviews__trustpilot-text {
     font-size: 1.4rem;
     color: rgba(var(--color-foreground), 0.8);
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 
   .customer-reviews__trustpilot-brand {
     display: inline-flex;
     align-items: center;
     font-weight: 700;
-    color: #00b67a;
+    color: currentColor;
     font-size: 1.5rem;
+    flex-shrink: 0;
   }
 
   .customer-reviews__brand-logo img {
     height: 30px;
     width: auto;
     object-fit: contain;
+  }
+
+  @media screen and (max-width: 600px) {
+    .customer-reviews__trustpilot-badge {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1.2rem;
+    }
+    .customer-reviews__trustpilot-text {
+      white-space: normal;
+      text-align: center;
+    }
   }
 
   /* Main Layout */
@@ -160,28 +208,25 @@
   }
 
   .customer-reviews__btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+    width: 24px;
+    height: 24px;
     background-color: transparent !important;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 1px solid rgba(var(--color-foreground), 0.15) !important;
+    border: none !important;
     color: currentColor !important;
     transition: all 0.2s ease;
   }
 
   .customer-reviews__btn:hover {
-    background-color: rgba(var(--color-foreground), 0.05) !important;
-    border-color: rgba(var(--color-foreground), 0.8) !important;
+    opacity: 0.7;
   }
 
   .customer-reviews__btn.swiper-button-disabled {
-    opacity: 0.3 !important;
+    opacity: 0.2 !important;
     cursor: not-allowed !important;
-    border-color: rgba(var(--color-foreground), 0.08) !important;
   }
 
   .customer-reviews__btn svg {
@@ -278,12 +323,6 @@
 
   .section-{{ section.id }}-padding .slider-template-progress-fill {
     background: #00b67a !important;
-  }
-  @media screen and (max-width: 990px) {
-
-      .customer-reviews__trustpilot-badge {
-        justify-content: center;
-      }
   }
 {%- endstyle -%}
 
