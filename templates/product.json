@@ -16,6 +16,8 @@
           "type": "payment_installments",
           "settings": {
             "bg_color": "#f7f7f7",
+            "logo_1": "shopify://shop_images/8d4b078bbdc403275d20394187404c948d7ef9e8.png",
+            "logo_2": "shopify://shop_images/Group_125.svg",
             "text": "Pay in 3 interest-free installments",
             "info_link": "",
             "margin_top": 10,
