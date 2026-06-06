@@ -1,5 +1,17 @@
 
   {%- style -%}
+    /* --- Block Padding Logic --- */
+    .block-padding-{{ block.id }} {
+      padding-top: {{ block.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ block.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+    @media screen and (min-width: 750px) {
+      .block-padding-{{ block.id }} {
+        padding-top: {{ block.settings.padding_top }}px;
+        padding-bottom: {{ block.settings.padding_bottom }}px;
+      }
+    }
+
     /* --- Top Header: Tabs on Left, Buttons on Right --- */
     .joieem-header-wrapper {
       display: flex;
@@ -169,15 +181,26 @@
     }
   {%- endstyle -%}
 
-  <div class="product-block-{{ block.id }} page-width" {{ block.shopify_attributes }}>
+  <div class="product-block-{{ block.id }} page-width block-padding-{{ block.id }}" {{ block.shopify_attributes }}>
     
     <div class="joieem-header-wrapper">
+      <!-- Dynamic Tabs from Schema -->
       <div class="joieem-tabs-container">
-        <div class="joieem-tab-item is-active">Description</div>
-        <div class="joieem-tab-item">Features</div>
-        <div class="joieem-tab-item">Specifications</div>
-        <div class="joieem-tab-item">Accessories</div>
-        <div class="joieem-tab-item">FAQ</div>
+        {%- if block.settings.tab_1 != blank -%}
+          <div class="joieem-tab-item is-active">{{ block.settings.tab_1 }}</div>
+        {%- endif -%}
+        {%- if block.settings.tab_2 != blank -%}
+          <div class="joieem-tab-item">{{ block.settings.tab_2 }}</div>
+        {%- endif -%}
+        {%- if block.settings.tab_3 != blank -%}
+          <div class="joieem-tab-item">{{ block.settings.tab_3 }}</div>
+        {%- endif -%}
+        {%- if block.settings.tab_4 != blank -%}
+          <div class="joieem-tab-item">{{ block.settings.tab_4 }}</div>
+        {%- endif -%}
+        {%- if block.settings.tab_5 != blank -%}
+          <div class="joieem-tab-item">{{ block.settings.tab_5 }}</div>
+        {%- endif -%}
       </div>
       
       <div class="joieem-actions-container">
