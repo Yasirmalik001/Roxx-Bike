@@ -384,29 +384,8 @@
             </div>
           {% endif %}
           
-          <a href="{{ link_test_ride }}" class="roxx-btn roxx-btn-secondary">{{ text_test_ride }}</a>
         </div>
 
-        <div class="roxx-payment-strip">
-          <div class="roxx-payment-logos">
-            {%- if settings.roxx_payment_logo_1 != blank or settings.roxx_payment_logo_2 != blank or settings.roxx_payment_logo_3 != blank -%}
-              {%- if settings.roxx_payment_logo_1 != blank -%}
-                <img src="{{ settings.roxx_payment_logo_1 | image_url: height: 28 }}" alt="Payment Method 1" loading="lazy" style="height: 14px; width: auto;">
-              {%- endif -%}
-              {%- if settings.roxx_payment_logo_2 != blank -%}
-                <img src="{{ settings.roxx_payment_logo_2 | image_url: height: 28 }}" alt="Payment Method 2" loading="lazy" style="height: 14px; width: auto;">
-              {%- endif -%}
-              {%- if settings.roxx_payment_logo_3 != blank -%}
-                <img src="{{ settings.roxx_payment_logo_3 | image_url: height: 28 }}" alt="Payment Method 3" loading="lazy" style="height: 14px; width: auto;">
-              {%- endif -%}
-            {%- else -%}
-        <img src="//roxx.bike/cdn/shop/files/e28c38cf50c3b27a71073b6fc52b0f6cc99cccb9.png?height=28&amp;v=1780510808" alt="Payment Method 1" loading="lazy" style="height: 14px; width: auto;">
-        <img src="//roxx.bike/cdn/shop/files/Group_125.svg?height=28&amp;v=1780510807" alt="Payment Method 2" loading="lazy" style="height: 14px; width: auto;">
-        <img src="//roxx.bike/cdn/shop/files/8d4b078bbdc403275d20394187404c948d7ef9e8.png?height=28&amp;v=1780510807" alt="Payment Method 3" loading="lazy" style="height: 14px; width: auto;">
-            {%- endif -%}
-          </div>
-          <span>{{ text_payment }}</span>
-        </div>
 
       </div>
     </div>
