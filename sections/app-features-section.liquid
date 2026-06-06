@@ -13,41 +13,44 @@
 
   .app-intro-section {
     overflow: hidden;
+    background-color: transparent;
   }
 
-  /* Header Styles */
+  /* --- Header Styles --- */
   .app-intro-header {
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto 5rem auto;
+    max-width: 800px;
+    margin: 0 auto 6rem auto;
   }
 
   .app-intro-heading {
     margin: 0 0 1.5rem 0;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0em;
+    color: rgb(var(--color-foreground));
   }
 
   .app-intro-description {
     font-size: 1.5rem;
     line-height: 1.6;
     color: rgba(var(--color-foreground), 0.75);
-    margin: 0;
+    margin: 0 auto;
+    max-width: 650px;
   }
 
-  /* Grid Layout */
+  /* --- Main Grid Layout --- */
   .app-intro-grid {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 5rem;
   }
 
   @media screen and (min-width: 990px) {
     .app-intro-grid {
       flex-direction: row;
       align-items: center;
-      gap: 6rem;
+      gap: 4rem;
     }
     .app-image-col {
       width: 55%;
@@ -57,36 +60,60 @@
     }
   }
 
-  /* Left Column: Composite Image */
+  /* --- Left Column: 3 Images Composition --- */
   .app-image-col {
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    /* Extra padding bottom to allow devices to hang down slightly without clipping */
+    padding-bottom: 3rem; 
   }
 
-  .app-main-image {
-    width: 100%;
-    max-width: 800px;
+  .layer-bike {
+    width: 78%; /* Bike takes up left 78% */
     height: auto;
     object-fit: contain;
+    position: relative;
+    z-index: 1;
     display: block;
   }
 
-  /* Right Column: Feature Card */
+  .layer-device-1 {
+    position: absolute;
+    width: 25%; /* Tablet/Phone 1 size */
+    bottom: 5%;
+    right: 18%; /* Positioned slightly behind Device 2 */
+    z-index: 2;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(-10px 15px 25px rgba(0, 0, 0, 0.15));
+  }
+
+  .layer-device-2 {
+    position: absolute;
+    width: 22%; /* Mobile size */
+    bottom: 0%;
+    right: 2%; /* Positioned on the far right */
+    z-index: 3;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(-15px 20px 30px rgba(0, 0, 0, 0.2));
+  }
+
+  /* --- Right Column: Feature Card (1:1 White Box) --- */
   .app-card-col {
     display: flex;
     justify-content: center;
   }
 
   .app-feature-card {
-    background-color: rgb(var(--color-background));
-    border-radius: 24px;
-    padding: 5rem 4rem;
+    background-color: #ffffff; /* Forced white to match screenshot */
+    border-radius: 16px;
+    padding: 6rem 5rem;
     width: 100%;
-    max-width: 500px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(var(--color-foreground), 0.03);
+    max-width: 550px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.02);
   }
 
   .app-features-wrapper {
@@ -96,20 +123,20 @@
     row-gap: 5rem;
   }
 
-  /* Individual Feature Block */
+  /* --- Individual Feature Block --- */
   .app-feature-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.5rem;
+    gap: 1.8rem;
   }
 
   .app-feature-icon {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background-color: rgba(var(--color-foreground), 0.1); /* The light gray circle behind icons */
+    background-color: #d8d8d8; /* Solid gray placeholder circle from image */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,20 +144,29 @@
   }
 
   .app-feature-icon img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .app-feature-title {
     font-size: 1.3rem;
     font-weight: 500;
     line-height: 1.4;
-    color: rgb(var(--color-foreground));
+    color: #333333;
     margin: 0;
+    max-width: 160px;
   }
 
+  /* Mobile Adjustments */
   @media screen and (max-width: 749px) {
+    .app-intro-header {
+      margin-bottom: 4rem;
+    }
+    .layer-bike { width: 85%; }
+    .layer-device-1 { width: 30%; right: 12%; }
+    .layer-device-2 { width: 26%; right: 0%; }
+    
     .app-feature-card {
       padding: 4rem 2rem;
     }
@@ -144,7 +180,6 @@
 <div class="app-intro-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
   <div class="page-width">
     
-    <!-- Top Centered Header -->
     <div class="app-intro-header">
       {%- if section.settings.title != blank -%}
         <h2 class="app-intro-heading h1 {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
@@ -157,21 +192,26 @@
       {%- endif -%}
     </div>
 
-    <!-- Main 2-Column Grid -->
     <div class="app-intro-grid">
       
-      <!-- Left: App & Bike Image -->
       <div class="app-image-col">
-        {%- if section.settings.main_image != blank -%}
-          {{ section.settings.main_image | image_url: width: 1400 | image_tag: class: 'app-main-image', loading: 'lazy' }}
+        {%- if section.settings.image_bike != blank -%}
+          {{ section.settings.image_bike | image_url: width: 1000 | image_tag: class: 'layer-bike', loading: 'lazy' }}
         {%- else -%}
-          {{ 'product-apparel-1' | placeholder_svg_tag: 'app-main-image placeholder-svg' }}
+          {{ 'product-1' | placeholder_svg_tag: 'layer-bike placeholder-svg' }}
+        {%- endif -%}
+
+        {%- if section.settings.image_device_1 != blank -%}
+          {{ section.settings.image_device_1 | image_url: width: 400 | image_tag: class: 'layer-device-1', loading: 'lazy' }}
+        {%- endif -%}
+
+        {%- if section.settings.image_device_2 != blank -%}
+          {{ section.settings.image_device_2 | image_url: width: 300 | image_tag: class: 'layer-device-2', loading: 'lazy' }}
         {%- endif -%}
       </div>
 
-      <!-- Right: Floating Features Card -->
       <div class="app-card-col">
-        <div class="app-feature-card color-{{ section.settings.card_color_scheme }}">
+        <div class="app-feature-card">
           
           {%- if section.blocks.size > 0 -%}
             <div class="app-features-wrapper">
@@ -182,7 +222,6 @@
                     {%- if block.settings.icon != blank -%}
                       {{ block.settings.icon | image_url: width: 100 | image_tag: loading: 'lazy' }}
                     {%- endif -%}
-                    <!-- If no icon is uploaded, it leaves the blank gray circle from the mockup -->
                   </div>
 
                   {%- if block.settings.title != blank -%}
@@ -230,9 +269,10 @@
       "options": [
         { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
         { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
-        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" },
+        { "value": "hxl", "label": "Extra Large" }
       ],
-      "default": "h1",
+      "default": "h0",
       "label": "t:sections.all.heading_size.label"
     },
     {
@@ -243,20 +283,25 @@
     },
     {
       "type": "header",
-      "content": "Visuals"
+      "content": "Visuals (Left Column Composition)"
     },
     {
       "type": "image_picker",
-      "id": "main_image",
-      "label": "Composite App & Bike Image",
-      "info": "Upload the main image showing the bike and phone screens together."
+      "id": "image_bike",
+      "label": "1. Base Image (Bike)",
+      "info": "This image sits in the background on the left."
     },
     {
-      "type": "color_scheme",
-      "id": "card_color_scheme",
-      "label": "Feature Card Color Scheme",
-      "default": "background-1",
-      "info": "Controls the background color of the floating features card."
+      "type": "image_picker",
+      "id": "image_device_1",
+      "label": "2. Middle Device (Tablet/Phone 1)",
+      "info": "Overlaps the bike on the right side."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_device_2",
+      "label": "3. Front Device (Mobile/Phone 2)",
+      "info": "Overlaps Device 1 and sits in the foreground."
     },
     {
       "type": "header",
@@ -266,21 +311,21 @@
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 60
+      "default": 80
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 60
+      "default": 80
     }
   ],
   "blocks": [
@@ -292,7 +337,8 @@
         {
           "type": "image_picker",
           "id": "icon",
-          "label": "Upload Icon Image or SVG"
+          "label": "Upload Icon Image",
+          "info": "If left blank, a solid gray circle will appear."
         },
         {
           "type": "text",
