@@ -26,9 +26,9 @@
   assign money_price_min = price_min | money
   assign money_price_max = price_max | money
   if settings.currency_code_enabled
-    assign money_price = price | money_with_currency
-    assign money_price_min = price_min | money_with_currency
-    assign money_price_max = price_max | money_with_currency
+    assign money_price = price | money
+    assign money_price_min = price_min | money
+    assign money_price_max = price_max | money
   endif
 
   if target == product and product.price_varies
@@ -66,11 +66,7 @@
     <!-- Compare-at Price & Discount -->
     {%- if compare_at_price > price -%}
       <div class="custom-price-compare">
-        {% if settings.currency_code_enabled %}
-          {{ compare_at_price | money_with_currency }}
-        {% else %}
-          {{ compare_at_price | money }}
-        {% endif %}
+        {{ compare_at_price | money }}
       </div>
     {%- endif -%}
 
@@ -91,11 +87,11 @@
 
   <!-- Klarna Installments Pill -->
   <div class="product-klarna-installment-pill">
-    <span class="klarna-badge">Klarna.</span>
-    <span class="afterpay-badge">afterpay</span>
+    <span class="badge-in3"><span class="badge-in3-pink">i</span><span class="badge-in3-black">n3</span></span>
+    <span class="badge-klarna">Klarna</span>
     <span class="installment-text">Pay in 3 interest-free installments</span>
     <span class="info-icon">
-      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="10"></circle>
         <line x1="12" y1="16" x2="12" y2="12"></line>
         <line x1="12" y1="8" x2="12" y2="8"></line>
