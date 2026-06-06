@@ -80,6 +80,16 @@
             "book_test_ride_text_color": "#000000"
           }
         },
+        "divider_xVH3eG": {
+          "type": "divider",
+          "settings": {
+            "thickness": 1,
+            "color": "#e5e5e5",
+            "opacity": 100,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
         "custom_option_accessories_custom": {
           "type": "custom_option_accessories",
           "settings": {
@@ -204,6 +214,7 @@
         "shipping_info_UmQ3xw",
         "variant_picker",
         "buy_buttons",
+        "divider_xVH3eG",
         "custom_option_accessories_custom",
         "custom_option_insurance_custom",
         "inventory",
