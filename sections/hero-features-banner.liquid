@@ -28,24 +28,58 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    background-color: #000;
   }
 
-  .hero-features-bg img {
+  .hero-features-bg img,
+  .hero-features-bg video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: {{ section.settings.image_position }};
   }
 
-  .hero-features-overlay {
+  /* 300px Bottom Black Shadow */
+  .hero-bottom-shadow {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 300px;
+    background: linear-gradient(to top, #000000 15%, rgba(0,0,0,0.6) 55%, transparent 100%);
     z-index: 2;
-    /* Gradient fades from transparent to the exact background color of the selected color scheme */
-    background: linear-gradient(to bottom, rgba(var(--color-background), 0) 30%, rgba(var(--color-background), 0.8) 60%, rgba(var(--color-background), 1) 90%);
+    pointer-events: none;
+  }
+
+  /* Play/Pause Button */
+  .hero-play-pause-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    z-index: 10;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+  }
+
+  .hero-play-pause-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+
+  .hero-play-pause-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
   }
 
   .hero-features-content {
@@ -72,12 +106,13 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.02em;
+    color: #ffffff; /* Forced white to contrast shadow */
   }
 
   .hero-features-desc {
     font-size: 1.4rem;
     line-height: 1.6;
-    color: rgba(var(--color-foreground), 0.7);
+    color: rgba(255,255,255, 0.8);
     max-width: 60rem;
     margin: 0 auto 5rem auto;
   }
@@ -102,17 +137,24 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background-color: rgba(var(--color-foreground), 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(var(--color-foreground));
+    color: #ffffff;
     transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
   .hero-feature-item:hover .hero-feature-icon {
     transform: scale(1.05);
-    background-color: rgba(var(--color-foreground), 0.15);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-feature-icon img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
   }
 
   .hero-feature-icon svg {
@@ -128,7 +170,7 @@
   .hero-feature-title {
     font-size: 1.3rem;
     font-weight: 500;
-    color: rgb(var(--color-foreground));
+    color: #ffffff;
     line-height: 1.4;
   }
 
@@ -139,13 +181,21 @@
     gap: 1rem;
     padding: 1.5rem 4rem;
     border-radius: 40px;
+    background: #FFD100;
+    color: #000000;
     font-weight: 800;
     font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     text-decoration: none;
+    transition: opacity 0.3s ease;
+    border: none;
   }
   
+  .hero-features-button:hover {
+    opacity: 0.85;
+  }
+
   .hero-features-button svg {
     width: 16px;
     height: 16px;
@@ -167,12 +217,21 @@
 
 <div class="hero-features-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
   
-  {%- if section.settings.image != blank -%}
-    <div class="hero-features-bg">
+  <div class="hero-features-bg">
+    {%- if section.settings.video != blank -%}
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'hero-video-element' }}
+      
+      <div class="hero-play-pause-btn" id="heroVideoBtn-{{ section.id }}">
+        <svg class="icon-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+        <svg class="icon-play" viewBox="0 0 24 24" style="display: none;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+
+    {%- elsif section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
-    </div>
-    <div class="hero-features-overlay"></div>
-  {%- endif -%}
+    {%- endif -%}
+  </div>
+  
+  <div class="hero-bottom-shadow"></div>
 
   <div class="hero-features-content page-width">
     
@@ -195,8 +254,8 @@
         {%- for block in section.blocks -%}
           <div class="hero-feature-item" {{ block.shopify_attributes }}>
             <div class="hero-feature-icon">
-              {%- if block.settings.custom_svg != blank -%}
-                {{ block.settings.custom_svg }}
+              {%- if block.settings.custom_image != blank -%}
+                {{ block.settings.custom_image | image_url: width: 56 | image_tag: loading: 'lazy' }}
               {%- else -%}
                 {%- case block.settings.icon -%}
                   {%- when 'gear' -%}
@@ -233,6 +292,29 @@
   </div>
 </div>
 
+{%- if section.settings.video != blank -%}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var video = document.querySelector('.section-{{ section.id }}-padding .hero-video-element');
+    var btn = document.getElementById('heroVideoBtn-{{ section.id }}');
+    
+    if (video && btn) {
+      btn.addEventListener('click', function() {
+        if (video.paused) {
+          video.play();
+          btn.querySelector('.icon-play').style.display = 'none';
+          btn.querySelector('.icon-pause').style.display = 'block';
+        } else {
+          video.pause();
+          btn.querySelector('.icon-play').style.display = 'block';
+          btn.querySelector('.icon-pause').style.display = 'none';
+        }
+      });
+    }
+  });
+</script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Hero with Features",
@@ -240,9 +322,15 @@
   "class": "section",
   "settings": [
     {
+      "type": "video",
+      "id": "video",
+      "label": "Background Video"
+    },
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "Background Image"
+      "label": "Fallback Background Image",
+      "info": "Displays if no video is selected."
     },
     {
       "type": "select",
@@ -259,8 +347,7 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
-      "default": "background-1",
-      "info": "The gradient overlay will fade into this background color."
+      "default": "background-1"
     },
     {
       "type": "range",
@@ -352,6 +439,12 @@
       "limit": 4,
       "settings": [
         {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Upload PNG/SVG Icon",
+          "info": "Overrides the standard icon selection below."
+        },
+        {
           "type": "select",
           "id": "icon",
           "label": "Standard Icon",
@@ -363,12 +456,6 @@
             { "value": "shield", "label": "Shield" }
           ],
           "default": "gear"
-        },
-        {
-          "type": "html",
-          "id": "custom_svg",
-          "label": "Custom SVG Code",
-          "info": "Overrides the standard icon selection above."
         },
         {
           "type": "text",
