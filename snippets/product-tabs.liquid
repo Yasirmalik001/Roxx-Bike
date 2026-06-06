@@ -35,7 +35,7 @@
       color: rgb(var(--color-foreground));
       padding-bottom: 0.6rem;
       letter-spacing: 0.05em;
-      cursor: pointer; /* Changed to pointer */
+      cursor: pointer;
       transition: color 0.3s ease;
     }
 
@@ -44,6 +44,11 @@
     }
 
     /* --- Tab Panels CSS --- */
+    .joieem-text-column {
+      display: flex;
+      flex-direction: column;
+    }
+
     .joieem-tab-panel {
       display: none;
       animation: fadeIn 0.4s ease;
@@ -51,11 +56,6 @@
     
     .joieem-tab-panel.is-active {
       display: block;
-    }
-
-    /* Keep grid intact for the main description panel */
-    .joieem-tab-panel.joieem-content-grid.is-active {
-      display: grid;
     }
 
     @keyframes fadeIn {
@@ -105,6 +105,7 @@
 
     /* --- Main Content Layout --- */
     .joieem-content-grid {
+      display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8rem;
       align-items: start;
@@ -236,65 +237,68 @@
       </div>
     </div>
 
-    <div class="joieem-panels-wrapper">
+    <div class="joieem-content-grid">
       
-      <div id="panel-1-{{ block.id }}" class="joieem-tab-panel joieem-content-grid is-active">
-        <div class="joieem-text-area rte">
-          {{ block.settings.description | default: product.description }}
+      <div class="joieem-text-column">
+        <div id="panel-1-{{ block.id }}" class="joieem-tab-panel is-active">
+          <div class="joieem-text-area rte">
+            {{ block.settings.description | default: product.description }}
+          </div>
         </div>
-        <div class="joieem-features-grid">
-          {%- for i in (1..6) -%}
-            {%- assign img_key = 'f' | append: i | append: '_image' -%}
-            {%- assign icon_key = 'f' | append: i | append: '_icon' -%}
-            {%- assign title_key = 'f' | append: i | append: '_title' -%}
-            
-            {%- assign f_image = block.settings[img_key] -%}
-            {%- assign f_icon = block.settings[icon_key] -%}
-            {%- assign f_title = block.settings[title_key] -%}
 
-            {%- if f_title != blank -%}
-              <div class="joieem-feature-block">
-                <div class="joieem-feature-icon">
-                  {%- if f_image != blank -%}
-                    {{ f_image | image_url: width: 64 | image_tag: loading: 'lazy' }}
-                  {%- else -%}
-                    {%- case f_icon -%}
-                      {%- when 'cyclist' -%}
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m-4-4h8M8 8h8M6 12h12"/></svg>
-                      {%- when 'seat' -%}
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M12 10v10m-3-3h6"/></svg>
-                      {%- when 'shield' -%}
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                      {%- when 'frame' -%}
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18L10 6h4l6 12M5 13h14"/></svg>
-                      {%- when 'gps' -%}
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                      {%- when 'brakes' -%}
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/></svg>
-                    {%- endcase -%}
-                  {%- endif -%}
-                </div>
-                <div class="joieem-feature-text">{{ f_title }}</div>
+        <div id="panel-2-{{ block.id }}" class="joieem-tab-panel">
+          <div class="joieem-text-area rte">{{ block.settings.tab_2_content }}</div>
+        </div>
+
+        <div id="panel-3-{{ block.id }}" class="joieem-tab-panel">
+          <div class="joieem-text-area rte">{{ block.settings.tab_3_content }}</div>
+        </div>
+
+        <div id="panel-4-{{ block.id }}" class="joieem-tab-panel">
+          <div class="joieem-text-area rte">{{ block.settings.tab_4_content }}</div>
+        </div>
+
+        <div id="panel-5-{{ block.id }}" class="joieem-tab-panel">
+          <div class="joieem-text-area rte">{{ block.settings.tab_5_content }}</div>
+        </div>
+      </div>
+
+      <div class="joieem-features-grid">
+        {%- for i in (1..6) -%}
+          {%- assign img_key = 'f' | append: i | append: '_image' -%}
+          {%- assign icon_key = 'f' | append: i | append: '_icon' -%}
+          {%- assign title_key = 'f' | append: i | append: '_title' -%}
+          
+          {%- assign f_image = block.settings[img_key] -%}
+          {%- assign f_icon = block.settings[icon_key] -%}
+          {%- assign f_title = block.settings[title_key] -%}
+
+          {%- if f_title != blank -%}
+            <div class="joieem-feature-block">
+              <div class="joieem-feature-icon">
+                {%- if f_image != blank -%}
+                  {{ f_image | image_url: width: 64 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  {%- case f_icon -%}
+                    {%- when 'cyclist' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m-4-4h8M8 8h8M6 12h12"/></svg>
+                    {%- when 'seat' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M12 10v10m-3-3h6"/></svg>
+                    {%- when 'shield' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    {%- when 'frame' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18L10 6h4l6 12M5 13h14"/></svg>
+                    {%- when 'gps' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {%- when 'brakes' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/></svg>
+                  {%- endcase -%}
+                {%- endif -%}
               </div>
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
-      </div>
-
-      <div id="panel-2-{{ block.id }}" class="joieem-tab-panel">
-        <div class="joieem-text-area rte">{{ block.settings.tab_2_content }}</div>
-      </div>
-
-      <div id="panel-3-{{ block.id }}" class="joieem-tab-panel">
-        <div class="joieem-text-area rte">{{ block.settings.tab_3_content }}</div>
-      </div>
-
-      <div id="panel-4-{{ block.id }}" class="joieem-tab-panel">
-        <div class="joieem-text-area rte">{{ block.settings.tab_4_content }}</div>
-      </div>
-
-      <div id="panel-5-{{ block.id }}" class="joieem-tab-panel">
-        <div class="joieem-text-area rte">{{ block.settings.tab_5_content }}</div>
+              <div class="joieem-feature-text">{{ f_title }}</div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
 
     </div>
@@ -317,7 +321,7 @@
           // 2. Add active state to clicked tab
           this.classList.add('is-active');
 
-          // 3. Show target panel
+          // 3. Show target text panel
           const targetId = this.getAttribute('data-target');
           const targetPanel = blockContainer.querySelector(targetId);
           if (targetPanel) {
