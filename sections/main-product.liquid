@@ -74,9 +74,33 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
+    <style>
+      .product-breadcrumbs {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+        font-size: 1.2rem !important;
+        color: #888888 !important;
+        font-weight: 500 !important;
+        margin-bottom: 2.5rem !important;
+        margin-top: 1rem !important;
+        padding-left: 1.5rem !important;
+      }
+      .product-breadcrumbs a {
+        color: #000000 !important;
+        text-decoration: none !important;
+        transition: opacity 0.2s ease !important;
+      }
+      .product-breadcrumbs a:hover {
+        opacity: 0.7 !important;
+      }
+      .product-breadcrumbs .active-breadcrumb {
+        color: #888888 !important;
+        font-weight: 400 !important;
+      }
+    </style>
     <!-- Breadcrumbs at the top of the product page -->
     {% render 'breadcrumbs', class: 'custom-breadcrumbs product-breadcrumbs', use_svg_separator: true %}
-
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}

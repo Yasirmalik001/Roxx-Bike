@@ -18,9 +18,11 @@ Variables parameters:
 
 {%- if use_svg_separator -%}
   {%- capture separator_markup -%}
-    <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 1L7 5L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <span class="breadcrumb-separator svg-separator">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 10px; height: 10px; opacity: 0.5; margin: 0 4px; display: inline-block;">
+        <path d="M3 1L7 5L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
   {%- endcapture -%}
 {%- else -%}
   {%- capture separator_markup -%}
