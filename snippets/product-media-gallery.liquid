@@ -80,9 +80,39 @@
       media-gallery.media-gallery--side-by-side .thumbnail-list__item {
         width: 100% !important;
         max-width: 100% !important;
+        border-radius: 8px !important;
+      }
+      media-gallery.media-gallery--side-by-side .thumbnail {
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        border: 2px solid transparent !important;
+      }
+      media-gallery.media-gallery--side-by-side .thumbnail[aria-current="true"] {
+        border: 2px solid #FFD000 !important;
+        box-shadow: none !important;
+      }
+      media-gallery.media-gallery--side-by-side .thumbnail[aria-current="true"]::after {
+        display: none !important; /* hide default shopify black outline */
       }
       media-gallery.media-gallery--side-by-side slider-component.thumbnail-slider .slider-buttons {
         display: none !important;
+      }
+      .thumbnail-scroll-down-arrow {
+        width: 32px !important;
+        height: 32px !important;
+        background: #f7f7f7 !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 10px auto 0 !important;
+        cursor: pointer !important;
+        color: #888888 !important;
+        transition: all 0.2s ease;
+      }
+      .thumbnail-scroll-down-arrow:hover {
+        background: #e5e5e5 !important;
+        color: #000000 !important;
       }
     }
   </style>
@@ -351,7 +381,7 @@
           {%- endunless -%}
         {%- endfor -%}
       </ul>
-      <div class="thumbnail-scroll-down-arrow" onclick="document.querySelector('slider-component.thumbnail-slider ul.thumbnail-list')?.scrollBy({ top: 100, behavior: 'smooth' });">
+      <div class="thumbnail-scroll-down-arrow" onclick="document.querySelector('#GalleryViewer-{{ section.id }} .slider-button--next')?.click();">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
