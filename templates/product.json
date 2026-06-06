@@ -752,6 +752,90 @@
         "padding_bottom": 36
       }
     },
+    "testimonials_NNYm9Y": {
+      "type": "testimonials",
+      "blocks": {
+        "review_WD4YwF": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_bVCGpk": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_YUHRnw": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_Y9g6KC": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_R3FU7i": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_6XQRgT": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_JhceXH": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Lena . J"
+          }
+        }
+      },
+      "block_order": [
+        "review_WD4YwF",
+        "review_bVCGpk",
+        "review_YUHRnw",
+        "review_Y9g6KC",
+        "review_R3FU7i",
+        "review_6XQRgT",
+        "review_JhceXH"
+      ],
+      "name": "Customer Reviews Slider",
+      "settings": {
+        "color_scheme": "",
+        "heading": "OUR CUSTOMER SAY!",
+        "heading_size": "h0",
+        "subheading": "<p>Lorem ipsum dolor sit amet consectetur. Luctus faucibus amet ut semper enim. Lacus venenatis risus nulla sit suspendisse purus.</p>",
+        "show_summary_card": false,
+        "summary_rating_text": "4.2 stars / 5",
+        "summary_count_text": "(Based on 200+ reviews)",
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "none",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "spacing": 30,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "image_with_features_protect_L3ciHK": {
       "type": "image-with-features-protect",
       "blocks": {
@@ -1063,105 +1147,26 @@
         "padding_bottom": 40
       }
     },
-    "testimonials_NNYm9Y": {
-      "type": "testimonials",
-      "blocks": {
-        "review_WD4YwF": {
-          "type": "review",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
-            "author": "Lena . J"
-          }
-        },
-        "review_bVCGpk": {
-          "type": "review",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
-            "author": "Lena . J"
-          }
-        },
-        "review_YUHRnw": {
-          "type": "review",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
-            "author": "Lena . J"
-          }
-        },
-        "review_Y9g6KC": {
-          "type": "review",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
-            "author": "Lena . J"
-          }
-        },
-        "review_R3FU7i": {
-          "type": "review",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
-            "author": "Lena . J"
-          }
-        },
-        "review_6XQRgT": {
-          "type": "review",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
-            "author": "Lena . J"
-          }
-        },
-        "review_JhceXH": {
-          "type": "review",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
-            "author": "Lena . J"
-          }
-        }
-      },
-      "block_order": [
-        "review_WD4YwF",
-        "review_bVCGpk",
-        "review_YUHRnw",
-        "review_Y9g6KC",
-        "review_R3FU7i",
-        "review_6XQRgT",
-        "review_JhceXH"
-      ],
-      "name": "Customer Reviews Slider",
-      "settings": {
-        "color_scheme": "",
-        "heading": "OUR CUSTOMER SAY!",
-        "heading_size": "h0",
-        "subheading": "<p>Lorem ipsum dolor sit amet consectetur. Luctus faucibus amet ut semper enim. Lacus venenatis risus nulla sit suspendisse purus.</p>",
-        "show_summary_card": false,
-        "summary_rating_text": "4.2 stars / 5",
-        "summary_count_text": "(Based on 200+ reviews)",
-        "enable_slider_desktop": true,
-        "enable_slider_mobile": true,
-        "controls_position": "none",
-        "enable_autoplay": false,
-        "autoplay_interval": 3,
-        "enable_loop": false,
-        "columns_desktop": 4,
-        "columns_mobile": "1",
-        "spacing": 30,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "call_to_action_banner_3Jbhre": {
       "type": "call-to-action-banner",
       "name": "CTA Banner Overlay",
       "settings": {
-        "color_scheme": "",
-        "section_height": 60,
         "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-        "image_position": "center center",
-        "image_darken": 30,
         "overlay_opacity": 100,
-        "title": "READY TO RIDE SMARTER?",
-        "heading_size": "h1",
-        "text": "Upgrade your everyday commute with the Roxx Joieem X.",
-        "btn_label": "BOOK A TEST RIDE",
-        "btn_link": "",
+        "desktop_height": 600,
+        "mobile_height": 500,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "call_to_action_banner_gDyYaG": {
+      "type": "call-to-action-banner",
+      "name": "CTA Banner Overlay",
+      "settings": {
+        "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+        "overlay_opacity": 100,
+        "desktop_height": 600,
+        "mobile_height": 500,
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -1176,6 +1181,7 @@
     "specifications_section_k6Pnef",
     "product_comparison_WqKGJh",
     "image_with_text_YXALTw",
+    "call_to_action_banner_3Jbhre",
     "testimonials_NNYm9Y",
     "image_with_features_protect_L3ciHK",
     "app_features_section_gVYMpE",
@@ -1183,6 +1189,6 @@
     "faq_ekQccb",
     "feature_alternating_XKMVfA",
     "promo_cards_section_Y4dTtA",
-    "call_to_action_banner_3Jbhre"
+    "call_to_action_banner_gDyYaG"
   ]
 }
