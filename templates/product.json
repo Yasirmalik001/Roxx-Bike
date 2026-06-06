@@ -752,6 +752,47 @@
         "padding_bottom": 36
       }
     },
+    "call_to_action_banner_gDyYaG": {
+      "type": "call-to-action-banner",
+      "blocks": {
+        "icon_k4y6JQ": {
+          "type": "icon",
+          "settings": {
+            "custom_svg": "",
+            "icon_width": 64,
+            "margin_bottom": 10
+          }
+        },
+        "heading_inyfGy": {
+          "type": "heading",
+          "settings": {
+            "heading": "LESS MAINTENANCE. MORE RIDING.",
+            "color": "#ffffff"
+          }
+        },
+        "text_db9N49": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>",
+            "color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "icon_k4y6JQ",
+        "heading_inyfGy",
+        "text_db9N49"
+      ],
+      "name": "CTA Banner Overlay",
+      "settings": {
+        "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a_3.jpg",
+        "overlay_opacity": 100,
+        "desktop_height": 600,
+        "mobile_height": 500,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "call_to_action_banner_3Jbhre": {
       "type": "call-to-action-banner",
       "name": "CTA Banner Overlay",
@@ -1158,47 +1199,6 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
-    },
-    "call_to_action_banner_gDyYaG": {
-      "type": "call-to-action-banner",
-      "blocks": {
-        "icon_k4y6JQ": {
-          "type": "icon",
-          "settings": {
-            "custom_svg": "",
-            "icon_width": 64,
-            "margin_bottom": 10
-          }
-        },
-        "heading_inyfGy": {
-          "type": "heading",
-          "settings": {
-            "heading": "LESS MAINTENANCE. MORE RIDING.",
-            "color": "#ffffff"
-          }
-        },
-        "text_db9N49": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>",
-            "color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "icon_k4y6JQ",
-        "heading_inyfGy",
-        "text_db9N49"
-      ],
-      "name": "CTA Banner Overlay",
-      "settings": {
-        "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a_3.jpg",
-        "overlay_opacity": 100,
-        "desktop_height": 600,
-        "mobile_height": 500,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
@@ -1210,7 +1210,7 @@
     "specifications_section_k6Pnef",
     "product_comparison_WqKGJh",
     "image_with_text_YXALTw",
-    "call_to_action_banner_3Jbhre",
+    "call_to_action_banner_gDyYaG",
     "testimonials_NNYm9Y",
     "image_with_features_protect_L3ciHK",
     "app_features_section_gVYMpE",
@@ -1218,6 +1218,6 @@
     "faq_ekQccb",
     "feature_alternating_XKMVfA",
     "promo_cards_section_Y4dTtA",
-    "call_to_action_banner_gDyYaG"
+    "call_to_action_banner_3Jbhre"
   ]
 }
