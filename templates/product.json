@@ -133,63 +133,6 @@
             "margin_bottom": 16
           }
         },
-        "text_e49ryr": {
-          "type": "text",
-          "settings": {
-            "text": "<em><strong>Note: </strong></em><em>The 60-day guarantee applies to new customers and covers one pair only.</em>",
-            "text_style": "subtitle"
-          }
-        },
-        "faq_blocks_NkWNgc": {
-          "type": "faq-blocks",
-          "name": "Product Description",
-          "settings": {
-            "question": "Product Description",
-            "faq_content_type": "product_description",
-            "answer": ""
-          }
-        },
-        "faq_blocks_CkKVjD": {
-          "type": "faq-blocks",
-          "name": "Materials & Care",
-          "settings": {
-            "question": "Materials & Care",
-            "faq_content_type": "manual",
-            "answer": ""
-          }
-        },
-        "faq_blocks_FN9CnF": {
-          "type": "faq-blocks",
-          "name": "Shipping",
-          "settings": {
-            "question": "Shipping",
-            "faq_content_type": "manual",
-            "answer": ""
-          }
-        },
-        "faq_blocks_k8EnCc": {
-          "type": "faq-blocks",
-          "name": "Size Guide",
-          "settings": {
-            "question": "Size Guide",
-            "faq_content_type": "manual",
-            "answer": ""
-          }
-        },
-        "upsell_product_jgWVE7": {
-          "type": "upsell_product",
-          "settings": {
-            "upsell__heading": "Complete your look",
-            "drawer_mobile_arrows": false,
-            "drawer_enable_autoplay": false,
-            "drawer_autoplay_interval": 3,
-            "drawer_mobile_slides": 1.5,
-            "drawer_tablet_slides": 2,
-            "drawer_desktop_slides": 2,
-            "drawer_mobile_spacing": 10,
-            "drawer_desktop_spacing": 10
-          }
-        },
         "gallery_specifications_custom": {
           "type": "gallery_specifications",
           "settings": {
@@ -261,12 +204,6 @@
         "custom_option_insurance_custom",
         "inventory",
         "delivery_payment_mB6BTN",
-        "text_e49ryr",
-        "faq_blocks_NkWNgc",
-        "faq_blocks_CkKVjD",
-        "faq_blocks_FN9CnF",
-        "faq_blocks_k8EnCc",
-        "upsell_product_jgWVE7",
         "gallery_specifications_custom",
         "riders_experience_custom",
         "custom_trust_badges_custom",
