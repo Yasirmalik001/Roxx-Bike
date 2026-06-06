@@ -103,6 +103,16 @@
             ]
           }
         },
+        "divider_kMDJjk": {
+          "type": "divider",
+          "settings": {
+            "thickness": 1,
+            "color": "#e5e5e5",
+            "opacity": 100,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
         "custom_option_insurance_custom": {
           "type": "custom_option_insurance",
           "settings": {
@@ -114,18 +124,21 @@
             "link": ""
           }
         },
+        "divider_Yr8NHi": {
+          "type": "divider",
+          "settings": {
+            "thickness": 1,
+            "color": "#e5e5e5",
+            "opacity": 100,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
         "inventory": {
           "type": "inventory",
           "settings": {
             "in_stock_text": "In stock. Delivery in 4-5 days",
             "out_of_stock_text": "Out of stock"
-          }
-        },
-        "delivery_payment_mB6BTN": {
-          "type": "delivery_payment",
-          "settings": {
-            "text": "Buy now & get it delivered in 2-3 days",
-            "margin_bottom": 16
           }
         },
         "gallery_specifications_custom": {
@@ -216,9 +229,10 @@
         "buy_buttons",
         "divider_xVH3eG",
         "custom_option_accessories_custom",
+        "divider_kMDJjk",
         "custom_option_insurance_custom",
+        "divider_Yr8NHi",
         "inventory",
-        "delivery_payment_mB6BTN",
         "gallery_specifications_custom",
         "riders_experience_custom",
         "multi_icon_yitwEw",
