@@ -133,9 +133,14 @@
     justify-content: center;
   }
 
-  .compare-feature__icon svg {
+  .compare-feature__icon svg,
+  .compare-feature__icon img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
+  }
+  
+  .compare-feature__icon svg {
     fill: none;
     stroke: currentColor;
     stroke-width: 1.2;
@@ -226,8 +231,8 @@
         
         <div class="compare-col">
           <div class="compare-feature__icon">
-            {%- if block.settings.custom_svg != blank -%}
-              {{ block.settings.custom_svg }}
+            {%- if block.settings.custom_icon != blank -%}
+              <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="{{ block.settings.custom_icon.alt | escape }}" loading="lazy">
             {%- else -%}
               {%- case block.settings.fallback_icon -%}
                 {%- when 'rider_height' -%}
@@ -248,8 +253,8 @@
 
         <div class="compare-col">
           <div class="compare-feature__icon">
-            {%- if block.settings.custom_svg != blank -%}
-              {{ block.settings.custom_svg }}
+            {%- if block.settings.custom_icon != blank -%}
+              <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="{{ block.settings.custom_icon.alt | escape }}" loading="lazy">
             {%- else -%}
               {%- case block.settings.fallback_icon -%}
                 {%- when 'rider_height' -%}
@@ -402,10 +407,10 @@
       "name": "Feature Row",
       "settings": [
         {
-          "type": "html",
-          "id": "custom_svg",
-          "label": "Custom SVG Code",
-          "info": "Paste raw SVG code here to override the dropdown."
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom Icon Image",
+          "info": "Upload an image to override the default SVG icon."
         },
         {
           "type": "select",
