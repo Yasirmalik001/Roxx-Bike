@@ -1897,9 +1897,14 @@ a.product__text {
 
 /* Specific styling for prices matching design */
 .product__info-wrapper .price--large .price-item--sale {
-  color: #b22222;
-  font-size: 32px;
-  font-weight: 700;
+font-family: Integral CF;
+font-weight: 600;
+font-style: Demi Bold;
+font-size: 18px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
 }
 
 .product__info-wrapper .price--large .price-item--regular {
