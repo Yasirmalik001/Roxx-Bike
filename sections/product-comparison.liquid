@@ -20,13 +20,6 @@
     margin-bottom: 5rem;
   }
 
-  .compare-header__heading {
-    margin: 0 0 1rem 0;
-    font-weight: 800;
-    font-size: clamp(2.4rem, 4vw, 3.6rem);
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-  }
 
   .compare-header__subheading {
     font-size: 1.4rem;
@@ -164,7 +157,7 @@
   
   <div class="compare-header">
     {%- if section.settings.heading != blank -%}
-      <h2 class="compare-header__heading hero-features__heading h1 {{ section.settings.heading_size }}">
+      <h2 class="compare-header__heading hero-features__heading {{ section.settings.heading_size }}">
         {{ section.settings.heading | escape }}
       </h2>
     {%- endif -%}
