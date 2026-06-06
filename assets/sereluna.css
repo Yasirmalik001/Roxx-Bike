@@ -787,7 +787,7 @@ letter-spacing: 0%;
 }
 
 .multi-icon-item-img {
-    background-color: var(--sl-brand-blush);
+    /* background-color: var(--sl-brand-blush); */
     border-radius: var(--sl-radius-round);
     display: flex;
     justify-content: center;
