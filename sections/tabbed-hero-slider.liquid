@@ -57,15 +57,13 @@
     z-index: 3;
     bottom: 80px; 
     left: 0;
-    width: 100%;
-    padding: 0 32px;
+    right: 0;
+    margin: 0 auto;
   }
 
   @media screen and (min-width: 990px) {
     .th-slide-content {
       bottom: 120px;
-      padding: 0 96px;
-      max-width: 800px;
     }
   }
 
@@ -105,15 +103,16 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    margin: 0 auto;
     z-index: 5;
     background: transparent;
-    padding: 0 32px 32px 32px;
+    padding-bottom: 32px;
   }
 
   @media screen and (min-width: 990px) {
     .th-nav-wrapper {
-      padding: 0 96px 48px 96px;
+      padding-bottom: 48px;
     }
   }
 
@@ -267,9 +266,9 @@
               </div>
             {%- endif -%}
 
-            <div class="th-slide-content">
+            <div class="th-slide-content page-width">
               {%- if block.settings.heading != blank -%}
-                <h2 class="hero-features__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                <h2 class="hero-features__heading h1 {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                   {{ block.settings.heading }}
                 </h2>
               {%- endif -%}
@@ -281,7 +280,7 @@
         {%- endfor -%}
       </swiper-container>
 
-      <div class="th-nav-wrapper">
+      <div class="th-nav-wrapper page-width">
         <div class="th-nav-list">
           {%- for block in section.blocks -%}
             <button class="th-nav-item {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" data-title="{{ block.settings.tab_title | default: 'Tab' | escape }}">

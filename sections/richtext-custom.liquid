@@ -1,7 +1,7 @@
 {%- style -%}
 .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
 @media screen and (min-width: 750px) { .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
-.srt-wrapper { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+.srt-wrapper { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; margin: 0 auto; }
 .srt-heading { font-size: clamp(32px, 5vw, 48px); margin: 0; line-height: 1.2; color: inherit; }
 .srt-text { font-size: 16px; line-height: 1.6; margin: 0; color: inherit; opacity: 0.9; }
 .srt-text p { margin: 0; }
@@ -27,14 +27,14 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  <div class="page-width">
+  <div class="page-width page-width--narrow">
     <div class="srt-wrapper">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           
           {%- when 'heading' -%}
             {%- if block.settings.title != blank -%}
-              <h2 class="srt-heading" {{ block.shopify_attributes }}>{{ block.settings.title }}</h2>
+              <h2 class="srt-heading h1" {{ block.shopify_attributes }}>{{ block.settings.title }}</h2>
             {%- endif -%}
 
           {%- when 'text' -%}

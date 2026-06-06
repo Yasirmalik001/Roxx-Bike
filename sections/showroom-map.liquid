@@ -38,9 +38,8 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem 5%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .showroom-card {
@@ -158,10 +157,10 @@
   </div>
 
   <!-- Content Overlay -->
-  <div class="showroom-content-wrapper">
+  <div class="showroom-content-wrapper page-width">
     <div class="showroom-card color-{{ section.settings.color_scheme }} gradient">
       {% if section.settings.heading != blank %}
-        <h2 class="showroom-heading hero-features__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+        <h2 class="showroom-heading hero-features__heading h1 {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
       {% endif %}
 
       {% if section.settings.address != blank %}

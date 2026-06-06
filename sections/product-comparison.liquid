@@ -12,9 +12,7 @@
   }
 
   .compare-section {
-    max-width: 900px;
     margin: 0 auto;
-    padding: 0 1.5rem;
   }
 
   .compare-header {
@@ -161,11 +159,12 @@
   }
 {%- endstyle -%}
 
-<div class="compare-section section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="compare-section page-width page-width--narrow">
   
   <div class="compare-header">
     {%- if section.settings.heading != blank -%}
-      <h2 class="compare-header__heading hero-features__heading {{ section.settings.heading_size }}">
+      <h2 class="compare-header__heading hero-features__heading h1 {{ section.settings.heading_size }}">
         {{ section.settings.heading | escape }}
       </h2>
     {%- endif -%}
@@ -280,6 +279,7 @@
       </div>
     {%- endfor -%}
 
+  </div>
   </div>
 </div>
 
