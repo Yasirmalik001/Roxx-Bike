@@ -737,6 +737,13 @@ textarea {
   font-weight: 600;
 }
 
+/* Remove text decoration for links in Collection Tabs product cards */
+.card-product-tabs a,
+.card-product-tabs a:hover,
+.card-product-tabs:hover a {
+  text-decoration: none !important;
+}
+
 /* Bottom Actions: SHOP NOW & BOOK A TEST RIDE buttons */
 .collection-tabs .card-product-tabs__buttons {
   display: flex;
