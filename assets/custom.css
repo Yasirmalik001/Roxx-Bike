@@ -1,10 +1,4 @@
-/* ==========================================================================
-   Global Form Element Font Reset
-   Browsers (especially Windows) do NOT inherit font-family on button/input/
-   select/textarea — they fall back to system UI / Arial by default.
-   This single rule forces every form element in the store to use the body
-   font ("Suisse Int'l Trial") set in theme.liquid.
-   ========================================================================== */
+
 button,
 input,
 optgroup,
@@ -15,7 +9,6 @@ textarea {
 
 .product__text {
   font-weight: 400;
-  font-style: Regular;
   font-size: 14px;
   line-height: 120%;
   letter-spacing: 0%;
@@ -25,7 +18,6 @@ textarea {
 .hero-features__heading {
   font-family: Integral CF;
   font-weight: 400;
-  font-style: Regular;
   margin: 0 0 40px;
   font-size: 40px;
 }
@@ -2406,7 +2398,6 @@ backdrop-filter: blur(4px)
   .hero-features__heading{
     font-family: Integral CF;
     font-weight: 400;
-    font-style: Regular;
     font-size: 24px;
     line-height: 100%;
     letter-spacing: 2%;
@@ -2601,7 +2592,7 @@ backdrop-filter: blur(4px)
   .hero-features__heading{
     font-family: Integral CF;
     font-weight: 400;
-    font-style: Regular;
+
     font-size: 24px;
     line-height: 100%;
     letter-spacing: 2%;
