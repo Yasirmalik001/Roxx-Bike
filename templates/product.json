@@ -149,10 +149,13 @@
         "gallery_specifications_custom": {
           "type": "gallery_specifications",
           "settings": {
+            "icon_1": "shopify://shop_images/Vector_11.svg",
             "label_1": "Battery",
             "value_1": "48V 15Ah",
+            "icon_2": "shopify://shop_images/Group_5.svg",
             "label_2": "Max Speed",
             "value_2": "25 km/h",
+            "icon_3": "shopify://shop_images/Group_22.svg",
             "label_3": "Max Range",
             "value_3": "80-100 km"
           }
