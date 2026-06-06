@@ -737,6 +737,7 @@
       "name": "Image with contents",
       "settings": {
         "media": "image",
+        "image": "shopify://shop_images/819176a8b38ff1f7c6092ac5b8a27c2287edf519.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
