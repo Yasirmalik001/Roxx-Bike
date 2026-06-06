@@ -15,7 +15,6 @@
     position: relative;
     width: 100%;
     min-height: {{ section.settings.mobile_height }}px;
-    background-color: #000;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -169,8 +168,9 @@
     }
     
     .hero-slide__content-container {
-      background: rgb(var(--color-background));
       align-items: flex-start;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
     
     .hero-slide__text-box {
@@ -178,23 +178,19 @@
     }
     
     .hero-slide__heading {
-      color: rgb(var(--color-foreground)) !important;
       margin-top: 0;
       margin-bottom: 1.5rem;
     }
     
     .hero-slide__description {
-      color: rgba(var(--color-foreground), 0.8) !important;
       font-size: 1.4rem;
     }
     
     .hero-slide__description p {
-      color: rgba(var(--color-foreground), 0.8) !important;
     }
 
     .hero-features-overlay {
       position: relative;
-      background: rgb(var(--color-background));
     }
     
     .hero-features-grid {
@@ -214,13 +210,11 @@
     }
 
     .hero-feature__title {
-      color: rgb(var(--color-foreground)) !important;
       margin-top: 0;
       margin-bottom: 0.5rem;
     }
     
     .hero-feature__text {
-      color: rgba(var(--color-foreground), 0.8) !important;
       font-size: 1.3rem;
     }
 
@@ -229,7 +223,6 @@
     }
     
     .swiper-pagination-bullet {
-      background: rgb(var(--color-foreground)) !important; /* Dynamic bullets for light/dark bg */
       opacity: 0.5;
     }
 
@@ -289,7 +282,7 @@
           <div class="page-width hero-slide__content-container">
             <div class="hero-slide__text-box">
               {%- if block.settings.heading != blank -%}
-                <h2 class="hero-slide__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                <h2 class="hero-slide__heading h1 {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                   {{ block.settings.heading }}
                 </h2>
               {%- endif -%}
