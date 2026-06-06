@@ -59,6 +59,20 @@
             "text-size": 14
           }
         },
+        "shipping_info_UmQ3xw": {
+          "type": "shipping-info",
+          "settings": {
+            "icon_width": 14,
+            "status_text": "In Stock",
+            "pre_date_text": "Order today and get it by",
+            "text_color": "#333333",
+            "font_size": 14,
+            "date_type": "dynamic",
+            "hardcoded_text": "2-3 days",
+            "delivery_days": 9,
+            "padding_bottom": 16
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -282,6 +296,7 @@
         "price",
         "text_YJpJae",
         "multi_icon_xn8fhg",
+        "shipping_info_UmQ3xw",
         "variant_picker",
         "custom_option_accessories_custom",
         "custom_option_insurance_custom",
