@@ -11,13 +11,31 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "collection_promo_header_8i9bxU": {
+      "type": "collection-promo-header",
+      "name": "Promo Header",
+      "settings": {
+        "main_color_scheme": "",
+        "show_breadcrumbs": true,
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "promo_color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
+        "promo_text": "Holiday pay deals Upto 500 discount + free folding lock",
+        "countdown_end": "2026-12-31T23:59:59",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "collection_promo_header_8i9bxU"
   ]
 }
