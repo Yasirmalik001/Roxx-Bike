@@ -315,7 +315,7 @@
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "cover",
-        "gallery_layout": "thumbnail",
+        "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "full_popup",
