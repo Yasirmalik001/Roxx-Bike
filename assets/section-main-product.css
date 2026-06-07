@@ -1795,7 +1795,7 @@ a.product__text {
 .product-drawer .thumbnail-list__item.slider__slide,
 .quick-view-product .thumbnail-list__item.slider__slide {
   width: 85px !important;
-  height: 106px !important;
+  height: 86px !important;
   border: 15px;
   flex-shrink: 0;
 }
