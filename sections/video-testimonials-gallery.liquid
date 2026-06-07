@@ -108,8 +108,8 @@
     position: relative;
     width: 100%;
     display: block;
-    /* Height Control instead of Aspect Ratio */
     height: {{ section.settings.card_height_desktop }}px;
+    cursor: pointer; /* Indicates it can be clicked */
   }
 
   @media screen and (max-width: 749px) {
@@ -129,7 +129,7 @@
   }
 
   /* Play Button Overlay */
-.vt-gallery-play-btn {
+  .vt-gallery-play-btn {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -142,12 +142,17 @@
     justify-content: center;
     color: #ffffff;
     border: none;
-    cursor: pointer;
     z-index: 3;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: opacity 0.3s ease, transform 0.2s ease;
     background: #FFFFFF54;
-}
+    pointer-events: none; /* Lets clicks pass through to the wrapper */
+  }
 
+  /* Hide button state */
+  .vt-gallery-play-btn.is-hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -181,17 +186,18 @@
             
             {%- if block.settings.video != blank -%}
               {{ block.settings.video | video_tag: image_size: '800s', autoplay: false, loop: true, controls: false, preload: 'metadata' }}
+              
+              <button type="button" class="vt-gallery-play-btn" aria-label="Play video">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
+                  <path d="M16.0002 6.51413C18.5988 8.06616 18.5988 11.8303 16.0002 13.3824L6.05105 19.3246C3.38483 20.917 9.00512e-07 18.996 1.03054e-06 15.8905L1.52812e-06 4.00602C1.65814e-06 0.90045 3.38483 -1.02052 6.05106 0.571909L16.0002 6.51413Z" fill="white"/>
+                </svg>
+              </button>
+
             {%- elsif block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
             {%- else -%}
               {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
             {%- endif -%}
-
-            <button type="button" class="vt-gallery-play-btn" aria-label="Play video">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
-<path d="M16.0002 6.51413C18.5988 8.06616 18.5988 11.8303 16.0002 13.3824L6.05105 19.3246C3.38483 20.917 9.00512e-07 18.996 1.03054e-06 15.8905L1.52812e-06 4.00602C1.65814e-06 0.90045 3.38483 -1.02052 6.05106 0.571909L16.0002 6.51413Z" fill="white"/>
-</svg>
-            </button>
 
           </div>
         </div>
@@ -200,6 +206,31 @@
 
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Select all the media wrappers inside this section
+    const wrappers = document.querySelectorAll('.vt-gallery-media-wrap');
+    
+    wrappers.forEach(wrap => {
+      const video = wrap.querySelector('video');
+      const playBtn = wrap.querySelector('.vt-gallery-play-btn');
+      
+      // If the block has a video, add the click functionality
+      if (video && playBtn) {
+        wrap.addEventListener('click', function() {
+          if (video.paused) {
+            video.play();
+            playBtn.classList.add('is-hidden');
+          } else {
+            video.pause();
+            playBtn.classList.remove('is-hidden');
+          }
+        });
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
