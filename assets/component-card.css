@@ -159,10 +159,6 @@
   min-width: auto;
 }
 
-.card__information-volume-pricing-note--button:hover {
-  text-decoration: underline;
-}
-
 .card__information-volume-pricing-note--button+.global-settings-popup.quantity-popover__info {
   transform: initial;
   top: auto;
@@ -388,11 +384,6 @@ line-height: 140%;
     opacity: 1;
     transition: transform var(--duration-long) ease;
     transform: scale(1.03);
-  }
-
-  .underline-links-hover:hover a {
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
   }
 }
 
