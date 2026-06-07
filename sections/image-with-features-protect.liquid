@@ -11,382 +11,181 @@
     }
   }
 
-  .protect-section {
+  .app-section {
     overflow: hidden;
-    background-color: #fafafa; /* Slight off-white to match the image canvas */
+    background-color: #ffffff; /* Clean white background */
   }
 
-  .protect-grid {
+  /* --- HEADER (TOP) --- */
+  .app-header-wrap {
+    text-align: center;
+    margin-bottom: 5rem;
+    padding: 0 2rem;
+  }
+
+  .app-heading {
+    margin: 0 0 1.5rem 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.8rem, 4vw, 4rem);
+    line-height: 1.1;
+    color: #111111;
+  }
+
+  .app-subtitle {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #444444;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  /* --- MAIN GRID --- */
+  .app-grid {
     display: flex;
     flex-direction: column;
     gap: 4rem;
   }
 
   @media screen and (min-width: 990px) {
-    .protect-grid {
+    .app-grid {
       flex-direction: row;
       align-items: center;
       gap: 6rem;
     }
-    .protect-grid--reverse {
-      flex-direction: row-reverse;
-    }
-    .protect-visual-col, .protect-content-col {
+    .app-visual-col, .app-content-col {
       width: 50%;
     }
   }
 
   /* --- VISUAL COLUMN (LEFT) --- */
-  .protect-visual-col {
-    position: relative;
+  .app-visual-col {
     display: flex;
     justify-content: center;
-    align-items: flex-end; 
+    align-items: center; 
   }
 
-  .protect-main-image-wrap {
-    position: relative;
-    z-index: 2;
+  .app-main-image {
     width: 100%;
-    max-width: 700px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .protect-main-image {
-    width: 100%;
+    max-width: 600px;
     height: auto;
     object-fit: contain;
     display: block;
-    position: relative;
-    z-index: 2;
   }
 
-  /* --- TIRE WAVES --- */
-  .protect-wave {
-    position: absolute;
-    z-index: 1;
-    pointer-events: none;
-    transform: translateX(-50%);
+  /* --- CONTENT COLUMN (RIGHT / CARD) --- */
+  .app-content-col {
     display: flex;
     justify-content: center;
   }
 
-  .protect-wave img {
+  .app-features-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 5rem 4rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    max-width: 500px;
   }
 
-  .protect-wave--back {
-    width: {{ section.settings.back_wave_size }}%;
-    left: {{ section.settings.back_wave_left }}%;
-    bottom: {{ section.settings.back_wave_bottom }}%;
-  }
-
-  .protect-wave--front {
-    width: {{ section.settings.front_wave_size }}%;
-    left: {{ section.settings.front_wave_left }}%;
-    bottom: {{ section.settings.front_wave_bottom }}%;
-  }
-
-  /* --- TOOLTIP BUBBLE --- */
-  .protect-tooltip {
-    position: absolute;
-    top: {{ section.settings.tooltip_top }}%;
-    left: {{ section.settings.tooltip_left }}%;
-    z-index: 3;
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 1.4rem 1.8rem;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.06);
-    display: flex;
-    align-items: center;
-    gap: 1.4rem;
-    min-width: max-content;
-    transform: translate(-50%, -50%);
-  }
-
-  .protect-tooltip::after {
-    content: '';
-    position: absolute;
-    bottom: -9px;
-    right: 28px;
-    border-width: 10px 10px 0;
-    border-style: solid;
-    border-color: #ffffff transparent transparent transparent;
-  }
-
-  .tooltip-icon-box {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #b91c1c; /* Match the red icon background */
-  }
-  
-  .tooltip-icon-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .tooltip-text-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .tooltip-title {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #000000;
-    margin: 0;
-    line-height: 1.2;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .tooltip-desc {
-    font-size: 1.2rem;
-    color: #666666;
-    margin: 0;
-    line-height: 1.2;
-  }
-
-  @media screen and (max-width: 749px) {
-    .protect-tooltip {
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: none;
-      margin: 0 auto 3rem auto;
-      width: max-content;
-      max-width: 90%;
-    }
-    .protect-tooltip::after {
-      display: none;
-    }
-  }
-
-  /* --- CONTENT COLUMN (RIGHT) --- */
-  .protect-content-col {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-
-  .protect-description {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    color: #444444;
-    margin-bottom: 4rem;
-    max-width: 580px;
-  }
-
-  /* --- FEATURES GRID (THE 3 BLOCKS) --- */
-  .protect-features-grid {
+  .app-features-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 480px;
-    margin-bottom: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem 2rem;
   }
 
-  .protect-feature-block {
+  .app-feature-block {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.2rem;
+    gap: 1.5rem;
   }
 
-  .protect-feature-icon {
-    width: 72px;
-    height: 72px;
+  .app-feature-icon {
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background-color: #f5f5f5; /* Light gray circle from image */
+    background-color: #d1d5db; /* Grey placeholder circle matching the image */
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
 
-  .protect-feature-icon img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
+  .app-feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .protect-feature-icon svg {
-    width: 28px;
-    height: 28px;
-    fill: #333;
-  }
-
-  .protect-feature-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1.3;
-    color: #222222;
-    max-width: 130px;
+  .app-feature-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #333333;
+    max-width: 140px;
   }
 
   @media screen and (max-width: 480px) {
-    .protect-features-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
+    .app-features-card {
+      padding: 3rem 2rem;
     }
-    .protect-feature-block {
-      flex-direction: row;
-      text-align: left;
-      align-items: center;
+    .app-features-grid {
+      gap: 4rem 1.5rem;
     }
-    .protect-feature-title {
-      max-width: 100%;
-    }
-  }
-
-  /* --- BUTTON --- */
-  .protect-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 100%;
-    max-width: 360px; /* Wide button spanning the features */
-    padding: 1.6rem 3rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.3rem;
-    text-decoration: none;
-    background-color: #ffd000;
-    color: #000000;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .protect-button:hover {
-    opacity: 0.8;
-  }
-
-  .protect-button svg {
-    width: 16px;
-    height: 16px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
   }
 {%- endstyle -%}
 
-<div class="protect-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
+<div class="app-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
   <div class="page-width">
     
-    <div class="protect-grid {% if section.settings.layout == 'text_first' %}protect-grid--reverse{% endif %}">
+    <!-- Top Header Area -->
+    <div class="app-header-wrap">
+      {%- if section.settings.title != blank -%}
+        <h2 class="app-heading">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="app-subtitle rte">
+          {{ section.settings.text }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Main Grid (Image Left, Card Right) -->
+    <div class="app-grid">
       
       <!-- Visual Column -->
-      <div class="protect-visual-col">
-        
-        {%- if section.settings.show_tooltip -%}
-          <div class="protect-tooltip">
-            <div class="tooltip-icon-box">
-              {%- if section.settings.tooltip_icon != blank -%}
-                {{ section.settings.tooltip_icon | image_url: width: 80 | image_tag: loading: 'lazy' }}
-              {%- else -%}
-                <!-- Fallback info icon matching the image -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="16" x2="12" y2="12"></line>
-                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-              {%- endif -%}
-            </div>
-            <div class="tooltip-text-wrap">
-              {%- if section.settings.tooltip_title != blank -%}
-                <p class="tooltip-title">{{ section.settings.tooltip_title }}</p>
-              {%- endif -%}
-              {%- if section.settings.tooltip_text != blank -%}
-                <p class="tooltip-desc">{{ section.settings.tooltip_text }}</p>
-              {%- endif -%}
-            </div>
-          </div>
+      <div class="app-visual-col">
+        {%- if section.settings.main_image != blank -%}
+          {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'app-main-image', loading: 'lazy' }}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'app-main-image placeholder-svg' }}
         {%- endif -%}
-
-        <!-- Main Wrapper holding Bike + Waves -->
-        <div class="protect-main-image-wrap">
-          
-          <!-- Waves -->
-          {%- if section.settings.waves_image != blank -%}
-            <div class="protect-wave protect-wave--back">
-              {{ section.settings.waves_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
-            </div>
-            <div class="protect-wave protect-wave--front">
-              {{ section.settings.waves_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
-            </div>
-          {%- endif -%}
-
-          <!-- Main Bike Image -->
-          {%- if section.settings.main_image != blank -%}
-            {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'protect-main-image', loading: 'lazy' }}
-          {%- else -%}
-            {{ 'product-1' | placeholder_svg_tag: 'protect-main-image placeholder-svg' }}
-          {%- endif -%}
-
-        </div>
-
       </div>
 
-      <!-- Content Column -->
-      <div class="protect-content-col">
-        {%- if section.settings.title != blank -%}
-          <h2 class="protect-heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
-        {%- endif -%}
-
-        {%- if section.settings.text != blank -%}
-          <div class="protect-description rte">
-            {{ section.settings.text }}
-          </div>
-        {%- endif -%}
-
-        <!-- Features Blocks -->
-        {%- if section.blocks.size > 0 -%}
-          <div class="protect-features-grid">
-            {%- for block in section.blocks -%}
-              <div class="protect-feature-block" {{ block.shopify_attributes }}>
-                <div class="protect-feature-icon">
-                  {%- if block.settings.icon_image != blank -%}
-                    {{ block.settings.icon_image | image_url: width: 100 | image_tag: loading: 'lazy' }}
-                  {%- else -%}
-                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      <!-- Content Column (Features Card) -->
+      <div class="app-content-col">
+        <div class="app-features-card">
+          {%- if section.blocks.size > 0 -%}
+            <div class="app-features-grid">
+              {%- for block in section.blocks -%}
+                <div class="app-feature-block" {{ block.shopify_attributes }}>
+                  <div class="app-feature-icon">
+                    {%- if block.settings.icon_image != blank -%}
+                      {{ block.settings.icon_image | image_url: width: 120 | image_tag: loading: 'lazy' }}
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.title != blank -%}
+                    <span class="app-feature-title">{{ block.settings.title | escape }}</span>
                   {%- endif -%}
                 </div>
-                {%- if block.settings.title != blank -%}
-                  <span class="protect-feature-title">{{ block.settings.title | escape }}</span>
-                {%- endif -%}
-              </div>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-
-        <!-- Button -->
-        {%- if section.settings.btn_label != blank -%}
-          <a {% if section.settings.btn_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.btn_link }}"{% endif %} class="protect-button">
-            {{ section.settings.btn_label | escape }}
-            <svg viewBox="0 0 24 24">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-        {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
       </div>
       
     </div>
@@ -395,7 +194,7 @@
 
 {% schema %}
 {
-  "name": "Image with Protection",
+  "name": "App Features Intro",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -406,191 +205,29 @@
       "default": "background-1"
     },
     {
-      "type": "select",
-      "id": "layout",
-      "options": [
-        { "value": "image_first", "label": "Image first" },
-        { "value": "text_first", "label": "Image second" }
-      ],
-      "default": "image_first",
-      "label": "Desktop image placement"
-    },
-    {
       "type": "header",
-      "content": "Bike Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "main_image",
-      "label": "Main Image (e.g., Bicycle)"
-    },
-    {
-      "type": "header",
-      "content": "Tire Waves (Floor Rings)"
-    },
-    {
-      "type": "image_picker",
-      "id": "waves_image",
-      "label": "Wave Image / SVG",
-      "info": "Upload the circular wave graphic. It will be duplicated for both tires."
-    },
-    {
-      "type": "paragraph",
-      "content": "Rear Tire Alignments"
-    },
-    {
-      "type": "range",
-      "id": "back_wave_size",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Rear Wave Width",
-      "default": 45
-    },
-    {
-      "type": "range",
-      "id": "back_wave_left",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Rear Wave X Position (Left)",
-      "default": 25
-    },
-    {
-      "type": "range",
-      "id": "back_wave_bottom",
-      "min": -50,
-      "max": 50,
-      "step": 1,
-      "unit": "%",
-      "label": "Rear Wave Y Position (Bottom)",
-      "default": -5
-    },
-    {
-      "type": "paragraph",
-      "content": "Front Tire Alignments"
-    },
-    {
-      "type": "range",
-      "id": "front_wave_size",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Front Wave Width",
-      "default": 45
-    },
-    {
-      "type": "range",
-      "id": "front_wave_left",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Front Wave X Position (Left)",
-      "default": 75
-    },
-    {
-      "type": "range",
-      "id": "front_wave_bottom",
-      "min": -50,
-      "max": 50,
-      "step": 1,
-      "unit": "%",
-      "label": "Front Wave Y Position (Bottom)",
-      "default": 0
-    },
-    {
-      "type": "header",
-      "content": "Floating Tooltip"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_tooltip",
-      "label": "Show Floating Tooltip",
-      "default": true
-    },
-    {
-      "type": "image_picker",
-      "id": "tooltip_icon",
-      "label": "Tooltip Icon",
-      "info": "Upload an icon here. If left blank, a default red warning icon will show."
-    },
-    {
-      "type": "text",
-      "id": "tooltip_title",
-      "label": "Tooltip Title",
-      "default": "Your bike is moving 🚨"
-    },
-    {
-      "type": "text",
-      "id": "tooltip_text",
-      "label": "Tooltip Subtitle",
-      "default": "Not you? Track your bike"
-    },
-    {
-      "type": "range",
-      "id": "tooltip_top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Tooltip Position (Top)",
-      "default": 15
-    },
-    {
-      "type": "range",
-      "id": "tooltip_left",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Tooltip Position (Left)",
-      "default": 20
-    },
-    {
-      "type": "header",
-      "content": "Content Settings"
+      "content": "Header Content"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "BUILT TO PROTECT"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
-        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
-        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
-        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
-      ],
-      "default": "h1",
-      "label": "t:sections.all.heading_size.label"
+      "default": "INTRODUCING OUR ALL IN ONE APP"
     },
     {
       "type": "richtext",
       "id": "text",
-      "label": "Description text",
-      "default": "<p>Lorem ipsum dolor sit amet consectetur. Morbi fermentum nisl hac cum lobortis sit massa pharetra. A sit nulla pellentesque turpis magna sodales.</p>"
+      "label": "Subtitle text",
+      "default": "<p>The Roxx JX electric bike works with an app specifically designed for this model and an advanced all-in-one system.</p>"
     },
     {
       "type": "header",
-      "content": "Button"
+      "content": "Main Visual"
     },
     {
-      "type": "text",
-      "id": "btn_label",
-      "label": "Button Label",
-      "default": "Book a test ride"
-    },
-    {
-      "type": "url",
-      "id": "btn_link",
-      "label": "Button Link"
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image (Bike + Phones)"
     },
     {
       "type": "header",
@@ -621,29 +258,33 @@
     {
       "type": "feature",
       "name": "Feature Block",
-      "limit": 3,
+      "limit": 6,
       "settings": [
         {
           "type": "image_picker",
           "id": "icon_image",
-          "label": "Upload Icon (SVG/PNG)"
+          "label": "Upload Icon",
+          "info": "Leaves a grey circle if empty, matching the design."
         },
         {
           "type": "text",
           "id": "title",
           "label": "Feature Text",
-          "default": "Integrated GPS tracking"
+          "default": "Feature Name"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Image with Protection",
+      "name": "App Features Intro",
       "blocks": [
-        { "type": "feature", "settings": { "title": "Integrated GPS tracking" } },
-        { "type": "feature", "settings": { "title": "Smart alarm system" } },
-        { "type": "feature", "settings": { "title": "Real-time location monitoring" } }
+        { "type": "feature", "settings": { "title": "4G remote communication" } },
+        { "type": "feature", "settings": { "title": "Cycling track" } },
+        { "type": "feature", "settings": { "title": "Bluetooth near field communication" } },
+        { "type": "feature", "settings": { "title": "Multiple alarm modes" } },
+        { "type": "feature", "settings": { "title": "Multiple unlocking methods" } },
+        { "type": "feature", "settings": { "title": "Geo-fence" } }
       ]
     }
   ]
