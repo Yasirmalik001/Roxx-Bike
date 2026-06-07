@@ -744,6 +744,7 @@
         "feature_row_qzbajJ": {
           "type": "feature_row",
           "settings": {
+            "custom_icon": "shopify://shop_images/Group_22_a402139a-f8b1-4606-b6e2-9b0dab69426c.svg",
             "fallback_icon": "range_dots",
             "text_1": "Range upto 80-100 km",
             "text_2": "Range upto 60-80 km"
@@ -752,6 +753,7 @@
         "feature_row_VjzrHf": {
           "type": "feature_row",
           "settings": {
+            "custom_icon": "shopify://shop_images/Group_5_8cc8a4e4-6b50-4776-a0ed-d8755b4e5104.svg",
             "fallback_icon": "speedometer",
             "text_1": "Max speed 25 km/h",
             "text_2": "Max speed 25 km/h"
@@ -760,6 +762,7 @@
         "feature_row_W6t6WY": {
           "type": "feature_row",
           "settings": {
+            "custom_icon": "shopify://shop_images/Group_6.svg",
             "fallback_icon": "gps_pin",
             "text_1": "Advanced (GPS\ntracking & alarm)",
             "text_2": "Standard lock support"
@@ -768,6 +771,7 @@
         "feature_row_hEHRbt": {
           "type": "feature_row",
           "settings": {
+            "custom_icon": "shopify://shop_images/Vector_13.svg",
             "fallback_icon": "drive_belt",
             "text_1": "Carbon belt drive",
             "text_2": "Chain drive"
