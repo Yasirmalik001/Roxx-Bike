@@ -2912,7 +2912,7 @@ slider-component.thumbnail-slider .thumbnail {
   media-gallery.media-gallery--side-by-side {
     position: relative;
   }
-  .thumbnail-scroll-down-arrow {
+.thumbnail-scroll-down-arrow {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2920,14 +2920,15 @@ slider-component.thumbnail-slider .thumbnail {
     height: 24px;
     border-radius: 50%;
     background-color: #f3f3f3;
-    color: #000000;
+    color: #000;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all .2s ease;
     position: absolute;
     bottom: -50px;
-    left: 28px;
+    left: 50%;
     z-index: 10;
-  }
+    transform: translateX(-50%);
+}
   .thumbnail-scroll-down-arrow:hover {
     background-color: #ffd000;
   }
