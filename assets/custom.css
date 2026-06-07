@@ -880,17 +880,7 @@ span.cc-svg-ride {
   gap: 4rem;
 }
 
-@media screen and (max-width: 749px) {
-  .footer .footer__content-top {
-    flex-wrap: wrap;
-    gap: 3rem;
-  }
 
-  .footer .footer__blocks-wrapper {
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-}
 
 .footer .footer-block {
   flex: 0 0 auto;
@@ -2957,4 +2947,20 @@ slider-component.thumbnail-slider .thumbnail {
   .thumbnail-scroll-down-arrow:hover {
     background-color: #ffd000;
   }
+}
+
+
+@media screen and (max-width: 749px) {
+  .footer .footer__content-top {
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+
+  .footer .footer__blocks-wrapper {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .show-dektop {
+    display: none;
+}
 }
