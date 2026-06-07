@@ -2520,6 +2520,7 @@ input[type='checkbox'] {
 
 .header__icon {
   color: rgb(var(--color-foreground));
+  
 }
 
 .header__icon span {
