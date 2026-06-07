@@ -7,6 +7,7 @@
     <input type="checkbox" name="properties[Insurance]" value="{{ block.settings.title | escape }}" form="product-form-{{ section.id }}" class="insurance-checkbox-input">
     
     <div class="insurance-card-content">
+      
       <div class="insurance-logo-wrapper">
         {%- if block.settings.logo != blank -%}
           <img src="{{ block.settings.logo | image_url: width: 200 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="100" height="120">
@@ -15,8 +16,11 @@
         {%- endif -%}
       </div>
       
-      <div class="insurance-details">
-        <span class="insurance-title">{{ block.settings.title | escape }}</span>
+      <div class="insurance-right-col">
+        <div class="insurance-header-row">
+          <span class="insurance-title">{{ block.settings.title | escape }}</span>
+          <div class="insurance-radio-indicator"> </div>
+        </div>
         
         <p class="insurance-description">
           {{ block.settings.description | escape }}
@@ -26,8 +30,7 @@
           <a href="{{ block.settings.link }}" target="_blank" class="insurance-link">Learn more</a>
         {%- endif -%}
       </div>
-      
-      <div class="insurance-radio-indicator"> </div>
+
     </div>
   </label>
 </div>
@@ -52,72 +55,100 @@
     display: block;
     cursor: pointer;
     margin: 0;
+    position: relative;
   }
   
-  .insurance-checkbox-input {
-    display: none;
+  /* BULLETPROOF HIDER: Stops Shopify themes from rendering their own checkbox at the top */
+  input.insurance-checkbox-input[type="checkbox"] {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: -1 !important;
+    appearance: none !important;
   }
   
   /* Main Card Layout (Unselected) */
   .insurance-card-content {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 1.6rem;
     border: 2px solid transparent; 
     border-radius: 12px;
-    background-color: #f7f7f7;
+    background-color: #f8f8f8;
     transition: all 0.2s ease-in-out;
   }
   
   /* Logo Box */
   .insurance-logo-wrapper {
-    width: 90px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100px;
     background-color: #ffffff;
     border-radius: 8px;
     margin-right: 1.6rem;
     padding: 1.2rem;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .insurance-logo-wrapper img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain;
   }
 
   .insurance-logo-placeholder {
     font-size: 1.4rem;
     font-weight: 800;
-    color: #ffd200;
+    color: #ffd000;
     font-style: italic;
   }
   
-  /* Text Details */
-  .insurance-details {
+  /* Text Details Column */
+  .insurance-right-col {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    text-align: left;
     flex-grow: 1;
-    padding-top: 2px;
+    justify-content: flex-start;
+  }
+
+  .insurance-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
   }
   
   .insurance-title {
     font-size: 1.5rem;
     font-weight: 600;
     color: #111111;
-    margin-bottom: 1.2rem;
     line-height: 1.2;
+    margin-top: 2px;
+  }
+  
+  /* Checkbox Indicator (Unselected) */
+  .insurance-radio-indicator {
+    width: 26px;
+    height: 26px;
+    border: 1px solid #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    background-color: #ffffff;
+    flex-shrink: 0;
+    margin-left: 1rem;
   }
   
   .insurance-description {
     font-size: 1.35rem;
     color: #444444;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1.2rem 0;
     line-height: 1.4;
   }
 
@@ -128,37 +159,23 @@
     font-weight: 500;
     text-underline-offset: 4px;
     width: fit-content;
+    margin-top: auto;
   }
   
-  /* Checkbox Indicator (Unselected) */
-  .insurance-radio-indicator {
-    width: 28px;
-    height: 28px;
-    border: 1px solid #e0e0e0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease-in-out;
+  /* --- SELECTED STATES --- */
+  
+  input.insurance-checkbox-input[type="checkbox"]:checked + .insurance-card-content {
     background-color: #ffffff;
-    flex-shrink: 0;
-    margin-left: 1.2rem;
+    border-color: #ffd000; /* Yellow Border */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
   
-  /* Selected State */
-  .insurance-checkbox-input:checked + .insurance-card-content {
-    background-color: #ffffff;
-    border-color: #ffd000; /* Roxx Yellow Border */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-  }
-  
-  /* Perfect 1-1 Yellow Checkmark */
-  .insurance-checkbox-input:checked + .insurance-card-content .insurance-radio-indicator {
+  /* Perfect Yellow Checkmark Pop */
+  input.insurance-checkbox-input[type="checkbox"]:checked + .insurance-card-content .insurance-radio-indicator {
     border-color: #ffd000;
     background-color: #ffd000;
-    /* Custom SVG matching the straight-edged tick perfectly */
     background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 5.5L5 9L12.5 1.5' stroke='white' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E");
-    background-size: 14px;
+    background-size: 13px;
     background-position: center;
     background-repeat: no-repeat;
   }
