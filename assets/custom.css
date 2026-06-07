@@ -2983,3 +2983,26 @@ slider-component.thumbnail-slider .thumbnail {
     max-width: 100%;
   }
 }
+a.custom-discover-btn {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    border: 1px solid #111111 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: 30px !important;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    min-height: 40px;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
