@@ -205,8 +205,8 @@
         "product_tabs_custom": {
           "type": "product_tabs",
           "settings": {
-            "padding_top": 100,
-            "padding_bottom": 40,
+            "padding_top": 156,
+            "padding_bottom": 56,
             "description": "<p>Experience the ultimate ride with the Roxx Bike. Features a powerful motor, long-lasting battery, and premium styling built for comfort.</p>",
             "tab_1": "Description",
             "tab_2": "Features",
