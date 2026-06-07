@@ -581,7 +581,7 @@
         "heading_size": "h1",
         "text": "<p>Lorem ipsum dolor sit amet consectetur. Morbi fermentum nisl hac cum lobortis sit massa pharetra. A sit nulla pellentesque turpis magna sodales.</p>",
         "btn_label": "Book a test ride",
-        "btn_link": "",
+        "btn_link": "shopify://pages/testrit-boeken",
         "padding_top": 60,
         "padding_bottom": 60
       }
