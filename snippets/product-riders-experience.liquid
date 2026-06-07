@@ -16,7 +16,17 @@
   .video-popup .main-video{max-width:38%;height:100%;margin:auto;z-index:10001;}
   video.mainPopupVideoEl{height:100%;width:100%;object-fit:cover;}
   .video-popup .thumbnail-strip{position:absolute;left:40px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:10001;}
-  .video-popup .thumbnail-strip .swiper-slide img{width:84px;height:84px;object-fit:cover;cursor:pointer;transition:transform 0.2s;display:block;background:#ffffff45;color:transparent;}
+.video-popup .thumbnail-strip .swiper-slide img {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border-radius: 50%;
+    display: block;
+    background: #ffffff45;
+    color: transparent;
+}
   .video-popup .thumbnail-strip .swiper-slide-thumb-active img{border:2px solid #fff;}
   .video-popup .thumbnail-strip .swiper-button-disabled{display:none;}
   .swiper-popup-thumbs{height:300px !important;overflow:hidden;}
