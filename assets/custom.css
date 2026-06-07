@@ -685,14 +685,14 @@ text-align: center;
 
 /* Title and Price Alignment */
 .collection-tabs .card-product-tabs__title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  color: #000000;
-  text-align: center;
+font-family: Integral CF;
+font-weight: 400;
+font-style: Regular;
+font-size: 40px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-transform: uppercase;
 }
 
 .collection-tabs .card-product-tabs__price {
