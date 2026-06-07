@@ -1133,9 +1133,6 @@ h3.drawer-line-card__title {
 
 @media screen and (min-width: 768px) {
   .drawer__upsell-container-mobile .hide-on-desktop { display: none !important; }
-  .drawer__upsell-footer-inner {
-    display: none;
-  }
 }
 
 .drawer__upsell-footer-inner {
