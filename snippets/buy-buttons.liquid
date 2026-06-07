@@ -103,8 +103,6 @@
             </span>
             {%- render 'loading-spinner' -%}
           </button>
-          
-          <!-- Book a Test Ride Action Button -->
           {%- if block.settings.book_test_ride_text != blank -%}
             <a href="{{ block.settings.book_test_ride_link | default: '/pages/book-a-test-ride' }}" class="book-test-ride-button book-test-ride-button-{{ section_id }} button button--secondary button--full-width">
               {{ block.settings.book_test_ride_text }}
@@ -115,8 +113,7 @@
             {{ form | payment_button }}
           {%- endif -%}
 
-          {%- comment -%} Custom Payment Icons {%- endcomment -%}
-          <div class="custom-payment-icons" style="display: flex; gap: 10px; margin-top: 15px; align-items: center; flex-wrap: wrap;">
+          <div class="custom-payment-icons" style="display: flex; gap: 10px; margin-top: 15px; align-items: center; flex-wrap: wrap;     justify-content: center;">
             {%- for i in (1..10) -%}
               {%- assign icon_key = 'payment_icon_' | append: i -%}
               {%- assign payment_icon = block.settings[icon_key] -%}
