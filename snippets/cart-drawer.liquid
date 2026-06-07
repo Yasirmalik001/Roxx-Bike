@@ -752,7 +752,7 @@
 
             <div class="roxx-tax-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
               <span style="font-size: 13px; color: #b3b3b3;">{{ settings.cart_footer_tax_text | default: 'Included tax and shipping' }}</span>
-              <span style="font-size: 14px; font-weight: 600; color: #ffffff; text-decoration: line-through;">{{ cart.total_price | money_with_currency }}</span>
+              <span style="font-size: 14px; font-weight: 600; color: #ffffff;">{{ cart.total_price | money_with_currency }}</span>
             </div>
           </div>
 
