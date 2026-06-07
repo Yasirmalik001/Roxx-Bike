@@ -94,7 +94,7 @@
       "settings": {
         "enable_centered_layout": true,
         "book_test_ride_label": "BOOK A TEST RIDE",
-        "book_test_ride_link": "",
+        "book_test_ride_link": "shopify://pages/testrit-boeken",
         "title": "Featured bike",
         "heading_size": "h1",
         "heading_alignment": "left",
