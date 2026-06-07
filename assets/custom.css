@@ -2096,7 +2096,6 @@ letter-spacing: 0%;
 
 slider-component.thumbnail-slider .thumbnail[aria-current="true"] {
   border-color: #ffd000;
-  box-shadow: 0 0 0 2px #ffd000;
 }
 
 slider-component.thumbnail-slider .thumbnail {
