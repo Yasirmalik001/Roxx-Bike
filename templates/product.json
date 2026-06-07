@@ -16,7 +16,7 @@
           "type": "payment_installments",
           "settings": {
             "bg_color": "#f7f7f7",
-            "logo_1": "shopify://shop_images/8d4b078bbdc403275d20394187404c948d7ef9e8.png",
+            "logo_1": "shopify://shop_images/ideal-logo-svgrepo-com.svg",
             "logo_2": "shopify://shop_images/Group_125.svg",
             "text": "Pay in 3 interest-free installments",
             "info_link": "",
@@ -126,6 +126,7 @@
             "title": "Roxx Insurance",
             "description": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at.",
             "price": "+ € 150,00",
+            "link_label": "Learn more",
             "link": "shopify://pages/about-us"
           }
         },
@@ -266,16 +267,7 @@
         "media_position": "left",
         "image_zoom": "full_popup",
         "hide_variants": true,
-        "enable_video_looping": true,
-        "show_main_arrows": true,
-        "show_main_pagination": true,
-        "show_thumbs_arrows": true,
-        "enable_group_by_color": true,
-        "color_option_name": "Color",
-        "fancybox_show_all": false,
-        "thumbnail_side_by_side": true,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "enable_video_looping": true
       }
     },
     "hero_features_banner_UXYq4t": {

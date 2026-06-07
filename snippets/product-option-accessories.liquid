@@ -63,19 +63,17 @@
     position: relative;
   }
   
-  /* BULLETPROOF HIDER: Stops Shopify themes from rendering their own checkbox */
   input.accessory-checkbox-input[type="checkbox"] {
-    position: absolute !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: -1 !important;
-    appearance: none !important;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+    appearance: none;
   }
 
-  /* Unselected Card State */
   .accessory-card-content {
     display: flex;
     align-items: center;
@@ -127,7 +125,6 @@
     font-weight: 400;
   }
   
-  /* Custom Checkbox Circle (Unselected) */
   .accessory-radio-indicator {
     width: 26px;
     height: 26px;
@@ -142,20 +139,15 @@
     margin-left: 1rem;
   }
   
-  /* --- SELECTED STATES --- */
-  
-  /* Card border & shadow when checked */
   input.accessory-checkbox-input[type="checkbox"]:checked + .accessory-card-content {
     background-color: #ffffff;
     border-color: #ffd000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
   
-  /* Perfect Yellow Checkmark Pop */
   input.accessory-checkbox-input[type="checkbox"]:checked + .accessory-card-content .accessory-radio-indicator {
     border-color: #ffd000;
     background-color: #ffd000;
-    /* Custom SVG matching the straight-edged tick perfectly */
     background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 5.5L5 9L12.5 1.5' stroke='white' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E");
     background-size: 13px;
     background-position: center;
@@ -168,98 +160,67 @@
     class ProductAccessoriesSelector extends HTMLElement {
       constructor() {
         super();
-        this.isSubmitting = false;
-        this.temporarilyDisabled = false;
+        this.isAddingAccessories = false;
       }
 
       connectedCallback() {
-        // Wait for DOM to fully load to grab Dawn's main product form safely
         setTimeout(() => {
           const section = this.closest('.shopify-section');
           this.productFormElement = section ? section.querySelector('product-form') : null;
-          this.productForm = this.productFormElement ? this.productFormElement.querySelector('form') : null;
+          this.form = this.productFormElement ? this.productFormElement.querySelector('form') : null;
           
-          if (this.productForm) {
-            const submitBtn = this.productForm.querySelector('[type="submit"], [name="add"]');
-            if (submitBtn) {
-              submitBtn.addEventListener('click', this.onClick.bind(this), { capture: true });
-            }
+          if (this.form) {
+            this.form.addEventListener('submit', this.handleFormSubmit.bind(this), { capture: true });
           }
-        }, 0);
+        }, 100);
       }
 
-      async onClick(event) {
-        if (this.temporarilyDisabled) return;
+      async handleFormSubmit(event) {
+        if (this.isAddingAccessories) return;
 
-        const selectedAccessories = Array.from(this.querySelectorAll('input[type="checkbox"]:checked'));
-        if (selectedAccessories.length === 0) return; // Proceed normally if no accessories selected
+        const checkedAccessories = Array.from(this.querySelectorAll('.accessory-checkbox-input:checked'));
+        if (checkedAccessories.length === 0) return;
 
-        // Intercept standard click to prevent immediate form submission
         event.preventDefault();
         event.stopImmediatePropagation();
 
-        if (this.isSubmitting) return;
-        this.isSubmitting = true;
+        this.isAddingAccessories = true;
 
-        // Trigger Dawn Theme's visual loading states
-        const submitButton = event.currentTarget;
+        const submitButton = this.form.querySelector('[type="submit"], [name="add"]');
         if (submitButton) {
-          submitButton.setAttribute('aria-disabled', true);
+          submitButton.setAttribute('aria-disabled', 'true');
           submitButton.classList.add('loading');
         }
-        const spinner = this.productFormElement ? this.productFormElement.querySelector('.loading__spinner') : null;
-        if (spinner) spinner.classList.remove('hidden');
+
+        const items = checkedAccessories.map(input => ({
+          id: parseInt(input.value, 10),
+          quantity: 1
+        }));
 
         try {
-          const items = selectedAccessories.map(checkbox => ({
-            id: parseInt(checkbox.value),
-            quantity: 1
-          }));
-
-          // Fast AJAX call to add all accessories simultaneously
-          const addUrl = (window.routes && window.routes.cart_add_url) ? window.routes.cart_add_url : '/cart/add.js';
-          const response = await fetch(addUrl, {
+          await fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify({ items })
           });
-          
-          if (!response.ok) {
-            const errText = await response.text();
-            throw new Error(`Failed to add accessories to cart (${response.status}): ${errText}`);
-          }
 
-          // Temporarily disable our interceptor to prevent infinite loops
-          this.temporarilyDisabled = true;
-          this.isSubmitting = false;
-          
-          // Remove aria-disabled so Dawn's script doesn't abort its submit handler
           if (submitButton) {
             submitButton.removeAttribute('aria-disabled');
             submitButton.classList.remove('loading');
+            submitButton.click();
           }
-          if (spinner) spinner.classList.add('hidden');
-          
-          // Re-fire submit so Dawn's JS handles the main product + opening the cart drawer
-          this.productForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
-          
-          // Reset the interceptor quickly
-          setTimeout(() => { this.temporarilyDisabled = false; }, 500);
-
-        } catch (e) {
-          console.error('Error adding accessories:', e);
-          this.isSubmitting = false;
-          if (submitButton) {
-            submitButton.classList.remove('loading');
-            submitButton.removeAttribute('aria-disabled');
-          }
-          if (spinner) spinner.classList.add('hidden');
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setTimeout(() => {
+            this.isAddingAccessories = false;
+          }, 500);
         }
       }
     }
+    
     customElements.define('product-accessories-selector', ProductAccessoriesSelector);
   }
 </script>
