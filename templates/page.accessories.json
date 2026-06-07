@@ -47,9 +47,10 @@
         "columns_desktop": 4,
         "enable_desktop_slider": false,
         "full_width": false,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_style": "solid",
         "color_scheme": "",
+        "product_card_style": "style_2",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -62,7 +63,7 @@
         "padding_bottom": 36
       }
     },
-        "keep_discovering_nqKjzK": {
+    "keep_discovering_nqKjzK": {
       "type": "keep-discovering",
       "blocks": {
         "external_link_yB3Jmg": {
@@ -86,6 +87,7 @@
       ],
       "name": "Keep Discovering Hero",
       "settings": {
+        "color_scheme": "",
         "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
         "overlay_color": "#000000",
         "overlay_opacity": 100,
@@ -100,6 +102,6 @@
     "main",
     "collection_promo_header_8i9bxU",
     "featured_collection_Jq3Nqh",
-        "keep_discovering_nqKjzK"
+    "keep_discovering_nqKjzK"
   ]
 }
