@@ -2194,3 +2194,144 @@ a.custom-discover-btn {
     z-index: 1;
     transition: color 0.3s ease;
 }
+
+/* ==========================================================
+   Custom ROXX Cart Footer
+   ========================================================== */
+.drawer__footer.custom-roxx-cart-footer {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border-top: none;
+}
+
+.cart-footer-trustpilot-row {
+  background-color: #ffffff;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.trustpilot-logo {
+  display: flex;
+  align-items: center;
+}
+
+.trustpilot-score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tp-text {
+  font-size: 13px;
+  color: #111;
+  font-weight: 500;
+}
+
+.cart-footer-usp-row {
+  background-color: #f7f7f7;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-footer-usp-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #333;
+  text-align: center;
+  flex: 1;
+}
+
+.cart-footer-usp-item.divider {
+  width: 1px;
+  height: 30px;
+  background-color: #e0e0e0;
+  flex: none;
+}
+
+.cart-footer-main-dark {
+  background-color: #1c1c1c;
+  padding: 24px;
+  color: #ffffff;
+}
+
+.cart-drawer__footer {
+  padding: 0;
+  border: none;
+}
+
+.cart-footer-totals-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.cart-footer-subtotal-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cart-footer-subtotal-labels .totals__total {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.tax-shipping-text {
+  font-size: 12px;
+  color: #dddddd;
+}
+
+.cart-footer-subtotal-prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.price-yellow {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffd500;
+}
+
+.price-white {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.custom-checkout-btn {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 50px !important;
+  width: 100%;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  padding: 16px !important;
+  text-transform: uppercase;
+  transition: all 0.3s ease !important;
+}
+
+.custom-checkout-btn:hover {
+  background-color: #ffd500 !important;
+  color: #000000 !important;
+}
+
+.cart-footer-payments-wrapper {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
