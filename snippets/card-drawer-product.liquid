@@ -68,33 +68,33 @@
       </div>
     </div>
 </a>
+<ma-quickadd>
+    <div class="ma_quickAdd_in">
+      <div class="ma_quickAdd_variant_in" data-quickoptionid="template--23222930014543__featured_products_LAgynU">
+          <button
+            type="button"
+            class="ma_Add_atc ma_quickAdd_atc svg"
+            data-variantid="{{ card_product.variants[0].id }}"
+            tabindex="0"
+            {% unless card_product.variants[0].available %}disabled{% endunless %}
+          >
+            <span class="ma-span">
+              {%- if card_product.available -%}
+                {{ 'products.product.add_to_cart' | t }}
+              {%- else -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- endif -%}
+            </span>
+            <div class="loading-overlay__spinner hidden">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+              </svg>
+            </div>
+          </button>
+      </div>
+    </div>
+  </ma-quickadd>
   </div>
   
-      <ma-quickadd>
-          <div class="ma_quickAdd_in">
-            <div class="ma_quickAdd_variant_in" data-quickoptionid="template--23222930014543__featured_products_LAgynU">
-                <button
-                  type="button"
-                  class="ma_Add_atc ma_quickAdd_atc svg"
-                  data-variantid="{{ card_product.variants[0].id }}"
-                  tabindex="0"
-                  {% unless card_product.variants[0].available %}disabled{% endunless %}
-                >
-                  <span class="ma-span">
-                    {%- if card_product.available -%}
-                      {{ 'products.product.add_to_cart' | t }}
-                    {%- else -%}
-                      {{ 'products.product.sold_out' | t }}
-                    {%- endif -%}
-                  </span>
-                  <div class="loading-overlay__spinner hidden">
-                    <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                      <circle fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                    </svg>
-                  </div>
-                </button>
-            </div>
-          </div>
-        </ma-quickadd>
 {% endif %}
 
