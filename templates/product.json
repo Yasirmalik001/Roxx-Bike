@@ -72,7 +72,7 @@
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false,
             "book_test_ride_text": "BOOK A TEST RIDE",
-            "book_test_ride_link": "",
+            "book_test_ride_link": "shopify://pages/testrit-boeken",
             "add_to_cart_bg": "#ffd000",
             "add_to_cart_text": "#000000",
             "book_test_ride_bg": "#ffffff",
