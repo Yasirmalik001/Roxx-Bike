@@ -333,6 +333,7 @@
         "testimonial_GrQJgj": {
           "type": "testimonial",
           "settings": {
+            "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
             "author": "Hardwell"
@@ -341,6 +342,7 @@
         "testimonial_zk7LAw": {
           "type": "testimonial",
           "settings": {
+            "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
             "author": "John Heitinga"
@@ -349,6 +351,7 @@
         "testimonial_AwtBDh": {
           "type": "testimonial",
           "settings": {
+            "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
             "author": "John Heitinga"
@@ -357,6 +360,7 @@
         "testimonial_wHfN8y": {
           "type": "testimonial",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
             "author": "John Heitinga"
@@ -365,6 +369,7 @@
         "testimonial_DdF7yh": {
           "type": "testimonial",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
             "author": "John Heitinga"
@@ -373,6 +378,7 @@
         "testimonial_9thtHB": {
           "type": "testimonial",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
             "author": "John Heitinga"
@@ -391,6 +397,7 @@
       "settings": {
         "heading": "WHAT OUR PARTNER SAYS!",
         "heading_size": "h1",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "button_label": "View all",
         "button_link": "",
         "enable_slider_desktop": true,
