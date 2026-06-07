@@ -213,7 +213,7 @@
             "tab_4": "Accessories",
             "tab_5": "FAQ",
             "btn1_text": "Book a free test ride",
-            "btn1_link": "",
+            "btn1_link": "shopify://pages/testrit-boeken",
             "btn2_text": "Add to cart",
             "f1_image": "shopify://shop_images/Vector_12.svg",
             "f1_icon": "cyclist",
@@ -523,6 +523,62 @@
         "image": "shopify://shop_images/0bc12d06bf5edfe7bd4d50998ff11be64d7ed535.png",
         "image_radius": 0,
         "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_features_protect_L3ciHK": {
+      "type": "image-with-features-protect",
+      "blocks": {
+        "feature_LqfRzc": {
+          "type": "feature",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector_17.svg",
+            "title": "Integrated GPS tracking"
+          }
+        },
+        "feature_8wVwfM": {
+          "type": "feature",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_41.svg",
+            "title": "Smart alarm system"
+          }
+        },
+        "feature_ctVtbB": {
+          "type": "feature",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_9.svg",
+            "title": "Real-time location monitoring"
+          }
+        }
+      },
+      "block_order": [
+        "feature_LqfRzc",
+        "feature_8wVwfM",
+        "feature_ctVtbB"
+      ],
+      "name": "Image with Protection",
+      "settings": {
+        "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
+        "layout": "image_first",
+        "main_image": "shopify://shop_images/18e4bf5ddd9dd480c0c1f0c20f5a5dd83dd87f96_1.png",
+        "waves_image": "shopify://shop_images/Group_43.svg",
+        "back_wave_size": 45,
+        "back_wave_left": 25,
+        "back_wave_bottom": -5,
+        "front_wave_size": 45,
+        "front_wave_left": 75,
+        "front_wave_bottom": 0,
+        "show_tooltip": true,
+        "tooltip_title": "Your bike is moving 🚨",
+        "tooltip_text": "Not you? Track your bike",
+        "tooltip_top": 15,
+        "tooltip_left": 20,
+        "title": "BUILT TO PROTECT",
+        "heading_size": "h1",
+        "text": "<p>Lorem ipsum dolor sit amet consectetur. Morbi fermentum nisl hac cum lobortis sit massa pharetra. A sit nulla pellentesque turpis magna sodales.</p>",
+        "btn_label": "Book a test ride",
+        "btn_link": "",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -1062,62 +1118,6 @@
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 36
-      }
-    },
-    "image_with_features_protect_L3ciHK": {
-      "type": "image-with-features-protect",
-      "blocks": {
-        "feature_LqfRzc": {
-          "type": "feature",
-          "settings": {
-            "icon_image": "shopify://shop_images/Vector_17.svg",
-            "title": "Integrated GPS tracking"
-          }
-        },
-        "feature_8wVwfM": {
-          "type": "feature",
-          "settings": {
-            "icon_image": "shopify://shop_images/Group_41.svg",
-            "title": "Smart alarm system"
-          }
-        },
-        "feature_ctVtbB": {
-          "type": "feature",
-          "settings": {
-            "icon_image": "shopify://shop_images/Group_9.svg",
-            "title": "Real-time location monitoring"
-          }
-        }
-      },
-      "block_order": [
-        "feature_LqfRzc",
-        "feature_8wVwfM",
-        "feature_ctVtbB"
-      ],
-      "name": "Image with Protection",
-      "settings": {
-        "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
-        "layout": "image_first",
-        "main_image": "shopify://shop_images/18e4bf5ddd9dd480c0c1f0c20f5a5dd83dd87f96_1.png",
-        "waves_image": "shopify://shop_images/Group_43.svg",
-        "back_wave_size": 45,
-        "back_wave_left": 25,
-        "back_wave_bottom": -5,
-        "front_wave_size": 45,
-        "front_wave_left": 75,
-        "front_wave_bottom": 0,
-        "show_tooltip": true,
-        "tooltip_title": "Your bike is moving 🚨",
-        "tooltip_text": "Not you? Track your bike",
-        "tooltip_top": 15,
-        "tooltip_left": 20,
-        "title": "BUILT TO PROTECT",
-        "heading_size": "h1",
-        "text": "<p>Lorem ipsum dolor sit amet consectetur. Morbi fermentum nisl hac cum lobortis sit massa pharetra. A sit nulla pellentesque turpis magna sodales.</p>",
-        "btn_label": "Book a test ride",
-        "btn_link": "",
-        "padding_top": 60,
-        "padding_bottom": 60
       }
     },
     "app_features_section_gVYMpE": {
