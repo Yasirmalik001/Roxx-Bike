@@ -14,6 +14,7 @@
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
+    <link rel="preconnect" href="https://db.onlinewebfonts.com" crossorigin>
 
     <title>
       {{ page_title }}
@@ -58,6 +59,7 @@
 
     @font-face {
     font-family: "Suisse Int'l Trial";
+    font-display: swap;
     src: url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.eot");
     src: url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.eot?#iefix")format("embedded-opentype"),
     url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.woff2")format("woff2"),
@@ -67,6 +69,7 @@
 }
 @font-face {
     font-family: "Integral CF";
+    font-display: swap;
     src: url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.eot");
     src: url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.eot?#iefix")format("embedded-opentype"),
     url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.woff2")format("woff2"),
