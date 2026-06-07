@@ -1,0 +1,250 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .calendly-booking-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .calendly-booking-wrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 5rem;
+    }
+    .calendly-booking-content, 
+    .calendly-booking-widget {
+      width: 50%;
+    }
+  }
+
+  .calendly-booking-list {
+    padding-left: 0;
+    margin: 2rem 0;
+  }
+
+  .calendly-booking-list li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    font-size: 1.6rem;
+  }
+
+  .calendly-booking-list svg {
+    min-width: 22px;
+    min-height: 22px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .calendly-inline-widget {
+    min-width: 100% !important; 
+    height: 700px;
+    border-radius: var(--popup-corner-radius);
+    overflow: hidden;
+  }
+
+  .calendly-booking-footer {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="calendly-booking-wrapper">
+      
+      <!-- Left Column: Content -->
+      <div class="calendly-booking-content">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="{{ section.settings.heading_size }}">
+            {{ section.settings.heading | escape }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="calendly-booking-list">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18" height="18" width="18">
+                  <path fill="{{ section.settings.icon_color }}" d="M9 18C13.9707 18 18 13.9707 18 9C18 4.0293 13.9707 0 9 0C4.0293 0 0 4.0293 0 9C0 13.9707 4.0293 18 9 18ZM12.1824 5.8176C12.3514 5.64884 12.5805 5.55413 12.8193 5.5543C13.0582 5.55447 13.2871 5.6495 13.4559 5.8185C13.6247 5.9875 13.7194 6.21661 13.7192 6.45544C13.719 6.69426 13.624 6.92324 13.455 7.092L8.3673 12.1797L8.3637 12.1833C8.28031 12.2672 8.18117 12.3337 8.07197 12.3791C7.96277 12.4246 7.84567 12.4479 7.7274 12.4479C7.60913 12.4479 7.49203 12.4246 7.38283 12.3791C7.27363 12.3337 7.17449 12.2672 7.0911 12.1833L7.0875 12.1797L4.545 9.6372C4.45904 9.55418 4.39048 9.45487 4.34331 9.34506C4.29614 9.23526 4.27131 9.11716 4.27027 8.99766C4.26924 8.87816 4.29201 8.75965 4.33726 8.64904C4.38251 8.53843 4.44934 8.43795 4.53384 8.35344C4.61835 8.26894 4.71883 8.20211 4.82944 8.15686C4.94005 8.11161 5.05856 8.08884 5.17806 8.08987C5.29756 8.09091 5.41566 8.11574 5.52546 8.16291C5.63527 8.21008 5.73458 8.27864 5.8176 8.3646L7.7274 10.2735L12.1824 5.8185V5.8176Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                </svg>
+                <span>{{ block.settings.list_text }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="rte">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.additional_info != blank -%}
+          <div class="rte calendly-booking-footer">
+            {{ section.settings.additional_info }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Right Column: Calendly Widget -->
+      <div class="calendly-booking-widget">
+        {%- if section.settings.calendly_url != blank -%}
+          <!-- Calendly inline widget begin -->
+          <div class="calendly-inline-widget" data-url="{{ section.settings.calendly_url }}?hide_event_type_details=1&hide_gdpr_banner=1"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Calendly inline widget end -->
+        {%- else -%}
+          <div class="placeholder-background" style="height: 700px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.05);">
+            <p>Please enter a Calendly URL in the section settings.</p>
+          </div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Calendly Booking",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Boek je testrit"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Checkmark Icon Color",
+      "default": "#FFD800"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Main Description",
+      "default": "<p>Welke Roxx Bike wil jij testen? Boek eenvoudig een testrit van 30 minuten in onze winkel in Amsterdam Oost. Dan maken wij de e-bike voor je klaar. Tot snel!</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "additional_info",
+      "label": "Additional Information (Footer)",
+      "default": "<p><strong>Openingstijden:</strong> Dinsdag tot Zaterdag van 10:30 tot 17:00</p><p><strong>Testritlocatie:</strong><br>Supremebike store <br>Commelinstraat 55H<br>1093TK Amsterdam</p>"
+    },
+    {
+      "type": "url",
+      "id": "calendly_url",
+      "label": "Calendly Link URL",
+      "info": "Paste your Calendly booking link here."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_item",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "list_text",
+          "label": "Text",
+          "default": "Kies snel en eenvoudig een moment wanneer het u uitkomt."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Calendly Booking",
+      "blocks": [
+        {
+          "type": "list_item",
+          "settings": {
+            "list_text": "Kies snel en eenvoudig een moment wanneer het u uitkomt."
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "list_text": "Geniet van 30 minuten op jouw favoriete e-bike en stel al je vragen."
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "list_text": "Lukt het toch niet op de afspraak te komen? Meld je dan even af."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
