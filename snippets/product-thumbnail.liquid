@@ -83,7 +83,7 @@
     <div class="product__media media media--transparent">
       {% assign img_url = media.preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
       {% capture img_url %}
-        {{ media | image_url }}
+        {{ media | image_url: width: 2048 }}
         {% endcapture %}
       <img class="{{ image_class }} lazyload" src="{{ img_url | strip }}"
         data-src="{{ img_url }}"
