@@ -231,8 +231,19 @@
           </a>
         {%- endif -%}
         {%- if block.settings.btn2_text != blank -%}
-          <button type="submit" name="add" form="{{ product_form_id }}" class="btn-solid-custom product-form__submit">
-            {{ block.settings.btn2_text }}
+          <button type="button" class="btn-solid-custom button" onclick="
+            var mainBtn = document.querySelector('.product__info-container .product-form__submit');
+            if(mainBtn) { 
+              mainBtn.click(); 
+              this.classList.add('loading');
+              setTimeout(() => this.classList.remove('loading'), 2000);
+            } else {
+              var fallbackBtn = document.querySelector('.product-form__submit');
+              if (fallbackBtn) fallbackBtn.click();
+            }
+          ">
+            <span>{{ block.settings.btn2_text }}</span>
+            {%- render 'loading-spinner' -%}
           </button>
         {%- endif -%}
       </div>
