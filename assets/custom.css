@@ -1185,14 +1185,6 @@ span.cc-svg-ride {
   gap: 0;
 }
 
-.drawer-product-card {
-  display: flex;
-  flex-direction: column;
-  padding: 16px 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  position: relative;
-}
-
 .drawer-product-card-url {
   text-decoration: none;
   color: inherit;
