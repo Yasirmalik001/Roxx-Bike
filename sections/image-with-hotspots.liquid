@@ -44,7 +44,7 @@
   .hotspot-image-wrapper svg {
     width: 100%;
     height: auto;
-    max-height: 700px
+    max-height: 700px; /* Fixed: Added missing semicolon */
     display: block;
     border-radius: {{ section.settings.image_radius }}px;
   }
@@ -56,32 +56,42 @@
     z-index: 2;
   }
 
+  /* Base Glow State */
   .hotspot-glow {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.8);
     width: 85px;
     height: 85px;
     background: radial-gradient(circle, rgba(255, 209, 0, 0.6) 0%, rgba(255, 209, 0, 0) 65%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 1;
-    transition: transform 0.3s ease;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+  }
+
+  /* Smooth reveal classes handled by JS */
+  .hotspot-point:hover .hotspot-glow,
+  details[open] ~ .hotspot-glow, /* Fallback structural selector support */
+  .hotspot-glow.is-active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
   }
 
   .hotspot-btn {
     width: 26px;
     height: 26px;
-    background-color: #FFD100; /* Exact Yellow */
-    border: 1.5px solid #111111; /* Thin black border */
+    background-color: #FFD100;
+    border: 1.5px solid #111111;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     list-style: none;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     color: #111111;
     position: relative;
     z-index: 2;
@@ -93,11 +103,7 @@
   }
 
   .hotspot-btn:hover, details[open] .hotspot-btn {
-    transform: scale(1.1);
-  }
-
-  .hotspot-btn:hover ~ .hotspot-glow, details[open] .hotspot-glow {
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: scale(1.15);
   }
 
   .hotspot-btn svg {
@@ -105,7 +111,7 @@
     height: 14px;
     stroke: currentColor;
     stroke-width: 2px;
-    transition: transform 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   details[open] .hotspot-btn svg {
@@ -126,9 +132,10 @@
     border: 1px solid rgba(0,0,0,0.04);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.3s;
   }
 
+  /* High performance hardware acceleration transitions */
   details[open] .hotspot-tooltip {
     opacity: 1;
     visibility: visible;
@@ -173,13 +180,13 @@
     margin: 0;
   }
 
-  /* --- Tooltip Positions (Desktop) --- */
+  /* --- Tooltip Positions (Desktop Animations) --- */
   
   /* Right */
   .hotspot-tooltip--right {
     top: 50%;
     left: calc(100% + 35px);
-    transform: translateY(-50%) translateX(-10px);
+    transform: translateY(-50%) translateX(-15px);
   }
   details[open] .hotspot-tooltip--right { transform: translateY(-50%) translateX(0); }
   .hotspot-tooltip--right::before {
@@ -192,7 +199,7 @@
   .hotspot-tooltip--left {
     top: 50%;
     right: calc(100% + 35px);
-    transform: translateY(-50%) translateX(10px);
+    transform: translateY(-50%) translateX(15px);
   }
   details[open] .hotspot-tooltip--left { transform: translateY(-50%) translateX(0); }
   .hotspot-tooltip--left::before {
@@ -205,7 +212,7 @@
   .hotspot-tooltip--top {
     bottom: calc(100% + 35px);
     left: 50%;
-    transform: translateX(-50%) translateY(10px);
+    transform: translateX(-50%) translateY(15px);
   }
   details[open] .hotspot-tooltip--top { transform: translateX(-50%) translateY(0); }
   .hotspot-tooltip--top::before {
@@ -218,7 +225,7 @@
   .hotspot-tooltip--bottom {
     top: calc(100% + 35px);
     left: 50%;
-    transform: translateX(-50%) translateY(-10px);
+    transform: translateX(-50%) translateY(-15px);
   }
   details[open] .hotspot-tooltip--bottom { transform: translateX(-50%) translateY(0); }
   .hotspot-tooltip--bottom::before {
@@ -237,7 +244,7 @@
       max-width: none;
       top: auto !important;
       right: auto !important;
-      transform: translateX(-50%) translateY(20px) !important;
+      transform: translateX(-50%) translateY(30px) !important;
       padding: 2rem;
     }
     details[open] .hotspot-tooltip {
@@ -263,7 +270,7 @@
 
     <div class="hotspot-image-wrapper">
       {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 5000 | image_tag: loading: 'lazy', widths: '550, 720, 990, 1500 5000' }}
+        {{ section.settings.image | image_url: width: 5000 | image_tag: loading: 'lazy', widths: '550, 720, 990, 1500, 5000' }}
       {%- else -%}
         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
@@ -275,8 +282,6 @@
               <span class="visually-hidden">View details for {{ block.settings.title }}</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m-7-7h14"/></svg>
             </summary>
-            
-            <div class="hotspot-glow"> </div>
             
             <div class="hotspot-tooltip hotspot-tooltip--{{ block.settings.tooltip_position }}">
               <div class="hotspot-tooltip__header">
@@ -297,6 +302,7 @@
               {%- endif -%}
             </div>
           </details>
+          <div class="hotspot-glow"></div>
         </div>
       {%- endfor -%}
     </div>
@@ -305,28 +311,47 @@
 </div>
 
 <script>
-  // Script to ensure only one hotspot is open at a time
   document.addEventListener('DOMContentLoaded', () => {
     const hotspots = document.querySelectorAll('details[data-hotspot]');
     
+    // Synchronize glow animations smoothly with the open/close triggers
+    const syncGlowState = () => {
+      hotspots.forEach((detail) => {
+        const glow = detail.closest('.hotspot-point').querySelector('.hotspot-glow');
+        if (glow) {
+          if (detail.hasAttribute('open')) {
+            glow.classList.add('is-active');
+          } else {
+            glow.classList.remove('is-active');
+          }
+        }
+      });
+    };
+
     hotspots.forEach((targetDetail) => {
-      targetDetail.addEventListener('click', (e) => {
-        // Allow the default behavior (toggling) to happen
+      // Intercept the click before the default toggle behavior happens
+      targetDetail.querySelector('summary').addEventListener('click', (e) => {
+        const isOpening = !targetDetail.hasAttribute('open');
+        
         hotspots.forEach((detail) => {
           if (detail !== targetDetail) {
             detail.removeAttribute('open');
           }
         });
+
+        // Set state micro-timeout to ensure transition styles pick it up flawlessly
+        setTimeout(syncGlowState, 10);
       });
     });
 
-    // Close when clicking outside
+    // Handle smooth dismissals clicking outside hotspots
     document.addEventListener('click', (event) => {
       const isClickInside = event.target.closest('details[data-hotspot]');
       if (!isClickInside) {
         hotspots.forEach((detail) => {
           detail.removeAttribute('open');
         });
+        syncGlowState();
       }
     });
   });
