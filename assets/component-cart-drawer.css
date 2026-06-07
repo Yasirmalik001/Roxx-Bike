@@ -793,11 +793,13 @@ cart-drawer td > .product-option{
 }
 
 .cart-drawer .totals__total-value {
-  font-size: 26px;
-  font-weight: 800;
-  color: #ffd100; 
-  line-height: 1;
-  margin-bottom: 4px;
+font-family: Integral CF;
+font-weight: 400;
+font-style: Regular;
+font-size: 24px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
 }
 
 .drawer__footer .totals__total-original,
