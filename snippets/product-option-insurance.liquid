@@ -4,10 +4,12 @@
   {%- endif -%}
 
   <label class="insurance-card-label">
+    <!-- The native checkbox is strictly hidden -->
     <input type="checkbox" name="properties[Insurance]" value="{{ block.settings.title | escape }}" form="product-form-{{ section.id }}" class="insurance-checkbox-input">
     
     <div class="insurance-card-content">
       
+      <!-- Left Column: Logo -->
       <div class="insurance-logo-wrapper">
         {%- if block.settings.logo != blank -%}
           <img src="{{ block.settings.logo | image_url: width: 200 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="100" height="120">
@@ -16,18 +18,23 @@
         {%- endif -%}
       </div>
       
+      <!-- Right Column: Text & Indicator -->
       <div class="insurance-right-col">
         <div class="insurance-header-row">
           <span class="insurance-title">{{ block.settings.title | escape }}</span>
-          <div class="insurance-radio-indicator"> </div>
+          <!-- Circular Indicator Inside Card -->
+          <div class="insurance-radio-indicator"></div>
         </div>
         
         <p class="insurance-description">
           {{ block.settings.description | escape }}
         </p>
         
+        <!-- Dynamic Link -->
         {%- if block.settings.link != blank -%}
-          <a href="{{ block.settings.link }}" target="_blank" class="insurance-link">Learn more</a>
+          <a href="{{ block.settings.link }}" target="_blank" class="insurance-link">
+            {{ block.settings.link_label | default: 'Learn more' }}
+          </a>
         {%- endif -%}
       </div>
 
@@ -58,7 +65,7 @@
     position: relative;
   }
   
-  /* BULLETPROOF HIDER: Stops Shopify themes from rendering their own checkbox at the top */
+  /* BULLETPROOF HIDER */
   input.insurance-checkbox-input[type="checkbox"] {
     position: absolute !important;
     opacity: 0 !important;
@@ -166,11 +173,10 @@
   
   input.insurance-checkbox-input[type="checkbox"]:checked + .insurance-card-content {
     background-color: #ffffff;
-    border-color: #ffd000; /* Yellow Border */
+    border-color: #ffd000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
   
-  /* Perfect Yellow Checkmark Pop */
   input.insurance-checkbox-input[type="checkbox"]:checked + .insurance-card-content .insurance-radio-indicator {
     border-color: #ffd000;
     background-color: #ffd000;
