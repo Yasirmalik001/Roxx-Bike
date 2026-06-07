@@ -73,7 +73,9 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 .drawer.active .drawer__inner {
   transform: translateX(0);
 }
-
+.drawer__footer {
+    font-family: 'INTEGRAL CF';
+}
 .drawer__header {
   position: relative;
   padding: 2.5rem 2.5rem 1.5rem;
