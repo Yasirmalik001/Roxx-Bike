@@ -657,61 +657,61 @@
           {% endif %}
         </cart-drawer-items>
         {% if settings.upsell__points %}
-          <div class="drawer__upsell-footer-mobile" style="background-color: #f7f7f7; padding: 15px 20px; border-top: 1px solid #ebebeb;">
+          <div class="drawer__upsell-footer-mobile roxx-custom-footer-mobile">
             {% if settings.cart_footer_trustpilot_enabled %}
-              <div class="roxx-trustpilot-row" style="display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
-                <div class="roxx-trustpilot-logo" style="display: flex; align-items: center; gap: 4px; font-weight: 700; font-size: 13px; color: #121212;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <div class="roxx-trustpilot-row">
+                <div class="roxx-trustpilot-logo">
+                  <svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                   Trustpilot
                 </div>
-                <div class="roxx-trustpilot-stars" style="display: flex; align-items: center; gap: 6px;">
-                  <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-4.5.svg" alt="Trustpilot Stars" style="height: 18px; width: auto; object-fit: contain;">
+                <div class="roxx-trustpilot-stars">
+                  <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-4.5.svg" alt="Trustpilot Stars">
                 </div>
-                <div class="roxx-trustpilot-text" style="font-size: 12px; font-weight: 500; color: #121212;">
+                <div class="roxx-trustpilot-text">
                   {{ settings.cart_footer_trustpilot_score | default: '4.4 / 5 (based on 200+)' }}
                 </div>
               </div>
             {% endif %}
 
-            <div class="roxx-usps-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid #ebebeb; padding-top: 15px;">
-              <div class="roxx-usp-item" style="display: flex; flex-direction: column; align-items: center; gap: 8px; border-right: 1px solid #ebebeb;">
-                <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
+            <div class="roxx-usps-row">
+              <div class="roxx-usp-item">
+                <div class="roxx-usp-icon">
                   {%- if settings.icon_1 != blank -%}
-                    <img src="{{ settings.icon_1 | image_url: width: 24 }}" alt="{{ settings.cart_footer_usp_1_text | escape }}" style="max-height: 24px; width: auto; object-fit: contain;">
+                    <img src="{{ settings.icon_1 | image_url: width: 24 }}" alt="{{ settings.cart_footer_usp_1_text | escape }}">
                   {%- else -%}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#121212" stroke-width="1.2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#121212"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                   {%- endif -%}
                 </div>
-                <span style="font-size: 11px; font-weight: 400; color: #121212; text-align: center;">{{ settings.cart_footer_usp_1_text | default: 'Fast delivery' }}</span>
+                <span class="roxx-usp-text">{{ settings.cart_footer_usp_1_text | default: 'Fast delivery' }}</span>
               </div>
-              <div class="roxx-usp-item" style="display: flex; flex-direction: column; align-items: center; gap: 8px; border-right: 1px solid #ebebeb;">
-                <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
+              <div class="roxx-usp-item">
+                <div class="roxx-usp-icon">
                   {%- if settings.icon_2 != blank -%}
-                    <img src="{{ settings.icon_2 | image_url: width: 24 }}" alt="{{ settings.cart_footer_usp_2_text | escape }}" style="max-height: 24px; width: auto; object-fit: contain;">
+                    <img src="{{ settings.icon_2 | image_url: width: 24 }}" alt="{{ settings.cart_footer_usp_2_text | escape }}">
                   {%- else -%}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#121212" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect><path d="M3 10h18"></path><path d="M7 15h.01"></path><path d="M11 15h2"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#121212"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect><path d="M3 10h18"></path><path d="M7 15h.01"></path><path d="M11 15h2"></path></svg>
                   {%- endif -%}
                 </div>
-                <span style="font-size: 11px; font-weight: 400; color: #121212; text-align: center;">{{ settings.cart_footer_usp_2_text | default: 'Secured payment' }}</span>
+                <span class="roxx-usp-text">{{ settings.cart_footer_usp_2_text | default: 'Secured payment' }}</span>
               </div>
-              <div class="roxx-usp-item" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
+              <div class="roxx-usp-item">
+                <div class="roxx-usp-icon">
                   {%- if settings.icon_3 != blank -%}
-                    <img src="{{ settings.icon_3 | image_url: width: 24 }}" alt="{{ settings.cart_footer_usp_3_text | escape }}" style="max-height: 24px; width: auto; object-fit: contain;">
+                    <img src="{{ settings.icon_3 | image_url: width: 24 }}" alt="{{ settings.cart_footer_usp_3_text | escape }}">
                   {%- else -%}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#121212" stroke-width="1.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#121212"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"></path></svg>
                   {%- endif -%}
                 </div>
-                <span style="font-size: 11px; font-weight: 400; color: #121212; text-align: center;">{{ settings.cart_footer_usp_3_text | default: 'Excellent support' }}</span>
+                <span class="roxx-usp-text">{{ settings.cart_footer_usp_3_text | default: 'Excellent support' }}</span>
               </div>
             </div>
           </div>
         {% endif %}
 
-        <div class="drawer__footer" style="background-color: #1e1e1e; padding: 25px 20px; color: #ffffff;">
+        <div class="drawer__footer roxx-drawer-footer-dark">
           {%- if settings.show_cart_note -%}
-            <details id="Details-CartDrawer" style="margin-bottom: 15px;">
-              <summary style="color: #fff;">
+            <details id="Details-CartDrawer" class="roxx-cart-note-details">
+              <summary>
                 <span class="summary__title">
                   {{ 'sections.cart.note' | t }}
                   <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6" fill="white"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path></svg>
@@ -724,7 +724,6 @@
                   class="text-area text-area--resize-vertical field__input"
                   name="note"
                   placeholder="{{ 'sections.cart.note' | t }}"
-                  style="background: #333; color: #fff; border: 1px solid #555; margin-top: 10px;"
                 >{{ cart.note }}</textarea>
               </cart-note>
             </details>
@@ -733,10 +732,10 @@
           <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
             <div>
               {%- if cart.cart_level_discount_applications.size > 0 -%}
-                <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}" style="color: #ffcc00; margin-bottom: 10px;">
+                <ul class="discounts list-unstyled roxx-cart-discounts" role="list" aria-label="{{ 'customer.order.discount' | t }}">
                   {%- for discount in cart.cart_level_discount_applications -%}
                     <li class="discounts__discount discounts__discount--end">
-                      <svg aria-hidden="true" focusable="false" class="icon icon-discount" viewBox="0 0 12 12" style="width: 12px; margin-right: 5px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0h3a2 2 0 012 2v3a1 1 0 01-.3.7l-6 6a1 1 0 01-1.4 0l-4-4a1 1 0 010-1.4l6-6A1 1 0 017 0zm2 2a1 1 0 102 0 1 1 0 00-2 0z" fill="currentColor"></path></svg>
+                      <svg aria-hidden="true" focusable="false" class="icon icon-discount" viewBox="0 0 12 12"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0h3a2 2 0 012 2v3a1 1 0 01-.3.7l-6 6a1 1 0 01-1.4 0l-4-4a1 1 0 010-1.4l6-6A1 1 0 017 0zm2 2a1 1 0 102 0 1 1 0 00-2 0z" fill="currentColor"></path></svg>
                       {{ discount.title | escape }}
                       (-{{ discount.total_allocated_amount | money }})
                     </li>
@@ -745,14 +744,14 @@
               {%- endif -%}
             </div>
 
-            <div class="roxx-totals-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <h2 style="margin: 0; font-size: 18px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 1.5px;">{{ settings.cart_footer_subtotal_text | default: 'SUBTOTAL' }}</h2>
-              <p style="margin: 0; font-size: 20px; font-weight: 700; color: #ffcc00;">{{ cart.total_price | money_with_currency }}</p>
+            <div class="roxx-totals-row">
+              <h2 class="roxx-subtotal-text">{{ settings.cart_footer_subtotal_text | default: 'SUBTOTAL' }}</h2>
+              <p class="roxx-subtotal-price">{{ cart.total_price | money_with_currency }}</p>
             </div>
 
-            <div class="roxx-tax-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
-              <span style="font-size: 13px; color: #b3b3b3;">{{ settings.cart_footer_tax_text | default: 'Included tax and shipping' }}</span>
-              <span style="font-size: 14px; font-weight: 600; color: #ffffff;">{{ cart.total_price | money_with_currency }}</span>
+            <div class="roxx-tax-row">
+              <span class="roxx-tax-note">{{ settings.cart_footer_tax_text | default: 'Included tax and shipping' }}</span>
+              <span class="roxx-tax-strike">{{ cart.total_price | money_with_currency }}</span>
             </div>
           </div>
 
@@ -760,10 +759,9 @@
             <button
               type="submit"
               id="CartDrawer-Checkout"
-              class="cart__checkout-button button"
+              class="cart__checkout-button button roxx-checkout-btn"
               name="checkout"
               form="CartDrawer-Form"
-              style="width: 100%; background-color: #ffffff; color: #000000; border-radius: 50px; font-size: 13px; font-weight: 800; text-transform: uppercase; padding: 18px; border: none; letter-spacing: 0.5px; margin-bottom: 20px; cursor: pointer;"
               {% if cart == empty %}
                 disabled
               {% endif %}
@@ -772,7 +770,7 @@
             </button>
           </div>
           
-          <div class="roxx-payments-row" style="display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <div class="roxx-payments-row">
             {% render 'Payments' %}
           </div>
         </div>
