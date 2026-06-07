@@ -13,30 +13,33 @@
 
   .app-intro-section {
     overflow: hidden;
-    background-color: transparent;
+    background-color: #ffffff; /* Clean white background matching the image */
   }
 
   /* --- Header Styles --- */
   .app-intro-header {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 6rem auto;
+    margin: 0 auto 5rem auto;
+    padding: 0 2rem;
   }
 
   .app-intro-heading {
-    margin: 0 0 1.5rem 0;
-    font-weight: 800;
+    margin: 0 0 1.2rem 0;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0em;
-    color: rgb(var(--color-foreground));
+    letter-spacing: -0.02em;
+    font-size: clamp(3rem, 4vw, 4.2rem);
+    line-height: 1.1;
+    color: #111111;
   }
 
   .app-intro-description {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.6;
-    color: rgba(var(--color-foreground), 0.75);
+    color: #444444;
     margin: 0 auto;
-    max-width: 650px;
+    max-width: 600px;
   }
 
   /* --- Main Grid Layout --- */
@@ -50,13 +53,13 @@
     .app-intro-grid {
       flex-direction: row;
       align-items: center;
-      gap: 4rem;
+      gap: 2rem;
     }
     .app-image-col {
-      width: 55%;
+      width: 58%;
     }
     .app-card-col {
-      width: 45%;
+      width: 42%;
     }
   }
 
@@ -64,63 +67,65 @@
   .app-image-col {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     /* Extra padding bottom to allow devices to hang down slightly without clipping */
-    padding-bottom: 3rem; 
+    padding-bottom: 2rem; 
   }
 
   .layer-bike {
-    width: 78%; /* Bike takes up left 78% */
+    width: 82%; /* Bike takes up the left portion */
     height: auto;
     object-fit: contain;
     position: relative;
     z-index: 1;
     display: block;
+    margin-right: auto; /* Pushes bike left */
   }
 
   .layer-device-1 {
     position: absolute;
-    width: 25%; /* Tablet/Phone 1 size */
-    bottom: 5%;
-    right: 18%; /* Positioned slightly behind Device 2 */
+    width: 25%; /* Back phone size */
+    bottom: 8%;
+    right: 28%; /* Positioned left of the front phone */
     z-index: 2;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(-10px 15px 25px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(-8px 12px 20px rgba(0, 0, 0, 0.15));
   }
 
   .layer-device-2 {
     position: absolute;
-    width: 22%; /* Mobile size */
-    bottom: 0%;
-    right: 2%; /* Positioned on the far right */
+    width: 32%; /* Front phone size */
+    bottom: -2%;
+    right: 3%; /* Positioned on the far right */
     z-index: 3;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(-15px 20px 30px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(-12px 18px 35px rgba(0, 0, 0, 0.25));
   }
 
   /* --- Right Column: Feature Card (1:1 White Box) --- */
   .app-card-col {
     display: flex;
     justify-content: center;
+    padding-right: 2rem;
   }
 
   .app-feature-card {
-    background-color: #ffffff; /* Forced white to match screenshot */
-    border-radius: 16px;
-    padding: 6rem 5rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 6rem 4rem;
     width: 100%;
-    max-width: 550px;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.04);
+    max-width: 480px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* Extremely soft shadow matching image */
     border: 1px solid rgba(0, 0, 0, 0.02);
   }
 
   .app-features-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 3rem;
-    row-gap: 5rem;
+    row-gap: 4.5rem;
   }
 
   /* --- Individual Feature Block --- */
@@ -129,14 +134,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.8rem;
+    gap: 1.5rem;
   }
 
   .app-feature-icon {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background-color: #d8d8d8; /* Solid gray placeholder circle from image */
+    background-color: #d1d5db; /* Solid gray placeholder circle from image */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,12 +155,12 @@
   }
 
   .app-feature-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    line-height: 1.4;
-    color: #333333;
+    line-height: 1.35;
+    color: #222222;
     margin: 0;
-    max-width: 160px;
+    max-width: 140px; /* Constrains text to force exact wrapping like the image */
   }
 
   /* Mobile Adjustments */
@@ -163,13 +168,12 @@
     .app-intro-header {
       margin-bottom: 4rem;
     }
-    .layer-bike { width: 85%; }
-    .layer-device-1 { width: 30%; right: 12%; }
-    .layer-device-2 { width: 26%; right: 0%; }
+    .layer-bike { width: 90%; }
+    .layer-device-1 { width: 28%; right: 22%; bottom: 6%; }
+    .layer-device-2 { width: 35%; right: 0%; bottom: 0%; }
     
-    .app-feature-card {
-      padding: 4rem 2rem;
-    }
+    .app-card-col { padding-right: 0; padding: 0 1.5rem; }
+    .app-feature-card { padding: 4rem 2rem; }
     .app-features-wrapper {
       column-gap: 2rem;
       row-gap: 4rem;
@@ -182,7 +186,7 @@
     
     <div class="app-intro-header">
       {%- if section.settings.title != blank -%}
-        <h2 class="app-intro-heading h1 {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+        <h2 class="app-intro-heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
       {%- endif -%}
       
       {%- if section.settings.description != blank -%}
@@ -206,7 +210,7 @@
         {%- endif -%}
 
         {%- if section.settings.image_device_2 != blank -%}
-          {{ section.settings.image_device_2 | image_url: width: 300 | image_tag: class: 'layer-device-2', loading: 'lazy' }}
+          {{ section.settings.image_device_2 | image_url: width: 400 | image_tag: class: 'layer-device-2', loading: 'lazy' }}
         {%- endif -%}
       </div>
 
@@ -294,13 +298,13 @@
     {
       "type": "image_picker",
       "id": "image_device_1",
-      "label": "2. Middle Device (Tablet/Phone 1)",
+      "label": "2. Middle Device (Back Phone)",
       "info": "Overlaps the bike on the right side."
     },
     {
       "type": "image_picker",
       "id": "image_device_2",
-      "label": "3. Front Device (Mobile/Phone 2)",
+      "label": "3. Front Device (Front Phone)",
       "info": "Overlaps Device 1 and sits in the foreground."
     },
     {
