@@ -783,6 +783,7 @@ cart-drawer td > .product-option{
 /* Custom  */
 .cart-drawer .totals > * {
   font-size: 14px;
+  color: white;
 }
 
 .totals__total-right {
