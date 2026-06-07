@@ -966,9 +966,7 @@ cart-drawer td > .product-option{
   width: 100%;
 }
 
-.ma_quickAdd_atc:disabled{
-  opacity: 0.6;
-}
+
 
 
 .ma_quickAdd_atc:hover {
@@ -1450,10 +1448,6 @@ h3.drawer-line-card__title {
 }
 
 
-.ma_quickAdd_atc:hover {
-  background-color: #111111 !important;
-  color: #ffffff !important;
-}
 
 /* Hide default Add To Cart Icon inside the circle if it exists */
 .ma_quickAdd_atc svg {
