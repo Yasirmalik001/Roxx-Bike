@@ -2962,7 +2962,7 @@ slider-component.thumbnail-slider .thumbnail {
 .collection__header-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: baseline;
   margin-bottom: 3rem;
   flex-wrap: wrap;
   gap: 20px;
