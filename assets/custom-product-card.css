@@ -1,11 +1,11 @@
 .product__info-container {
-    background-color: #ffffff;
-    border-radius:24px 0px 24px 24px;
-    border: 1px solid #D4D4D4;
-    box-shadow: 0px 2px 23.1px 0px #0000000D;
-    padding: 30px 24px;
-    position: relative;
-    text-align: center;
+  background-color: #ffffff;
+  border-radius: 24px 0px 24px 24px;
+  border: 1px solid #D4D4D4;
+  box-shadow: 0px 2px 23.1px 0px #0000000D;
+  padding: 30px 24px;
+  position: relative;
+  text-align: center;
 }
 
 /* Ensure typography and blocks are centered inside the card */
@@ -51,16 +51,16 @@
 }
 
 .product__info-container .product-save-badge {
-    position: absolute;
-    top: -34px;
-    right: 0px;
-    background-color: #AE1C28;
-    color: #ffffff;
-    font-size: 1.2rem;
-    font-weight: 700;
-    padding: 6px 12px;
-    border-radius: 6px 6px 0 0;
-    z-index: 10;
+  position: absolute;
+  top: -34px;
+  right: 0px;
+  background-color: #AE1C28;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px 6px 0 0;
+  z-index: 10;
 }
 
 /* Custom Price Centering */
