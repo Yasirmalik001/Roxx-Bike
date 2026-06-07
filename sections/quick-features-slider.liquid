@@ -56,22 +56,25 @@
     transform: scale(1.05);
   }
 
-  /* 1:1 Matched Inset Box */
+  /* 1:1 Matched Inset Box using Color Scheme variables */
   .feature-card__content {
     position: relative;
     z-index: 2;
-    background-color: rgba(20, 20, 20, 0.85); /* Dark transparent box */
+    /* Uses the block's chosen scheme background with 85% opacity */
+    background-color: rgba(var(--color-background), 0.85); 
     backdrop-filter: blur(8px);
     border-radius: 10px;
     margin: 1.5rem; /* Pushes the box inwards from card edges */
     padding: 2rem;
-    color: #ffffff;
+    /* Uses the block's chosen scheme text color */
+    color: rgb(var(--color-foreground)); 
     margin-top: auto;
     transition: background-color 0.3s ease;
   }
 
   .feature-card:hover .feature-card__content {
-    background-color: rgba(10, 10, 10, 0.95);
+    /* Becomes fully opaque on hover */
+    background-color: rgb(var(--color-background));
   }
 
   .feature-card__header {
@@ -82,14 +85,14 @@
   }
 
   .feature-card__title {
-font-family: Integral CF;
-font-weight: 500;
-font-style: Medium;
-font-size: 14px;
-leading-trim: NONE;
-line-height: 100%;
-letter-spacing: 0%;
-
+    font-family: Integral CF;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: inherit;
   }
 
   /* 1:1 Plus Icon */
@@ -100,7 +103,7 @@ letter-spacing: 0%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: inherit;
     transition: transform 0.3s ease, color 0.3s ease;
   }
 
@@ -120,7 +123,8 @@ letter-spacing: 0%;
   .feature-card__text {
     font-size: 1.3rem;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.7);
+    /* Uses the scheme text color at 70% opacity */
+    color: rgba(var(--color-foreground), 0.7);
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -239,7 +243,7 @@ letter-spacing: 0%;
             
             {%- for block in section.blocks -%}
               <div class="swiper-slide" {{ block.shopify_attributes }}>
-                <a {% if block.settings.link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.link }}"{% endif %} class="feature-card">
+                <a {% if block.settings.link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.link }}"{% endif %} class="feature-card color-{{ block.settings.color_scheme }} gradient">
                   
                   <div class="feature-card__media">
                     {%- if block.settings.image != blank -%}
@@ -318,7 +322,7 @@ letter-spacing: 0%;
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Color Scheme",
+      "label": "Section Color Scheme",
       "default": "scheme-1"
     },
     {
@@ -462,6 +466,12 @@ letter-spacing: 0%;
       "type": "feature",
       "name": "Feature Card",
       "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Card Color Scheme",
+          "default": "scheme-2"
+        },
         {
           "type": "image_picker",
           "id": "image",
