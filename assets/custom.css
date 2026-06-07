@@ -450,6 +450,23 @@ text-align: center;
 /* ==========================================================================
    Collection Tabs (Bicycle Swiper Slider Redesign)
    ========================================================================== */
+.collection-tabs {
+  position: relative;
+  z-index: 1;
+}
+
+.collection-tabs::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .collection-tabs .collection-tabs__header-wrap {
   display: flex;
   justify-content: space-between;
@@ -531,13 +548,13 @@ text-align: center;
 
 .collection-tabs .swiper-slide {
   transition: opacity 0.4s ease, transform 0.4s ease;
-  opacity: 0.35;
+  opacity: 1 !important;
   transform: scale(0.85);
 }
 
 .collection-tabs .swiper-slide-active {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 1 !important;
+  transform: scale(1.15);
 }
 
 /* Centering active card and contents */
@@ -586,7 +603,7 @@ text-align: center;
 }
 
 .collection-tabs .swiper-slide-active .card-product-tabs__image {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 /* Remove secondary image hover effect completely */
