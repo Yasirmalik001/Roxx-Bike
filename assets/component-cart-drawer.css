@@ -537,7 +537,7 @@ cart-drawer-items::-webkit-scrollbar-track-piece,
 }
 
 .cart-drawer .quantity {
-  width: 100px;
+  width: 120px;
   min-height: 36px;
   height: 36px;
   border-radius: 6px;
