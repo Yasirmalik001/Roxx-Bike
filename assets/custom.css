@@ -66,14 +66,6 @@ span.cc-svg-ride {
   list-style: none;
 }
 
-.card__heading {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: 500;
-  font-style: normal; /* Changed from "Medium" to valid CSS */
-  font-size: 18px;
-  line-height: 120%;
-}
 
 .sl-card-size-select option {
   color: black;
