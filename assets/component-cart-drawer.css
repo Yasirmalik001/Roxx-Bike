@@ -903,8 +903,6 @@ cart-drawer td > .product-option{
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
 }
 
 .drawer-card__media-wrapper {
@@ -1421,10 +1419,6 @@ h3.drawer-line-card__title {
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row; /* Row layout for circle button + text */
-  align-items: center;
-  gap: 20px;
 }
 
 .drawer-product-card-url {
