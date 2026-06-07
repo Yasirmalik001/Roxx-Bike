@@ -747,26 +747,47 @@ span.cc-svg-ride {
   box-sizing: border-box;
 }
 
+.collection-tabs .card-product-tabs__btn-shop,
+.collection-tabs .card-product-tabs__btn-book {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.collection-tabs .card-product-tabs__btn-shop::before,
+.collection-tabs .card-product-tabs__btn-book::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  transition: left 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+
+.collection-tabs .card-product-tabs__btn-shop:hover::before,
+.collection-tabs .card-product-tabs__btn-book:hover::before {
+  left: 0;
+}
+
+.collection-tabs .card-product-tabs__btn-shop:hover,
+.collection-tabs .card-product-tabs__btn-book:hover {
+  color: #FFFFFF !important;
+  border-color: #000000;
+}
+
 .collection-tabs .card-product-tabs__btn-shop {
   background: #ffd500;
   color: #000000;
   border: 1px solid #ffd500;
 }
 
-.collection-tabs .card-product-tabs__btn-shop:hover {
-  background: #e6bf00;
-  border-color: #e6bf00;
-}
-
 .collection-tabs .card-product-tabs__btn-book {
   background: #ffffff;
   color: #000000;
   border: 1px solid #000000;
-}
-
-.collection-tabs .card-product-tabs__btn-book:hover {
-  background: #000000;
-  color: #ffffff;
 }
 
 .collection-tabs .collection-tabs__panels {
