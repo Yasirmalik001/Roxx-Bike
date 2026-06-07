@@ -1886,4 +1886,8 @@ ul.roxx-cart-discounts svg {
     top: 15px !important;
     right: 15px !important;
   }
+  .drawer__upsell-wrapper-mobile {
+    padding: 0 20px;
+    width: 100%;
+}
 }
