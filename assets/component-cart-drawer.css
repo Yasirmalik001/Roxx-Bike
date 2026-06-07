@@ -1552,8 +1552,8 @@ cart-drawer .drawer__inner {
 }
 
 .drawer-card__media-wrapper {
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
   background: #fff;
   border-radius: 8px;
   flex-shrink: 0;
