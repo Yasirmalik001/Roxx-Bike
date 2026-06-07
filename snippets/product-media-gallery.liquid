@@ -184,10 +184,12 @@
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
-        {%- for block in section.blocks -%}
-{%- if block.type == 'gallery_specifications' -%}
-  {% render 'gallery-specifications-strip', block: block %}
-{%- endif -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'gallery_specifications' -%}
+    <div class="show-mobile">
+      {% render 'gallery-specifications-strip', block: block %}
+    </div>
+  {%- endif -%}
 {%- endfor -%}
 
     <ul
