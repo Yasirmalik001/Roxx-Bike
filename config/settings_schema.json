@@ -1539,11 +1539,11 @@
       "default": 35
     },
     {
-        "type": "text",
-        "id": "upsell__points-heading",
-        "label": "Heading",
-        "default": "Inkluderet i dit køb"
-      },
+    "type": "text",
+    "id": "upsell__points-heading",
+    "label": "Heading",
+    "default": "Inkluderet i dit køb"
+  },
     {
       "type": "header",
       "content": "--- ITEM 1 ---"
@@ -1589,89 +1589,6 @@
       "label": "Text 3",
       "default": "Quality natural fabrics"
     },
-      {
-        "type": "header",
-        "content": "Free shipping message"
-      },
-      {
-        "type": "checkbox",
-        "id": "free_shipping",
-        "label": "Show free shipping message",
-        "default": false
-      },
-      {
-        "type": "text",
-        "id": "free_shipping_minimum",
-        "label": "Free shipping minimum amount",
-        "default": "250",
-        "info": "Enter the value without a currency symbol and use a decimal to separate dollars and cents. Example: '100.00'"
-      },
-      {
-        "type": "text",
-        "id": "free_shipping_not_met",
-        "label": "Free shipping remaining text",
-        "info": "Add 'amount' text to show the remaining amount",
-        "default": "Køb for <strong>amount</strong> mere for at få gratis fragt"
-      },
-      {
-        "type": "text",
-        "id": "free_shipping_met",
-        "label": "Free shipping unlocked text",
-        "default": "Du har opnået gratis fragt!"
-      },
-      {
-        "type": "text",
-        "id": "free_shipping_text",
-        "label": "Free shipping icon text",
-        "default": "Gratis fragt"
-      },
-      {
-        "type": "header",
-        "content": "Free gift message"
-      },
-      {
-        "type": "checkbox",
-        "id": "free_gift",
-        "label": "Show free gift message",
-        "default": false
-      },
-      {
-        "type": "text",
-        "id": "free_gift_minimum",
-        "label": "Free gift minimum amount",
-        "default": "500",
-        "info": "Enter the value without a currency symbol and use a decimal to separate dollars and cents. Example: '100.00'"
-      },
-      {
-        "type": "product",
-        "label": "Free gift product",
-        "id": "free_gift_product"
-      },
-      {
-        "type": "text",
-        "id": "free_gift_not_met",
-        "label": "Free gift remaining text",
-        "info": "Add 'amount' text to show the remaining amount",
-        "default": "Køb for <strong>amount</strong> mere for at få en gratis gave"
-      },
-      {
-        "type": "text",
-        "id": "free_gift_met",
-        "label": "Free gift unlocked text",
-        "default": "Du har opnået en gratis gave!"
-      },
-      {
-        "type": "text",
-        "id": "free_gift_texts",
-        "label": "Free gift icon text",
-        "default": "Gratis gave"
-      },
-      {
-        "type": "checkbox",
-        "id": "fixed_icon_positions",
-        "label": "Fixed icon positions",
-        "default": false
-      }
     ]
   },
   {
