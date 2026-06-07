@@ -2622,12 +2622,6 @@ cart-drawer-items {
 }
 
 @media screen and (min-width: 990px) {
-  .product.grid {
-    display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: 5rem;
-    align-items: flex-start;
-  }
   .product__media-wrapper {
     max-width: 100%;
     width: 100%;
