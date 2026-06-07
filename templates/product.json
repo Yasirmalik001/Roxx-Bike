@@ -341,6 +341,7 @@
         "feature_3Hiqp4": {
           "type": "feature",
           "settings": {
+            "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
             "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a.jpg",
             "title": "LIGHT WEIGHT FRAME",
             "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
@@ -350,6 +351,7 @@
         "feature_9CVgzr": {
           "type": "feature",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/K1.png",
             "title": "REMOVABLE BATTERY",
             "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
@@ -359,6 +361,7 @@
         "feature_fVixTb": {
           "type": "feature",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/K1.png",
             "title": "REMOVABLE BATTERY",
             "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
@@ -368,6 +371,7 @@
         "feature_QU4chA": {
           "type": "feature",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/K1.png",
             "title": "REMOVABLE BATTERY",
             "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
@@ -377,6 +381,7 @@
         "feature_riXQxc": {
           "type": "feature",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/K1.png",
             "title": "REMOVABLE BATTERY",
             "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
@@ -386,6 +391,7 @@
         "feature_MCDgtx": {
           "type": "feature",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/b53dba1553b2351ae4f7acb4fd7f6cd2327df0fc.jpg",
             "title": "ALL IN ONE APP",
             "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
@@ -395,6 +401,7 @@
         "feature_Dyg89G": {
           "type": "feature",
           "settings": {
+            "color_scheme": "",
             "image": "shopify://shop_images/b53dba1553b2351ae4f7acb4fd7f6cd2327df0fc.jpg",
             "title": "AESTHETICS",
             "text": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at facilisis sagittis. Viverra ultrices enim arcu curabitur nibh sit tristique massa sit.",
