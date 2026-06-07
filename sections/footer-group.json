@@ -28,18 +28,18 @@
             "menu": "info"
           }
         },
-        "link_list_cqkHT6": {
-          "type": "link_list",
-          "settings": {
-            "heading": "shop",
-            "menu": "main-menu"
-          }
-        },
         "link_list_kVn87T": {
           "type": "link_list",
           "settings": {
             "heading": "klantenservice",
             "menu": "klantenservice"
+          }
+        },
+        "link_list_cqkHT6": {
+          "type": "link_list",
+          "settings": {
+            "heading": "shop",
+            "menu": "main-menu"
           }
         },
         "brand_information_GwJXJD": {
@@ -52,8 +52,8 @@
       "block_order": [
         "link_list_KJrftH",
         "link_list_zUw3RB",
-        "link_list_cqkHT6",
         "link_list_kVn87T",
+        "link_list_cqkHT6",
         "brand_information_GwJXJD"
       ],
       "settings": {
