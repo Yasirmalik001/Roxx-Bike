@@ -180,18 +180,21 @@
           this.productForm = this.productFormElement ? this.productFormElement.querySelector('form') : null;
           
           if (this.productForm) {
-            this.productForm.addEventListener('submit', this.onSubmit.bind(this), { capture: true });
+            const submitBtn = this.productForm.querySelector('[type="submit"], [name="add"]');
+            if (submitBtn) {
+              submitBtn.addEventListener('click', this.onClick.bind(this), { capture: true });
+            }
           }
         }, 0);
       }
 
-      async onSubmit(event) {
+      async onClick(event) {
         if (this.temporarilyDisabled) return;
 
         const selectedAccessories = Array.from(this.querySelectorAll('input[type="checkbox"]:checked'));
         if (selectedAccessories.length === 0) return; // Proceed normally if no accessories selected
 
-        // Intercept standard submission
+        // Intercept standard click to prevent immediate form submission
         event.preventDefault();
         event.stopImmediatePropagation();
 
@@ -199,12 +202,12 @@
         this.isSubmitting = true;
 
         // Trigger Dawn Theme's visual loading states
-        const submitButton = this.productForm.querySelector('[type="submit"], button.button--primary');
+        const submitButton = event.currentTarget;
         if (submitButton) {
           submitButton.setAttribute('aria-disabled', true);
           submitButton.classList.add('loading');
         }
-        const spinner = this.productFormElement?.querySelector('.loading__spinner');
+        const spinner = this.productFormElement ? this.productFormElement.querySelector('.loading__spinner') : null;
         if (spinner) spinner.classList.remove('hidden');
 
         try {
