@@ -2623,20 +2623,6 @@ cart-drawer-items {
   }
 }
 
-.product__info-container {
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 24px;
-  padding: 4.5rem 3.5rem 3.5rem 3.5rem;
-  box-shadow: 0 10px 45px rgba(0, 0, 0, 0.03);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.8rem;
-  box-sizing: border-box;
-}
 
 .product__info-container > * {
   margin: 0;
