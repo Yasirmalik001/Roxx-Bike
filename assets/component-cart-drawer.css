@@ -1864,3 +1864,29 @@ ul.roxx-cart-discounts svg {
     height: 24px;
   }
 }
+
+
+/* =========================================================================
+   Mobile Cart Drawer Slide-Up Animation (Bottom Sheet)
+   ========================================================================= */
+@media screen and (max-width: 749px) {
+  .drawer {
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+  .drawer__inner {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 90vh !important;
+    transform: translateY(100%) !important;
+    border-radius: 20px 20px 0 0 !important;
+    transition: transform var(--duration-default) ease !important;
+  }
+  .drawer.active .drawer__inner {
+    transform: translateY(0) !important;
+  }
+  .drawer__close {
+    top: 15px !important;
+    right: 15px !important;
+  }
+}
