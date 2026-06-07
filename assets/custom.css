@@ -11,6 +11,12 @@ span.cc-svg-ride {
     align-items: center;
     gap: 10px;
 }
+.show-mobile {
+ display: none;
+}
+.show-mobile {
+ display: none;
+}
 .product__text {
   font-weight: 400;
   font-size: 14px;
