@@ -20,7 +20,6 @@ span.cc-svg-ride {
   display: block;
       width: 100%;
     max-width: 600px;
-    min-width: 600px;
 }
 
 .product__text {
@@ -34,7 +33,7 @@ span.cc-svg-ride {
 .insurance-heading,
 .riders-heading,
 .headingCustom {
-  font-family: Suisse Intl Trial;
+  font-family: "Suisse Int'l Trial";
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
