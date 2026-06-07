@@ -1447,7 +1447,9 @@ h3.drawer-line-card__title {
   flex-shrink: 0;
 }
 
-
+button.ma_Add_atc.ma_quickAdd_atc.button.button-secondary {
+    width: 100%;
+}
 
 /* Hide default Add To Cart Icon inside the circle if it exists */
 .ma_quickAdd_atc svg {
