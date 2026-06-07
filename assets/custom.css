@@ -78,24 +78,6 @@ span.cc-svg-ride {
   text-align: center;
 }
 
-.sr-newsletter-subtext {
-  margin-top: 20px;
-}
-
-.drawer__upsell-wrapper-mobile .card-overlay-droplet {
-  display: none;
-}
-
-.drawer__upsell-wrapper-mobile .card-overlay-badge {
-  display: none;
-}
-
-.drawer__upsell-wrapper-mobile .card-overlay-review {
-  left: 1rem;
-  bottom: 6.5rem;
-  font-size: 1rem;
-}
-
 .header__drawer-promotion {
   padding-inline: 15px;
 }
