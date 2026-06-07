@@ -1423,7 +1423,7 @@ h3.drawer-line-card__title {
 
 .drawer-product-card-url {
   text-decoration: none;
-  display: contents; 
+  display: flex; 
 }
 
 .drawer-card__info {
