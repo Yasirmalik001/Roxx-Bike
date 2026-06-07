@@ -497,7 +497,9 @@
           "settings": {
             "pos_x": 25,
             "pos_y": 70,
+            "tooltip_position": "right",
             "title": "Feature name",
+            "subtitle": "28 inch Cst Fly safely through the road bends",
             "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
           }
         },
@@ -506,7 +508,9 @@
           "settings": {
             "pos_x": 75,
             "pos_y": 60,
+            "tooltip_position": "right",
             "title": "Feature name",
+            "subtitle": "28 inch Cst Fly safely through the road bends",
             "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
           }
         }
@@ -564,10 +568,10 @@
         "waves_image": "shopify://shop_images/Group_43.svg",
         "back_wave_size": 45,
         "back_wave_left": 25,
-        "back_wave_bottom": -5,
+        "back_wave_bottom": 0,
         "front_wave_size": 45,
-        "front_wave_left": 75,
-        "front_wave_bottom": 0,
+        "front_wave_left": 62,
+        "front_wave_bottom": 13,
         "show_tooltip": true,
         "tooltip_title": "Your bike is moving 🚨",
         "tooltip_text": "Not you? Track your bike",
