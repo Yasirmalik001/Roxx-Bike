@@ -28,8 +28,19 @@
             </a>
           {%- endif -%}
           
-          <button type="button" class="button button--primary custom-tabs-btn-solid" onclick="document.querySelector('.product-form__submit').click();">
-            {{ 'products.product.add_to_cart' | t | default: 'ADD TO CART' }}
+          <button type="button" class="button button--primary custom-tabs-btn-solid" onclick="
+            var mainBtn = document.querySelector('.product__info-container .product-form__submit');
+            if(mainBtn) { 
+              mainBtn.click(); 
+              this.classList.add('loading');
+              setTimeout(() => this.classList.remove('loading'), 2000);
+            } else {
+              var fallbackBtn = document.querySelector('.product-form__submit');
+              if (fallbackBtn) fallbackBtn.click();
+            }
+          ">
+            <span>{{ 'products.product.add_to_cart' | t | default: 'ADD TO CART' }}</span>
+            {%- render 'loading-spinner' -%}
           </button>
         </div>
       </div>
