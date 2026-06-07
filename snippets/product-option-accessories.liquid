@@ -217,7 +217,8 @@
           }));
 
           // Fast AJAX call to add all accessories simultaneously
-          const response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+          const addUrl = (window.routes && window.routes.cart_add_url) ? window.routes.cart_add_url : '/cart/add.js';
+          const response = await fetch(addUrl, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -226,7 +227,10 @@
             body: JSON.stringify({ items })
           });
           
-          if (!response.ok) throw new Error('Failed to add accessories to cart');
+          if (!response.ok) {
+            const errText = await response.text();
+            throw new Error(`Failed to add accessories to cart (${response.status}): ${errText}`);
+          }
 
           // Temporarily disable our interceptor to prevent infinite loops
           this.temporarilyDisabled = true;
