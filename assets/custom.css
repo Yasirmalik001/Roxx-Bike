@@ -1462,7 +1462,6 @@ cart-drawer-items {
 /* Product Name */
 .cart-item__name {
   font-size: 14px;
-  font-weight: 700;
   color: #121212;
   text-decoration: none;
   line-height: 1.3;
