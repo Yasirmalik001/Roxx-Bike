@@ -154,7 +154,7 @@
     "free_gift": false,
     "free_gift_minimum": "1500",
     "free_gift_texts": "",
-    "currency_code_enabled": true,
+    "currency_code_enabled": false,
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
