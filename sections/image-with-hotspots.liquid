@@ -159,7 +159,7 @@
 
     <div class="hotspot-image-wrapper">
       {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 1500 | image_tag: loading: 'lazy', widths: '550, 720, 990, 1500' }}
+        {{ section.settings.image | image_url: width: 5000 | image_tag: loading: 'lazy', widths: '550, 720, 990, 1500 5000' }}
       {%- else -%}
         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
