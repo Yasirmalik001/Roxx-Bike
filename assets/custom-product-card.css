@@ -8,7 +8,6 @@
   text-align: center;
 }
 
-/* Ensure typography and blocks are centered inside the card */
 .product__info-container .product__title {
   text-align: center;
   font-weight: 800;
@@ -146,7 +145,6 @@
   background-color: #fef8cc !important;
 }
 
-/* Payment Icons centering */
 .multi-icon-wrapper {
   display: flex;
   justify-content: center;
@@ -155,6 +153,12 @@
 }
 
 @media screen and (min-width: 750px) {
+  .product__info-container {
+    padding: 40px 32px;
+  }
+}
+
+@media screen and (max-width: 750px) {
   .product__info-container {
     padding: 40px 32px;
   }
