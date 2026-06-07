@@ -1493,22 +1493,13 @@ a.product__text {
   }
 }
 
-/* Custom Mobile Gallery Styling */
 @media screen and (max-width: 749px) {
   media-gallery>slider-component:first-of-type {
     position: relative;
   }
 
   media-gallery .slider-buttons {
-    display: flex;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    justify-content: space-between;
-    padding: 0 1rem;
-    pointer-events: none;
-    z-index: 2;
+    display: none;
   }
 
   media-gallery .slider-button {
