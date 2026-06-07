@@ -285,11 +285,13 @@
 }
 
 .card__heading {
-  margin-top: 0;
-  margin-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 14px;
+font-family: Integral CF;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
 }
 
 
