@@ -18,6 +18,9 @@ span.cc-svg-ride {
 
 .show-desktop {
   display: block;
+      width: 100%;
+    max-width: 600px;
+    min-width: 600px;
 }
 
 .product__text {
