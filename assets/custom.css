@@ -2903,7 +2903,6 @@ slider-component.thumbnail-slider .thumbnail[aria-current="true"] {
 slider-component.thumbnail-slider .thumbnail {
   border: 1.5px solid rgba(0,0,0,0.08);
   border-radius: 8px;
-  padding: 4px;
   transition: all 0.25s ease;
   background: #fff;
   overflow: hidden;
