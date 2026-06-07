@@ -490,6 +490,43 @@
         "padding_bottom": 40
       }
     },
+    "image_with_hotspots_rJkiKJ": {
+      "type": "image-with-hotspots",
+      "blocks": {
+        "hotspot_tWXmP9": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 25,
+            "pos_y": 70,
+            "title": "Feature name",
+            "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
+          }
+        },
+        "hotspot_Kne3by": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 75,
+            "pos_y": 60,
+            "title": "Feature name",
+            "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_tWXmP9",
+        "hotspot_Kne3by"
+      ],
+      "name": "Image with Hotspots",
+      "settings": {
+        "heading": "MINIMAL DESIGN. MAXIMUM IMPACT.",
+        "text": "<p>A sleek, integrated frame that turns heads — without compromising function. Built with precision and high-quality materials, the Joieem X blends aesthetics with durability, making it as stylish as it is reliable.</p>",
+        "image": "shopify://shop_images/0bc12d06bf5edfe7bd4d50998ff11be64d7ed535.png",
+        "image_radius": 0,
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "specifications_section_k6Pnef": {
       "type": "specifications-section",
       "blocks": {
@@ -1144,43 +1181,6 @@
         "padding_bottom": 60
       }
     },
-    "image_with_hotspots_rJkiKJ": {
-      "type": "image-with-hotspots",
-      "blocks": {
-        "hotspot_tWXmP9": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 25,
-            "pos_y": 70,
-            "title": "Feature name",
-            "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
-          }
-        },
-        "hotspot_Kne3by": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 75,
-            "pos_y": 60,
-            "title": "Feature name",
-            "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "hotspot_tWXmP9",
-        "hotspot_Kne3by"
-      ],
-      "name": "Image with Hotspots",
-      "settings": {
-        "heading": "MINIMAL DESIGN. MAXIMUM IMPACT.",
-        "text": "<p>A sleek, integrated frame that turns heads — without compromising function. Built with precision and high-quality materials, the Joieem X blends aesthetics with durability, making it as stylish as it is reliable.</p>",
-        "image": "shopify://shop_images/0bc12d06bf5edfe7bd4d50998ff11be64d7ed535.png",
-        "image_radius": 0,
-        "color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "faq_ekQccb": {
       "type": "faq",
       "blocks": {
@@ -1311,6 +1311,8 @@
     "related-products",
     "quick_features_slider_GB9B7z",
     "video_testimonials_gallery_AChKUk",
+    "image_with_hotspots_rJkiKJ",
+    "image_with_features_protect_L3ciHK",
     "specifications_section_k6Pnef",
     "product_comparison_WqKGJh",
     "image_with_text_YXALTw",
@@ -1318,9 +1320,7 @@
     "testimonials_NNYm9Y",
     "masonary_gallery_3z9FME",
     "feature_alternating_XKMVfA",
-    "image_with_features_protect_L3ciHK",
     "app_features_section_gVYMpE",
-    "image_with_hotspots_rJkiKJ",
     "faq_ekQccb",
     "promo_cards_section_Y4dTtA",
     "call_to_action_banner_3Jbhre"
