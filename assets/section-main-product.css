@@ -25,6 +25,7 @@ product-info {
     position: sticky;
     top: 3rem;
     z-index: 2;
+    align-self: start;
   }
 
   .product--thumbnail .thumbnail-list {
