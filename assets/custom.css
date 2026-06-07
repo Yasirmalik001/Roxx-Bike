@@ -1,4 +1,3 @@
-
 button,
 input,
 optgroup,
@@ -6,37 +5,39 @@ select,
 textarea {
   font-family: inherit;
 }
+
 span.cc-svg-ride {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
 .show-mobile {
- display: none;
+  display: none;
 }
+
 .show-desktop {
- display: block;
+  display: block;
 }
+
 .product__text {
   font-weight: 400;
   font-size: 14px;
   line-height: 120%;
-   
   vertical-align: middle;
 }
+
 .accessory-heading,
 .insurance-heading,
 .riders-heading,
 .headingCustom {
-font-family: Suisse Intl Trial;
-font-weight: 400;
- 
-font-size: 14px;
-  
-line-height: 100%;
- 
-text-align: center;
+  font-family: Suisse Intl Trial;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  text-align: center;
 }
+
 .sr-newsletter-subtext {
   margin-top: 20px;
 }
@@ -67,31 +68,27 @@ text-align: center;
   margin-top: 0;
   margin-bottom: 0;
   font-weight: 500;
-  font-style: Medium;
+  font-style: normal; /* Changed from "Medium" to valid CSS */
   font-size: 18px;
-    
   line-height: 120%;
-   
 }
 
 .sl-card-size-select option {
   color: black;
 }
 
-
 .sl-card-actions {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 8px;
   padding: 10px 12px 14px;
   justify-content: center;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 .sl-card-size-selector {
@@ -100,8 +97,7 @@ text-align: center;
   border: none;
   border-radius: 50px;
   padding: 0 16px;
-  background: #e2a8cc;
-  /* Soft pink background from image */
+  background: #e2a8cc; /* Soft pink background from image */
   gap: 4px;
   flex-shrink: 0;
   height: 44px;
@@ -195,11 +191,8 @@ text-align: center;
 .product__title-wrapper {
   display: flex;
   justify-content: space-between;
-  /* Pushes title left, badge right */
   align-items: center;
-  /* Keeps them vertically centered with each other */
   gap: 20px;
-  /* Prevents long titles from touching the badge */
   margin-bottom: 1.5rem;
   width: 100%;
 }
@@ -212,7 +205,6 @@ text-align: center;
 
 .product__title {
   margin: 0;
-
 }
 
 .product__custom-badge {
@@ -382,7 +374,7 @@ text-align: center;
   padding-right: 0.5rem;
 }
 
-/* Styling country/language selectors in announcement bar to match Figma exactly (plain text, flags, no borders/pills) */
+/* Styling country/language selectors in announcement bar */
 .utility-bar-desktop .localization-form,
 .utility-bar .localization-wrapper .localization-form {
   padding: 0;
@@ -451,28 +443,9 @@ text-align: center;
   z-index: 99999;
 }
 
-
-
 /* ==========================================================================
    Collection Tabs (Bicycle Swiper Slider Redesign)
    ========================================================================== */
-/* .collection-tabs {
-  position: relative;
-  z-index: 1;
-}
-
-.collection-tabs::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
-  z-index: -1;
-  pointer-events: none;
-} */
-
 .collection-tabs .collection-tabs__header-wrap {
   display: flex;
   justify-content: space-between;
@@ -534,7 +507,6 @@ text-align: center;
   overflow: visible;
 }
 
-/* Pre-init layout: prevent layout break before Swiper initializes */
 .collection-tabs .swiper:not(.swiper-initialized) .swiper-wrapper {
   display: flex;
   gap: 20px;
@@ -610,7 +582,6 @@ text-align: center;
   transform: scale(1.05);
 }
 
-/* Remove secondary image hover effect completely */
 .collection-tabs .card-product-tabs__image--secondary {
   display: none;
 }
@@ -635,7 +606,6 @@ text-align: center;
   width: 100%;
 }
 
-/* Hide adjacent cards text and actions completely */
 .collection-tabs .swiper-slide:not(.swiper-slide-active) .card-product-tabs__content {
   opacity: 0;
   visibility: hidden;
@@ -654,30 +624,28 @@ text-align: center;
   transition: opacity 0.3s ease 0.1s;
 }
 
-/* Hide native quick add cart overlay on the image */
 .collection-tabs .card-product-tabs__cart-btn {
   display: none;
 }
 
 .collection-tabs .card-product-tabs .card-product-tabs__badge {
-    position: absolute;
-    top: 22%;
-    left: 70%;
-    background: #b3191f;
-    color: #ffffff;
-    padding: 0.7rem 1.6rem;
-    font-size: 12PX;
-    /* font-weight: 700; */
-    border-radius: 6px;
-    border: none;
-    width: auto;
-    max-width: fit-content;
-    white-space: nowrap;
-    display: inline-block;
-    line-height: 1.1;
-    z-index: 10;
-    font-family: 'Suisse Int\'l Trial';
-    transform: skewX(-15deg);
+  position: absolute;
+  top: 22%;
+  left: 70%;
+  background: #b3191f;
+  color: #ffffff;
+  padding: 0.7rem 1.6rem;
+  font-size: 12px;
+  border-radius: 6px;
+  border: none;
+  width: auto;
+  max-width: fit-content;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.1;
+  z-index: 10;
+  font-family: 'Suisse Int\'l Trial';
+  transform: skewX(-15deg);
 }
 
 @media screen and (max-width: 749px) {
@@ -689,16 +657,13 @@ text-align: center;
   }
 }
 
-/* Title and Price Alignment */
 .collection-tabs .card-product-tabs__title {
-font-family: Integral CF;
-font-weight: 400;
-font-style: Regular;
-font-size: 30px;
-leading-trim: NONE;
-line-height: 100%;
- 
-text-transform: uppercase;
+  font-family: Integral CF;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 100%;
+  text-transform: uppercase;
 }
 
 .collection-tabs .card-product-tabs__price {
@@ -731,7 +696,6 @@ text-transform: uppercase;
   font-weight: 400;
 }
 
-/* Specifications pills layout and design */
 .collection-tabs .card-product-tabs__specs {
   display: flex;
   flex-wrap: wrap;
@@ -759,14 +723,12 @@ text-transform: uppercase;
   font-weight: 600;
 }
 
-/* Remove text decoration for links in Collection Tabs product cards */
 .card-product-tabs a,
 .card-product-tabs a:hover,
 .card-product-tabs:hover a {
   text-decoration: none;
 }
 
-/* Bottom Actions: SHOP NOW & BOOK A TEST RIDE buttons */
 .collection-tabs .card-product-tabs__buttons {
   display: flex;
   gap: 1.2rem;
@@ -817,7 +779,6 @@ text-transform: uppercase;
   color: #ffffff;
 }
 
-/* Absolute overlays for circular prev/next arrows */
 .collection-tabs .collection-tabs__panels {
   position: relative;
 }
@@ -961,7 +922,6 @@ text-transform: uppercase;
   color: #ffffff;
 }
 
-/* Newsletter Styles */
 .footer .footer-block--newsletter {
   flex: 0 0 auto;
   width: 450px;
@@ -1056,7 +1016,6 @@ text-transform: uppercase;
   margin-top: 1.5rem;
 }
 
-/* Bottom Main Row (Logo & Socials / Country Selector) */
 .footer__bottom-main-row {
   display: flex;
   justify-content: space-between;
@@ -1109,7 +1068,6 @@ text-transform: uppercase;
   fill: currentColor;
 }
 
-/* Localization Pill in Bottom Row */
 .footer .footer__localization {
   margin: 0;
 }
@@ -1140,7 +1098,6 @@ text-transform: uppercase;
   margin-left: 0.4rem;
 }
 
-/* Bottom Bar (Copyright & Trustpilot star rating) */
 .footer__bottom-bar {
   display: flex;
   justify-content: space-between;
@@ -1180,8 +1137,8 @@ text-transform: uppercase;
   }
 
   .footer .footer__blocks-wrapper {
-    flex-direction: colum;
-    gap: 2re;
+    flex-direction: column;
+    gap: 2rem;
     width: 100%;
   }
 
@@ -1248,7 +1205,6 @@ text-transform: uppercase;
   gap: 0;
 }
 
-/* Upsell Product Cards (left panel) */
 .drawer-product-card {
   display: flex;
   flex-direction: column;
@@ -1336,7 +1292,6 @@ text-transform: uppercase;
   font-weight: 700;
 }
 
-/* Upsell Footer Points (trust row inside left panel) */
 .drawer__upsell-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   padding: 16px 20px;
@@ -1358,7 +1313,6 @@ text-transform: uppercase;
   line-height: 1.3;
 }
 
-/* --- Main Drawer (right panel) --- */
 .drawer__inner {
   width: 44rem;
   max-width: calc(100vw - 3rem);
@@ -1366,7 +1320,6 @@ text-transform: uppercase;
   background: #ffffff;
 }
 
-/* Drawer Header */
 .drawer__header {
   padding: 18px 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -1411,7 +1364,6 @@ text-transform: uppercase;
   justify-content: center;
 }
 
-/* --- Cart Items Section --- */
 cart-drawer-items {
   padding: 0 20px;
 }
@@ -1432,7 +1384,6 @@ cart-drawer-items {
   margin-bottom: 0;
 }
 
-/* Cart Item Image */
 .cart-drawer .cart-item__media {
   width: 100px;
   min-width: 100px;
@@ -1455,7 +1406,6 @@ cart-drawer-items {
   height: 100%;
 }
 
-/* Cart Item Details */
 .cart-drawer .cart-item__details {
   flex: 1;
   display: flex;
@@ -1465,7 +1415,6 @@ cart-drawer-items {
   padding: 0;
 }
 
-/* Product Name */
 .cart-item__name {
   font-size: 14px;
   color: #1C1C1C;
@@ -1478,7 +1427,6 @@ cart-drawer-items {
   text-decoration: underline;
 }
 
-/* Star Rating Row */
 .cart-item__rating-stars {
   display: flex;
   align-items: center;
@@ -1499,7 +1447,6 @@ cart-drawer-items {
   font-weight: 400;
 }
 
-/* Price Row */
 .cart-item__price-row {
   display: flex;
   align-items: center;
@@ -1541,7 +1488,6 @@ cart-drawer-items {
   white-space: nowrap;
 }
 
-/* Variant Options */
 .cart-item__options {
   display: flex;
   flex-wrap: wrap;
@@ -1568,7 +1514,6 @@ cart-drawer-items {
   font-weight: 400;
 }
 
-/* Remove / Trash Button */
 .cart-item__remove-btn {
   display: inline-flex;
   margin-top: 4px;
@@ -1595,12 +1540,10 @@ cart-drawer-items {
   height: 18px;
 }
 
-/* Hidden quantity cell */
 .cart-item__quantity-hidden {
   display: none;
 }
 
-/* --- Complete Your Set (inline upsell below cart items) --- */
 .cart-drawer__complete-set {
   padding: 20px 0 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -1732,7 +1675,6 @@ cart-drawer-items {
   background: #333333;
 }
 
-/* --- Trust Badges Box --- */
 .cart-drawer__trust-badges {
   padding: 18px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -1789,7 +1731,6 @@ cart-drawer-items {
   margin: 0;
 }
 
-/* --- Drawer Footer --- */
 .drawer__footer {
   padding: 0;
   border-top: none;
@@ -1798,7 +1739,6 @@ cart-drawer-items {
   flex-shrink: 0;
 }
 
-/* Shipping Estimate Row */
 .cart-drawer__footer-shipping {
   display: flex;
   align-items: center;
@@ -1836,7 +1776,6 @@ cart-drawer-items {
   line-height: 1.3;
 }
 
-/* Totals Wrapper */
 .cart-drawer__totals-wrapper {
   padding: 16px 20px 8px;
 }
@@ -1880,7 +1819,6 @@ cart-drawer-items {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* Checkout Button */
 .cart__ctas {
   padding: 10px 20px 8px;
 }
@@ -1908,7 +1846,6 @@ cart-drawer-items {
   background: #f0f0f0;
 }
 
-/* Payment Badges */
 .cart-drawer__payment-badges {
   display: flex;
   align-items: center;
@@ -1933,7 +1870,6 @@ cart-drawer-items {
   width: auto;
 }
 
-/* --- Mobile Responsive Overrides --- */
 @media screen and (max-width: 749px) {
   .drawer__container {
     flex-direction: column-reverse;
@@ -1969,7 +1905,6 @@ cart-drawer-items {
   }
 }
 
-/* --- Cart Table Reset (override Dawn table layout) --- */
 .cart-drawer .cart-items {
   border-spacing: 0;
 }
@@ -2111,7 +2046,6 @@ cart-drawer-items {
   box-sizing: border-box;
 }
 
-/* Default / Transparent States */
 .header-transparent:not(.header-scrolled):not(.header-hovered) .header__icon--account,
 .header-transparent:not(.header-scrolled):not(.header-hovered) .header__icon--cart {
   background: rgba(255, 255, 255, 0.12);
@@ -2125,15 +2059,14 @@ cart-drawer-items {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Scrolled / Reverted States */
 .header-scrolled .header__icon--account,
 .header-scrolled .header__icon--cart,
 .header-hovered .header__icon--account,
 .header-hovered .header__icon--cart,
 .header-wrapper:not(.header-transparent) .header__icon--account,
 .header-wrapper:not(.header-transparent) .header__icon--cart {
-background: #FFFFFF1C;
-backdrop-filter: blur(4px)
+  background: #FFFFFF1C;
+  backdrop-filter: blur(4px);
   color: #000000;
 }
 
@@ -2147,7 +2080,6 @@ backdrop-filter: blur(4px)
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Cart Bubble */
 .header__icons .cart-count-bubble {
   background-color: #ffd500;
   color: #000000;
@@ -2171,7 +2103,6 @@ backdrop-filter: blur(4px)
   border-color: #ffffff;
 }
 
-/* Book a Test Ride Header Button */
 .header__button-ride {
   height: auto;
   min-height: 4.4rem;
@@ -2188,7 +2119,6 @@ backdrop-filter: blur(4px)
   text-transform: capitalize;
 }
 
-/* Transparent state */
 .header-transparent:not(.header-scrolled):not(.header-hovered) .header__button-ride {
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
@@ -2200,7 +2130,6 @@ backdrop-filter: blur(4px)
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Scrolled/White state */
 .header-scrolled .header__button-ride,
 .header-hovered .header__button-ride,
 .header-wrapper:not(.header-transparent) .header__button-ride {
@@ -2215,14 +2144,12 @@ backdrop-filter: blur(4px)
   border-color: #2b2b2b;
 }
 
-/* Hide Search in transparent header desktop */
 @media screen and (min-width: 990px) {
   .header-transparent .header__icons details-modal.header__search {
     display: none;
   }
 }
 
-/* Bottom Promo Bar Glassmorphic Style */
 .header-promo-bar {
   margin: 1rem 5rem 0 5rem;
   background: rgba(0, 0, 0, 0.15);
@@ -2355,7 +2282,6 @@ backdrop-filter: blur(4px)
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Trustpilot Badge Container */
 .custom-banner-section .banner-review-block {
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -2371,31 +2297,34 @@ backdrop-filter: blur(4px)
   width: fit-content;
 }
 
-/* Fix z-index stacking context: Ensure announcement bar selector dropdown overlaps header elements */
+/* ==========================================================================
+   Announcement Bar & Footer Layout Deduplicated
+   ========================================================================== */
 .announcement-bar-section {
   position: relative;
   z-index: 101;
 }
-.desktop-show{
+
+.desktop-show {
   display: block;
 }
 
-.mobile-show{
+.mobile-show {
   display: none;
 }
 
-@media (max-width: 768px){
-  .desktop-show{
+@media (max-width: 768px) {
+  .desktop-show {
     display: none;
   }
-.mobile-show {
+  .mobile-show {
     display: flex;
-}
-  .header-promo-bar__close{
+  }
+  .header-promo-bar__close {
     display: none;
   }
 }
-/* Mobile Responsiveness for Announcement Bar */
+
 @media screen and (max-width: 749px) {
   .utility-bar-desktop.small-hide.medium-hide {
     display: block;
@@ -2409,206 +2338,23 @@ backdrop-filter: blur(4px)
     scrollbar-width: none;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    padding: 0.5rem;
+    justify-content: center;
   }
   .utility-bar-desktop__container::-webkit-scrollbar {
     display: none;
   }
   .utility-bar-desktop__announcements {
     min-width: max-content;
-  }
-  .utility-bar-desktop__right {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 749px) {
-  .utility-bar-desktop__container { padding: 0.5rem; justify-content: center; overflow-x: hidden; }
-  .utility-bar-desktop__announcements { flex-wrap: wrap; justify-content: center; width: 100%; white-space: normal; padding: 10px; }
-  .utility-bar-desktop__announcement { margin: 0.2rem 0; }
-  .utility-bar-desktop__separator { margin: 0 1.5rem; font-size: 1rem; }
-  .utility-bar-desktop__text { font-size: 1rem; letter-spacing: 0; }
-  .utility-bar-desktop__icon svg { width: 1.4rem; height: 1.4rem; margin-right: 0.4rem; }
-  .utility-bar-desktop__icon { margin-right: 0.2rem; }
-}
-
-/* Fix header stacking context over promo bar */
-.header-wrapper header.header { position: relative; z-index: 4; }
-
-/* ==========================================================================
-   Footer Overhaul
-   ========================================================================== */
-.footer-block__newsletter { margin-bottom: 2rem; }
-.footer-block__newsletter .newsletter-form__field-wrapper .field { position: relative; }
-.footer-block__newsletter .newsletter-form__field-wrapper .field__input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  border-radius: 0;
-  box-shadow: none;
-  padding: 1rem 0;
-  color: #fff;
-}
-<<<<<<< Updated upstream
-.footer-block__newsletter .newsletter-form__field-wrapper .field__input:focus {
-  border-bottom-color: #fff;
-  box-shadow: none;
-  outline: none;
-}
-.footer-block__newsletter .newsletter-form__field-wrapper .field__label { display: none; }
-.footer-block__newsletter .newsletter-form__button {
-  background: transparent;
-  border: none;
-  color: #fff;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  padding: 0;
-  width: auto;
-  cursor: pointer;
-}
-.footer-block__newsletter .newsletter-form__button:hover { opacity: 0.8; }
-
-/* Desktop Top Section */
-.footer__content-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 4rem;
-  padding-bottom: 4rem;
-}
-.footer__blocks-wrapper { flex: 1; display: flex; gap: 2rem; justify-content: space-between; margin-bottom: 0; }
-.footer-block--newsletter { flex: 0 0 35%; margin-top: 0; }
-
-/* Desktop Bottom Section */
-.footer__bottom-brand { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 3rem; }
-.footer__brand-logo-img { max-width: 250px; height: auto; }
-.footer__social-icons-wrap { margin-top: 1.5rem; }
-.footer__list-social.list-social { justify-content: flex-start; gap: 1rem; }
-.footer__list-social.list-social .list-social__item .icon { color: #ffe600; width: 20px; height: 20px; }
-
-.footer__content-bottom {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: 
-    "brand . localization"
-    "copyright trustpilot .";
-  align-items: flex-end;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 4rem;
-  margin-top: 4rem;
-}
-
-.footer__bottom-brand { grid-area: brand; }
-.footer__bottom-localization { grid-area: localization; justify-self: end; margin-bottom: 3rem; }
-.footer__bottom-copyright { grid-area: copyright; padding-top: 2rem; }
-.footer__bottom-trustpilot { grid-area: trustpilot; justify-self: center; display: flex; align-items: center; padding-top: 2rem; }
-
-/* Desktop horizontal separator */
-.footer__content-bottom::after {
-  content: "";
-  position: absolute;
-  bottom: 4.5rem;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,0.2);
-}
-
-.footer__localization .localization-form__select {
-  background: #2b2b2b;
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 50px;
-  box-shadow: none;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-.footer__localization .localization-form__select .icon-caret { margin-left: 0.8rem; }
-
-/* Mobile View */
-@media screen and (max-width: 749px) {
-  .footer__content-top {
-    flex-direction: column;
-    gap: 3rem;
-  }
-  .footer-block--newsletter { order: -1; }
-  .footer__blocks-wrapper { 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .footer__content-bottom {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    border-top: none;
-    padding-top: 2rem;
-    margin-top: 2rem;
-  }
-  .footer__content-bottom::after { display: none; }
-  
-  .footer__bottom-localization { order: 1; width: 48%; justify-content: flex-start; margin-bottom: 3rem; }
-  .footer__bottom-trustpilot { order: 1; width: 48%; justify-content: flex-end; padding-top: 0; margin-bottom: 3rem; }
-  
-/* Fix z-index stacking context: Ensure announcement bar selector dropdown overlaps header elements */
-.announcement-bar-section {
-  position: relative;
-  z-index: 101;
-}
-.desktop-show{
-  display: block;
-}
-
-.mobile-show{
-  display: none;
-}
-
-@media (max-width: 768px){
-  .desktop-show{
-    display: none;
-  }
-.mobile-show {
-    display: flex;
-}
-  .header-promo-bar__close{
-    display: none;
-  }
-}
-/* Mobile Responsiveness for Announcement Bar */
-@media screen and (max-width: 749px) {
-  .utility-bar-desktop.small-hide.medium-hide {
-    display: block;
-  }
-  .utility-bar.large-up-hide {
-    display: none;
-  }
-  .utility-bar-desktop__container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-  .utility-bar-desktop__container::-webkit-scrollbar {
-    display: none;
-  }
-  .utility-bar-desktop__announcements {
-    min-width: max-content;
+    justify-content: center;
+    width: 100%;
+    white-space: normal;
+    padding: 10px;
   }
   .utility-bar-desktop__right {
     display: none;
   }
-}
-
-@media screen and (max-width: 749px) {
-  .utility-bar-desktop__container { padding: 0.5rem; justify-content: center; overflow-x: hidden; }
-  .utility-bar-desktop__announcements { flex-wrap: wrap; justify-content: center; width: 100%; white-space: normal; padding: 10px; }
   .utility-bar-desktop__announcement { margin: 0.2rem 0; }
   .utility-bar-desktop__separator { margin: 0 1.5rem; font-size: 1rem; }
   .utility-bar-desktop__text { font-size: 1rem; letter-spacing: 0; }
@@ -2616,11 +2362,13 @@ backdrop-filter: blur(4px)
   .utility-bar-desktop__icon { margin-right: 0.2rem; }
 }
 
-/* Fix header stacking context over promo bar */
-.header-wrapper header.header { position: relative; z-index: 4; }
+.header-wrapper header.header {
+  position: relative;
+  z-index: 4;
+}
 
 /* ==========================================================================
-   Footer Overhaul
+   Footer Overhaul (Desktop & Mobile combined)
    ========================================================================== */
 .footer-block__newsletter { margin-bottom: 2rem; }
 .footer-block__newsletter .newsletter-form__field-wrapper .field { position: relative; }
@@ -2655,7 +2403,6 @@ backdrop-filter: blur(4px)
 }
 .footer-block__newsletter .newsletter-form__button:hover { opacity: 0.8; }
 
-/* Desktop Top Section */
 .footer__content-top {
   display: flex;
   justify-content: space-between;
@@ -2665,7 +2412,6 @@ backdrop-filter: blur(4px)
 .footer__blocks-wrapper { flex: 1; display: flex; gap: 2rem; justify-content: space-between; margin-bottom: 0; }
 .footer-block--newsletter { flex: 0 0 35%; margin-top: 0; }
 
-/* Desktop Bottom Section */
 .footer__bottom-brand { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 3rem; }
 .footer__brand-logo-img { max-width: 250px; height: auto; }
 .footer__social-icons-wrap { margin-top: 1.5rem; }
@@ -2690,7 +2436,6 @@ backdrop-filter: blur(4px)
 .footer__bottom-copyright { grid-area: copyright; padding-top: 2rem; }
 .footer__bottom-trustpilot { grid-area: trustpilot; justify-self: center; display: flex; align-items: center; padding-top: 2rem; }
 
-/* Desktop horizontal separator */
 .footer__content-bottom::after {
   content: "";
   position: absolute;
@@ -2713,7 +2458,7 @@ backdrop-filter: blur(4px)
 }
 .footer__localization .localization-form__select .icon-caret { margin-left: 0.8rem; }
 
-/* Mobile View */
+/* Mobile View for Footer */
 @media screen and (max-width: 749px) {
   .footer__content-top {
     flex-direction: column;
@@ -2725,7 +2470,6 @@ backdrop-filter: blur(4px)
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
-
   .footer__content-bottom {
     display: flex;
     flex-direction: row;
@@ -2746,14 +2490,15 @@ backdrop-filter: blur(4px)
   
   .footer__bottom-copyright { order: 3; width: 100%; text-align: center; padding-top: 0; margin-bottom: 2rem; }
 }
+
 .card__content {
-    background: #F7F7F7;
+  background: #F7F7F7;
 }
 
-/* FORCE FOOTER OVERRIDES FOR MOBILE */
 #shopify-section-footer .footer__content-top {
   display: flex;
 }
+
 @media screen and (max-width: 749px) {
   #shopify-section-footer .footer__content-top {
     flex-direction: column;
@@ -2769,7 +2514,6 @@ backdrop-filter: blur(4px)
   #shopify-section-footer .footer__blocks-wrapper .footer-block {
     width: 100%;
   }
-  /* FORCE details-content to be visible without accordion */
   #shopify-section-footer .footer-block__details-content {
     display: block;
     opacity: 1;
@@ -2818,7 +2562,6 @@ backdrop-filter: blur(4px)
    PRODUCT PAGE OVERRIDES (Figma 1-1 Layout)
    ========================================================================== */
 
-/* Product Info Card Styling */
 .product__info-container {
   background: #ffffff;
   border: 1px solid #E5E5E5;
@@ -2828,7 +2571,6 @@ backdrop-filter: blur(4px)
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Center elements */
 .product__title,
 .product__description,
 .product__description p,
@@ -2836,11 +2578,11 @@ backdrop-filter: blur(4px)
   text-align: center;
   justify-content: center;
 }
+
 .product-stock-status {
   display: flex;
 }
 
-/* Breadcrumbs Styling */
 .product-breadcrumbs {
   display: flex;
   align-items: center;
@@ -2852,29 +2594,33 @@ backdrop-filter: blur(4px)
   margin-top: 1rem;
   padding-left: 1.5rem;
 }
+
 .product-breadcrumbs a {
   color: #000000;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
+
 .product-breadcrumbs a:hover {
   opacity: 0.7;
 }
+
 .product-breadcrumbs .breadcrumb-separator {
   font-size: 1.2rem;
   color: #cccccc;
 }
+
 .product-breadcrumbs svg {
   width: 10px;
   height: 10px;
   color: #cccccc;
 }
+
 .product-breadcrumbs .active-breadcrumb {
   color: #888888;
   font-weight: 400;
 }
 
-/* Page Width Layout adjustment */
 @media screen and (min-width: 990px) {
   .product.grid {
     display: grid;
@@ -2905,6 +2651,7 @@ backdrop-filter: blur(4px)
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 1.8rem;
   box-sizing: border-box;
 }
 
@@ -2914,7 +2661,6 @@ backdrop-filter: blur(4px)
   max-width: 100%;
 }
 
-/* Bestseller Badge and Star Ratings Centering */
 .product-rating-badge-row {
   display: flex;
   justify-content: center;
@@ -2923,7 +2669,6 @@ backdrop-filter: blur(4px)
   margin-bottom: 0.5rem;
 }
 
-/* Product Title Centered */
 .product__title {
   font-size: 3.2rem;
   font-weight: 800;
@@ -2934,17 +2679,18 @@ backdrop-filter: blur(4px)
   margin-bottom: 0.5rem;
 }
 
-/* Price block centering */
 .custom-price-wrapper {
   justify-content: center;
   margin: 0.5rem 0;
   gap: 1.5rem;
 }
+
 .custom-price-current {
   font-size: 2.6rem;
   font-weight: 800;
   color: #000000;
 }
+
 .custom-price-compare {
   font-size: 2.2rem;
   color: #999999;
@@ -2952,7 +2698,6 @@ backdrop-filter: blur(4px)
   text-decoration: line-through;
 }
 
-/* Save badge pinned to top right corner like a ribbon */
 .product-save-badge {
   position: absolute;
   top: 0;
@@ -2971,7 +2716,6 @@ backdrop-filter: blur(4px)
   margin: 0;
 }
 
-/* Klarna installment pill centering */
 .product-klarna-installment-pill {
   display: flex;
   align-items: center;
@@ -2985,9 +2729,11 @@ backdrop-filter: blur(4px)
   width: auto;
   max-width: fit-content;
 }
+
 .installment-text {
   font-size: 1.3rem;
 }
+
 .badge-in3 {
   display: inline-flex;
   border-radius: 12px;
@@ -2996,16 +2742,19 @@ backdrop-filter: blur(4px)
   font-weight: 800;
   font-family: sans-serif;
 }
+
 .badge-in3-pink {
   background: #ff007b;
   color: white;
   padding: 3px 6px;
 }
+
 .badge-in3-black {
   background: #000000;
   color: white;
   padding: 3px 6px;
 }
+
 .badge-klarna {
   background: #ffb3c7;
   color: #000000;
@@ -3015,6 +2764,7 @@ backdrop-filter: blur(4px)
   font-weight: 800;
   font-family: sans-serif;
 }
+
 .klarna-badge {
   background-color: #ffb3c7;
   color: #000000;
@@ -3024,6 +2774,7 @@ backdrop-filter: blur(4px)
   border-radius: 4px;
   text-transform: capitalize;
 }
+
 .afterpay-badge {
   background-color: #b2fce4;
   color: #000000;
@@ -3033,17 +2784,18 @@ backdrop-filter: blur(4px)
   border-radius: 4px;
   text-transform: lowercase;
 }
+
 .installment-text {
   font-size: 1.1rem;
   font-weight: 500;
 }
+
 .info-icon {
   display: inline-flex;
   align-items: center;
   color: #999999;
 }
 
-/* Description Text styling and centering */
 .product__info-container .product__text.body {
   font-size: 1.4rem;
   color: #555555;
@@ -3052,7 +2804,6 @@ backdrop-filter: blur(4px)
   margin: 0 auto;
 }
 
-/* Stock status dot centering */
 .product-stock-status {
   display: inline-flex;
   align-items: center;
@@ -3060,33 +2811,37 @@ backdrop-filter: blur(4px)
   gap: 0.8rem;
   margin: 0.5rem 0;
 }
+
 .stock-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   display: inline-block;
 }
+
 .stock-dot--green {
   background-color: #00b67a;
   box-shadow: 0 0 0 3px rgba(0, 182, 122, 0.2);
 }
+
 .stock-dot--red {
   background-color: #b3191f;
   box-shadow: 0 0 0 3px rgba(179, 25, 31, 0.2);
 }
+
 .stock-text {
   font-size: 1.3rem;
   color: #000000;
   font-weight: 600;
 }
 
-/* Buy buttons custom colors & layout */
 .product-form__buttons {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   margin: 0.5rem 0;
 }
+
 .product-form__submit {
   background-color: var(--add-to-cart-bg, #ffd000);
   color: var(--add-to-cart-text, #000000);
@@ -3099,9 +2854,11 @@ backdrop-filter: blur(4px)
   font-size: 1.3rem;
   transition: all 0.3s ease;
 }
+
 .product-form__submit:hover {
   opacity: 0.9;
 }
+
 .book-test-ride-button {
   background-color: var(--book-test-ride-bg, #ffffff);
   border: 1.5px solid var(--book-test-ride-border, #e5e5e5);
@@ -3119,26 +2876,29 @@ backdrop-filter: blur(4px)
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
+
 .book-test-ride-button:hover {
   background-color: #fcfcfc;
   border-color: #ffd000;
 }
 
-/* Payment icons row below buttons */
 .delivery-payment-container-delivery_payment_mB6BTN {
   justify-content: center;
   margin-top: 0.5rem;
   border-top: none;
   padding-top: 0;
 }
+
 .delivery-payment-container-delivery_payment_mB6BTN .dp-left {
   display: none;
 }
+
 .delivery-payment-container-delivery_payment_mB6BTN .dp-right {
   justify-content: center;
   width: 100%;
   gap: 1rem;
 }
+
 .delivery-payment-container-delivery_payment_mB6BTN .dp-payment-icon {
   width: 32px;
   height: auto;
@@ -3146,17 +2906,16 @@ backdrop-filter: blur(4px)
   padding: 2px;
 }
 
-/* Custom options blocks centering */
 .product-option-accessories,
 .product-option-insurance,
 .product-riders-experience {
   text-align: center;
 }
+
 .riders-list {
   justify-content: center;
 }
 
-/* Trust Badges row */
 .product-trust-badges-bar {
   border-top: 1px solid #f0f0f0;
   border-bottom: none;
@@ -3167,11 +2926,11 @@ backdrop-filter: blur(4px)
   justify-content: space-around;
 }
 
-/* Media Gallery vertical thumbnails active state and border */
 slider-component.thumbnail-slider .thumbnail[aria-current="true"] {
   border-color: #ffd000;
   box-shadow: 0 0 0 2px #ffd000;
 }
+
 slider-component.thumbnail-slider .thumbnail {
   border: 1.5px solid rgba(0,0,0,0.08);
   border-radius: 8px;
@@ -3181,7 +2940,6 @@ slider-component.thumbnail-slider .thumbnail {
   overflow: hidden;
 }
 
-/* Vertical thumbnail layout alignment and spacing */
 @media screen and (min-width: 990px) {
   media-gallery.media-gallery--side-by-side {
     position: relative;
@@ -3205,5 +2963,4 @@ slider-component.thumbnail-slider .thumbnail {
   .thumbnail-scroll-down-arrow:hover {
     background-color: #ffd000;
   }
-}
 }
