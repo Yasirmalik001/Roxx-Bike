@@ -568,7 +568,7 @@
         "waves_image": "shopify://shop_images/Group_43.svg",
         "back_wave_size": 45,
         "back_wave_left": 25,
-        "back_wave_bottom": 0,
+        "back_wave_bottom": 3,
         "front_wave_size": 45,
         "front_wave_left": 62,
         "front_wave_bottom": 13,
