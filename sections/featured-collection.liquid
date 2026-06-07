@@ -94,10 +94,10 @@
       </div>
 
       {%- if section.settings.show_view_all and section.settings.collection != blank -%}
-        <div class="collection__view-all-top roxx-actions-row">
+        <div class="collection__view-all-top">
           <a
             href="{{ section.settings.collection.url }}"
-            class="discover roxx-btn roxx-btn-secondary"
+            class="custom-discover-btn"
             aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
           >
             DISCOVER {{ section.settings.collection.title | upcase }} &rarr;
