@@ -126,7 +126,7 @@
             "title": "Roxx Insurance",
             "description": "Lorem ipsum dolor sit amet consectetur. Est in aliquam id feugiat at.",
             "price": "+ € 150,00",
-            "link": ""
+            "link": "shopify://pages/about-us"
           }
         },
         "gallery_specifications_custom": {
