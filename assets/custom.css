@@ -450,7 +450,7 @@ text-align: center;
 /* ==========================================================================
    Collection Tabs (Bicycle Swiper Slider Redesign)
    ========================================================================== */
-.collection-tabs {
+/* .collection-tabs {
   position: relative;
   z-index: 1;
 }
@@ -465,7 +465,7 @@ text-align: center;
   background: linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
   z-index: -1;
   pointer-events: none;
-}
+} */
 
 .collection-tabs .collection-tabs__header-wrap {
   display: flex;
