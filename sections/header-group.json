@@ -92,7 +92,7 @@
         "promo_bar_link_text": "Shop now",
         "promo_bar_link": "",
         "header_button_label": "Book a test ride",
-        "header_button_link": ""
+        "header_button_link": "shopify://pages/testrit-boeken"
       }
     }
   },
