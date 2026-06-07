@@ -56,6 +56,20 @@
         {%- endif -%}
       </div>
 
+    </div>
+
+    <div class="drawer-card__info">
+      <h3 class="drawer-card__title">
+        {{ card_product.title | escape }}
+      </h3>
+      
+      <div class="drawer-card__price">
+        {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+      </div>
+    </div>
+</a>
+  </div>
+  
       <ma-quickadd>
           <div class="ma_quickAdd_in">
             <div class="ma_quickAdd_variant_in" data-quickoptionid="template--23222930014543__featured_products_LAgynU">
@@ -82,18 +96,5 @@
             </div>
           </div>
         </ma-quickadd>
-    </div>
-
-    <div class="drawer-card__info">
-      <h3 class="drawer-card__title">
-        {{ card_product.title | escape }}
-      </h3>
-      
-      <div class="drawer-card__price">
-        {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-      </div>
-    </div>
-</a>
-  </div>
 {% endif %}
 
