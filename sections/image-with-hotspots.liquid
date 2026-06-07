@@ -17,21 +17,37 @@
     text-align: center;
   }
 
+  /* --- Header Styling --- */
   .hotspot-header {
     max-width: 800px;
-    margin: 0 auto 4rem auto;
+    margin: 0 auto 5rem auto;
+    padding: 0 2rem;
+  }
+
+  .hotspot-header h2 {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.8rem, 4vw, 4.6rem);
+    color: #111111;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
   }
 
   .hotspot-header .rte {
-    font-size: 1.6rem;
-    color: rgba(var(--color-foreground), 0.75);
+    font-size: 1.4rem;
+    color: #555555;
     line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto;
   }
 
+  /* --- Image Wrapper --- */
   .hotspot-image-wrapper {
     position: relative;
     margin: 0 auto;
     display: inline-block;
+    max-width: 100%;
   }
 
   .hotspot-image-wrapper img, 
@@ -42,26 +58,43 @@
     border-radius: {{ section.settings.image_radius }}px;
   }
 
+  /* --- Hotspot Points & Glow --- */
   .hotspot-point {
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: 2;
   }
 
+  .hotspot-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85px;
+    height: 85px;
+    background: radial-gradient(circle, rgba(255, 209, 0, 0.6) 0%, rgba(255, 209, 0, 0) 65%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+
   .hotspot-btn {
-    width: 36px;
-    height: 36px;
-    background-color: #F8D62B; /* Yellow from design */
+    width: 26px;
+    height: 26px;
+    background-color: #FFD100; /* Exact Yellow */
+    border: 1.5px solid #111111; /* Thin black border */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 0 0 10px rgba(248, 214, 43, 0.3); /* Glow effect */
     list-style: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
-    color: #000;
+    transition: transform 0.3s ease;
+    color: #111111;
+    position: relative;
+    z-index: 2;
+    padding: 0;
   }
 
   .hotspot-btn::-webkit-details-marker {
@@ -70,13 +103,17 @@
 
   .hotspot-btn:hover, details[open] .hotspot-btn {
     transform: scale(1.1);
-    box-shadow: 0 0 0 15px rgba(248, 214, 43, 0.4);
+  }
+
+  .hotspot-btn:hover ~ .hotspot-glow, details[open] .hotspot-glow {
+    transform: translate(-50%, -50%) scale(1.15);
   }
 
   .hotspot-btn svg {
     width: 14px;
     height: 14px;
-    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 2px;
     transition: transform 0.3s ease;
   }
 
@@ -84,63 +121,139 @@
     transform: rotate(45deg);
   }
 
+  /* --- Tooltip Box --- */
   .hotspot-tooltip {
     position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 25px;
     background: #ffffff;
-    color: #000000;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
     width: max-content;
-    max-width: 280px;
+    max-width: 320px;
     z-index: 10;
     text-align: left;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease;
   }
 
-  /* Tooltip Arrow */
-  .hotspot-tooltip::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent #ffffff transparent;
+  details[open] .hotspot-tooltip {
+    opacity: 1;
+    visibility: visible;
   }
 
-  .hotspot-tooltip h4 {
-    margin: 0 0 0.8rem 0;
-    font-size: 1.5rem;
-    font-weight: 700;
+  .hotspot-tooltip__header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: #000;
+    gap: 8px;
+    margin-bottom: 1.2rem;
   }
 
-  .hotspot-tooltip h4 img {
+  .hotspot-tooltip__header img {
     width: 20px;
     height: 20px;
     object-fit: contain;
   }
 
+  .hotspot-tooltip__header h4 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111111;
+  }
+
+  .hotspot-tooltip__subtitle {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #333333;
+    line-height: 1.4;
+    margin: 0 0 0.8rem 0;
+  }
+
   .hotspot-tooltip .rte {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     line-height: 1.5;
-    color: #555;
+    color: #777777;
     margin: 0;
   }
 
+  .hotspot-tooltip .rte p {
+    margin: 0;
+  }
+
+  /* --- Tooltip Positions (Desktop) --- */
+  
+  /* Right */
+  .hotspot-tooltip--right {
+    top: 50%;
+    left: calc(100% + 35px);
+    transform: translateY(-50%) translateX(-10px);
+  }
+  details[open] .hotspot-tooltip--right { transform: translateY(-50%) translateX(0); }
+  .hotspot-tooltip--right::before {
+    content: ''; position: absolute;
+    top: 50%; right: 100%; transform: translateY(-50%);
+    border-width: 8px 12px 8px 0; border-style: solid; border-color: transparent #fff transparent transparent;
+  }
+
+  /* Left */
+  .hotspot-tooltip--left {
+    top: 50%;
+    right: calc(100% + 35px);
+    transform: translateY(-50%) translateX(10px);
+  }
+  details[open] .hotspot-tooltip--left { transform: translateY(-50%) translateX(0); }
+  .hotspot-tooltip--left::before {
+    content: ''; position: absolute;
+    top: 50%; left: 100%; transform: translateY(-50%);
+    border-width: 8px 0 8px 12px; border-style: solid; border-color: transparent transparent transparent #fff;
+  }
+
+  /* Top */
+  .hotspot-tooltip--top {
+    bottom: calc(100% + 35px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+  }
+  details[open] .hotspot-tooltip--top { transform: translateX(-50%) translateY(0); }
+  .hotspot-tooltip--top::before {
+    content: ''; position: absolute;
+    top: 100%; left: 50%; transform: translateX(-50%);
+    border-width: 12px 8px 0 8px; border-style: solid; border-color: #fff transparent transparent transparent;
+  }
+
+  /* Bottom */
+  .hotspot-tooltip--bottom {
+    top: calc(100% + 35px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  details[open] .hotspot-tooltip--bottom { transform: translateX(-50%) translateY(0); }
+  .hotspot-tooltip--bottom::before {
+    content: ''; position: absolute;
+    bottom: 100%; left: 50%; transform: translateX(-50%);
+    border-width: 0 8px 12px 8px; border-style: solid; border-color: transparent transparent #fff transparent;
+  }
+
+  /* --- Mobile Tooltip Override --- */
   @media screen and (max-width: 749px) {
     .hotspot-tooltip {
-      width: 200px;
-      padding: 1.5rem;
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      width: calc(100% - 4rem);
+      max-width: none;
+      top: auto !important;
+      right: auto !important;
+      transform: translateX(-50%) translateY(20px) !important;
+      padding: 2rem;
+    }
+    details[open] .hotspot-tooltip {
+      transform: translateX(-50%) translateY(0) !important;
+    }
+    .hotspot-tooltip::before {
+      display: none !important;
     }
   }
 </style>
@@ -150,7 +263,7 @@
     
     <div class="hotspot-header">
       {%- if section.settings.heading != blank -%}
-        <h2 class="h1">{{ section.settings.heading }}</h2>
+        <h2>{{ section.settings.heading }}</h2>
       {%- endif -%}
       {%- if section.settings.text != blank -%}
         <div class="rte">{{ section.settings.text }}</div>
@@ -169,16 +282,28 @@
           <details data-hotspot>
             <summary class="hotspot-btn">
               <span class="visually-hidden">View details for {{ block.settings.title }}</span>
-              <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path d="M14 8H8v6H6V8H0V6h6V0h2v6h6v2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m-7-7h14"/></svg>
             </summary>
-            <div class="hotspot-tooltip">
-              <h4>
+            
+            <div class="hotspot-glow"></div>
+            
+            <div class="hotspot-tooltip hotspot-tooltip--{{ block.settings.tooltip_position }}">
+              <div class="hotspot-tooltip__header">
                 {%- if block.settings.icon != blank -%}
                   {{ block.settings.icon | image_url: width: 40 | image_tag: loading: 'lazy' }}
                 {%- endif -%}
-                {{ block.settings.title }}
-              </h4>
-              <div class="rte">{{ block.settings.content }}</div>
+                {%- if block.settings.title != blank -%}
+                  <h4>{{ block.settings.title }}</h4>
+                {%- endif -%}
+              </div>
+              
+              {%- if block.settings.subtitle != blank -%}
+                <p class="hotspot-tooltip__subtitle">{{ block.settings.subtitle }}</p>
+              {%- endif -%}
+              
+              {%- if block.settings.content != blank -%}
+                <div class="rte">{{ block.settings.content }}</div>
+              {%- endif -%}
             </div>
           </details>
         </div>
@@ -194,7 +319,8 @@
     const hotspots = document.querySelectorAll('details[data-hotspot]');
     
     hotspots.forEach((targetDetail) => {
-      targetDetail.addEventListener('click', () => {
+      targetDetail.addEventListener('click', (e) => {
+        // Allow the default behavior (toggling) to happen
         hotspots.forEach((detail) => {
           if (detail !== targetDetail) {
             detail.removeAttribute('open');
@@ -262,21 +388,21 @@
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Top padding",
-      "default": 60
+      "default": 80
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
       "label": "Bottom padding",
-      "default": 60
+      "default": 80
     }
   ],
   "blocks": [
@@ -305,6 +431,18 @@
           "default": 50
         },
         {
+          "type": "select",
+          "id": "tooltip_position",
+          "label": "Tooltip Popup Direction (Desktop)",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "bottom", "label": "Bottom" },
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "right"
+        },
+        {
           "type": "header",
           "content": "Tooltip Content"
         },
@@ -316,14 +454,20 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Heading",
-          "default": "Feature name"
+          "label": "Title",
+          "default": "Tyres"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Bold Subtitle",
+          "default": "28 inch Cst Fly safely through the road bends"
         },
         {
           "type": "richtext",
           "id": "content",
           "label": "Description",
-          "default": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
+          "default": "<p>Lorem ipsum dolor sit amet consectetur. Et sed tempor odio felis diam. Mattis at sollicitudin id nec tincidunt</p>"
         }
       ]
     }
@@ -335,15 +479,41 @@
         {
           "type": "hotspot",
           "settings": {
-            "pos_x": 25,
-            "pos_y": 70
+            "pos_x": 30,
+            "pos_y": 74,
+            "tooltip_position": "top"
+          }
+        },
+        {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 42,
+            "pos_y": 48,
+            "tooltip_position": "bottom"
+          }
+        },
+        {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 46,
+            "pos_y": 74,
+            "tooltip_position": "right"
+          }
+        },
+        {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 63,
+            "pos_y": 33,
+            "tooltip_position": "left"
           }
         },
         {
           "type": "hotspot",
           "settings": {
             "pos_x": 75,
-            "pos_y": 60
+            "pos_y": 62,
+            "tooltip_position": "right"
           }
         }
       ]
