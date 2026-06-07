@@ -236,6 +236,13 @@
           this.temporarilyDisabled = true;
           this.isSubmitting = false;
           
+          // Remove aria-disabled so Dawn's script doesn't abort its submit handler
+          if (submitButton) {
+            submitButton.removeAttribute('aria-disabled');
+            submitButton.classList.remove('loading');
+          }
+          if (spinner) spinner.classList.add('hidden');
+          
           // Re-fire submit so Dawn's JS handles the main product + opening the cart drawer
           this.productForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
           
