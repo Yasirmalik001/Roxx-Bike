@@ -160,6 +160,6 @@
 
 @media screen and (max-width: 750px) {
   .product__info-container {
-    padding: 40px 32px;
+  border-radius: 24px;
   }
 }
