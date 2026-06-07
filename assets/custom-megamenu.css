@@ -76,9 +76,9 @@
 }
 
 .megamenu-products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 3rem 2rem;
 }
 
 .megamenu-product-card {
