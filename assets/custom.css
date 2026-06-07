@@ -548,13 +548,13 @@ text-align: center;
 
 .collection-tabs .swiper-slide {
   transition: opacity 0.4s ease, transform 0.4s ease;
-  opacity: 1 !important;
+  opacity: 0.5 !important;
   transform: scale(0.85);
 }
 
 .collection-tabs .swiper-slide-active {
   opacity: 1 !important;
-  transform: scale(1.15);
+  transform: scale(1.25);
 }
 
 /* Centering active card and contents */
