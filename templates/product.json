@@ -530,6 +530,73 @@
         "padding_bottom": 60
       }
     },
+    "app_features_section_gVYMpE": {
+      "type": "app-features-section",
+      "blocks": {
+        "feature_PzNzkC": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Ellipse_41.png",
+            "title": "4G remote communication"
+          }
+        },
+        "feature_aDjVd4": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Ellipse_41.png",
+            "title": "Cycling track"
+          }
+        },
+        "feature_7Q7hgA": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Ellipse_41.png",
+            "title": "Bluetooth near field communication"
+          }
+        },
+        "feature_HWTy3V": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Ellipse_41.png",
+            "title": "Multiple alarm modes"
+          }
+        },
+        "feature_wPcwfd": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Ellipse_41.png",
+            "title": "Multiple unlocking methods"
+          }
+        },
+        "feature_TU4QaM": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Ellipse_41.png",
+            "title": "Geo-fence"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PzNzkC",
+        "feature_aDjVd4",
+        "feature_7Q7hgA",
+        "feature_HWTy3V",
+        "feature_wPcwfd",
+        "feature_TU4QaM"
+      ],
+      "name": "App Features Intro",
+      "settings": {
+        "color_scheme": "",
+        "title": "INTRODUCING OUR ALL IN ONE APP",
+        "heading_size": "h1",
+        "description": "<p>The Roxx JX electric bike works with an app specifically designed for this model and an advanced all-in-one system.</p>",
+        "image_bike": "shopify://shop_images/2580110ab1ff503d83cf10045005baaa20663e3c.jpg",
+        "image_device_1": "shopify://shop_images/26e1539b465e54e40b3e21a155dedf22e2d6affb.png",
+        "image_device_2": "shopify://shop_images/2516ff6ffef4ec0fd1984d548ea3d33bffc96fa6_1.png",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "specifications_section_k6Pnef": {
       "type": "specifications-section",
       "blocks": {
@@ -1067,73 +1134,6 @@
         "padding_bottom": 36
       }
     },
-    "app_features_section_gVYMpE": {
-      "type": "app-features-section",
-      "blocks": {
-        "feature_PzNzkC": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/Ellipse_41.png",
-            "title": "4G remote communication"
-          }
-        },
-        "feature_aDjVd4": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/Ellipse_41.png",
-            "title": "Cycling track"
-          }
-        },
-        "feature_7Q7hgA": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/Ellipse_41.png",
-            "title": "Bluetooth near field communication"
-          }
-        },
-        "feature_HWTy3V": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/Ellipse_41.png",
-            "title": "Multiple alarm modes"
-          }
-        },
-        "feature_wPcwfd": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/Ellipse_41.png",
-            "title": "Multiple unlocking methods"
-          }
-        },
-        "feature_TU4QaM": {
-          "type": "feature",
-          "settings": {
-            "icon": "shopify://shop_images/Ellipse_41.png",
-            "title": "Geo-fence"
-          }
-        }
-      },
-      "block_order": [
-        "feature_PzNzkC",
-        "feature_aDjVd4",
-        "feature_7Q7hgA",
-        "feature_HWTy3V",
-        "feature_wPcwfd",
-        "feature_TU4QaM"
-      ],
-      "name": "App Features Intro",
-      "settings": {
-        "color_scheme": "",
-        "title": "INTRODUCING OUR ALL IN ONE APP",
-        "heading_size": "h1",
-        "description": "<p>The Roxx JX electric bike works with an app specifically designed for this model and an advanced all-in-one system.</p>",
-        "image_bike": "shopify://shop_images/2580110ab1ff503d83cf10045005baaa20663e3c.jpg",
-        "image_device_1": "shopify://shop_images/26e1539b465e54e40b3e21a155dedf22e2d6affb.png",
-        "image_device_2": "shopify://shop_images/2516ff6ffef4ec0fd1984d548ea3d33bffc96fa6_1.png",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "faq_ekQccb": {
       "type": "faq",
       "blocks": {
@@ -1265,6 +1265,7 @@
     "quick_features_slider_GB9B7z",
     "video_testimonials_gallery_AChKUk",
     "image_with_hotspots_rJkiKJ",
+    "app_features_section_gVYMpE",
     "specifications_section_k6Pnef",
     "product_comparison_WqKGJh",
     "image_with_text_YXALTw",
@@ -1272,7 +1273,6 @@
     "testimonials_NNYm9Y",
     "masonary_gallery_3z9FME",
     "feature_alternating_XKMVfA",
-    "app_features_section_gVYMpE",
     "faq_ekQccb",
     "promo_cards_section_Y4dTtA",
     "call_to_action_banner_3Jbhre"
