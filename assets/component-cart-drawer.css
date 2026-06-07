@@ -1474,9 +1474,6 @@ button.ma_Add_atc.ma_quickAdd_atc.button.button-secondary {
     align-items: center;
   }
   
-  .drawer__upsell-container-mobile .drawer-line-card__media-wrapper {
-    display: none !important;
-  }
 }
 
 /* ==========================================================
