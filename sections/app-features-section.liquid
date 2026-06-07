@@ -200,17 +200,17 @@
       
       <div class="app-image-col">
         {%- if section.settings.image_bike != blank -%}
-          {{ section.settings.image_bike | image_url: width: 1000 | image_tag: class: 'layer-bike', loading: 'lazy' }}
+          {{ section.settings.image_bike | image_url: width: 2000 | image_tag: class: 'layer-bike', loading: 'lazy' }}
         {%- else -%}
           {{ 'product-1' | placeholder_svg_tag: 'layer-bike placeholder-svg' }}
         {%- endif -%}
 
         {%- if section.settings.image_device_1 != blank -%}
-          {{ section.settings.image_device_1 | image_url: width: 400 | image_tag: class: 'layer-device-1', loading: 'lazy' }}
+          {{ section.settings.image_device_1 | image_url: width: 1400 | image_tag: class: 'layer-device-1', loading: 'lazy' }}
         {%- endif -%}
 
         {%- if section.settings.image_device_2 != blank -%}
-          {{ section.settings.image_device_2 | image_url: width: 400 | image_tag: class: 'layer-device-2', loading: 'lazy' }}
+          {{ section.settings.image_device_2 | image_url: width: 1400 | image_tag: class: 'layer-device-2', loading: 'lazy' }}
         {%- endif -%}
       </div>
 
