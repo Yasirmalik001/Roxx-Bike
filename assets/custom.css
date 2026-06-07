@@ -2258,7 +2258,8 @@ letter-spacing: 0%;
 }
 
 .custom-banner-section .banner-review-block {
-backdrop-filter: blur(4px)
+backdrop-filter: blur(4px);
+    background: #ffffff1f;
   border-radius: 50px;
   padding: 0.8rem 1.8rem;
   font-size: 1.3rem;
