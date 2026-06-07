@@ -17,14 +17,14 @@
         "link_list_KJrftH": {
           "type": "link_list",
           "settings": {
-            "heading": "information",
-            "menu": "klantenservice"
+            "heading": "ONTDEK",
+            "menu": "ontdek"
           }
         },
         "link_list_zUw3RB": {
           "type": "link_list",
           "settings": {
-            "heading": "information",
+            "heading": "INFORMATION",
             "menu": "info"
           }
         },
