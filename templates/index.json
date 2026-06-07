@@ -134,7 +134,7 @@
         "view_all_text": "View All",
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 72
       }
     },
     "hero_slideshow_6ejY9C": {
@@ -389,8 +389,6 @@
       ],
       "name": "Partner Slider",
       "settings": {
-        "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
-        "card_color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
         "heading": "WHAT OUR PARTNER SAYS!",
         "heading_size": "h1",
         "button_label": "View all",
