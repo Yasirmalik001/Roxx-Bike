@@ -299,7 +299,7 @@ cart-remove-button .icon-remove {
 
   .cart-items td {
     vertical-align: top;
-    padding-top: 4rem;
+    padding-bottom: 2rem;
   }
 
   .cart-items .cart-item__nested-line td {
