@@ -9,10 +9,9 @@
     <div class="insurance-card-content">
       <div class="insurance-logo-wrapper">
         {%- if block.settings.logo != blank -%}
-          <img src="{{ block.settings.logo | image_url: width: 160 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="80" height="80">
+          <img src="{{ block.settings.logo | image_url: width: 200 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="100" height="120">
         {%- else -%}
-          <!-- Placeholder if no logo is uploaded -->
-          <div class="insurance-logo-placeholder">LOGO</div>
+          <div class="insurance-logo-placeholder">ROXX</div>
         {%- endif -%}
       </div>
       
@@ -35,24 +34,35 @@
 
 <style>
   .product-option-insurance {
-    margin: 2.5rem 0;
+    margin: 3rem 0;
     display: block;
     font-family: inherit;
   }
+  
+  .insurance-heading {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+  }
+
   .insurance-card-label {
     display: block;
     cursor: pointer;
     margin: 0;
   }
+  
   .insurance-checkbox-input {
     display: none;
   }
   
-  /* Main Card Layout */
+  /* Main Card Layout (Unselected) */
   .insurance-card-content {
     display: flex;
     align-items: flex-start;
-    padding: 16px;
+    padding: 1.6rem;
     border: 2px solid transparent; 
     border-radius: 12px;
     background-color: #f7f7f7;
@@ -61,30 +71,29 @@
   
   /* Logo Box */
   .insurance-logo-wrapper {
-    width: 80px;
-    height: 100px;
+    width: 90px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
     border-radius: 8px;
-    margin-right: 16px;
-    padding: 8px;
+    margin-right: 1.6rem;
+    padding: 1.2rem;
     flex-shrink: 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   }
   
   .insurance-logo-wrapper img {
     width: 100%;
-    height: auto;
-    max-height: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
   .insurance-logo-placeholder {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #ccc;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffd200;
+    font-style: italic;
   }
   
   /* Text Details */
@@ -94,37 +103,38 @@
     justify-content: flex-start;
     text-align: left;
     flex-grow: 1;
-    padding-top: 4px;
+    padding-top: 2px;
   }
   
   .insurance-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: #121212;
-    margin-bottom: 8px;
+    color: #111111;
+    margin-bottom: 1.2rem;
     line-height: 1.2;
   }
   
   .insurance-description {
-    font-size: 1.3rem;
-    color: #444;
-    margin: 0 0 12px 0;
+    font-size: 1.35rem;
+    color: #444444;
+    margin: 0 0 1.5rem 0;
     line-height: 1.4;
   }
 
   .insurance-link {
-    font-size: 1.3rem;
-    color: #121212;
+    font-size: 1.35rem;
+    color: #111111;
     text-decoration: underline;
     font-weight: 500;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
+    width: fit-content;
   }
   
   /* Checkbox Indicator (Unselected) */
   .insurance-radio-indicator {
     width: 28px;
     height: 28px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #e0e0e0;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -132,22 +142,23 @@
     transition: all 0.2s ease-in-out;
     background-color: #ffffff;
     flex-shrink: 0;
-    margin-left: 12px;
-    margin-top: 4px;
+    margin-left: 1.2rem;
   }
   
   /* Selected State */
   .insurance-checkbox-input:checked + .insurance-card-content {
     background-color: #ffffff;
-    border-color: #ffcc00;
+    border-color: #ffd000; /* Roxx Yellow Border */
     box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   }
   
+  /* Perfect 1-1 Yellow Checkmark */
   .insurance-checkbox-input:checked + .insurance-card-content .insurance-radio-indicator {
-    border-color: #ffcc00;
-    background-color: #ffcc00;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath fill-rule='evenodd' d='M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z'/%3E%3C/svg%3E");
-    background-size: 16px;
+    border-color: #ffd000;
+    background-color: #ffd000;
+    /* Custom SVG matching the straight-edged tick perfectly */
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 5.5L5 9L12.5 1.5' stroke='white' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E");
+    background-size: 14px;
     background-position: center;
     background-repeat: no-repeat;
   }
