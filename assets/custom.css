@@ -1919,8 +1919,13 @@ cart-drawer-items {
 }
 
 .price .price-item--regular:not(s) {
-  font-size: 2.2rem;
-  font-weight: 800;
+font-family: Integral CF;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
 }
 
 .price .price-item--sale {
