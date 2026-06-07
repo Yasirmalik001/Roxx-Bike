@@ -831,10 +831,10 @@ cart-drawer .quantity{
       padding: 0 12px;
       padding-bottom: 10px;
     }
-
-    .drawer-product-card-url{
-      text-decoration: none;
-    }
+.drawer-product-card-url {
+    text-decoration: none;
+    display: flex;
+}
 
     
     .drawer-card__title, .drawer-card__price * {
