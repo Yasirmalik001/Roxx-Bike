@@ -121,11 +121,13 @@
     </button>
       {% endif %}
   </modal-opener>
-              {%- for block in section.blocks -%}
-          {%- if block.type == 'gallery_specifications' -%}
-            {% render 'gallery-specifications-strip', block: block %}
-          {%- endif -%}
-        {%- endfor -%}
+    {%- for block in section.blocks -%}
+  {%- if block.type == 'gallery_specifications' -%}
+    <div class="show-dektop">
+      {% render 'gallery-specifications-strip', block: block %}
+    </div>
+  {%- endif -%}
+{%- endfor -%}
 
   {%- if media.media_type != 'image' -%}
     {%- if media.media_type == 'model' -%}
