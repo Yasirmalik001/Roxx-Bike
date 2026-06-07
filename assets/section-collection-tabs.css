@@ -465,8 +465,13 @@
 .card-product-tabs__price .price__sale .price-item--regular,
 .card-product-tabs__price .price__sale .price-item--last,
 .card-product-tabs__price .price-item--sale {
-  color: #c0392b;
-  font-weight: 600;
+    font-family: Integral CF;
+    font-weight: 600;
+    font-style: Demi Bold;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;;
 }
 
 .card-product-tabs__price .price__sale .price-item--regular {
