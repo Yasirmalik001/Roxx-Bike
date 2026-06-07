@@ -2966,4 +2966,8 @@ slider-component.thumbnail-slider .thumbnail {
   .show-dektop {
     display: none;
 }
+
+.thumbnail-scroll-down-arrow {
+    display: none;
+}
 }
