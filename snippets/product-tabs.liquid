@@ -1,5 +1,4 @@
-
-  {%- style -%}
+{%- style -%}
     /* --- Block Padding Logic --- */
     .block-padding-{{ block.id }} {
       padding-top: {{ block.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -44,11 +43,11 @@
     }
 
     /* --- Tab Panels CSS --- */
-.joieem-text-column {
-    display: flex;
-    flex-direction: column;
-    max-width: 700px;
-}
+    .joieem-text-column {
+      display: flex;
+      flex-direction: column;
+      max-width: 700px;
+    }
 
     .joieem-tab-panel {
       display: none;
@@ -98,6 +97,7 @@
       color: #000000;
       text-decoration: none;
       transition: opacity 0.3s ease;
+      position: relative;
     }
 
     .btn-solid-custom:hover {
@@ -232,14 +232,21 @@
         {%- endif -%}
         {%- if block.settings.btn2_text != blank -%}
           <button type="button" class="btn-solid-custom button" onclick="
-            var mainBtn = document.querySelector('.product__info-container .product-form__submit');
+            var mainBtn = document.querySelector('.product__info-container .product-form__submit') || document.querySelector('.product-form__submit');
+            var spinner = this.querySelector('.loading__spinner');
+            
             if(mainBtn) { 
               mainBtn.click(); 
+              
+              /* Add loading states */
               this.classList.add('loading');
-              setTimeout(() => this.classList.remove('loading'), 2000);
-            } else {
-              var fallbackBtn = document.querySelector('.product-form__submit');
-              if (fallbackBtn) fallbackBtn.click();
+              if(spinner) spinner.classList.remove('hidden');
+              
+              /* Remove loading states after a short delay so the button resets */
+              setTimeout(() => {
+                this.classList.remove('loading');
+                if(spinner) spinner.classList.add('hidden');
+              }, 2000);
             }
           ">
             <span>{{ block.settings.btn2_text }}</span>
