@@ -4,7 +4,7 @@
   {%- endif -%}
 
   <label class="insurance-card-label">
-    <input type="checkbox" name="insurance_option" value="selected" class="insurance-checkbox-input">
+    <input type="checkbox" name="properties[Insurance]" value="{{ block.settings.title | escape }}" form="product-form-{{ section.id }}" class="insurance-checkbox-input">
     
     <div class="insurance-card-content">
       <div class="insurance-logo-wrapper">
