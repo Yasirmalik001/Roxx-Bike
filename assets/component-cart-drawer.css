@@ -1499,13 +1499,19 @@ cart-drawer .drawer__inner {
   display: flex;
   flex-direction: column;
   padding: 24px;
-  transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transform: translateX(150%);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease, visibility 0.3s ease !important;
   border-right: 1px solid rgba(0,0,0,0.05);
 }
 
 .drawer.active .drawer__upsell-container {
   transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .drawer__upsell-header h4 {
