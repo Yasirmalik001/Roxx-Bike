@@ -5,7 +5,45 @@ select,
 textarea {
   font-family: inherit;
 }
-
+/* ==========================================================
+   Global Button Hover Sweep Animation
+   ========================================================== */
+.button, 
+.button--primary, 
+.button--secondary,
+.custom-discover-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.button::before, 
+.button--primary::before, 
+.button--secondary::before,
+.custom-discover-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  transition: left 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+.button:hover::before, 
+.button--primary:hover::before, 
+.button--secondary:hover::before,
+.custom-discover-btn:hover::before {
+  left: 0;
+}
+.button:hover, 
+.button--primary:hover, 
+.button--secondary:hover,
+.custom-discover-btn:hover {
+  color: #FFFFFF !important;
+  border-color: #000000 !important;
+}
 span.cc-svg-ride {
   display: flex;
   align-items: center;
