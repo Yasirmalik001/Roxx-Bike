@@ -1647,3 +1647,7 @@ cart-drawer .drawer__inner {
     padding: 16px;
   }
 }
+
+.drawer__upsell-footer-mobile {
+    padding-inline: 20px;
+}
