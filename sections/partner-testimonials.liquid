@@ -2,7 +2,6 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;
-    background-color: #1e1e1e; /* Dark background matching the image */
   }
 
   @media screen and (min-width: 750px) {
@@ -34,7 +33,6 @@
 
   /* --- Card Styling --- */
   .partner-card {
-    background-color: #333333; /* Slightly lighter gray for the cards */
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -65,14 +63,13 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    color: #ffffff;
   }
 
   .partner-card__text {
     font-size: 1.3rem;
     line-height: 1.6;
     margin-bottom: 2.5rem;
-    color: #cccccc; /* Softer text color for the paragraph */
+    color: rgba(var(--color-foreground), 0.8);
   }
 
   .partner-card__text p {
@@ -86,13 +83,13 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #ffffff;
+    color: rgb(var(--color-foreground));
   }
 
   .partner-card__author::before {
     content: "—";
     display: inline-block;
-    color: #999999;
+    color: rgba(var(--color-foreground), 0.5);
   }
 
   /* --- Footer Area (Dots & Button) --- */
@@ -123,8 +120,8 @@
   .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background-color: #ffffff !important;
-    opacity: 0.8 !important;
+    background-color: rgb(var(--color-foreground)) !important;
+    opacity: 0.3 !important;
     margin: 0 !important;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -132,7 +129,6 @@
   }
 
   .section-{{ section.id }}-padding .slider-template-pagination .swiper-pagination-bullet-active {
-    background-color: #ffd000 !important; /* Perfect yellow match */
     opacity: 1 !important;
     transform: scale(1.1);
   }
@@ -141,24 +137,6 @@
   .partner-button-wrapper {
     position: absolute;
     right: 0;
-  }
-
-  .partner-button {
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    border-radius: 50px;
-    padding: 1.2rem 3rem;
-    font-weight: 700;
-    font-size: 1.3rem;
-    text-decoration: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    display: inline-block;
-  }
-
-  .partner-button:hover {
-    opacity: 0.85;
-    transform: scale(0.98);
   }
 
   @media screen and (max-width: 989px) {
@@ -173,7 +151,7 @@
   }
 {%- endstyle -%}
 
-<div class="partner-testimonials section-{{ section.id }}-padding gradient">
+<div class="partner-testimonials color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="page-width">
     
     {%- if section.settings.heading != blank -%}
@@ -206,7 +184,7 @@
             <div class="swiper-wrapper">
               {%- for block in section.blocks -%}
                 <div class="swiper-slide" {{ block.shopify_attributes }}>
-                  <div class="partner-card">
+                  <div class="partner-card color-{{ block.settings.color_scheme }} gradient">
                     <div class="partner-card__image-wrapper">
                       {%- if block.settings.image != blank -%}
                         {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
@@ -240,7 +218,7 @@
             {%- if section.settings.button_label != blank -%}
               <div class="partner-button-wrapper">
                 <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} 
-                   class="partner-button">
+                   class="button button--primary partner-button">
                   {{ section.settings.button_label | escape }}
                 </a>
               </div>
@@ -271,14 +249,20 @@
       "type": "select",
       "id": "heading_size",
       "options": [
-            { "value": "h2", "label": "Small" },
-            { "value": "h1", "label": "Medium" },
-            { "value": "h0", "label": "Large" },
-            { "value": "hxl", "label": "Extra Large" },
-            { "value": "hxxl", "label": "Extra Extra Large" }
-          ],
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" },
+        { "value": "hxl", "label": "Extra Large" },
+        { "value": "hxxl", "label": "Extra Extra Large" }
+      ],
       "default": "h1",
       "label": "Heading Size"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
     },
     {
       "type": "header",
@@ -413,6 +397,12 @@
       "type": "testimonial",
       "name": "Testimonial",
       "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-2"
+        },
         {
           "type": "image_picker",
           "id": "image",
