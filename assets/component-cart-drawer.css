@@ -827,19 +827,20 @@ cart-drawer td > .product-option{
 }
 
 .drawer__upsell-container {
-  width: 320px;
-  background-color: #ffffff;
-  border-right: 1px solid #e0e0e0;
-  border-left: none;
-  display: flex;
-  flex-direction: column;
-  transform: translateX(-100%); /* Slides in from left */
-  transition: transform var(--duration-default) ease;
-  transition-delay: var(--duration-default);
-  overflow: hidden;
-  visibility: hidden;
-  justify-content: space-between;
-  z-index: 1;
+    width: 320px;
+    background-color: #fff;
+    border-left: 1px solid #e0e0e0;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    transform: translate(100%);
+    transition: transform var(--duration-default) ease;
+    transition-delay: var(--duration-default);
+    overflow: hidden;
+    visibility: hidden;
+    justify-content: flex-start;
+    z-index: 1;
+    padding: 1.5rem 2rem;
 }
 
 .drawer.active .drawer__upsell-container {
