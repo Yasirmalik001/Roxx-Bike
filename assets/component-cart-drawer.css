@@ -970,25 +970,6 @@ cart-drawer td > .product-option{
   opacity: 0.6;
 }
 
-.ma_quickAdd_atc {
-  --cd-btn-font-size: 12px;
-  --cd-btn-color: #111111;
-  width: 100%;
-  background-color: #ffffff !important;
-  border: 1px solid #111111 !important;
-  color: var(--cd-btn-color) !important;
-  cursor: pointer;
-  font-size: var(--cd-btn-font-size) !important;
-  font-weight: 800 !important;
-  text-transform: uppercase;
-  border-radius: 50px !important;
-  padding: 10px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-}
 
 .ma_quickAdd_atc:hover {
   background-color: #111111 !important;
@@ -1468,26 +1449,6 @@ h3.drawer-line-card__title {
   flex-shrink: 0;
 }
 
-.ma_quickAdd_atc {
-  width: 68px !important;
-  height: 68px !important;
-  background-color: transparent !important;
-  border: 1px solid #111111 !important;
-  color: #111111 !important;
-  border-radius: 50% !important; /* Perfect circle */
-  padding: 0 !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.2;
-  white-space: pre-wrap; /* Allows text to wrap into two lines */
-  transition: all 0.2s ease;
-}
 
 .ma_quickAdd_atc:hover {
   background-color: #111111 !important;
