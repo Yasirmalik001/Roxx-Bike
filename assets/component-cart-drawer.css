@@ -773,7 +773,7 @@ cart-drawer .quantity{
     .drawer-product-card {
       background-color: #F5F5F5;
       border-radius: 12px;
-      /* padding: 10px; */
+      padding: 10px;
       font-family: var(--font-body-family);
       text-align: left;
       width: 100%;
