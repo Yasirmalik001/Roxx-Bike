@@ -2894,7 +2894,6 @@ backdrop-filter: blur(4px)
   }
 }
 
-/* Premium Product Info Card Container */
 .product__info-container {
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -2906,7 +2905,6 @@ backdrop-filter: blur(4px)
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.8rem;
   box-sizing: border-box;
 }
 
