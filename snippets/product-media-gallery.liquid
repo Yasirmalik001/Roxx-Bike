@@ -42,7 +42,7 @@
   endif
 -%}
 
-{%- if section.settings.thumbnail_side_by_side -%}
+{%- if section.settings.gallery_layout == 'thumbnail_slider' -%}
   <style>
     @media screen and (min-width: 990px) {
       media-gallery.media-gallery--side-by-side {
@@ -126,7 +126,7 @@
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
-  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if section.settings.thumbnail_side_by_side %} media-gallery--side-by-side{% endif %}"
+  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if section.settings.gallery_layout == 'thumbnail_slider' %} media-gallery--side-by-side{% endif %}"
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
