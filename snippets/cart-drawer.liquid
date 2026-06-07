@@ -729,56 +729,6 @@
             </div>
           {% endif %}
         </cart-drawer-items>
-    {% if settings.upsell__points %}
-            <div class="drawer__upsell-footer">
-              <div class="drawer__upsell-footer-inner">
-                {% if settings['upsell__points-heading'] != blank %}
-                  <h5>{{ settings['upsell__points-heading'] }}</h5>
-                {% endif %}
-
-                <div class="drawer__upsell-point">
-                  <div class="upsell-icon">
-                    {%- if settings.icon_1 != blank -%}
-                      {{ settings.icon_1 | image_url: width: 50 | image_tag: loading: 'lazy' }}
-                    {%- else -%}
-                      <svg class="usp-icon-img" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1">
-                        <circle cx="12" cy="12" r="10"></circle>
-                      </svg>
-                    {%- endif -%}
-                  </div>
-                  <span>{{ settings.title_1 | newline_to_br }}</span>
-                </div>
-
-                <div class="drawer__upsell-point">
-                  <div class="upsell-icon">
-                    {%- if settings.icon_2 != blank -%}
-                      {{ settings.icon_2 | image_url: width: 50 | image_tag: loading: 'lazy' }}
-                    {%- else -%}
-                      <svg class="usp-icon-img" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                      </svg>
-                    {%- endif -%}
-                  </div>
-                  <span>{{ settings.title_2 | newline_to_br }}</span>
-                </div>
-
-                <div class="drawer__upsell-point">
-                  <div class="upsell-icon">
-                    {%- if settings.icon_3 != blank -%}
-                      {{ settings.icon_3 | image_url: width: 50 | image_tag: loading: 'lazy' }}
-                    {%- else -%}
-                      <svg class="usp-icon-img" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                      </svg>
-                    {%- endif -%}
-                  </div>
-                  <span>{{ settings.title_3 | newline_to_br }}</span>
-                </div>
-              </div>
-
-              {% comment %} Styles moved to sereluna.css {% endcomment %}
-            </div>
-          {% endif %}
         <div class="drawer__footer">
           {%- if settings.show_cart_note -%}
             <details id="Details-CartDrawer">
