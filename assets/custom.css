@@ -2586,9 +2586,10 @@ cart-drawer-items {
 }
 
 .product-breadcrumbs a {
-  color: #000000;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
+    color: #000000 !important;
+    text-decoration: none !important;
+    transition: opacity 0.2s ease !important;
+    white-space: nowrap;
 }
 
 .product-breadcrumbs a:hover {
