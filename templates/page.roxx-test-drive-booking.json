@@ -16,9 +16,226 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+        "testimonials_6kM9B3": {
+      "type": "testimonials",
+      "blocks": {
+        "review_BXePF7": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_VtqAdd": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_t7gBRp": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_cVHFNQ": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_ghb9bL": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        },
+        "review_7RfCba": {
+          "type": "review",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Massa enim ut risus leo scelerisque semper. Lacus feugiat tellus eget hendrerit phasellus et platea arcu. Sollicitudin tempor egestas orci cursus eu purus. Praesent pretium dui aliquam feugiat a et. Mauris non auctor eget tortor.</p>",
+            "author": "Lena . J"
+          }
+        }
+      },
+      "block_order": [
+        "review_BXePF7",
+        "review_VtqAdd",
+        "review_t7gBRp",
+        "review_cVHFNQ",
+        "review_ghb9bL",
+        "review_7RfCba"
+      ],
+      "name": "Customer Reviews Slider",
+      "settings": {
+        "color_scheme": "",
+        "heading": "OUR CUSTOMER SAY!",
+        "heading_size": "h0",
+        "subheading": "<p>Lorem ipsum dolor sit amet consectetur. Luctus faucibus amet ut semper enim. Lacus venenatis risus nulla sit suspendisse purus.</p>",
+        "show_summary_card": false,
+        "summary_rating_text": "4.2 stars / 5",
+        "summary_count_text": "(Based on 200+ reviews)",
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "none",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "spacing": 30,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+        "masonary_gallery_3z9FME": {
+      "type": "masonary-gallery",
+      "blocks": {
+        "column_fgtRtb": {
+          "type": "column",
+          "settings": {
+            "margin_top": 0,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 0,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
+            "hide_middle_desktop": true,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        },
+        "column_PxpJ4F": {
+          "type": "column",
+          "settings": {
+            "margin_top": 30,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 30,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/9922956ec6231c593093b7a0a416bee6ced415b7.jpg",
+            "hide_middle_desktop": true,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        },
+        "column_tqGbjU": {
+          "type": "column",
+          "settings": {
+            "margin_top": 0,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 0,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "image_middle": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": true,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        },
+        "column_fMDjad": {
+          "type": "column",
+          "settings": {
+            "margin_top": 30,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 30,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": false,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        },
+        "column_KctEx6": {
+          "type": "column",
+          "settings": {
+            "margin_top": 0,
+            "height_top": 400,
+            "height_middle": 200,
+            "height_bottom": 400,
+            "margin_top_mobile": 0,
+            "height_top_mobile": 180,
+            "height_middle_mobile": 130,
+            "height_bottom_mobile": 180,
+            "image_top": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "hide_middle_desktop": false,
+            "image_bottom": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_fgtRtb",
+        "column_PxpJ4F",
+        "column_tqGbjU",
+        "column_fMDjad",
+        "column_KctEx6"
+      ],
+      "name": "Masonry Gallery",
+      "settings": {
+        "heading": "JOIN OUR ROXX FAMILY",
+        "heading_size": "h0",
+        "subheading": "with thousands who've upgraded their everyday ride.",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "keep_discovering_nqKjzK": {
+      "type": "keep-discovering",
+      "blocks": {
+        "external_link_yB3Jmg": {
+          "type": "external_link",
+          "settings": {
+            "title": "BOOK TEST DRIVE",
+            "link": ""
+          }
+        },
+        "standard_card_KbdMAC": {
+          "type": "standard_card",
+          "settings": {
+            "title": "SHOP BIKES",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "external_link_yB3Jmg",
+        "standard_card_KbdMAC"
+      ],
+      "name": "Keep Discovering Hero",
+      "settings": {
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+        "overlay_color": "#000000",
+        "overlay_opacity": 100,
+        "heading": "KEEP DISCOVERING",
+        "heading_size": "h1",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+        "masonary_gallery_3z9FME",
+    "keep_discovering_nqKjzK",
+        "testimonials_6kM9B3",
   ]
 }
