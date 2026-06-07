@@ -285,7 +285,11 @@
           <details data-hotspot>
             <summary class="hotspot-btn">
               <span class="visually-hidden">View details for {{ block.settings.title }}</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m-7-7h14"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<circle cx="12" cy="12" r="9" stroke="#333333" stroke-width="2"/>
+<path d="M12 15L12 9" stroke="#333333" stroke-width="2" stroke-linecap="square"/>
+<path d="M15 12L9 12" stroke="#333333" stroke-width="2" stroke-linecap="square"/>
+</svg>
             </summary>
             
             <div class="hotspot-tooltip hotspot-tooltip--{{ block.settings.tooltip_position }}">
@@ -308,7 +312,7 @@
             </div>
           </details>
 
-          <div class="hotspot-glow"></div>
+          <div class="hotspot-glow"> </div>
 
         </div>
       {%- endfor -%}
