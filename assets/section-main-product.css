@@ -970,7 +970,7 @@ a.product__text {
     width: calc(33% - 0.6rem);
     width: 85px;
     height: 85px;
-    border: 5px;
+    border: 1px;
   }
 }
 
