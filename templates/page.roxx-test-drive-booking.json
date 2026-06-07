@@ -17,7 +17,7 @@
         "padding_bottom": 28
       }
     },
-        "testimonials_6kM9B3": {
+    "testimonials_6kM9B3": {
       "type": "testimonials",
       "blocks": {
         "review_BXePF7": {
@@ -93,7 +93,7 @@
         "padding_bottom": 60
       }
     },
-        "masonary_gallery_3z9FME": {
+    "masonary_gallery_3z9FME": {
       "type": "masonary-gallery",
       "blocks": {
         "column_fgtRtb": {
@@ -234,8 +234,8 @@
   },
   "order": [
     "main",
-        "masonary_gallery_3z9FME",
-    "keep_discovering_nqKjzK",
-        "testimonials_6kM9B3",
+    "testimonials_6kM9B3",
+    "masonary_gallery_3z9FME",
+    "keep_discovering_nqKjzK"
   ]
 }
