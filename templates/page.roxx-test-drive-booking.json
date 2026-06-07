@@ -17,6 +17,46 @@
         "padding_bottom": 28
       }
     },
+    "calendly_booking_JMYJcT": {
+      "type": "calendly-booking",
+      "blocks": {
+        "list_item_NGiNaG": {
+          "type": "list_item",
+          "settings": {
+            "list_text": "Kies snel en eenvoudig een moment wanneer het u uitkomt."
+          }
+        },
+        "list_item_yWaGtt": {
+          "type": "list_item",
+          "settings": {
+            "list_text": "Geniet van 30 minuten op jouw favoriete e-bike en stel al je vragen."
+          }
+        },
+        "list_item_4qrEPj": {
+          "type": "list_item",
+          "settings": {
+            "list_text": "Lukt het toch niet op de afspraak te komen? Meld je dan even af."
+          }
+        }
+      },
+      "block_order": [
+        "list_item_NGiNaG",
+        "list_item_yWaGtt",
+        "list_item_4qrEPj"
+      ],
+      "name": "Calendly Booking",
+      "settings": {
+        "heading": "Boek je testrit",
+        "heading_size": "h1",
+        "icon_color": "#FFD800",
+        "description": "<p>Welke Roxx Bike wil jij testen? Boek eenvoudig een testrit van 30 minuten in onze winkel in Amsterdam Oost. Dan maken wij de e-bike voor je klaar. Tot snel!</p>",
+        "additional_info": "<p><strong>Openingstijden:</strong> Dinsdag tot Zaterdag van 10:30 tot 17:00</p><p><strong>Testritlocatie:</strong><br/>Supremebike store <br/>Commelinstraat 55H<br/>1093TK Amsterdam</p>",
+        "calendly_html": "<!-- Calendly inline widget begin -->\n<div class=\"calendly-inline-widget\" data-url=\"https://calendly.com/roxxbike/30min?hide_event_type_details=1&amp;hide_gdpr_banner=1\" style=\"min-width:620px;height:700px;\"></div>\n<script type=\"text/javascript\" src=\"https://assets.calendly.com/assets/external/widget.js\" async></script>\n<!-- Calendly inline widget end -->",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "testimonials_6kM9B3": {
       "type": "testimonials",
       "blocks": {
@@ -234,6 +274,7 @@
   },
   "order": [
     "main",
+    "calendly_booking_JMYJcT",
     "testimonials_6kM9B3",
     "masonary_gallery_3z9FME",
     "keep_discovering_nqKjzK"
