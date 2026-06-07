@@ -502,10 +502,13 @@ cart-drawer-items::-webkit-scrollbar-track-piece,
 }
 
 .cart-item__price-wrapper span.price {
-  font-size: 15px;
-  font-weight: 800;
-  color: #111111;
-  letter-spacing: 0;
+font-family: Integral CF;
+font-weight: 500;
+font-style: Medium;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
 }
 
 .cart-drawer .cart-item__price-wrapper s.price,
