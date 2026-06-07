@@ -121,7 +121,7 @@
               {%- assign icon_key = 'payment_icon_' | append: i -%}
               {%- assign payment_icon = block.settings[icon_key] -%}
               {%- if payment_icon != blank -%}
-                <div class="payment-icon-wrapper" style="width: 40px; height: 25px; display: flex; align-items: center; justify-content: center; border: 1px solid #e5e5e5; border-radius: 4px; padding: 2px; background: #fff;">
+                <div class="payment-icon-wrapper" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;  padding: 2px; background: #fff;">
                   <img src="{{ payment_icon | image_url: width: 80 }}" alt="{{ payment_icon.alt | escape }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
                 </div>
               {%- endif -%}
