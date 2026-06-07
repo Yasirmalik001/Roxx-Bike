@@ -9,6 +9,7 @@
       {%- if accessory_product != blank -%}
         <label class="accessory-card-label">
           <input type="checkbox" name="accessory_items" value="{{ first_variant.id }}" class="accessory-checkbox-input">
+          
           <div class="accessory-card-content">
             <div class="accessory-image">
               {%- if accessory_product.featured_image != blank -%}
@@ -35,55 +36,53 @@
 
 <style>
   .product-option-accessories {
-    margin: 2.5rem 0;
+    margin: 3rem 0;
     display: block;
     font-family: inherit;
   }
-  .accessory-checkbox-input:checked + .accessory-card-content .accessory-radio-indicator {
-    border-color: #ffcc00; /* Yellow Border */
-    background-color: #ffcc00; /* Yellow Background */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath fill-rule='evenodd' d='M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z'/%3E%3C/svg%3E");
-    background-size: 16px;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .accessory-radio-indicator {
-    width: 28px;
-    height: 28px;
-    border: 1px solid #dcdcdc;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    margin-left: 12px;
+  
+  .accessory-heading {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
   }
 
-  .accessory-checkbox-input {
-    display: none; 
-  }
   .accessories-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1.2rem;
   }
+
   .accessory-card-label {
     display: block;
     cursor: pointer;
     margin: 0;
-  }
-  .accessory-checkbox-input {
-    display: none;
+    position: relative;
   }
   
-  /* Unselected State */
+  /* BULLETPROOF HIDER: Stops Shopify themes from rendering their own checkbox */
+  input.accessory-checkbox-input[type="checkbox"] {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: -1 !important;
+    appearance: none !important;
+  }
+
+  /* Unselected Card State */
   .accessory-card-content {
     display: flex;
     align-items: center;
-    padding: 12px 16px;
-    border: 2px solid transparent; /* Prevents layout shift on select */
+    padding: 1.6rem;
+    border: 2px solid transparent; 
     border-radius: 12px;
-    background-color: #f7f7f7;
+    background-color: #f8f8f8;
     transition: all 0.2s ease-in-out;
   }
   
@@ -95,7 +94,7 @@
     justify-content: center;
     background-color: #ffffff;
     border-radius: 8px;
-    margin-right: 16px;
+    margin-right: 1.6rem;
     padding: 6px;
     flex-shrink: 0;
   }
@@ -115,22 +114,23 @@
   }
   
   .accessory-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: #121212;
+    color: #111111;
     margin-bottom: 4px;
     line-height: 1.2;
   }
   
   .accessory-price {
-    font-size: 1.3rem;
-    color: #444;
+    font-size: 1.35rem;
+    color: #444444;
     font-weight: 400;
   }
   
+  /* Custom Checkbox Circle (Unselected) */
   .accessory-radio-indicator {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     border: 1px solid #dcdcdc;
     border-radius: 50%;
     display: flex;
@@ -139,22 +139,25 @@
     transition: all 0.2s ease-in-out;
     background-color: #ffffff;
     flex-shrink: 0;
-    margin-left: 12px;
+    margin-left: 1rem;
   }
   
-  /* Selected State */
-  .accessory-checkbox-input:checked + .accessory-card-content {
+  /* --- SELECTED STATES --- */
+  
+  /* Card border & shadow when checked */
+  input.accessory-checkbox-input[type="checkbox"]:checked + .accessory-card-content {
     background-color: #ffffff;
-    border-color: #ffcc00;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    border-color: #ffd000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
   
-  .accessory-checkbox-input:checked + .accessory-card-content .accessory-radio-indicator {
-    border-color: #ffcc00;
-    background-color: #ffcc00;
-    /* Custom precise SVG Checkmark */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath fill-rule='evenodd' d='M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z'/%3E%3C/svg%3E");
-    background-size: 16px;
+  /* Perfect Yellow Checkmark Pop */
+  input.accessory-checkbox-input[type="checkbox"]:checked + .accessory-card-content .accessory-radio-indicator {
+    border-color: #ffd000;
+    background-color: #ffd000;
+    /* Custom SVG matching the straight-edged tick perfectly */
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 5.5L5 9L12.5 1.5' stroke='white' stroke-width='2.5' stroke-linecap='square'/%3E%3C/svg%3E");
+    background-size: 13px;
     background-position: center;
     background-repeat: no-repeat;
   }
