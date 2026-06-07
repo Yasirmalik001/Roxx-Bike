@@ -22,7 +22,7 @@
   position: relative;
   bottom: 0px;
   height: 100%;
-  width: 48rem; /* Adjusted for optimal cart width */
+  width: 55rem; /* Adjusted for optimal cart width */
   max-width: calc(100vw - 3rem);
   padding: 0;
   background-color: #ffffff;
