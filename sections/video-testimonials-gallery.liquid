@@ -109,7 +109,7 @@
     width: 100%;
     display: block;
     height: {{ section.settings.card_height_desktop }}px;
-    cursor: pointer; /* Indicates it can be clicked */
+    cursor: pointer;
   }
 
   @media screen and (max-width: 749px) {
@@ -118,14 +118,32 @@
     }
   }
 
-  .vt-gallery-media-wrap img,
-  .vt-gallery-media-wrap video {
+  /* Video Layer */
+  .vt-gallery-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 1;
+  }
+
+  /* Custom Thumbnail/Poster Layer */
+  .vt-gallery-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2; /* Sits on top of the video */
+    transition: opacity 0.3s ease;
+  }
+
+  .vt-gallery-poster.is-hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 
   /* Play Button Overlay */
@@ -142,13 +160,12 @@
     justify-content: center;
     color: #ffffff;
     border: none;
-    z-index: 3;
+    z-index: 3; /* Sits on top of the poster */
     transition: opacity 0.3s ease, transform 0.2s ease;
     background: #FFFFFF54;
-    pointer-events: none; /* Lets clicks pass through to the wrapper */
+    pointer-events: none;
   }
 
-  /* Hide button state */
   .vt-gallery-play-btn.is-hidden {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.9);
@@ -185,8 +202,12 @@
           <div class="vt-gallery-media-wrap">
             
             {%- if block.settings.video != blank -%}
-              {{ block.settings.video | video_tag: image_size: '800s', autoplay: false, loop: true, controls: false, preload: 'metadata' }}
+              {{ block.settings.video | video_tag: image_size: '800s', autoplay: false, loop: true, controls: false, preload: 'metadata', class: 'vt-gallery-video' }}
               
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'vt-gallery-poster' }}
+              {%- endif -%}
+
               <button type="button" class="vt-gallery-play-btn" aria-label="Play video">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
                   <path d="M16.0002 6.51413C18.5988 8.06616 18.5988 11.8303 16.0002 13.3824L6.05105 19.3246C3.38483 20.917 9.00512e-07 18.996 1.03054e-06 15.8905L1.52812e-06 4.00602C1.65814e-06 0.90045 3.38483 -1.02052 6.05106 0.571909L16.0002 6.51413Z" fill="white"/>
@@ -194,9 +215,9 @@
               </button>
 
             {%- elsif block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+              {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'vt-gallery-poster' }}
             {%- else -%}
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg vt-gallery-poster' }}
             {%- endif -%}
 
           </div>
@@ -209,22 +230,24 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Select all the media wrappers inside this section
     const wrappers = document.querySelectorAll('.vt-gallery-media-wrap');
     
     wrappers.forEach(wrap => {
       const video = wrap.querySelector('video');
       const playBtn = wrap.querySelector('.vt-gallery-play-btn');
+      const poster = wrap.querySelector('.vt-gallery-poster');
       
-      // If the block has a video, add the click functionality
+      // If the block has a video, enable click-to-play
       if (video && playBtn) {
         wrap.addEventListener('click', function() {
           if (video.paused) {
             video.play();
             playBtn.classList.add('is-hidden');
+            if (poster) poster.classList.add('is-hidden'); // Hide the custom thumbnail
           } else {
             video.pause();
             playBtn.classList.remove('is-hidden');
+            // We intentionally leave the poster hidden once they've started watching
           }
         });
       }
@@ -372,7 +395,7 @@
           "type": "image_picker",
           "id": "image",
           "label": "Fallback Cover Image",
-          "info": "Used if no native video is uploaded."
+          "info": "Used as the video thumbnail if a video is present."
         }
       ]
     }
