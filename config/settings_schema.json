@@ -1589,6 +1589,58 @@
       "label": "Text 3",
       "default": "Quality natural fabrics"
     },
+    {
+      "type": "header",
+      "content": "Custom Cart Footer (ROXX)"
+    },
+    {
+      "type": "checkbox",
+      "id": "cart_footer_trustpilot_enabled",
+      "label": "Enable Trustpilot row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_trustpilot_score",
+      "label": "Trustpilot score text",
+      "default": "4.4 / 5 (based on 200+)"
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_usp_1_text",
+      "label": "USP 1 Text",
+      "default": "Fast delivery"
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_usp_2_text",
+      "label": "USP 2 Text",
+      "default": "Secured payment"
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_usp_3_text",
+      "label": "USP 3 Text",
+      "default": "Excellent support"
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_subtotal_text",
+      "label": "Subtotal text",
+      "default": "SUBTOTAL"
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_tax_text",
+      "label": "Tax text",
+      "default": "Included tax and shipping"
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_checkout_text",
+      "label": "Checkout button text",
+      "default": "CONTINUE TO CHECKOUT"
+    },
     ]
   },
   {
