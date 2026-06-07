@@ -273,10 +273,6 @@ cart-drawer-items {
   padding: 0px;
 }
 
-.cart-drawer .cart-items td {
-  padding-top: 1.7rem;
-}
-
 .cart-drawer .cart-items .cart-item__nested-line td:not(.cart-item__quantity) {
   padding-top: 1rem;
 }
