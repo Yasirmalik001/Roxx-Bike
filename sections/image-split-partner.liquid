@@ -1,6 +1,16 @@
-
-
 <style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
   .custom-partner-section {
     display: flex;
     flex-wrap: wrap;
@@ -115,9 +125,8 @@
   }
 </style>
 
-<section class="custom-partner-section color-{{ section.settings.color_scheme }} gradient">
+<section class="custom-partner-section section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   
-  <!-- Left Content Area -->
   <div class="partner-content">
     {% if section.settings.heading != blank %}
       <h2 class="partner-heading hero-features__heading h1 {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
@@ -136,7 +145,6 @@
     {% endif %}
   </div>
 
-  <!-- Right Dual Images Area -->
   <div class="partner-images">
     <div class="partner-image-col">
       {% if section.settings.image_1 != blank %}
@@ -212,6 +220,30 @@
       "type": "image_picker",
       "id": "image_2",
       "label": "Right Image"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
     }
   ],
   "presets": [
