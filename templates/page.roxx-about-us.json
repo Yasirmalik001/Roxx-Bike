@@ -24,14 +24,14 @@
           "type": "heading",
           "settings": {
             "heading": "About us",
-            "color": "#FFFFFF"
+            "color": "#ffffff"
           }
         },
         "text_yYGzBK": {
           "type": "text",
           "settings": {
             "text": "<h2>When E-Bike Meets Life</h2>",
-            "color": "#FFFFFF"
+            "color": "#ffffff"
           }
         }
       },
@@ -44,7 +44,15 @@
         "image": "shopify://shop_images/persons-of-cycles.png",
         "overlay_opacity": 40,
         "desktop_height": 600,
+        "desktop_align_y": "center",
+        "desktop_align_x": "flex-start",
+        "desktop_text_align": "left",
+        "desktop_flex_align": "flex-start",
         "mobile_height": 500,
+        "mobile_align_y": "flex-start",
+        "mobile_align_x": "center",
+        "mobile_text_align": "center",
+        "mobile_flex_align": "center",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -75,7 +83,7 @@
         "desktop_content_position": "left",
         "content_alignment": "left",
         "color_scheme": "",
-        "full_width": false,
+        "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
       }
