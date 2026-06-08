@@ -89,22 +89,6 @@
         "padding_bottom": 52
       }
     },
-    "showroom_map_RhAd3U": {
-      "type": "showroom-map",
-      "name": "Showroom Map",
-      "settings": {
-        "color_scheme": "",
-        "heading_size": "h1",
-        "map_image": "shopify://shop_images/60474fb45f1e29001e432c8784fcb613c5f459dd.png",
-        "heading": "THE ROXX BIKE SHOWROOM IN WEESP",
-        "address": "<p>Pampuslaan 59A<br/>1382 JM Weesp</p>",
-        "hours": "<p>we are open from <strong>monday to friday 9:00 am to 6:00 pm</strong></p>",
-        "primary_button_label": "GET DIRECTION",
-        "primary_button_link": "",
-        "secondary_button_label": "CALL US",
-        "secondary_button_link": ""
-      }
-    },
     "feature_alternating_9XUyie": {
       "type": "feature-alternating",
       "blocks": {
@@ -139,6 +123,22 @@
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "showroom_map_RhAd3U": {
+      "type": "showroom-map",
+      "name": "Showroom Map",
+      "settings": {
+        "color_scheme": "",
+        "heading_size": "h1",
+        "map_image": "shopify://shop_images/60474fb45f1e29001e432c8784fcb613c5f459dd.png",
+        "heading": "THE ROXX BIKE SHOWROOM IN WEESP",
+        "address": "<p>Pampuslaan 59A<br/>1382 JM Weesp</p>",
+        "hours": "<p>we are open from <strong>monday to friday 9:00 am to 6:00 pm</strong></p>",
+        "primary_button_label": "GET DIRECTION",
+        "primary_button_link": "",
+        "secondary_button_label": "CALL US",
+        "secondary_button_link": ""
       }
     },
     "image_split_partner_t3L4Lr": {
@@ -207,8 +207,8 @@
     "main",
     "hero_slideshow_V3NdcU",
     "rich_text_JXmCia",
-    "showroom_map_RhAd3U",
     "feature_alternating_9XUyie",
+    "showroom_map_RhAd3U",
     "image_split_partner_t3L4Lr",
     "keep_discovering_LJ8MMy"
   ]
