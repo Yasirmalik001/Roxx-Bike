@@ -955,7 +955,7 @@ span.cc-svg-ride {
   cursor: pointer;
   position: relative;
   right: 0;
-  top: 0;
+  top: 20px;
   height: 100%;
   width: auto;
   display: inline-flex;
