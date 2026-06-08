@@ -16,15 +16,21 @@
   .custom-hero-{{ section.id }} {
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: {{ section.settings.mobile_height }}px;
     background-color: #000000;
+    
+    /* Mobile Alignment */
+    align-items: {{ section.settings.mobile_align_y }};
+    justify-content: {{ section.settings.mobile_align_x }};
   }
 
   @media screen and (min-width: 750px) {
     .custom-hero-{{ section.id }} {
       min-height: {{ section.settings.desktop_height }}px;
+      
+      /* Desktop Alignment */
+      align-items: {{ section.settings.desktop_align_y }};
+      justify-content: {{ section.settings.desktop_align_x }};
     }
   }
 
@@ -48,13 +54,24 @@
   .custom-hero-{{ section.id }} .hero-content-wrapper {
     position: relative;
     z-index: 3;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
     padding: 2rem;
     max-width: 800px;
+    width: 100%;
+    
+    /* Mobile Content Alignment */
+    text-align: {{ section.settings.mobile_text_align }};
+    align-items: {{ section.settings.mobile_flex_align }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .custom-hero-{{ section.id }} .hero-content-wrapper {
+      /* Desktop Content Alignment */
+      text-align: {{ section.settings.desktop_text_align }};
+      align-items: {{ section.settings.desktop_flex_align }};
+    }
   }
 {%- endstyle -%}
 
@@ -144,7 +161,6 @@
   .hero-block-text {
     font-size: 1.5rem;
     line-height: 1.6;
-    margin: 0 auto;
     max-width: 650px;
     font-weight: 400;
   }
@@ -188,6 +204,10 @@
       "default": 40
     },
     {
+      "type": "header",
+      "content": "Desktop Layout"
+    },
+    {
       "type": "range",
       "id": "desktop_height",
       "min": 400,
@@ -198,6 +218,55 @@
       "default": 600
     },
     {
+      "type": "select",
+      "id": "desktop_align_y",
+      "label": "Vertical Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Middle" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_align_x",
+      "label": "Horizontal Position",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_align",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_flex_align",
+      "label": "Content Box Alignment",
+      "info": "Aligns the blocks within the content wrapper.",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Layout"
+    },
+    {
       "type": "range",
       "id": "mobile_height",
       "min": 300,
@@ -206,6 +275,51 @@
       "unit": "px",
       "label": "Mobile Height",
       "default": 500
+    },
+    {
+      "type": "select",
+      "id": "mobile_align_y",
+      "label": "Vertical Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Middle" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_align_x",
+      "label": "Horizontal Position",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_align",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_flex_align",
+      "label": "Content Box Alignment",
+      "info": "Aligns the blocks within the content wrapper.",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
     },
     {
       "type": "header",
