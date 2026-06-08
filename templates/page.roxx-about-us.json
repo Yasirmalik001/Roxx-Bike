@@ -61,14 +61,22 @@
     "rich_text_JXmCia": {
       "type": "rich-text",
       "blocks": {
+        "heading_a4e6t8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Brand story",
+            "heading_size": "h1"
+          }
+        },
         "text_9LiYQj": {
           "type": "text",
           "settings": {
-            "text": "<p>Deel informatie over je merk met klanten. Beschrijf een product, doe aankondigingen of verwelkom klanten in je winkel.</p>"
+            "text": "<p>At Roxx Bike, we believe that a good electric bike doesn't have to be complicated. It's about comfort, quality, and above all: fun on every ride. And that is exactly what we have built our brand around. Our e-bikes are made to ensure you cycle smoothly, safely, and with a smile, every single day.</p>"
           }
         }
       },
       "block_order": [
+        "heading_a4e6t8",
         "text_9LiYQj"
       ],
       "name": "t:sections.rich-text.presets.name",
@@ -87,6 +95,7 @@
       "settings": {
         "color_scheme": "",
         "heading_size": "h1",
+        "map_image": "shopify://shop_images/60474fb45f1e29001e432c8784fcb613c5f459dd.png",
         "heading": "THE ROXX BIKE SHOWROOM IN WEESP",
         "address": "<p>Pampuslaan 59A<br/>1382 JM Weesp</p>",
         "hours": "<p>we are open from <strong>monday to friday 9:00 am to 6:00 pm</strong></p>",
