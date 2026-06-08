@@ -99,7 +99,7 @@
             "image": "shopify://shop_images/3600952532f1a29c6a123b2109e73759744dfebd.png",
             "layout": "left",
             "heading": "FROM A SMALL IDEA TO A GROWING E-BIKE BRAND",
-            "heading_size": "h0",
+            "heading_size": "h1",
             "bullet_1": "Lorem ipsum dolor sit amet consectetur. Velit eu justo adipiscing nec nam nibh turpis et consectetur. Arcu arcu odio egestas nibh nisl arcu. Duis aliquam mattis leo proin tristique. Ornare luctus eget turpis nibh cras vitae neque. Pellentesque in donec habitant nibh nunc dui sed gravida aliquet. Ut euismod tempor et ultrices mauris. Amet elit.",
             "bullet_2": "Lorem ipsum dolor sit amet consectetur. Et facilisi quis consequat nulla nibh amet mi est proin. Consectetur id ornare convallis vestibulum. Ullamcorper pulvinar amet."
           }
@@ -111,7 +111,7 @@
             "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
             "layout": "right",
             "heading": "BUILT FOR EVERYDAY RIDERS",
-            "heading_size": "h0",
+            "heading_size": "h1",
             "text": "<p>From city commuting to weekend adventures, our bikes are designed to make every ride feel effortless — with comfort, reliability, and smart technology at the center of the experience.</p>"
           }
         }
