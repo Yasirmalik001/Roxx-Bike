@@ -23,10 +23,17 @@
         "slide_efXaz9": {
           "type": "slide",
           "settings": {
+            "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
             "image": "shopify://shop_images/persons-of-cycles.png",
             "heading": "WHEN E-BIKE MEETS LIFE",
             "heading_size": "h0",
-            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>"
+            "description": "<p>Roxx isn't just about getting from A to B. It's about riding smarter, smoother, and with zero compromise.</p><p>Whether you're commuting, exploring, or just escaping traffic Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>",
+            "feature_1_title": "",
+            "feature_1_text": "",
+            "feature_2_title": "",
+            "feature_2_text": "",
+            "feature_3_title": "",
+            "feature_3_text": ""
           }
         }
       },
@@ -35,14 +42,18 @@
       ],
       "name": "Hero Slideshow",
       "settings": {
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "loop": true,
+        "autoplay": true,
+        "autoplay_interval": 5000,
+        "desktop_slides": 1,
+        "desktop_spacing": 0,
+        "mobile_slides": "1",
+        "mobile_spacing": 0,
+        "color_scheme": "",
         "desktop_height": 750,
         "mobile_height": 650,
-        "feature_1_title": "",
-        "feature_1_text": "",
-        "feature_2_title": "",
-        "feature_2_text": "",
-        "feature_3_title": "",
-        "feature_3_text": "",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -74,6 +85,8 @@
       "type": "showroom-map",
       "name": "Showroom Map",
       "settings": {
+        "color_scheme": "",
+        "heading_size": "h1",
         "heading": "THE ROXX BIKE SHOWROOM IN WEESP",
         "address": "<p>Pampuslaan 59A<br/>1382 JM Weesp</p>",
         "hours": "<p>we are open from <strong>monday to friday 9:00 am to 6:00 pm</strong></p>",
@@ -89,8 +102,10 @@
         "timeline_row_wJxnfn": {
           "type": "timeline_row",
           "settings": {
+            "color_scheme": "",
             "layout": "left",
             "heading": "FROM A SMALL IDEA TO A GROWING E-BIKE BRAND",
+            "heading_size": "h0",
             "bullet_1": "Lorem ipsum dolor sit amet consectetur. Velit eu justo adipiscing nec nam nibh turpis et consectetur. Arcu arcu odio egestas nibh nisl arcu. Duis aliquam mattis leo proin tristique. Ornare luctus eget turpis nibh cras vitae neque. Pellentesque in donec habitant nibh nunc dui sed gravida aliquet. Ut euismod tempor et ultrices mauris. Amet elit.",
             "bullet_2": "Lorem ipsum dolor sit amet consectetur. Et facilisi quis consequat nulla nibh amet mi est proin. Consectetur id ornare convallis vestibulum. Ullamcorper pulvinar amet."
           }
@@ -98,8 +113,10 @@
         "text_row_JEEF7A": {
           "type": "text_row",
           "settings": {
+            "color_scheme": "",
             "layout": "right",
             "heading": "BUILT FOR EVERYDAY RIDERS",
+            "heading_size": "h0",
             "text": "<p>From city commuting to weekend adventures, our bikes are designed to make every ride feel effortless — with comfort, reliability, and smart technology at the center of the experience.</p>"
           }
         }
@@ -109,12 +126,18 @@
         "text_row_JEEF7A"
       ],
       "name": "Alternating Features",
-      "settings": {}
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "image_split_partner_t3L4Lr": {
       "type": "image-split-partner",
       "name": "Partner Split Content",
       "settings": {
+        "color_scheme": "",
+        "heading_size": "h1",
         "heading": "HAND IN HAND WITH BUSINESS PARTNERS",
         "text": "<p>In addition to our regular customers, we will also focus on business partners in the coming years. By collaborating with bicycle shops, hotels, event organizers, and companies, we aim to demonstrate the power of flexible, fun, and reliable transportation through strong partnerships and comprehensive service and maintenance contracts.</p>",
         "button_label": "BECOME A DEALER",
@@ -161,6 +184,7 @@
       ],
       "name": "Keep Discovering Hero",
       "settings": {
+        "color_scheme": "",
         "overlay_color": "#000000",
         "overlay_opacity": 80,
         "heading": "KEEP DISCOVERING",
