@@ -2335,13 +2335,24 @@ a.custom-discover-btn {
   justify-content: center;
 }
 
-
-/* Fix header border line issue on transparent header */
-.header-wrapper.header-transparent,
-.header-wrapper.header-transparent:hover,
-.header-wrapper.header-transparent.header-wrapper--border-bottom {
+/* Fix header border line issue on transparent and sticky header */
+.header-wrapper,
+.header-wrapper--border-bottom,
+.shopify-section-header-sticky,
+.scrolled-past-header,
+.section-header,
+sticky-header {
   border-bottom: none !important;
   box-shadow: none !important;
+}
+
+.shopify-section-header-sticky::after,
+.scrolled-past-header::after,
+.section-header::after,
+sticky-header::after {
+  box-shadow: none !important;
+  border-bottom: none !important;
+  content: none !important;
 }
 
 /* Fix button borderline issue on hover (Dawn box-shadow issue on pill buttons) */
