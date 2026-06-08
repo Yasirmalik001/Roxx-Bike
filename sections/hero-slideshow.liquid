@@ -353,7 +353,7 @@
 
   {%- if section.blocks.size > 1 -%}
         </div>
-        <div class="swiper-pagination-{{ section.id }} slider-template-pagination"></div>
+        {% comment %} <div class="swiper-pagination-{{ section.id }} slider-template-pagination"></div> {% endcomment %}
       </div>
     </slider-container>
   {%- else -%}
