@@ -8,6 +8,12 @@ textarea {
 /* ==========================================================
    Global Button Hover Sweep Animation
    ========================================================== */
+   p {
+    font-family: 'Suisse Int\'l Trial';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+}
 .button, 
 .button--primary, 
 .button--secondary,
