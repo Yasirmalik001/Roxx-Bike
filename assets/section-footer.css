@@ -685,10 +685,12 @@
     order: 1; /* Put country/trustpilot above logo */
   }
 }
-
 .footer__bottom-copyright {
-  text-align: center;
-  margin-top: 3rem;
-  font-size: 11px;
-  color: #666;
+    /* text-align: center; */
+    padding-block: 3rem;
+    font-size: 11px;
+    /* color: #666; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
