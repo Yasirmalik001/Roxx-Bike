@@ -408,12 +408,12 @@ span.cc-svg-ride {
 }
 
 @media screen and (max-width: 799px) {
-  .collection-tabs .collection-tabs__header-wrap {
+.collection-tabs .collection-tabs__header-wrap {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
+    gap: 0;
+    margin-bottom: 8rem;
+}
 }
 
 .collection-tabs .collection-tabs__heading-row {
