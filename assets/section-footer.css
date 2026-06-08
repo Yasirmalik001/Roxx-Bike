@@ -26,6 +26,9 @@
   .footer-block.grid__item:first-child {
     margin-top: 0;
   }
+  .footer .footer-block__newsletter  .footer-block__heading{
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 750px) {
