@@ -1267,7 +1267,7 @@ letter-spacing: 0%;
 .header-hovered .header__icon--cart,
 .header-wrapper:not(.header-transparent) .header__icon--account,
 .header-wrapper:not(.header-transparent) .header__icon--cart {
-  background: #FFFFFF1C;
+background: #C2C2C21C;
   backdrop-filter: blur(4px);
   color: #000000;
 }
