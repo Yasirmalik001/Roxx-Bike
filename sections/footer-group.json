@@ -59,7 +59,7 @@
       "settings": {
         "brand_image_width": 170,
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "newsletter_enable": false,
+        "newsletter_enable": true,
         "newsletter_heading": "Subscribe to our emails",
         "newsletter_description": "<p>Lorem ipsum dolor sit amet consectetur. Lorem nisl fermentum nunc felis venenatis nulla lacus justo</p>",
         "newsletter_subtext": "<p>Lorem ipsum dolor sit amet consectetur. Lorem nisl fermentum nunc felis venenatis nulla lacus justo</p>",
