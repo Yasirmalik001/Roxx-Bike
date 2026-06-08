@@ -123,8 +123,8 @@
       "name": "Alternating Features",
       "settings": {
         "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "showroom_map_RhAd3U": {
@@ -152,7 +152,9 @@
         "heading": "HAND IN HAND WITH BUSINESS PARTNERS",
         "text": "<p>In addition to our regular customers, we will also focus on business partners in the coming years. By collaborating with bicycle shops, hotels, event organizers, and companies, we aim to demonstrate the power of flexible, fun, and reliable transportation through strong partnerships and comprehensive service and maintenance contracts.</p>",
         "button_label": "BECOME A DEALER",
-        "button_link": ""
+        "button_link": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "keep_discovering_LJ8MMy": {
