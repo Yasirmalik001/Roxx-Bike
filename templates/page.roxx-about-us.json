@@ -96,6 +96,7 @@
           "type": "timeline_row",
           "settings": {
             "color_scheme": "",
+            "image": "shopify://shop_images/3600952532f1a29c6a123b2109e73759744dfebd.png",
             "layout": "left",
             "heading": "FROM A SMALL IDEA TO A GROWING E-BIKE BRAND",
             "heading_size": "h0",
@@ -107,6 +108,7 @@
           "type": "text_row",
           "settings": {
             "color_scheme": "",
+            "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
             "layout": "right",
             "heading": "BUILT FOR EVERYDAY RIDERS",
             "heading_size": "h0",
