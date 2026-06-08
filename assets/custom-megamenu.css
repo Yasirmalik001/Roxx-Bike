@@ -115,9 +115,11 @@
 }
 
 .megamenu-product-prices .price {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #111111;
+font-family: Suisse Intl Trial;
+font-weight: 600;
+font-size: 14px;
+line-height: 100%;
+
 }
 
 .megamenu-product-prices .compare-price {
