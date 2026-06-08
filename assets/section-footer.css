@@ -6,7 +6,9 @@
 .footer:not(.color-scheme-1) {
   border-top: none;
 }
-
+.footer-block__brand-info {
+  display:  none;
+}
 .footer__content-top {
     display: block;
     position: relative;
