@@ -199,7 +199,8 @@
       ],
       "name": "Keep Discovering Hero",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "image": "shopify://shop_images/763a222d39b3d17c6aac1ce5cbd594523d391318.png",
         "overlay_color": "#000000",
         "overlay_opacity": 80,
         "heading": "KEEP DISCOVERING",
