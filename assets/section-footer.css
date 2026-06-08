@@ -13,12 +13,6 @@
     display: block;
     position: relative;
 }
-.sr-newsletter-section {
-    padding-bottom: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 @media screen and (max-width: 749px) {
 .footer {
   padding: 0px 1.5rem 0px 1.5rem;
