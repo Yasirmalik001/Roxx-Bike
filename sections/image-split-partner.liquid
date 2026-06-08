@@ -30,16 +30,6 @@
     box-sizing: border-box;
   }
 
-  .partner-heading {
-    font-family: inherit;
-    font-size: 2.2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-
   .partner-text {
     font-size: 1.05rem;
     line-height: 1.6;
@@ -129,7 +119,7 @@
   
   <div class="partner-content">
     {% if section.settings.heading != blank %}
-      <h2 class="partner-heading hero-features__heading h1 {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+      <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
     {% endif %}
 
     {% if section.settings.text != blank %}
