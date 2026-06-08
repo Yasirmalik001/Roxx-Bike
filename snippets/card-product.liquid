@@ -281,30 +281,17 @@ line-height: 100%;
         {% if card_product.metafields.custom.subtitle != blank %}
           <p class="roxx-card-subtitle">{{ card_product.metafields.custom.subtitle }}</p>
         {% endif %}
-          {% if card_product.metafields.custom.spec_1 != blank %}
-        <div class="roxx-specs-grid">
-          {% if card_product.metafields.custom.spec_1 != blank %}
-            <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_1 }}">
-              {{ card_product.metafields.custom.spec_1 }}
-            </div>
-          {% endif %}
-          {% if card_product.metafields.custom.spec_2 != blank %}
-            <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_2 }}">
-              {{ card_product.metafields.custom.spec_2 }}
-            </div>
-          {% endif %}
-          {% if card_product.metafields.custom.spec_3 != blank %}
-            <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_3 }}">
-              {{ card_product.metafields.custom.spec_3 }}
-            </div>
-          {% endif %}
-          {% if card_product.metafields.custom.spec_4 != blank %}
-            <div class="roxx-spec-pill" title="{{ card_product.metafields.custom.spec_4 }}">
-              {{ card_product.metafields.custom.spec_4 }}
-            </div>
-          {% endif %}
+     {%- if card_product.metafields.custom.spec != blank -%}
+  <div class="roxx-specs-grid">
+    {%- for spec_item in card_product.metafields.custom.spec.value -%}
+      {%- if spec_item != blank -%}
+        <div class="roxx-spec-pill" title="{{ spec_item | escape }}">
+          {{ spec_item | escape }}
         </div>
-          {% endif %}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
 
         <div class="roxx-price-row">
           <span class="roxx-price-current">{{ card_product.price | money }}</span>
