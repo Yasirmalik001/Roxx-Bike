@@ -30,7 +30,7 @@
         "text_yYGzBK": {
           "type": "text",
           "settings": {
-            "text": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>",
+            "text": "<h2>When E-Bike Meets Life</h2>",
             "color": "#FFFFFF"
           }
         }
@@ -45,48 +45,6 @@
         "overlay_opacity": 40,
         "desktop_height": 600,
         "mobile_height": 500,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "hero_slideshow_V3NdcU": {
-      "type": "hero-slideshow",
-      "blocks": {
-        "slide_efXaz9": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-            "image": "shopify://shop_images/persons-of-cycles.png",
-            "pre_heading": "ABOUT US",
-            "heading": "When E-Bike Meets Life",
-            "heading_size": "h1",
-            "description": "",
-            "feature_1_title": "",
-            "feature_1_text": "",
-            "feature_2_title": "",
-            "feature_2_text": "",
-            "feature_3_title": "",
-            "feature_3_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_efXaz9"
-      ],
-      "name": "Hero Slideshow",
-      "settings": {
-        "enable_slider_desktop": true,
-        "enable_slider_mobile": true,
-        "loop": true,
-        "autoplay": true,
-        "autoplay_interval": 5000,
-        "desktop_slides": 1,
-        "desktop_spacing": 0,
-        "mobile_slides": "1",
-        "mobile_spacing": 0,
-        "color_scheme": "",
-        "desktop_height": 750,
-        "mobile_height": 650,
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -246,7 +204,6 @@
   "order": [
     "main",
     "call_to_action_banner_7hrjTd",
-    "hero_slideshow_V3NdcU",
     "rich_text_JXmCia",
     "feature_alternating_9XUyie",
     "showroom_map_RhAd3U",
