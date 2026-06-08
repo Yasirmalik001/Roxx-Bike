@@ -124,8 +124,16 @@ line-height: 100%;
 
 .megamenu-product-prices .compare-price {
   font-size: 1.3rem;
-  color: #a3a3a3;
-  text-decoration: line-through;
+  color: #1C1C1C38;
+font-family: 'Suisse Intl Trial';
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-decoration: line-through;
+
 }
 
 .megamenu-product-image {
