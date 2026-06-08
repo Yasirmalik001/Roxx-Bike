@@ -1670,8 +1670,6 @@ background: #C2C2C21C;
   .footer__bottom-brand { order: 2; width: 100%; align-items: center; margin-bottom: 3rem; }
   .footer__brand-logo-img { max-width: 180px; }
   .footer__list-social.list-social { justify-content: center; }
-  
-  .footer__bottom-copyright { order: 3; width: 100%; text-align: center; padding-top: 0; margin-bottom: 2rem; }
 }
 
 #shopify-section-footer .footer__content-top {
