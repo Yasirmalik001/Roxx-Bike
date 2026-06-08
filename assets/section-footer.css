@@ -660,7 +660,6 @@
   .roxx-footer-bottom-inner {
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
   }
   .roxx-footer-brand-social {
     align-items: flex-start;
