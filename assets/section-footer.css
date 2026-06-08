@@ -59,7 +59,7 @@
 .footer__content-bottom-wrapper {
     flex-direction: column;
     row-gap: 1.5rem;
-    justify-content: center!important;
+    justify-content: cente;
     align-items: center;
     padding-top: 10px;
 }
@@ -382,7 +382,7 @@
 
 .footer-block__image-wrapper {
   margin-bottom: 2rem;
-  overflow: hidden !important;
+  overflow: hidden;
 }
 
 .footer-block__image-wrapper img {
@@ -483,17 +483,17 @@
 }
 
 .footer__content-top {
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
 /* Link Styles */
 .footer-block__details-content .list-menu__item--link {
-  color: #cccccc !important;
-  font-size: 12px !important;
-  padding-bottom: 0.8rem !important;
-  padding-top: 0 !important;
+  color: #cccccc;
+  font-size: 12px;
+  padding-bottom: 0rem;
+  padding-top: 0;
 }
 
 
@@ -514,12 +514,12 @@
     flex: 1;
     min-width: 320px;
     max-width: 380px;
-    margin-top: 0 !important;
-    text-align: left !important;
-    align-items: flex-start !important;
+    margin-top: 0;
+    text-align: left;
+    align-items: flex-start;
   }
   .footer-block__newsletter {
-    text-align: left !important;
+    text-align: left;
   }
 }
 
@@ -530,15 +530,15 @@
     padding-bottom: 3rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 1rem;
-    margin-top: 0 !important;
+    margin-top: 0;
   }
   .footer__blocks-wrapper {
-    display: grid !important;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem 1rem;
   }
   .footer-block.grid__item {
-    width: 100% !important;
+    width: 100%;
   }
 }
 
@@ -554,43 +554,43 @@
   align-items: center;
 }
 .newsletter-form__field-wrapper .field__input {
-  background: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid #333 !important;
-  border-radius: 0 !important;
-  color: #fff !important;
-  padding-left: 0 !important;
-  font-size: 13px !important;
-  box-shadow: none !important;
-  padding-right: 90px !important; /* Space for submit button */
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  border-radius: 0;
+  color: #fff;
+  padding-left: 0;
+  font-size: 13px;
+  box-shadow: none;
+  padding-right: 90px; /* Space for submit button */
 }
 .newsletter-form__field-wrapper .field__input:focus {
-  border-bottom: 1px solid #ffcc00 !important;
+  border-bottom: 1px solid #ffcc00;
 }
 .newsletter-form__field-wrapper .field__label {
-  display: none !important; /* Use placeholder instead */
+  display: none; /* Use placeholder instead */
 }
 .newsletter-form__button {
-  position: absolute !important;
+  position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent !important;
-  color: #fff !important;
-  border: none !important;
-  width: auto !important;
-  padding: 0 !important;
+  background: transparent;
+  color: #fff;
+  border: none;
+  width: auto;
+  padding: 0;
   display: flex;
   align-items: center;
 }
 .newsletter-form__button:hover {
-  color: #ffcc00 !important;
+  color: #ffcc00;
 }
 
 /* Footer Bottom Layout */
 .roxx-custom-footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-block: 3rem !important;
+  padding-block: 3rem;
   margin-top: 4rem;
 }
 
@@ -625,13 +625,13 @@
 
 /* Social icons custom styling (yellow circles) */
 .footer__list-social {
-  gap: 12px !important;
+  gap: 12px;
 }
 .footer__list-social .list-social__link {
-  color: #ffcc00 !important;
-  border: 1px solid #ffcc00 !important;
+  color: #ffcc00;
+  border: 1px solid #ffcc00;
   border-radius: 50%;
-  padding: 8px !important;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
