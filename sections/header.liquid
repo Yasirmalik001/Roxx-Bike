@@ -617,6 +617,7 @@
       {%- endif -%}
     </div>
   </header>
+  {% if template.name == 'index' %}
   {%- if section.settings.show_promo_bar -%}
     <div class="header-promo-bar">
       <div class="header-promo-bar__content page-width">
@@ -641,6 +642,7 @@
         </button>
       </div>
     </div>
+  {%- endif -%}
   {%- endif -%}
 </{{ header_tag }}>
 
