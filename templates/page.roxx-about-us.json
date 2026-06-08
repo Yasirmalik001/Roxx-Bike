@@ -25,9 +25,10 @@
           "settings": {
             "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
             "image": "shopify://shop_images/persons-of-cycles.png",
-            "heading": "About us",
-            "heading_size": "h0",
-            "description": "<p>When E-Bike Meets Life</p>",
+            "pre_heading": "ABOUT US",
+            "heading": "When E-Bike Meets Life",
+            "heading_size": "h1",
+            "description": "",
             "feature_1_title": "",
             "feature_1_text": "",
             "feature_2_title": "",
