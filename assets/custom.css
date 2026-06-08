@@ -2334,3 +2334,18 @@ a.custom-discover-btn {
   display: flex;
   justify-content: center;
 }
+
+
+/* Fix header border line issue on transparent header */
+.header-wrapper.header-transparent,
+.header-wrapper.header-transparent:hover,
+.header-wrapper.header-transparent.header-wrapper--border-bottom {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Fix button borderline issue on hover (Dawn box-shadow issue on pill buttons) */
+.btn-style-pill::after,
+.button::after {
+  border-radius: inherit !important;
+}
