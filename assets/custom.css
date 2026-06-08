@@ -1608,19 +1608,6 @@ letter-spacing: 0%;
 .footer__list-social.list-social { justify-content: flex-start; gap: 1rem; }
 .footer__list-social.list-social .list-social__item .icon { color: #ffe600; width: 20px; height: 20px; }
 
-.footer__content-bottom {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: 
-    "brand . localization"
-    "copyright trustpilot .";
-  align-items: flex-end;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 4rem;
-  margin-top: 4rem;
-}
-
 .footer__bottom-brand { grid-area: brand; }
 .footer__bottom-localization { grid-area: localization; justify-self: end; margin-bottom: 3rem; }
 .footer__bottom-copyright { grid-area: copyright; padding-top: 2rem; }
