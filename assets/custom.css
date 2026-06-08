@@ -1611,7 +1611,7 @@ letter-spacing: 0%;
 .footer__bottom-brand { grid-area: brand; }
 .footer__bottom-localization { grid-area: localization; justify-self: end; margin-bottom: 3rem; }
 .footer__bottom-copyright { grid-area: copyright; padding-top: 2rem; }
-.footer__bottom-trustpilot { grid-area: trustpilot; justify-self: center; display: flex; align-items: center; padding-top: 2rem; }
+.footer__bottom-trustpilot { grid-area: trustpilot; justify-self: center; display: flex; align-items: center; }
 
 .footer__content-bottom::after {
   content: "";
