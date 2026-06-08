@@ -1665,7 +1665,7 @@ background: #C2C2C21C;
   .footer__content-bottom::after { display: none; }
   
   .footer__bottom-localization { order: 1; width: 48%; justify-content: flex-start; margin-bottom: 3rem; }
-  .footer__bottom-trustpilot { order: 1; width: 48%; justify-content: flex-end; padding-top: 0; margin-bottom: 3rem; }
+  .footer__bottom-trustpilot { display: none; }
   
   .footer__bottom-brand { order: 2; width: 100%; align-items: center; margin-bottom: 3rem; }
   .footer__brand-logo-img { max-width: 180px; }
