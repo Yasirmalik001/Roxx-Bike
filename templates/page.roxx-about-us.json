@@ -17,6 +17,38 @@
         "padding_bottom": 28
       }
     },
+    "call_to_action_banner_7hrjTd": {
+      "type": "call-to-action-banner",
+      "blocks": {
+        "heading_jMVbeV": {
+          "type": "heading",
+          "settings": {
+            "heading": "About us",
+            "color": "#FFFFFF"
+          }
+        },
+        "text_yYGzBK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>",
+            "color": "#FFFFFF"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jMVbeV",
+        "text_yYGzBK"
+      ],
+      "name": "Overlay Banner (Blocks)",
+      "settings": {
+        "image": "shopify://shop_images/persons-of-cycles.png",
+        "overlay_opacity": 40,
+        "desktop_height": 600,
+        "mobile_height": 500,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "hero_slideshow_V3NdcU": {
       "type": "hero-slideshow",
       "blocks": {
@@ -213,6 +245,7 @@
   },
   "order": [
     "main",
+    "call_to_action_banner_7hrjTd",
     "hero_slideshow_V3NdcU",
     "rich_text_JXmCia",
     "feature_alternating_9XUyie",
