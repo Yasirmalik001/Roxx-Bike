@@ -602,7 +602,7 @@
 /* Footer Bottom Layout */
 .roxx-custom-footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 3rem !important;
+  padding-block: 3rem !important;
   margin-top: 4rem;
 }
 
