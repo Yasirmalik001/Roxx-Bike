@@ -342,6 +342,11 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+  .roxx-footer-bottom-inner {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 }
 
 @media screen and (min-width: 750px) {
