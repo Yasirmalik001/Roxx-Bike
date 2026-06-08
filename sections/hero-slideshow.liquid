@@ -318,36 +318,36 @@
               {%- endif -%}
               
             </div>
+            <div class="hero-features-overlay">
+                <div class="hero-features-grid">
+                  
+                  {%- if block.settings.feature_1_title != blank or block.settings.feature_1_text != blank -%}
+                    <div class="hero-feature__item">
+                      <h3 class="hero-feature__title">{{ block.settings.feature_1_title }}</h3>
+                      <p class="hero-feature__text">{{ block.settings.feature_1_text }}</p>
+                    </div>
+                  {%- endif -%}
+  
+                  {%- if block.settings.feature_2_title != blank or block.settings.feature_2_text != blank -%}
+                    <div class="hero-feature__item">
+                      <h3 class="hero-feature__title">{{ block.settings.feature_2_title }}</h3>
+                      <p class="hero-feature__text">{{ block.settings.feature_2_text }}</p>
+                    </div>
+                  {%- endif -%}
+  
+                  {%- if block.settings.feature_3_title != blank or block.settings.feature_3_text != blank -%}
+                    <div class="hero-feature__item">
+                      <h3 class="hero-feature__title">{{ block.settings.feature_3_title }}</h3>
+                      <p class="hero-feature__text">{{ block.settings.feature_3_text }}</p>
+                    </div>
+                  {%- endif -%}
+  
+                </div>
+              </div>
+  
+          </div>
           </div>
 
-          <div class="hero-features-overlay">
-              <div class="hero-features-grid">
-                
-                {%- if block.settings.feature_1_title != blank or block.settings.feature_1_text != blank -%}
-                  <div class="hero-feature__item">
-                    <h3 class="hero-feature__title">{{ block.settings.feature_1_title }}</h3>
-                    <p class="hero-feature__text">{{ block.settings.feature_1_text }}</p>
-                  </div>
-                {%- endif -%}
-
-                {%- if block.settings.feature_2_title != blank or block.settings.feature_2_text != blank -%}
-                  <div class="hero-feature__item">
-                    <h3 class="hero-feature__title">{{ block.settings.feature_2_title }}</h3>
-                    <p class="hero-feature__text">{{ block.settings.feature_2_text }}</p>
-                  </div>
-                {%- endif -%}
-
-                {%- if block.settings.feature_3_title != blank or block.settings.feature_3_text != blank -%}
-                  <div class="hero-feature__item">
-                    <h3 class="hero-feature__title">{{ block.settings.feature_3_title }}</h3>
-                    <p class="hero-feature__text">{{ block.settings.feature_3_text }}</p>
-                  </div>
-                {%- endif -%}
-
-              </div>
-            </div>
-
-        </div>
       {%- endfor -%}
 
   {%- if section.blocks.size > 1 -%}
