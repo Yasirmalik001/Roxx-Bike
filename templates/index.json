@@ -512,6 +512,7 @@
         },
         "text_GBfBma": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Elementum nec est vel tellus ultrices urna. Velit iaculis integer magna eget</p>"
           }
