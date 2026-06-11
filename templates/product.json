@@ -1226,6 +1226,7 @@
         "card_qcWnGD": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/297b810a9ffc8695f319d8ce4a0183c30a3a5834.png",
             "title": "VISIT A NEARBY STORE",
             "btn_label": "FIND A STORE",
             "link": ""
@@ -1234,6 +1235,7 @@
         "card_eHGUch": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/0ee938a277b9ab001fc789b803ffc363406ee972_1.jpg",
             "title": "FLEXIBLE PRICING",
             "btn_label": "PAY IN INSTALLMENT",
             "link": ""
@@ -1242,6 +1244,7 @@
         "card_gkgMXK": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/4ef9f487ec0c181a09d8c8bf7479d39f661bb23b.png",
             "title": "DISCOVER ALL OUR BIKES",
             "btn_label": "SHOW ALL",
             "link": ""
