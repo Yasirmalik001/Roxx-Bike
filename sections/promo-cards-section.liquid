@@ -71,17 +71,6 @@
     width: 60%;
     gap: 0.8rem;
   }
-
-  .promo-card__title {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #000000;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-
   .promo-card__btn {
     display: inline-flex;
     align-items: center;
@@ -139,10 +128,6 @@
       gap: 1rem;
     }
 
-    .promo-card__title {
-      color: #ffffff; /* Forced white on desktop over dark gradient */
-      font-size: 1.25rem;
-    }
 
     .promo-card__btn {
       background-color: #ffffff; /* Solid white on desktop */
@@ -176,7 +161,7 @@
 
           <div class="promo-card__content">
             {%- if block.settings.title != blank -%}
-              <h3 class="promo-card__title">{{ block.settings.title | escape }}</h3>
+              <h3 class="promo-card__title h1">{{ block.settings.title | escape }}</h3>
             {%- endif -%}
             
             {%- if block.settings.btn_label != blank -%}
