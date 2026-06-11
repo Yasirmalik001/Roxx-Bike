@@ -2378,3 +2378,32 @@ sticky-header::after {
 .partner-testimonials__heading{
     text-align: center;
 }
+
+/* Ensure the wrapper can hold the absolute badge */
+.product__info-wrapper {
+  position: relative;
+}
+
+/* The floating red badge */
+.custom-save-badge {
+  position: absolute;
+  top: -16px; /* Pulls it up over the top border */
+  right: 0;   /* Aligns it to the right edge */
+  background-color: #B51F29; /* Matches the deep red in your image */
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 8px 8px 0 8px; /* Rounded corners, flat bottom-right */
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Adjust top position slightly for mobile if needed */
+@media screen and (max-width: 749px) {
+  .custom-save-badge {
+    top: -12px;
+    font-size: 1.2rem;
+  }
+}
