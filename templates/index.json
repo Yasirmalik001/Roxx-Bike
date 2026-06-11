@@ -144,6 +144,7 @@
           "type": "slide",
           "settings": {
             "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
+            "mobile_color_scheme": "",
             "image": "shopify://shop_images/persons-of-cycles.png",
             "pre_heading": "ABOUT US",
             "heading": "",
@@ -161,6 +162,7 @@
           "type": "slide",
           "settings": {
             "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+            "mobile_color_scheme": "",
             "image": "shopify://shop_images/persons-of-cycles.png",
             "pre_heading": "ABOUT US",
             "heading": "",
@@ -178,6 +180,7 @@
           "type": "slide",
           "settings": {
             "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+            "mobile_color_scheme": "",
             "image": "shopify://shop_images/persons-of-cycles.png",
             "pre_heading": "ABOUT US",
             "heading": "",
@@ -222,7 +225,7 @@
         "collection": "e-bikes",
         "products_to_show": 4,
         "title": "E-Bikes",
-        "heading_size": "h0",
+        "heading_size": "h1",
         "description": "<p>Whether you're commuting, exploring, or just escaping traffic, Roxx e-bikes are built to fit seamlessly into your lifestyle.</p>",
         "show_description": false,
         "description_style": "body",
