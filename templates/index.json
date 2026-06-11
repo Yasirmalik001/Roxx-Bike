@@ -783,7 +783,7 @@
         "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
         "desktop_height": 920,
         "mobile_height": 600,
-        "overlay_opacity": 70,
+        "overlay_opacity": 100,
         "enable_autoplay": false,
         "autoplay_interval": 5,
         "padding_top": 0,
