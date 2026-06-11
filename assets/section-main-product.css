@@ -1796,13 +1796,15 @@ a.product__text {
    MAIN PRODUCT 1-1 DESIGN REDESIGN OVERRIDES 
    ========================================== */
 @media screen and (min-width: 750px) {
-  .product__info-wrapper .product__info-container {
+.product__info-wrapper .product__info-container {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: flex-start;
     column-gap: 40px;
     grid-auto-flow: dense;
-  }
+    width: 100%;
+    max-width: 100%;
+}
 
   .product__info-wrapper .product__info-container>* {
     grid-column: 1 / -1;
