@@ -501,6 +501,53 @@
         "padding_bottom": 36
       }
     },
+    "call_to_action_banner_C7fkRf": {
+      "type": "call-to-action-banner",
+      "blocks": {
+        "heading_rJ3nzy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Personalise your Roxx with addons"
+          }
+        },
+        "text_GBfBma": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Elementum nec est vel tellus ultrices urna. Velit iaculis integer magna eget</p>"
+          }
+        },
+        "button_RaJ6kM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_rJ3nzy",
+        "text_GBfBma",
+        "button_RaJ6kM"
+      ],
+      "name": "Overlay Banner (Blocks)",
+      "settings": {
+        "color_scheme": "",
+        "image": "shopify://shop_images/ec51d189310bd1081d8fdc5c062692065504b14f.png",
+        "overlay_opacity": 40,
+        "desktop_height": 600,
+        "desktop_align_y": "flex-start",
+        "desktop_align_x": "center",
+        "desktop_text_align": "center",
+        "desktop_flex_align": "center",
+        "mobile_height": 500,
+        "mobile_align_y": "center",
+        "mobile_align_x": "center",
+        "mobile_text_align": "center",
+        "mobile_flex_align": "center",
+        "padding_top": 32,
+        "padding_bottom": 0
+      }
+    },
     "masonary_gallery_3z9FME": {
       "type": "masonary-gallery",
       "blocks": {
@@ -603,53 +650,6 @@
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "call_to_action_banner_C7fkRf": {
-      "type": "call-to-action-banner",
-      "blocks": {
-        "heading_rJ3nzy": {
-          "type": "heading",
-          "settings": {
-            "heading": "Personalise your Roxx with addons"
-          }
-        },
-        "text_GBfBma": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur. Elementum nec est vel tellus ultrices urna. Velit iaculis integer magna eget</p>"
-          }
-        },
-        "button_RaJ6kM": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn More",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_rJ3nzy",
-        "text_GBfBma",
-        "button_RaJ6kM"
-      ],
-      "name": "Overlay Banner (Blocks)",
-      "settings": {
-        "color_scheme": "",
-        "image": "shopify://shop_images/ec51d189310bd1081d8fdc5c062692065504b14f.png",
-        "overlay_opacity": 40,
-        "desktop_height": 600,
-        "desktop_align_y": "flex-start",
-        "desktop_align_x": "center",
-        "desktop_text_align": "center",
-        "desktop_flex_align": "center",
-        "mobile_height": 500,
-        "mobile_align_y": "center",
-        "mobile_align_x": "center",
-        "mobile_text_align": "center",
-        "mobile_flex_align": "center",
-        "padding_top": 32,
-        "padding_bottom": 0
       }
     },
     "testimonials_6kM9B3": {
@@ -973,8 +973,8 @@
     "partner_testimonials_TYE8nf",
     "discover_bikes_VEdLb7",
     "trust_badges_NAabnt",
-    "masonary_gallery_3z9FME",
     "call_to_action_banner_C7fkRf",
+    "masonary_gallery_3z9FME",
     "testimonials_6kM9B3",
     "tabbed_hero_slider_6mVRNX",
     "feature_alternating_Y3DYDF",
