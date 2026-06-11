@@ -2356,3 +2356,7 @@ sticky-header::after {
 .button::after {
   border-radius: inherit !important;
 }
+
+.partner-testimonials__heading{
+    text-align: center;
+}
