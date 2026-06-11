@@ -55,9 +55,17 @@ p {
   color: #FFFFFF !important;
   border-color: #000000 !important;
 }
+.button:hover::after, 
+.button--primary:hover::after,
+.custom-discover-btn:hover::after {
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #000000, 0 0 0 var(--buttons-border-width) #000000 !important;
+}
 .button--secondary:hover {
   color: #000000 !important;
   border-color: #ffffff !important;
+}
+.button--secondary:hover::after {
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #ffffff, 0 0 0 var(--buttons-border-width) #ffffff !important;
 }
 span.cc-svg-ride {
   display: flex;
@@ -449,7 +457,7 @@ span.cc-svg-ride {
 
 .collection-tabs .collection-tabs__tab:hover,
 .collection-tabs .collection-tabs__tab.is-active {
-  border-color: #000000;
+  border-color: #000000 !important;
   color: #000000;
   background: #ffffff;
   font-weight: 600;
@@ -738,7 +746,7 @@ span.cc-svg-ride {
 .collection-tabs .card-product-tabs__btn-shop:hover,
 .collection-tabs .card-product-tabs__btn-book:hover {
   color: #FFFFFF !important;
-  border-color: #000000;
+  border-color: #000000 !important;
 }
 
 .collection-tabs .card-product-tabs__btn-shop {
@@ -1768,6 +1776,16 @@ background: #C2C2C21C;
   padding-left: 1.5rem;
 }
 
+/* Align product card images */
+.product-card-wrapper .card__inner.ratio {
+    --ratio-percent: 100% !important;
+}
+.product-card-wrapper .card__inner .media img {
+    object-fit: contain !important;
+    transform: scale(1.1); /* Slight zoom to make bikes larger */
+    mix-blend-mode: darken; /* Makes white backgrounds transparent against the card background */
+}
+
 .product-breadcrumbs a {
     color: #000000 !important;
     text-decoration: none !important;
@@ -2359,4 +2377,12 @@ sticky-header::after {
 
 .partner-testimonials__heading{
     text-align: center;
-}
+}/ *   A l i g n   p r o d u c t   c a r d   i m a g e s   * / 
+ . p r o d u c t - c a r d - w r a p p e r   . c a r d _ _ i n n e r . r a t i o   { 
+         - - r a t i o - p e r c e n t :   1 0 0 %   ! i m p o r t a n t ; 
+ } 
+ . p r o d u c t - c a r d - w r a p p e r   . c a r d _ _ i n n e r   . m e d i a   i m g   { 
+         o b j e c t - f i t :   c o n t a i n   ! i m p o r t a n t ; 
+         t r a n s f o r m :   s c a l e ( 1 . 0 5 ) ;   / *   S l i g h t   z o o m   t o   m a k e   b i k e s   a   b i t   l a r g e r   s i n c e   c o n t a i n   c a n   m a k e   t h e m   s m a l l   * / 
+ }  
+ 

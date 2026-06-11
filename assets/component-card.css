@@ -727,6 +727,7 @@ line-height: 100%;
   .roxx-actions-row .quick-add__submit:hover,
   .roxx-actions-row .roxx-btn:hover {
     color: #FFFFFF !important;
+    border-color: #000000 !important;
   }
 
   .roxx-actions-row .quick-add__submit {
