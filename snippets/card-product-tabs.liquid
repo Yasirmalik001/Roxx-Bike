@@ -195,11 +195,13 @@
             <span class="card-product-tabs__spec-pill">Comfortable seating position</span>
           {%- endif -%}
 
-          {%- if show_delivery and delivery_text != blank -%}
-            <span class="card-product-tabs__spec-pill card-product-tabs__spec-pill--delivery">
-              <strong>In stock.</strong> {{ delivery_text }}
-            </span>
-          {%- endif -%}
+       {%- assign start_date = 'now' | date: '%s' | plus: 172800 -%}
+{%- assign end_date = 'now' | date: '%s' | plus: 259200 -%}
+
+<span class="card-product-tabs__spec-pill card-product-tabs__spec-pill--delivery">
+  <strong>In stock.</strong>
+  Delivered between {{ start_date | date: '%d %b' }} and {{ end_date | date: '%d %b' }}
+</span>
         </div>
 
         {%- comment -%} SHOP NOW & BOOK A TEST RIDE Buttons {%- endcomment -%}
