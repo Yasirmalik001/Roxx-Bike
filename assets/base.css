@@ -2543,13 +2543,15 @@ input[type='checkbox'] {
   vertical-align: middle;
 }
 
-.header__icon,
-.header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
-  padding: 0;
+.header__icon, .header__icon--cart .icon {
+    height: 4.4rem;
+    width: 4.4rem;
+    padding: 0;
+    background: #ffffff1f;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
 }
-
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
