@@ -56,27 +56,23 @@
     
 
     {% style %}
-
-    @font-face {
-    font-family: "Suisse Int'l Trial";
-    font-display: swap;
-    src: url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.eot");
-    src: url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/b8e87569c3579f0bfc3488b9b6969635.svg#Suisse Int'l Trial")format("svg");
-}
-@font-face {
-    font-family: "Integral CF";
-    font-display: swap;
-    src: url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.eot");
-    src: url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.svg#Integral CF")format("svg");
-}
+        @font-face {
+        font-family: "Suisse Int'l Trial";
+        font-display: swap;
+        src: url("https://cdn.shopify.com/s/files/1/0845/1067/1178/files/SuisseIntl-Regular.ttf?v=1780899728") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        }
+        @font-face {
+        font-family: "Integral CF";
+        font-display: swap;
+        src: url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.eot");
+        src: url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/e5cf4323214de97c3428d64ece016410.svg#Integral CF")format("svg");
+        }
 
 
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
