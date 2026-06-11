@@ -608,24 +608,16 @@
     "call_to_action_banner_C7fkRf": {
       "type": "call-to-action-banner",
       "blocks": {
-        "icon_4cY9NJ": {
-          "type": "icon",
-          "settings": {
-            "custom_svg": "",
-            "icon_width": 64,
-            "margin_bottom": 10
-          }
-        },
         "heading_rJ3nzy": {
           "type": "heading",
           "settings": {
-            "heading": "LESS MAINTENANCE. MORE RIDING."
+            "heading": "Personalise your Roxx with addons"
           }
         },
         "text_GBfBma": {
           "type": "text",
           "settings": {
-            "text": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>"
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Elementum nec est vel tellus ultrices urna. Velit iaculis integer magna eget</p>"
           }
         },
         "button_RaJ6kM": {
@@ -637,7 +629,6 @@
         }
       },
       "block_order": [
-        "icon_4cY9NJ",
         "heading_rJ3nzy",
         "text_GBfBma",
         "button_RaJ6kM"
@@ -645,6 +636,7 @@
       "name": "Overlay Banner (Blocks)",
       "settings": {
         "color_scheme": "",
+        "image": "shopify://shop_images/ec51d189310bd1081d8fdc5c062692065504b14f.png",
         "overlay_opacity": 40,
         "desktop_height": 600,
         "desktop_align_y": "flex-start",
