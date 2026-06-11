@@ -709,6 +709,7 @@
       "name": "Customer Reviews Slider",
       "settings": {
         "color_scheme": "",
+        "header_style": "layout_2",
         "heading": "OUR CUSTOMER SAY!",
         "heading_size": "h0",
         "subheading": "<p>Lorem ipsum dolor sit amet consectetur. Luctus faucibus amet ut semper enim. Lacus venenatis risus nulla sit suspendisse purus.</p>",
