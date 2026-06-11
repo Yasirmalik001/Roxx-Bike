@@ -605,6 +605,61 @@
         "padding_bottom": 36
       }
     },
+    "call_to_action_banner_C7fkRf": {
+      "type": "call-to-action-banner",
+      "blocks": {
+        "icon_4cY9NJ": {
+          "type": "icon",
+          "settings": {
+            "custom_svg": "",
+            "icon_width": 64,
+            "margin_bottom": 10
+          }
+        },
+        "heading_rJ3nzy": {
+          "type": "heading",
+          "settings": {
+            "heading": "LESS MAINTENANCE. MORE RIDING."
+          }
+        },
+        "text_GBfBma": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>"
+          }
+        },
+        "button_RaJ6kM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_4cY9NJ",
+        "heading_rJ3nzy",
+        "text_GBfBma",
+        "button_RaJ6kM"
+      ],
+      "name": "Overlay Banner (Blocks)",
+      "settings": {
+        "color_scheme": "",
+        "overlay_opacity": 40,
+        "desktop_height": 600,
+        "desktop_align_y": "flex-start",
+        "desktop_align_x": "center",
+        "desktop_text_align": "center",
+        "desktop_flex_align": "center",
+        "mobile_height": 500,
+        "mobile_align_y": "center",
+        "mobile_align_x": "center",
+        "mobile_text_align": "center",
+        "mobile_flex_align": "center",
+        "padding_top": 32,
+        "padding_bottom": 0
+      }
+    },
     "testimonials_6kM9B3": {
       "type": "testimonials",
       "blocks": {
@@ -679,6 +734,68 @@
         "spacing": 30,
         "padding_top": 60,
         "padding_bottom": 60
+      }
+    },
+    "tabbed_hero_slider_6mVRNX": {
+      "type": "tabbed-hero-slider",
+      "blocks": {
+        "slide_b4r8t7": {
+          "type": "slide",
+          "settings": {
+            "tab_title": "ORIGIN",
+            "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "heading": "ENGINEERED IN EUROPE. BUILT TO LAST.",
+            "heading_size": "h0",
+            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
+          }
+        },
+        "slide_xmwqcH": {
+          "type": "slide",
+          "settings": {
+            "tab_title": "QUALITY",
+            "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
+            "heading": "PREMIUM COMPONENTS FOR PREMIUM RIDES.",
+            "heading_size": "h0",
+            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
+          }
+        },
+        "slide_xAGApP": {
+          "type": "slide",
+          "settings": {
+            "tab_title": "MAINTENANCE",
+            "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
+            "heading": "EASY TO MAINTAIN, HARD TO BREAK.",
+            "heading_size": "h0",
+            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
+          }
+        },
+        "slide_DEjRmw": {
+          "type": "slide",
+          "settings": {
+            "tab_title": "SECURITY",
+            "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
+            "heading": "YOUR BIKE, ALWAYS PROTECTED.",
+            "heading_size": "h0",
+            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
+          }
+        }
+      },
+      "block_order": [
+        "slide_b4r8t7",
+        "slide_xmwqcH",
+        "slide_xAGApP",
+        "slide_DEjRmw"
+      ],
+      "name": "Tabbed Hero Slider",
+      "settings": {
+        "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
+        "desktop_height": 800,
+        "mobile_height": 600,
+        "overlay_opacity": 70,
+        "enable_autoplay": false,
+        "autoplay_interval": 5,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "feature_alternating_Y3DYDF": {
@@ -803,68 +920,6 @@
         "padding_bottom": 80
       }
     },
-    "tabbed_hero_slider_6mVRNX": {
-      "type": "tabbed-hero-slider",
-      "blocks": {
-        "slide_b4r8t7": {
-          "type": "slide",
-          "settings": {
-            "tab_title": "ORIGIN",
-            "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-            "heading": "ENGINEERED IN EUROPE. BUILT TO LAST.",
-            "heading_size": "h0",
-            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
-          }
-        },
-        "slide_xmwqcH": {
-          "type": "slide",
-          "settings": {
-            "tab_title": "QUALITY",
-            "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-            "heading": "PREMIUM COMPONENTS FOR PREMIUM RIDES.",
-            "heading_size": "h0",
-            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
-          }
-        },
-        "slide_xAGApP": {
-          "type": "slide",
-          "settings": {
-            "tab_title": "MAINTENANCE",
-            "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
-            "heading": "EASY TO MAINTAIN, HARD TO BREAK.",
-            "heading_size": "h0",
-            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
-          }
-        },
-        "slide_DEjRmw": {
-          "type": "slide",
-          "settings": {
-            "tab_title": "SECURITY",
-            "image": "shopify://shop_images/0b41626ff603a5a223317bfd75cdef468e53b657.png",
-            "heading": "YOUR BIKE, ALWAYS PROTECTED.",
-            "heading_size": "h0",
-            "description": "Every Roxx bike is crafted with precision — designed by experts and assembled with care to deliver unmatched durability and performance."
-          }
-        }
-      },
-      "block_order": [
-        "slide_b4r8t7",
-        "slide_xmwqcH",
-        "slide_xAGApP",
-        "slide_DEjRmw"
-      ],
-      "name": "Tabbed Hero Slider",
-      "settings": {
-        "color_scheme": "scheme-e76ed78a-2780-47ea-9353-fcea50602a50",
-        "desktop_height": 800,
-        "mobile_height": 600,
-        "overlay_opacity": 70,
-        "enable_autoplay": false,
-        "autoplay_interval": 5,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "keep_discovering_nqKjzK": {
       "type": "keep-discovering",
       "blocks": {
@@ -927,6 +982,7 @@
     "discover_bikes_VEdLb7",
     "trust_badges_NAabnt",
     "masonary_gallery_3z9FME",
+    "call_to_action_banner_C7fkRf",
     "testimonials_6kM9B3",
     "tabbed_hero_slider_6mVRNX",
     "feature_alternating_Y3DYDF",
