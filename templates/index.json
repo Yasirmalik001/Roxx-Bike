@@ -881,11 +881,27 @@
             "title": "SHOP BIKES",
             "link": ""
           }
+        },
+        "standard_card_Qi4mm9": {
+          "type": "standard_card",
+          "settings": {
+            "title": "Accessories",
+            "link": ""
+          }
+        },
+        "standard_card_JtyWjb": {
+          "type": "standard_card",
+          "settings": {
+            "title": "Support",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "external_link_yB3Jmg",
-        "standard_card_KbdMAC"
+        "standard_card_KbdMAC",
+        "standard_card_Qi4mm9",
+        "standard_card_JtyWjb"
       ],
       "name": "Keep Discovering Hero",
       "settings": {
