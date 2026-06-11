@@ -153,8 +153,40 @@
     transform: scale(1.2);
   }
 
+  /* Dynamic Mobile Color Scheme Overrides */
+  {%- for block in section.blocks -%}
+    {%- if block.settings.mobile_color_scheme != blank -%}
+      @media screen and (max-width: 749px) {
+        .slide-{{ block.id }} {
+          --color-background: {{ block.settings.mobile_color_scheme.settings.background.red }}, {{ block.settings.mobile_color_scheme.settings.background.green }}, {{ block.settings.mobile_color_scheme.settings.background.blue }};
+          --color-foreground: {{ block.settings.mobile_color_scheme.settings.text.red }}, {{ block.settings.mobile_color_scheme.settings.text.green }}, {{ block.settings.mobile_color_scheme.settings.text.blue }};
+          
+          background-color: rgb(var(--color-background)) !important;
+          color: rgb(var(--color-foreground)) !important;
+        }
+        
+        .slide-{{ block.id }} .hero-slide__text-box,
+        .slide-{{ block.id }} .hero-slide__heading,
+        .slide-{{ block.id }} .hero-slide__pre-heading,
+        .slide-{{ block.id }} .hero-features-grid,
+        .slide-{{ block.id }} .hero-feature__title {
+          color: rgb(var(--color-foreground)) !important;
+        }
+
+        .slide-{{ block.id }} .hero-slide__description,
+        .slide-{{ block.id }} .hero-feature__text {
+          color: rgba(var(--color-foreground), 0.85) !important;
+        }
+
+        .slide-{{ block.id }} .hero-features-overlay {
+          background: linear-gradient(to top, rgba(var(--color-background), 1) 0%, rgba(var(--color-background), 0.7) 60%, transparent 100%) !important;
+        }
+      }
+    {%- endif -%}
+  {%- endfor -%}
+
   /* ----------------------------------------------------
-     CUSTOM MOBILE LAYOUT
+      CUSTOM MOBILE LAYOUT
      ---------------------------------------------------- */
   @media screen and (max-width: 749px) {
     .hero-slider-wrapper {
@@ -193,7 +225,9 @@
     .hero-slide__heading {
       margin-top: 0;
     }
-    
+    .hero-slide__media img {
+      object-position: 70%;
+    }
     .hero-slide__description {
       font-size: 1.4rem;
     }
@@ -206,7 +240,7 @@
       display: flex;
       flex-direction: column;
       gap: 0;
-      padding: 0 2rem 4rem;
+      padding: 0 0rem 4rem;
     }
     
     .hero-feature__item {
@@ -271,9 +305,9 @@
   {%- endif -%}
       
       {%- for block in section.blocks -%}
-        <div class="{% if section.blocks.size > 1 %}swiper-slide{% endif %} hero-slide color-{{ block.settings.color_scheme }} gradient" {{ block.shopify_attributes }}>
+        <div class="{% if section.blocks.size > 1 %}swiper-slide{% endif %} hero-slide slide-{{ block.id }} color-{{ block.settings.color_scheme }} gradient" {{ block.shopify_attributes }}>
           
-          <div class="hero-slide__media">
+  <div class="hero-slide__media">
             {%- if block.settings.image != blank -%}
               {%- liquid
                 assign fetch_priority = 'auto'
@@ -353,7 +387,6 @@
 
   {%- if section.blocks.size > 1 -%}
         </div>
-        {% comment %} <div class="swiper-pagination-{{ section.id }} slider-template-pagination"></div> {% endcomment %}
       </div>
     </slider-container>
   {%- else -%}
@@ -518,7 +551,13 @@
         {
           "type": "color_scheme",
           "id": "color_scheme",
-          "label": "Slide Color Scheme",
+          "label": "Desktop Color Scheme",
+          "default": "scheme-1"
+        },
+        {
+          "type": "color_scheme",
+          "id": "mobile_color_scheme",
+          "label": "Mobile Color Scheme",
           "default": "scheme-1"
         },
         {
