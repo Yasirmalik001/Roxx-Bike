@@ -64,12 +64,14 @@
     object-fit: cover;
   }
 
-  .hero-slide__content-container {
+.hero-slide__content-container {
     position: relative;
     z-index: 3;
+    top: -100px;
     width: 100%;
-  }
-
+    max-width: 550px;
+    margin: 0;
+}
   .hero-slide__text-box {
     max-width: 600px;
     color: rgb(var(--color-foreground));
@@ -215,6 +217,7 @@
       align-items: flex-start;
       padding-top: 3rem;
       padding-bottom: 3rem;
+      top: 0;
     }
     
     .hero-slide__text-box {
