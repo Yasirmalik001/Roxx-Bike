@@ -469,6 +469,7 @@
           "type": "badge",
           "settings": {
             "custom_svg": "",
+            "image": "shopify://shop_images/Vector_24.svg",
             "text": "Free and Fast delivery"
           }
         },
@@ -476,6 +477,7 @@
           "type": "badge",
           "settings": {
             "custom_svg": "",
+            "image": "shopify://shop_images/Vector_25.svg",
             "text": "Secure payment"
           }
         },
@@ -483,6 +485,7 @@
           "type": "badge",
           "settings": {
             "custom_svg": "",
+            "image": "shopify://shop_images/Vector_26.svg",
             "text": "Strong customer service"
           }
         },
@@ -490,6 +493,7 @@
           "type": "badge",
           "settings": {
             "custom_svg": "",
+            "image": "shopify://shop_images/Vector_27.svg",
             "text": "2-years warranty"
           }
         }
