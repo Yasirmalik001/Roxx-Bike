@@ -520,10 +520,10 @@
             "text": "<p>Lorem ipsum dolor sit amet consectetur. Elementum nec est vel tellus ultrices urna. Velit iaculis integer magna eget</p>"
           }
         },
-        "button_RaJ6kM": {
-          "type": "button",
+        "button_pill_JahLAR": {
+          "type": "button_pill",
           "settings": {
-            "button_label": "Learn More",
+            "button_label": "EXPLORE ACCESSORIES",
             "button_link": ""
           }
         }
@@ -531,7 +531,7 @@
       "block_order": [
         "heading_rJ3nzy",
         "text_GBfBma",
-        "button_RaJ6kM"
+        "button_pill_JahLAR"
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
