@@ -218,7 +218,7 @@
             {%- if section.settings.button_label != blank -%}
               <div class="partner-button-wrapper">
                 <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} 
-                   class="button button--primary partner-button">
+                   class="button button--secondary partner-button">
                   {{ section.settings.button_label | escape }}
                 </a>
               </div>
