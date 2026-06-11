@@ -14,13 +14,13 @@
   .promo-cards-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 16px; /* 1rem to 16px */
   }
 
   @media screen and (min-width: 750px) {
     .promo-cards-grid {
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 24px; /* 1.5rem to 24px */
     }
   }
 
@@ -28,7 +28,7 @@
   .promo-card {
     display: flex;
     flex-direction: row;
-    background-color: #ffffff;
+    background-color: var(--card-bg-color, #ffffff); /* Using CSS variable for block color setting */
     border: 1px solid #e4e4e4;
     border-radius: 12px;
     overflow: hidden;
@@ -67,17 +67,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 1.2rem;
+    padding: 19px; /* 1.2rem to 19px */
     width: 60%;
-    gap: 0.8rem;
+    gap: 13px; /* 0.8rem to 13px */
   }
+
   .promo-card__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.6rem 1.2rem;
+    padding: 10px 19px; /* 0.6rem 1.2rem to 10px 19px */
     border-radius: 30px;
-    font-size: 0.7rem;
+    font-size: 11px; /* 0.7rem to 11px */
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -95,7 +96,7 @@
       border-radius: 16px;
       aspect-ratio: 4 / 4.5;
       position: relative;
-      background: transparent;
+      background-color: transparent; /* Reset background for desktop */
     }
 
     .promo-card__image-wrapper {
@@ -122,19 +123,18 @@
       width: 100%;
       height: 100%;
       justify-content: flex-end;
-      padding: 2rem;
+      padding: 32px; /* 2rem to 32px */
       z-index: 2;
       background: none;
-      gap: 1rem;
+      gap: 16px; /* 1rem to 16px */
     }
-
 
     .promo-card__btn {
       background-color: #ffffff; /* Solid white on desktop */
       color: #000000;
       border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 0.8rem;
+      padding: 13px 24px; /* 0.8rem 1.5rem to 13px 24px */
+      font-size: 13px; /* 0.8rem to 13px */
     }
 
     .promo-card:hover .promo-card__btn {
@@ -148,7 +148,7 @@
     
     <div class="promo-cards-grid">
       {%- for block in section.blocks -%}
-        <a {% if block.settings.link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.link }}"{% endif %} class="promo-card" {{ block.shopify_attributes }}>
+        <a {% if block.settings.link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.link }}"{% endif %} class="promo-card" {{ block.shopify_attributes }} style="--card-bg-color: {{ block.settings.card_color }};">
           
           <div class="promo-card__image-wrapper">
             {%- if block.settings.image != blank -%}
@@ -161,7 +161,7 @@
 
           <div class="promo-card__content">
             {%- if block.settings.title != blank -%}
-              <h3 class="promo-card__title h3">{{ block.settings.title | escape }}</h3>
+              <h3 class="promo-card__title h3" style="margin: 0;">{{ block.settings.title | escape }}</h3>
             {%- endif -%}
             
             {%- if block.settings.btn_label != blank -%}
@@ -188,7 +188,7 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "background-1",
-      "info": "This applies to the background of the section and the mobile cards."
+      "info": "This applies to the overall section background."
     },
     {
       "type": "header",
@@ -221,6 +221,12 @@
       "name": "Promo Card",
       "settings": [
         {
+          "type": "color",
+          "id": "card_color",
+          "label": "Mobile Card Background Color",
+          "default": "#ffffff"
+        },
+        {
           "type": "image_picker",
           "id": "image",
           "label": "Card Image"
@@ -250,9 +256,9 @@
     {
       "name": "Promotional Cards",
       "blocks": [
-        { "type": "card", "settings": { "title": "VISIT A NEARBY STORE", "btn_label": "FIND A STORE" } },
-        { "type": "card", "settings": { "title": "FLEXIBLE PRICING", "btn_label": "PAYMENT INFO" } },
-        { "type": "card", "settings": { "title": "DISCOVER ALL OUR BIKES", "btn_label": "VIEW ALL" } }
+        { "type": "card", "settings": { "title": "VISIT A NEARBY STORE", "btn_label": "FIND A STORE", "card_color": "#ffffff" } },
+        { "type": "card", "settings": { "title": "FLEXIBLE PRICING", "btn_label": "PAYMENT INFO", "card_color": "#ffffff" } },
+        { "type": "card", "settings": { "title": "DISCOVER ALL OUR BIKES", "btn_label": "VIEW ALL", "card_color": "#ffffff" } }
       ]
     }
   ]
