@@ -872,6 +872,13 @@
           "type": "external_link",
           "settings": {
             "title": "BOOK TEST DRIVE",
+            "link": "shopify://pages/testrit-boeken"
+          }
+        },
+        "standard_card_Qi4mm9": {
+          "type": "standard_card",
+          "settings": {
+            "title": "Accessories",
             "link": ""
           }
         },
@@ -879,13 +886,6 @@
           "type": "standard_card",
           "settings": {
             "title": "SHOP BIKES",
-            "link": ""
-          }
-        },
-        "standard_card_Qi4mm9": {
-          "type": "standard_card",
-          "settings": {
-            "title": "Accessories",
             "link": ""
           }
         },
@@ -899,8 +899,8 @@
       },
       "block_order": [
         "external_link_yB3Jmg",
-        "standard_card_KbdMAC",
         "standard_card_Qi4mm9",
+        "standard_card_KbdMAC",
         "standard_card_JtyWjb"
       ],
       "name": "Keep Discovering Hero",
