@@ -183,12 +183,11 @@
           {%- if card_product.metafields.custom.specifications.value != blank -%}
             {%- for spec in card_product.metafields.custom.specifications.value -%}
               {%- liquid
-                assign spec_label = spec.value.value | default: spec.value | default: spec.label.value | default: spec.label | default: spec.text.value | default: spec.text | default: spec.title.value | default: spec.title | default: spec.name.value | default: spec.name | default: spec
+                assign spec_label = spec.title.value | default: spec.title | default: spec.name.value | default: spec.name | default: spec.label.value | default: spec.label | default: spec.value.value | default: spec.value | default: spec
               -%}
               <span class="card-product-tabs__spec-pill">{{ spec_label }}</span>
             {%- endfor -%}
           {%- else -%}
-            <!-- Mockup fallback values -->
             <span class="card-product-tabs__spec-pill">Endless design frame</span>
             <span class="card-product-tabs__spec-pill">Range of 80-90km</span>
             <span class="card-product-tabs__spec-pill">Built-in tracking</span>
