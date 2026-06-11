@@ -276,6 +276,7 @@
         "feature_LrFRzR": {
           "type": "feature",
           "settings": {
+            "custom_image": "shopify://shop_images/Group_10_6a654dbb-f46b-4389-9b10-865a21e04aa4.svg",
             "icon": "gear",
             "title": "250W Direct power"
           }
@@ -283,6 +284,7 @@
         "feature_bGdUjc": {
           "type": "feature",
           "settings": {
+            "custom_image": "shopify://shop_images/Group_40.svg",
             "icon": "radar",
             "title": "Carbon belt drive"
           }
@@ -290,6 +292,7 @@
         "feature_dJJ87e": {
           "type": "feature",
           "settings": {
+            "custom_image": "shopify://shop_images/Group_12.svg",
             "icon": "power",
             "title": "Powerful engine"
           }
