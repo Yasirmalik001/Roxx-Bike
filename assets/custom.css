@@ -2377,12 +2377,4 @@ sticky-header::after {
 
 .partner-testimonials__heading{
     text-align: center;
-}/ *   A l i g n   p r o d u c t   c a r d   i m a g e s   * / 
- . p r o d u c t - c a r d - w r a p p e r   . c a r d _ _ i n n e r . r a t i o   { 
-         - - r a t i o - p e r c e n t :   1 0 0 %   ! i m p o r t a n t ; 
- } 
- . p r o d u c t - c a r d - w r a p p e r   . c a r d _ _ i n n e r   . m e d i a   i m g   { 
-         o b j e c t - f i t :   c o n t a i n   ! i m p o r t a n t ; 
-         t r a n s f o r m :   s c a l e ( 1 . 0 5 ) ;   / *   S l i g h t   z o o m   t o   m a k e   b i k e s   a   b i t   l a r g e r   s i n c e   c o n t a i n   c a n   m a k e   t h e m   s m a l l   * / 
- }  
- 
+}
