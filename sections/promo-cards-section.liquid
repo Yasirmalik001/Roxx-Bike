@@ -14,13 +14,13 @@
   .promo-cards-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   @media screen and (min-width: 750px) {
     .promo-cards-grid {
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.5rem;
     }
   }
 
@@ -28,23 +28,23 @@
   .promo-card {
     display: flex;
     flex-direction: row;
-    background-color: rgb(var(--color-background));
-    border: 1px solid rgba(var(--color-foreground), 0.15);
+    background-color: #ffffff;
+    border: 1px solid #e4e4e4;
     border-radius: 12px;
     overflow: hidden;
-    min-height: 140px;
+    min-height: 120px;
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .promo-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   }
 
   .promo-card__image-wrapper {
     position: relative;
-    width: 45%;
+    width: 40%;
     flex-shrink: 0;
     overflow: hidden;
   }
@@ -67,34 +67,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 1.5rem;
-    width: 55%;
-    gap: 1.2rem;
+    padding: 1.2rem;
+    width: 60%;
+    gap: 0.8rem;
   }
 
   .promo-card__title {
     margin: 0;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 800;
     text-transform: uppercase;
-    color: rgb(var(--color-foreground));
+    color: #000000;
     line-height: 1.2;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.01em;
   }
 
   .promo-card__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.8rem 1.6rem;
-    border-radius: 20px;
-    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgb(var(--color-foreground));
-    background: transparent;
-    border: 1.5px solid #ffd000; /* Yellow outline on mobile */
+    letter-spacing: 0.02em;
+    color: #000000;
+    background: #ffffff;
+    border: 1px solid #ffd000; /* Yellow outline on mobile */
     transition: all 0.2s ease;
   }
 
@@ -104,7 +104,7 @@
       flex-direction: column;
       border: none;
       border-radius: 16px;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 4 / 4.5;
       position: relative;
       background: transparent;
     }
@@ -121,8 +121,9 @@
       display: block;
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 30%, transparent 60%);
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
       z-index: 1;
+      border-radius: 16px;
     }
 
     .promo-card__content {
@@ -132,22 +133,23 @@
       width: 100%;
       height: 100%;
       justify-content: flex-end;
-      padding: 2.5rem;
+      padding: 2rem;
       z-index: 2;
       background: none;
+      gap: 1rem;
     }
 
     .promo-card__title {
       color: #ffffff; /* Forced white on desktop over dark gradient */
-      font-size: 1.6rem;
+      font-size: 1.25rem;
     }
 
     .promo-card__btn {
       background-color: #ffffff; /* Solid white on desktop */
       color: #000000;
       border: none;
-      padding: 1.2rem 2.5rem;
-      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.8rem;
     }
 
     .promo-card:hover .promo-card__btn {
@@ -264,8 +266,8 @@
       "name": "Promotional Cards",
       "blocks": [
         { "type": "card", "settings": { "title": "VISIT A NEARBY STORE", "btn_label": "FIND A STORE" } },
-        { "type": "card", "settings": { "title": "FLEXIBLE PRICING", "btn_label": "PAY IN INSTALLMENT" } },
-        { "type": "card", "settings": { "title": "DISCOVER ALL OUR BIKES", "btn_label": "SHOW ALL" } }
+        { "type": "card", "settings": { "title": "FLEXIBLE PRICING", "btn_label": "PAYMENT INFO" } },
+        { "type": "card", "settings": { "title": "DISCOVER ALL OUR BIKES", "btn_label": "VIEW ALL" } }
       ]
     }
   ]
