@@ -307,7 +307,7 @@
       {%- for block in section.blocks -%}
         <div class="{% if section.blocks.size > 1 %}swiper-slide{% endif %} hero-slide slide-{{ block.id }} color-{{ block.settings.color_scheme }} gradient" {{ block.shopify_attributes }}>
           
-  <div class="hero-slide__media">
+          <div class="hero-slide__media">
             {%- if block.settings.image != blank -%}
               {%- liquid
                 assign fetch_priority = 'auto'
@@ -334,16 +334,16 @@
           <div class="page-width hero-slide__content-container">
             <div class="hero-slide__text-box">
               
+              {%- if block.settings.heading != blank -%}
+                <h3 class="hero-slide__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }} style="max-width: {{ block.settings.heading_max_width }}px; margin-top: 0;">
+                  {{ block.settings.heading }}
+                </h3>
+              {%- endif -%}
+
               {%- if block.settings.pre_heading != blank -%}
                 <h2 class="hero-slide__pre-heading h1">
                   {{ block.settings.pre_heading }}
                 </h2>
-              {%- endif -%}
-
-              {%- if block.settings.heading != blank -%}
-                <h3 class="hero-slide__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.heading }}
-                </h3>
               {%- endif -%}
               
               {%- if block.settings.description != blank -%}
@@ -588,6 +588,16 @@
           ],
           "default": "h2",
           "label": "Sub Heading Size"
+        },
+        {
+          "type": "range",
+          "id": "heading_max_width",
+          "min": 200,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Heading Max Width",
+          "default": 600
         },
         {
           "type": "richtext",
