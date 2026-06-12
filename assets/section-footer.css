@@ -664,9 +664,12 @@
 }
 
 @media screen and (max-width: 749px) {
-  ..footer__bottom-trustpilot{
+  .footer__bottom-trustpilot{
     display: none;
   }
+  .footer__bottom-copyright {
+    justify-content: center;
+}
   .roxx-footer-country-trustpilot {
     flex-direction: row;
     justify-content: space-between;
