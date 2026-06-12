@@ -665,7 +665,6 @@ product-card.lx_productCard_main {
 
 .cart__checkout-button:hover {
   background-color: #e6e6e6 !important;
-  color: #000000 !important;
   transform: translateY(-2px);
 }
 
