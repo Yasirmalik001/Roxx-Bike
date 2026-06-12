@@ -214,14 +214,9 @@ cart-drawer {
 }
 
 cart-drawer-items {
-  overflow: visible;
+  overflow-y: auto;
+  overflow-x: hidden;
   flex: 1;
-}
-
-@media screen and (max-height: 650px) {
-  .drawer__inner {
-    overflow: scroll;
-  }
 }
 
 .cart-drawer .cart-item {
