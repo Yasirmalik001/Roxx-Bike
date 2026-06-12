@@ -162,10 +162,9 @@ span.cc-svg-ride {
   width: 100%;
 }
 
-.icon-hamburger,
-.icon-hamburger path {
-  fill: currentColor;
-  stroke: none;
+.icon-hamburger, .icon-hamburger path {
+    fill: #121212 !important;
+    stroke: #121212;
 }
 
 .product__title {
