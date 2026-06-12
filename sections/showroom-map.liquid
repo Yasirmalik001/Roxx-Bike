@@ -231,13 +231,13 @@
 
       <div class="showroom-buttons">
         {% if section.settings.primary_button_label != blank %}
-          <a href="{{ section.settings.primary_button_link | default: '#' }}" class="showroom-btn button-primary">
+          <a href="{{ section.settings.primary_button_link | default: '#' }}" class="showroom-btn btn-primary">
             {{ section.settings.primary_button_label | escape }}
           </a>
         {% endif %}
         
         {% if section.settings.secondary_button_label != blank %}
-          <a href="{{ section.settings.secondary_button_link | default: '#' }}" class="showroom-btn button-secondary">
+          <a href="{{ section.settings.secondary_button_link | default: '#' }}" class="showroom-btn btn-secondary">
             {{ section.settings.secondary_button_label | escape }}
           </a>
         {% endif %}
