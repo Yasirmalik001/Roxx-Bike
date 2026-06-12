@@ -11,13 +11,91 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "call_to_action_banner_CKpwNy": {
+      "type": "call-to-action-banner",
+      "blocks": {
+        "heading_yVAjJc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Levering & Verzending"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yVAjJc"
+      ],
+      "name": "Overlay Banner (Blocks)",
+      "settings": {
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "image": "shopify://shop_images/763a222d39b3d17c6aac1ce5cbd594523d391318_1.png",
+        "overlay_opacity": 30,
+        "desktop_height": 600,
+        "desktop_align_y": "center",
+        "desktop_align_x": "flex-start",
+        "desktop_text_align": "left",
+        "desktop_flex_align": "flex-start",
+        "mobile_height": 500,
+        "mobile_align_y": "center",
+        "mobile_align_x": "center",
+        "mobile_text_align": "center",
+        "mobile_flex_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_YHpN8X": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_iPKrDB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vertel over je merk",
+            "heading_size": "h1"
+          }
+        },
+        "text_3wydGf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Deel informatie over je merk met klanten. Beschrijf een product, doe aankondigingen of verwelkom klanten in je winkel.</p>"
+          }
+        },
+        "button_bWib4R": {
+          "type": "button",
+          "settings": {
+            "button_label": "Knoplabel",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_iPKrDB",
+        "text_3wydGf",
+        "button_bWib4R"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "call_to_action_banner_CKpwNy",
+    "rich_text_YHpN8X"
   ]
 }
