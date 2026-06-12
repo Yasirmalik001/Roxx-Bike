@@ -1894,11 +1894,26 @@ font-family: Integral CF;
 font-weight: 600;
 font-style: Demi Bold;
 font-size: 18px;
+  
 line-height: 100%;
+ 
 text-align: center;
 }
 
+.product__info-wrapper .price--large .price-item--regular {
+  color: #AFAFAF;
+font-family: Integral CF;
+font-weight: 400;
+ 
+font-size: 18px;
+  
+line-height: 100%;
+ 
+text-align: center;
+text-decoration: line-through;
+}
 
+/* Installment text styling */
 .product__info-wrapper .installment {
   color: #888888;
   font-size: 13px;
