@@ -161,12 +161,13 @@ span.cc-svg-ride {
   margin-bottom: 1.5rem;
   width: 100%;
 }
-
-.icon-hamburger, .icon-close .icon-hamburger path {
+.icon-hamburger,
+.icon-close,
+.icon-hamburger path,
+.icon-close path {
     fill: #121212 !important;
-    stroke: #121212;
+    stroke: #121212 !important;
 }
-
 
 .product__title {
   margin: 0;
