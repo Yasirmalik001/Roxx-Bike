@@ -43,10 +43,98 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
-    }
+    },
+        "partner_testimonials_TYE8nf": {
+      "type": "partner-testimonials",
+      "blocks": {
+        "testimonial_GrQJgj": {
+          "type": "testimonial",
+          "settings": {
+            "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "Hardwell"
+          }
+        },
+        "testimonial_zk7LAw": {
+          "type": "testimonial",
+          "settings": {
+            "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
+          }
+        },
+        "testimonial_AwtBDh": {
+          "type": "testimonial",
+          "settings": {
+            "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
+          }
+        },
+        "testimonial_wHfN8y": {
+          "type": "testimonial",
+          "settings": {
+            "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
+          }
+        },
+        "testimonial_DdF7yh": {
+          "type": "testimonial",
+          "settings": {
+            "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
+          }
+        },
+        "testimonial_9thtHB": {
+          "type": "testimonial",
+          "settings": {
+            "color_scheme": "scheme-329be609-6d1a-497f-8d7d-3de0dc3b1fb5",
+            "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur. Non sed nec massa semper in nec amet tristique. Volutpat consectetur ultrices leo turpis nunc neque ullamcorper tristique venenatis. Commodo arcu hac ullamcorper praesent hendrerit ac ut donec consectetur.</p>",
+            "author": "John Heitinga"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_GrQJgj",
+        "testimonial_zk7LAw",
+        "testimonial_AwtBDh",
+        "testimonial_wHfN8y",
+        "testimonial_DdF7yh",
+        "testimonial_9thtHB"
+      ],
+      "name": "Partner Slider",
+      "settings": {
+        "heading": "WHAT OUR PARTNER SAYS!",
+        "heading_size": "h1",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "button_label": "View all",
+        "button_link": "shopify://collections",
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "dots",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "columns_desktop": 3,
+        "columns_mobile": "1.2",
+        "center_slides": false,
+        "spacing": 30,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+        "partner_testimonials_TYE8nf",
   ]
 }
