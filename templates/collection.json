@@ -252,12 +252,84 @@
         "padding_bottom": 60
       }
     },
+        "faq_x9aGnf": {
+      "type": "faq",
+      "blocks": {
+        "faq_KrNrF3": {
+          "type": "faq",
+          "settings": {
+            "question": "How fast can a Roxx e-bike go?",
+            "answer": "<p>Roxx e-bikes are designed to meet EU regulations, with pedal assist up to 25 km/h. You get a smooth, powerful ride while staying fully road-legal.</p>"
+          }
+        },
+        "faq_w6mC46": {
+          "type": "faq",
+          "settings": {
+            "question": "What range can I expect on a full charge?",
+            "answer": "<p>Depending on the model and conditions, you can typically expect a range of 60km to 120km on a single charge.</p>"
+          }
+        },
+        "faq_r7NwRV": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does the battery take to charge?",
+            "answer": "<p>A full charge takes approximately 4 to 6 hours using the included standard charger.</p>"
+          }
+        },
+        "faq_Prxyde": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I fold and store the bike easily?",
+            "answer": "<p>Yes, specific models feature a quick-fold mechanism allowing you to easily store it in a car trunk or take it on public transport.</p>"
+          }
+        },
+        "faq_QXkc34": {
+          "type": "faq",
+          "settings": {
+            "question": "What warranty do I get?",
+            "answer": "<p>All Roxx e-bikes come with a 2-year warranty on the frame and electronic components, including the motor and battery.</p>"
+          }
+        },
+        "faq_a48Baf": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you provide maintenance or repair services?",
+            "answer": "<p>Yes, we have certified repair centers and provide ongoing maintenance support to keep your ride smooth.</p>"
+          }
+        },
+        "faq_iCX6DQ": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return the bike if I'm not satisfied?",
+            "answer": "<p>We offer a 14-day test ride period. If you're not completely satisfied, you can return it for a full refund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_KrNrF3",
+        "faq_w6mC46",
+        "faq_r7NwRV",
+        "faq_Prxyde",
+        "faq_QXkc34",
+        "faq_a48Baf",
+        "faq_iCX6DQ"
+      ],
+      "name": "Custom FAQ Split",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "FREQUENTLY ASKED\nQUESTIONS",
+        "heading_size": "h1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
   },
   "order": [
     "banner",
     "product-grid",
         "partner_testimonials_TYE8nf",
            "product_comparison_WqKGJh",
+           "faq_x9aGnf",
             "trust_badges_NAabnt",
   ]
 }
