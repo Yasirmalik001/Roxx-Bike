@@ -1226,6 +1226,7 @@
         "card_qcWnGD": {
           "type": "card",
           "settings": {
+            "card_color": "#ffffff",
             "image": "shopify://shop_images/297b810a9ffc8695f319d8ce4a0183c30a3a5834.png",
             "title": "VISIT A NEARBY STORE",
             "btn_label": "FIND A STORE",
@@ -1235,6 +1236,7 @@
         "card_eHGUch": {
           "type": "card",
           "settings": {
+            "card_color": "#ffffff",
             "image": "shopify://shop_images/0ee938a277b9ab001fc789b803ffc363406ee972_1.jpg",
             "title": "FLEXIBLE PRICING",
             "btn_label": "PAY IN INSTALLMENT",
@@ -1244,6 +1246,7 @@
         "card_gkgMXK": {
           "type": "card",
           "settings": {
+            "card_color": "#ffffff",
             "image": "shopify://shop_images/4ef9f487ec0c181a09d8c8bf7479d39f661bb23b.png",
             "title": "DISCOVER ALL OUR BIKES",
             "btn_label": "SHOW ALL",
@@ -1267,9 +1270,9 @@
       "type": "call-to-action-banner",
       "name": "CTA Banner Overlay",
       "settings": {
-        "color_scheme": "",
-        "image": "shopify://shop_images/3492a08b2b97ce709a31a05163b0cf247bfa4ccf.png",
-        "overlay_opacity": 100,
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "image": "shopify://shop_images/2a0cead0c5f23e14d221a950313564bf4355965d.jpg",
+        "overlay_opacity": 0,
         "desktop_height": 600,
         "desktop_align_y": "center",
         "desktop_align_x": "center",
