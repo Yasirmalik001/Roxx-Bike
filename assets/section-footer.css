@@ -1318,9 +1318,7 @@
     justify-content: center;
 }
 .roxx-footer-country-trustpilot {
-    flex-direction: row;
     justify-content: end;
-    width: 100%;
     align-items: center;
 }
   .roxx-footer-brand-social {
