@@ -171,10 +171,10 @@ span.cc-svg-ride {
 }
 
 /* Other pages */
-body:not(.header-transparent-active) .icon-hamburger,
-body:not(.header-transparent-active) .icon-close,
-body:not(.header-transparent-active) .icon-hamburger path,
-body:not(.header-transparent-active) .icon-close path {
+header:not(.header-transparent-active) .icon-hamburger,
+header:not(.header-transparent-active) .icon-close,
+header:not(.header-transparent-active) .icon-hamburger path,
+header:not(.header-transparent-active) .icon-close path {
     fill: #121212 !important;
     stroke: #121212 !important;
 }
