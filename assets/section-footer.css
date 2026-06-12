@@ -991,7 +991,7 @@
 .roxx-footer-bottom-inner {
     display: flex;
     flex-direction: row-reverse;
-    gap: 3rem;
+    gap: 0rem;
     justify-content: space-between;
 }
 }
