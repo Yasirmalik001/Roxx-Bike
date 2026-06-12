@@ -29,27 +29,6 @@
     align-items: flex-start;
     box-sizing: border-box;
   }
-
-  .partner-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 32px;
-    font-family: inherit;
-    font-weight: 800;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 30px;
-    background-color: #FFD100;
-    color: #000000;
-    transition: all 0.3s ease;
-  }
-
-  .partner-btn:hover {
-    background-color: #e6bc00;
-  }
-
   /* Images Column */
   .partner-images {
     width: 55%;
@@ -118,7 +97,7 @@
     {% endif %}
 
     {% if section.settings.button_label != blank %}
-      <a href="{{ section.settings.button_link | default: '#' }}" class="partner-btn">
+      <a href="{{ section.settings.button_link | default: '#' }}" class="button hero-features__button button--primary">
         {{ section.settings.button_label | escape }}
       </a>
     {% endif %}
