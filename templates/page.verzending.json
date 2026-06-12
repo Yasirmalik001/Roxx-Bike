@@ -55,25 +55,25 @@
         "heading_iPKrDB": {
           "type": "heading",
           "settings": {
-            "heading": "Vertel over je merk",
+            "heading": "Hoe gaan we te werk?",
             "heading_size": "h1"
           }
         },
         "text_3wydGf": {
           "type": "text",
           "settings": {
-            "text": "<p>Deel informatie over je merk met klanten. Beschrijf een product, doe aankondigingen of verwelkom klanten in je winkel.</p>"
+            "text": "<p><strong>Je bent opzoek naar een E-bike en besluit voor de Roxx bike te gaan. Uitstekende keuze! Wij hebben verschillende keuzes betreft de levering of rijklaar maken. Hieronder vind je alle informatie hierover.    </strong>Roxx bike wordt kosteloos rijklaar gemaakt, je kan er ook voor kiezen om de Roxx bike in doos te laten leveren.Voor de levering van de Roxx bike bieden wij verschillende opties. Hieronder zullen wij deze even kort toelichten.</p><ul><li><strong>Thuislevering bezorgservice (NL)</strong><br/>Wanneer je kiest voor thuislevering zullen wij jou Roxx bike overdragen voor levering via een derde partij of via onze eigen koerier van de ophaal- en brengservice. Jou Roxx Bike wordt rijklaar bij je thuis geleverd en aan de optie thuislevering zitten geen kosten aan verbonden.</li></ul><p>Is het een kleinere bestelling van onderdelen of accessoires voor jouw Roxx bike, dan zal de levering verlopen via Post NL. Als u een bestelling plaatst onder de €79,95 is het verzendtarief €7,95. De verwachte levertijd via deze bestelmethode is 1-2 werkdagen voor PostNL.</p><ul><li><strong>Lokaal afhalen</strong></li></ul><p>Je kan er ook voor kiezen om de fiets op te halen in onze winkel. Jou Roxx bike staat rijklaar bij ons in de winkel.Via onze klantservice kan je een afspraak maken, neem dan contact op via<a href=\"mailto:info@roxx.bike\" target=\"_blank\"><span style=\"text-decoration:underline\">info@roxx.bike</span></a> of 085-3038850.</p><ul><li><strong>Ophalen bij een dealer</strong><br/>Heb je een Roxx bike gekocht via 1 van   er ook voor kiezen om de Roxx bike in doos te laten leveren.</li><li><strong>Rijklaar leveren<br/></strong>Deze optie is de meest gekozen optie en tevens ook de optie die wij adviseren. Wij zorgen ervoor dat je Roxx bike direct klaar is voor gebruik. De fiets wordt volledig afgemonteerd, waarna alles wordt nagelopen en gecontroleerd.</li><li><strong>Levering in doos</strong><br/>Wil je liever je Roxx bike zelf rijklaar maken, dat kan natuurlijk ook.</li><li>Kies dan voor deze levermethode. Wij leveren je Roxx bike dan op via een van onze verzendpartners nog verpakt in doos. Het nadeel is dat de fiets moeten afgesteld worden. Dit kan zorgen voor problemen wanneer dit niet juist gedaan wordt. Daarom raden wij het aan om voor de rijklaar optie te kiezen. De levering in doos is kosteloos.</li></ul>"
           }
         },
         "button_bWib4R": {
           "type": "button",
           "settings": {
-            "button_label": "Knoplabel",
+            "button_label": "testrit boeken",
             "button_link": "",
             "button_style_secondary": false,
-            "button_label_2": "",
+            "button_label_2": "zie e-bikes",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": true
           }
         }
       },
@@ -84,8 +84,8 @@
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
         "color_scheme": "",
         "full_width": true,
         "padding_top": 40,
