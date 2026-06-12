@@ -531,7 +531,7 @@
         "show_rating": true,
         "rating_text": "4.4 / 5 (based on 200+)",
         "columns_desktop": 4,
-        "column_gap": 2.5,
+        "column_gap": 1.5,
         "card_height_desktop": 490,
         "card_height_mobile": 450,
         "card_corner_radius": 16,
