@@ -1265,27 +1265,6 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
-    },
-    "call_to_action_banner_3Jbhre": {
-      "type": "call-to-action-banner",
-      "name": "CTA Banner Overlay",
-      "settings": {
-        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "image": "shopify://shop_images/2a0cead0c5f23e14d221a950313564bf4355965d.jpg",
-        "overlay_opacity": 0,
-        "desktop_height": 600,
-        "desktop_align_y": "center",
-        "desktop_align_x": "center",
-        "desktop_text_align": "center",
-        "desktop_flex_align": "center",
-        "mobile_height": 500,
-        "mobile_align_y": "center",
-        "mobile_align_x": "center",
-        "mobile_text_align": "center",
-        "mobile_flex_align": "center",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
@@ -1304,7 +1283,6 @@
     "masonary_gallery_3z9FME",
     "feature_alternating_XKMVfA",
     "faq_ekQccb",
-    "promo_cards_section_Y4dTtA",
-    "call_to_action_banner_3Jbhre"
+    "promo_cards_section_Y4dTtA"
   ]
 }
