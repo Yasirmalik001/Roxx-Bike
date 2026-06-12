@@ -602,6 +602,13 @@
   gap: 1.5rem;
 }
 
+.footer__bottom-localization {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .footer__brand-logo-text {
   font-family: 'INTEGRAL CF', sans-serif;
   font-size: 48px;
