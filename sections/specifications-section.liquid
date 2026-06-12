@@ -1,137 +1,30 @@
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+.section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
+@media screen and (min-width: 750px) { .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
+.specs-container { display: grid; grid-template-columns: 1fr; gap: 4rem; }
+@media screen and (min-width: 990px) { .specs-container { grid-template-columns: 1fr 1fr; gap: 8rem; align-items: flex-start; } }
+.specs-left-col { display: flex; flex-direction: column; gap: 3rem; }
+.specs-heading { color: rgb(var(--color-foreground)); }
+@media screen and (min-width: 990px) { .specs-image-wrap { width: 145%; margin-left: -45%; max-width: none; display: flex; justify-content: flex-end; margin-top: 4rem; } }
+.specs-image { width: 100%; height: auto; object-fit: contain; display: block; }
+.specs-right-col { display: flex; flex-direction: column; gap: 4rem; padding-top: 1rem; }
+.spec-category { display: flex; flex-direction: column; gap: 1.5rem; }
+.spec-category-title { font-family: "Suisse Int'l Trial", sans-serif; font-weight: 400; font-size: 20px; line-height: 100%; color: rgb(var(--color-foreground)); margin: 0; }
+.spec-table { display: flex; flex-direction: column; width: 100%; }
+.spec-row { display: flex; align-items: flex-start; padding: 1.4rem 1.5rem; font-size: 1.3rem; line-height: 1.4; }
+.spec-row:nth-child(odd) { background-color: rgba(var(--color-foreground), 0.04); }
+.spec-label { flex: 0 0 35%; padding-right: 1.5rem; color: rgba(var(--color-foreground), 0.6); font-weight: 400; }
+.spec-value { flex: 1; color: rgb(var(--color-foreground)); font-weight: 500; }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
+@media screen and (max-width: 989px) {
+  .specs-image-wrap { display: none; }
+}
 
-  .specs-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-
-  @media screen and (min-width: 990px) {
-    .specs-container {
-      grid-template-columns: 1fr 1fr;
-      gap: 8rem;
-      align-items: flex-start;
-    }
-  }
-
-  /* --- LEFT COLUMN: HEADING & IMAGE --- */
-  .specs-left-col {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .specs-heading {
-    color: rgb(var(--color-foreground));
-  }
-
-  /* Hide image on mobile */
-  @media screen and (max-width: 989px) {
-    .specs-image-wrap {
-      display: none;
-    }
-  }
-
-  /* Scale and pull the image left on desktop to match the design */
-  @media screen and (min-width: 990px) {
-    .specs-image-wrap {
-      width: 145%;
-      margin-left: -45%; 
-      max-width: none;
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 4rem;
-    }
-  }
-
-  .specs-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
-
-  /* --- RIGHT COLUMN: SPECIFICATION TABLES --- */
-  .specs-right-col {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    padding-top: 1rem;
-  }
-
-  .spec-category {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .spec-category-title {
-    font-family: "Suisse Int'l Trial", sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 100%;
-    color: rgb(var(--color-foreground));
-    margin: 0;
-  }
-
-  .spec-table {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  /* Alternating Row Colors */
-  .spec-row {
-    display: flex;
-    align-items: flex-start;
-    padding: 1.4rem 1.5rem;
-    font-size: 1.3rem;
-    line-height: 1.4;
-  }
-
-  .spec-row:nth-child(odd) {
-    background-color: rgba(var(--color-foreground), 0.04);
-  }
-
-  .spec-label {
-    flex: 0 0 35%;
-    padding-right: 1.5rem;
-    color: rgba(var(--color-foreground), 0.6);
-    font-weight: 400;
-  }
-
-  .spec-value {
-    flex: 1;
-    color: rgb(var(--color-foreground));
-    font-weight: 500;
-  }
-
-  /* FIXED MOBILE LAYOUT */
-  @media screen and (max-width: 749px) {
-    .spec-row {
-      flex-direction: row; /* Keeps elements side-by-side */
-      gap: 1rem;
-      padding: 1.2rem 1rem;
-    }
-    .spec-label {
-      flex: 0 0 40%; /* Gives the label a fixed 40% width so values align perfectly */
-      padding-right: 0;
-    }
-    .spec-value {
-      flex: 1; /* Takes up the remaining 60% */
-    }
-  }
+@media screen and (max-width: 749px) {
+  .spec-row { flex-direction: row; gap: 1rem; padding: 1.2rem 1rem; }
+  .spec-label { flex: 0 0 40%; padding-right: 0; }
+  .spec-value { flex: 1; }
+}
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
