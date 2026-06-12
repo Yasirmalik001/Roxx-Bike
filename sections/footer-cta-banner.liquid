@@ -118,7 +118,7 @@
       {%- case block.type -%}
         
         {%- when 'heading' -%}
-          <h2 class="hero-block-heading h1" {{ block.shopify_attributes }} style="font-size: {{ block.settings.font_size }}px;">
+          <h2 class="hero-block-heading h1" {{ block.shopify_attributes }}>
             {{ block.settings.heading | escape }}
           </h2>
 
@@ -145,14 +145,7 @@
   .footer-cta-{{ section.id }} .hero-content-wrapper * {
     margin: 0
   }
-  
-  .footer-cta-{{ section.id }} .hero-block-heading {
-    line-height: 1.1;
-    margin-bottom: 10px;
-    font-weight: 800;
-    max-width: 600px;
-  }
-  
+
   .footer-cta-{{ section.id }} .hero-block-text {
     font-size: 16px;
     line-height: 1.5;
