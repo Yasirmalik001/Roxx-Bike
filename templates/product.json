@@ -733,6 +733,59 @@
         "padding_bottom": 80
       }
     },
+    "image_with_features_protect_VmjEyF": {
+      "type": "image-with-features-protect",
+      "blocks": {
+        "feature_xcJ6Nm": {
+          "type": "feature",
+          "settings": {
+            "title": "Integrated GPS tracking"
+          }
+        },
+        "feature_LKhykn": {
+          "type": "feature",
+          "settings": {
+            "title": "Smart alarm system"
+          }
+        },
+        "feature_xVDHzY": {
+          "type": "feature",
+          "settings": {
+            "title": "Real-time location monitoring"
+          }
+        }
+      },
+      "block_order": [
+        "feature_xcJ6Nm",
+        "feature_LKhykn",
+        "feature_xVDHzY"
+      ],
+      "name": "Image with Protection",
+      "settings": {
+        "color_scheme": "",
+        "layout": "image_first",
+        "main_image": "shopify://shop_images/18e4bf5ddd9dd480c0c1f0c20f5a5dd83dd87f96_1.png",
+        "waves_image": "shopify://shop_images/Group_43.svg",
+        "back_wave_size": 45,
+        "back_wave_left": 25,
+        "back_wave_bottom": -5,
+        "front_wave_size": 45,
+        "front_wave_left": 75,
+        "front_wave_bottom": 0,
+        "show_tooltip": true,
+        "tooltip_title": "Your bike is moving 🚨",
+        "tooltip_text": "Not you? Track your bike",
+        "tooltip_top": 15,
+        "tooltip_left": 20,
+        "title": "BUILT TO PROTECT",
+        "heading_size": "h1",
+        "text": "<p>Lorem ipsum dolor sit amet consectetur. Morbi fermentum nisl hac cum lobortis sit massa pharetra. A sit nulla pellentesque turpis magna sodales.</p>",
+        "btn_label": "Book a test ride",
+        "btn_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "product_comparison_WqKGJh": {
       "type": "product-comparison",
       "blocks": {
@@ -1325,6 +1378,7 @@
     "image_with_hotspots_rJkiKJ",
     "app_features_section_gVYMpE",
     "specifications_section_k6Pnef",
+    "image_with_features_protect_VmjEyF",
     "product_comparison_WqKGJh",
     "image_with_text_YXALTw",
     "call_to_action_banner_gDyYaG",
