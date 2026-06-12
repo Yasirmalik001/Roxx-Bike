@@ -162,7 +162,7 @@ span.cc-svg-ride {
   width: 100%;
 }
 
-.icon-hamburger, .icon-close  path {
+.icon-hamburger, .icon-close .icon-hamburger path {
     fill: #121212 !important;
     stroke: #121212;
 }
