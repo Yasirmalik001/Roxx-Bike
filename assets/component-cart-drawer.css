@@ -511,10 +511,15 @@ letter-spacing: 0%;
 
 .cart-drawer .cart-item__price-wrapper s.price,
 .cart-drawer .cart-item__price-wrapper .compare-price {
-  font-size: 13px;
-  color: #a3a3a3;
-  font-weight: 500;
-  text-decoration: line-through;
+font-family: Integral CF;
+font-weight: 400;
+font-style: Regular;
+font-size: 12px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-decoration: line-through;
+color: #B1B1B1;
 }
 
 /* Save Badge */
