@@ -670,12 +670,12 @@
   .footer__bottom-copyright {
     justify-content: center;
 }
-  .roxx-footer-country-trustpilot {
+.roxx-footer-country-trustpilot {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: end;
     width: 100%;
     align-items: center;
-  }
+}
   .roxx-footer-brand-social {
     order: 2; /* Put logo and social below country/trustpilot */
     margin-top: 2rem;
