@@ -162,19 +162,19 @@ span.cc-svg-ride {
   width: 100%;
 }
 /* Homepage */
-.template-index .icon-hamburger,
-.template-index .icon-close,
-.template-index .icon-hamburger path,
-.template-index .icon-close path {
+.header-transparent-active .icon-hamburger,
+.header-transparent-active .icon-close,
+.header-transparent-active .icon-hamburger path,
+.header-transparent-active .icon-close path {
     fill: #ffffff !important;
     stroke: #ffffff !important;
 }
 
 /* Other pages */
-body:not(.template-index) .icon-hamburger,
-body:not(.template-index) .icon-close,
-body:not(.template-index) .icon-hamburger path,
-body:not(.template-index) .icon-close path {
+body:not(.header-transparent-active) .icon-hamburger,
+body:not(.header-transparent-active) .icon-close,
+body:not(.header-transparent-active) .icon-hamburger path,
+body:not(.header-transparent-active) .icon-close path {
     fill: #121212 !important;
     stroke: #121212 !important;
 }
