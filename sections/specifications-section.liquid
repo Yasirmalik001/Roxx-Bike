@@ -117,15 +117,19 @@
     font-weight: 500;
   }
 
+  /* FIXED MOBILE LAYOUT */
   @media screen and (max-width: 749px) {
     .spec-row {
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 1.2rem;
+      flex-direction: row; /* Keeps elements side-by-side */
+      gap: 1rem;
+      padding: 1.2rem 1rem;
     }
     .spec-label {
-      flex: 0 0 100%;
+      flex: 0 0 40%; /* Gives the label a fixed 40% width so values align perfectly */
       padding-right: 0;
+    }
+    .spec-value {
+      flex: 1; /* Takes up the remaining 60% */
     }
   }
 {%- endstyle -%}
@@ -134,7 +138,6 @@
   <div class="page-width">
     <div class="specs-container">
       
-      <!-- Left Column -->
       <div class="specs-left-col">
         {%- if section.settings.title != blank -%}
           <h2 class="{{ section.settings.heading_size }} specs-heading">{{ section.settings.title | escape }}</h2>
@@ -149,7 +152,6 @@
         </div>
       </div>
 
-      <!-- Right Column: Dynamic Blocks -->
       <div class="specs-right-col">
         {%- assign first_category = true -%}
 
@@ -157,9 +159,7 @@
 
           {%- if block.type == 'category' -%}
             {%- unless first_category -%}
-              </div> <!-- Close previous .spec-table -->
-              </div> <!-- Close previous .spec-category -->
-            {%- endunless -%}
+              </div> </div> {%- endunless -%}
             
             <div class="spec-category" {{ block.shopify_attributes }}>
               <h3 class="spec-category-title">{{ block.settings.title | escape }}</h3>
@@ -170,7 +170,6 @@
           {%- elsif block.type == 'spec' -%}
             
             {%- if first_category -%}
-              <!-- Failsafe: if a spec is added before a category block -->
               <div class="spec-category">
                 <div class="spec-table">
               {%- assign first_category = false -%}
@@ -186,9 +185,7 @@
         {%- endfor -%}
 
         {%- unless first_category -%}
-            </div> <!-- Close last .spec-table -->
-          </div> <!-- Close last .spec-category -->
-        {%- endunless -%}
+            </div> </div> {%- endunless -%}
       </div>
 
     </div>
