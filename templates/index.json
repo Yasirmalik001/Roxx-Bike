@@ -542,9 +542,9 @@
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "image": "shopify://shop_images/ec51d189310bd1081d8fdc5c062692065504b14f.png",
-        "overlay_opacity": 40,
+        "overlay_opacity": 0,
         "desktop_height": 600,
         "desktop_align_y": "flex-start",
         "desktop_align_x": "center",
