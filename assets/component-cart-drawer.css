@@ -324,11 +324,11 @@ cart-drawer-items {
 .cart-drawer.cart-drawer .cart-item__price-wrapper > *:only-child {
   margin-top: 0;
 }
-
 .cart-drawer .cart-item__price-wrapper .cart-item__discounted-prices {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+    display: flex;
+    /* flex-direction: column; */
+    gap: .6rem;
+    align-items: center;
 }
 
 .cart-drawer .unit-price {
