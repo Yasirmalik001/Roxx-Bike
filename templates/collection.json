@@ -180,11 +180,84 @@
         "padding_bottom": 36
       }
     },
+        "product_comparison_WqKGJh": {
+      "type": "product-comparison",
+      "blocks": {
+        "feature_row_e47jF7": {
+          "type": "feature_row",
+          "settings": {
+            "fallback_icon": "rider_height",
+            "text_1": "Suitable for cyclists\nfrom 165-190 cm",
+            "text_2": "Suitable for cyclists\nfrom 155-195 cm"
+          }
+        },
+        "feature_row_qzbajJ": {
+          "type": "feature_row",
+          "settings": {
+            "custom_icon": "shopify://shop_images/Group_22_a402139a-f8b1-4606-b6e2-9b0dab69426c.svg",
+            "fallback_icon": "range_dots",
+            "text_1": "Range upto 80-100 km",
+            "text_2": "Range upto 60-80 km"
+          }
+        },
+        "feature_row_VjzrHf": {
+          "type": "feature_row",
+          "settings": {
+            "custom_icon": "shopify://shop_images/Group_5_8cc8a4e4-6b50-4776-a0ed-d8755b4e5104.svg",
+            "fallback_icon": "speedometer",
+            "text_1": "Max speed 25 km/h",
+            "text_2": "Max speed 25 km/h"
+          }
+        },
+        "feature_row_W6t6WY": {
+          "type": "feature_row",
+          "settings": {
+            "custom_icon": "shopify://shop_images/Group_6.svg",
+            "fallback_icon": "gps_pin",
+            "text_1": "Advanced (GPS\ntracking & alarm)",
+            "text_2": "Standard lock support"
+          }
+        },
+        "feature_row_hEHRbt": {
+          "type": "feature_row",
+          "settings": {
+            "custom_icon": "shopify://shop_images/Vector_13.svg",
+            "fallback_icon": "drive_belt",
+            "text_1": "Carbon belt drive",
+            "text_2": "Chain drive"
+          }
+        }
+      },
+      "block_order": [
+        "feature_row_e47jF7",
+        "feature_row_qzbajJ",
+        "feature_row_VjzrHf",
+        "feature_row_W6t6WY",
+        "feature_row_hEHRbt"
+      ],
+      "name": "Product Comparison",
+      "settings": {
+        "color_scheme": "",
+        "heading": "NOT SURE WHICH BIKE SUITS YOU?",
+        "heading_size": "h1",
+        "subheading": "check out the handy comparison table below.",
+        "product_1": "roxx-joieem-x",
+        "custom_title_1": "",
+        "desc_1": "Lorem ipsum dolor sit amet consectetur.",
+        "product_2": "sl5",
+        "custom_title_2": "",
+        "desc_2": "Lorem ipsum dolor sit amet consectetur.",
+        "link_label": "More info",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
   },
   "order": [
     "banner",
     "product-grid",
         "partner_testimonials_TYE8nf",
+           "product_comparison_WqKGJh",
             "trust_badges_NAabnt",
   ]
 }
