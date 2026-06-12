@@ -317,8 +317,9 @@ cart-drawer-items {
 }
 
 .cart-drawer .cart-item__totals {
-  pointer-events: none;
-  position: relative;
+    pointer-events: none;
+    position: relative;
+    margin-top: 5px;
 }
 
 .cart-drawer.cart-drawer .cart-item__price-wrapper > *:only-child {
