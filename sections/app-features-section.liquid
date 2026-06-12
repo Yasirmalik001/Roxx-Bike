@@ -1,181 +1,33 @@
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+.section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
+@media screen and (min-width: 750px) { .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
+.app-intro-section { overflow: hidden; background-color: #ffffff; }
+.app-intro-header { text-align: center; max-width: 800px; margin: 0 auto 5rem auto; padding: 0 2rem; }
+.app-intro-heading { margin: 0 0 1.2rem 0; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(3rem, 4vw, 4.2rem); line-height: 1.1; color: #111111; }
+.app-intro-description { font-size: 1.4rem; line-height: 1.6; color: #444444; margin: 0 auto; max-width: 600px; }
+.app-intro-grid { display: flex; flex-direction: column; gap: 5rem; }
+@media screen and (min-width: 990px) { .app-intro-grid { flex-direction: row; align-items: center; gap: 2rem; } .app-image-col { width: 58%; } .app-card-col { width: 42%; } }
+.app-image-col { position: relative; display: flex; align-items: flex-end; padding-bottom: 2rem; }
+.layer-bike { width: 100%; height: 690px; object-fit: cover; position: relative; z-index: 1; display: block; margin-right: auto; }
+.layer-device-1 { position: absolute; width: 301px; bottom: 0px; right: 200px; z-index: 2; height: 400px; object-fit: cover; }
+.layer-device-2 { position: absolute; width: 472px; bottom: 0px; right: -60px; z-index: 3; height: 472px; object-fit: cover; }
+.app-card-col { display: flex; justify-content: center; padding-right: 2rem; }
+.app-feature-card { background-color: #ffffff; border-radius: 20px; padding: 6rem 4rem; width: 100%; max-width: 480px; box-shadow: 0px 2px 23.1px 0px #0000000D; border: 1px solid rgba(0, 0, 0, 0.02); }
+.app-features-wrapper { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 3rem; row-gap: 4.5rem; }
+.app-feature-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
+.app-feature-icon { width: 52px; height: 52px; border-radius: 50%; background-color: #d1d5db; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.app-feature-icon img { width: 100%; height: 100%; object-fit: cover; }
+.app-feature-title { font-size: 1.25rem; font-weight: 500; line-height: 1.35; color: #222222; margin: 0; max-width: 140px; }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-
-  .app-intro-section {
-    overflow: hidden;
-    background-color: #ffffff; /* Clean white background matching the image */
-  }
-
-  /* --- Header Styles --- */
-  .app-intro-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 5rem auto;
-    padding: 0 2rem;
-  }
-
-  .app-intro-heading {
-    margin: 0 0 1.2rem 0;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    font-size: clamp(3rem, 4vw, 4.2rem);
-    line-height: 1.1;
-    color: #111111;
-  }
-
-  .app-intro-description {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    color: #444444;
-    margin: 0 auto;
-    max-width: 600px;
-  }
-
-  /* --- Main Grid Layout --- */
-  .app-intro-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-  }
-
-  @media screen and (min-width: 990px) {
-    .app-intro-grid {
-      flex-direction: row;
-      align-items: center;
-      gap: 2rem;
-    }
-    .app-image-col {
-      width: 58%;
-    }
-    .app-card-col {
-      width: 42%;
-    }
-  }
-
-  /* --- Left Column: 3 Images Composition --- */
-  .app-image-col {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    /* Extra padding bottom to allow devices to hang down slightly without clipping */
-    padding-bottom: 2rem; 
-  }
-
-.layer-bike {
-    width: 100%;
-    height: 690px;
-    object-fit: cover;
-    position: relative;
-    z-index: 1;
-    display: block;
-    margin-right: auto;
+@media screen and (max-width: 749px) {
+  .app-intro-header { margin-bottom: 4rem; }
+  .layer-bike { width: 90%; height: 400px; }
+  .layer-device-1 { width: 160px; right: 100px; bottom: 0px; height: 200px; }
+  .layer-device-2 { width: 200px; right: 0px; bottom: 0px; height: 250px; }
+  .app-card-col { padding-right: 0; padding: 0 1.5rem; }
+  .app-feature-card { padding: 4rem 2rem; }
+  .app-features-wrapper { column-gap: 2rem; row-gap: 4rem; }
 }
-
-.layer-device-1 {
-    position: absolute;
-    width: 301px;
-    bottom: 0px;
-    right: 200px;
-    z-index: 2;
-    height: 400px;
-    object-fit: cover;
-}
-
-.layer-device-2 {
-    position: absolute;
-    width: 472px;
-    bottom: 0px;
-    right: -60px;
-    z-index: 3;
-    height: 472px;
-    object-fit: cover;
-}
-
-  .app-card-col {
-    display: flex;
-    justify-content: center;
-    padding-right: 2rem;
-  }
-
-  .app-feature-card {
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 6rem 4rem;
-    width: 100%;
-    max-width: 480px;
-    box-shadow: 0px 2px 23.1px 0px #0000000D;
-    border: 1px solid rgba(0, 0, 0, 0.02);
-  }
-
-  .app-features-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 3rem;
-    row-gap: 4.5rem;
-  }
-
-  /* --- Individual Feature Block --- */
-  .app-feature-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .app-feature-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background-color: #d1d5db; /* Solid gray placeholder circle from image */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .app-feature-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .app-feature-title {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.35;
-    color: #222222;
-    margin: 0;
-    max-width: 140px; /* Constrains text to force exact wrapping like the image */
-  }
-
-  /* Mobile Adjustments */
-  @media screen and (max-width: 749px) {
-    .app-intro-header {
-      margin-bottom: 4rem;
-    }
-    .layer-bike { width: 90%; height: 400px }
-    .layer-device-1 { width: 160px; right: 100px; bottom: 0px; height: 200px; }
-    .layer-device-2 { width: 200px; right: 0px; bottom: 0px; height: 250px;  }
-    
-    .app-card-col { padding-right: 0; padding: 0 1.5rem; }
-    .app-feature-card { padding: 4rem 2rem; }
-    .app-features-wrapper {
-      column-gap: 2rem;
-      row-gap: 4rem;
-    }
-  }
 {%- endstyle -%}
 
 <div class="app-intro-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
