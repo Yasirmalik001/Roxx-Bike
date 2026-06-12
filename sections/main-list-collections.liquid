@@ -1,212 +1,98 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-<style>
-  /* Global Header Styles */
-  .bikes-header {
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .custom-category-header {
+    background-color: #222222;
+    color: #FFFFFF;
     text-align: center;
-    padding: 4rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .bikes-header__reviews {
-    color: #00b67a;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .bikes-header__title {
-    font-size: 4rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin: 0 0 1rem 0;
-    letter-spacing: -0.02em;
-  }
-  .bikes-header__desc {
+    padding: 12px 20px;
     font-size: 1.4rem;
-    color: #555;
-    margin-bottom: 2rem;
-    line-height: 1.5;
-  }
-  .btn-outline {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border: 1px solid #111;
-    border-radius: 50px;
-    text-decoration: none;
-    color: #111;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-  }
-  /* Category Banner Divider */
-  .category-banner {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    text-align: center;
-    padding: 1.5rem 0;
-    margin: 4rem 0 3rem 0;
+    font-weight: 700;
     text-transform: uppercase;
-    font-weight: 800;
-    font-size: 1.8rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 1px;
+    margin: 40px 0 24px 0;
   }
-</style>
 
-<div class="bikes-page">
-  <div class="bikes-header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <div class="bikes-header__reviews">
-      <span class="stars">★★★★★</span> {{ section.settings.review_text }}
-    </div>
-    <h1 class="bikes-header__title">{{ section.settings.title }}</h1>
-    <p class="bikes-header__desc">{{ section.settings.description }}</p>
-    {% if section.settings.button_label != blank %}
-      <a href="{{ section.settings.button_link }}" class="btn-outline">{{ section.settings.button_label }}</a>
-    {% endif %}
-  </div>
+  /* Remove top margin for the very first header */
+  .custom-category-header:first-of-type {
+    margin-top: 0;
+  }
+{%- endstyle -%}
 
-  {%- liquid
-    case section.settings.sort
-      when 'products_high', 'products_low'
-        assign sorted_collections = collections | sort: 'all_products_count'
-      when 'date', 'date_reversed'
-        assign sorted_collections = collections | sort: 'published_at'
-      else
-        assign sorted_collections = collections | sort: 'title'
-    endcase
+<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    
+    {%- for block in section.blocks -%}
+      {%- if block.settings.title != blank -%}
+        <div class="custom-category-header" {{ block.shopify_attributes }}>
+          {{ block.settings.title }}
+        </div>
+      {%- endif -%}
 
-    if section.settings.sort == 'products_high' or section.settings.sort == 'date_reversed' or section.settings.sort == 'alphabetical_reversed'
-      assign sorted_collections = sorted_collections | reverse
-    endif
-  -%}
-
-  {%- for collection in sorted_collections -%}
-    {%- if collection.all_products_count > 0 -%}
-      <div class="category-section{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-           {% if settings.animations_reveal_on_scroll %}data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
+      <ul class="grid product-grid grid--1-col grid--2-col-tablet grid--3-col-desktop">
+        {%- assign collection = block.settings.collection -%}
         
-        <div class="category-banner">
-          {{ collection.title }}
-        </div>
+        {%- if collection != blank and collection.products_count > 0 -%}
+          {%- for product in collection.products limit: block.settings.products_to_show -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: section.settings.image_ratio,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating
+              %}
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for i in (1..3) -%}
+            <li class="grid__item">
+              <div class="placeholder-background" style="padding-bottom: 100%; position: relative; background: #f3f3f3;">
+                {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+      
+    {%- endfor -%}
 
-        <div class="page-width">
-          <ul class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down" role="list">
-            
-            {%- for product in collection.products limit: section.settings.products_per_collection -%}
-              <li class="grid__item">
-                {% render 'card-product',
-                  card_product: product,
-                  media_aspect_ratio: section.settings.image_ratio,
-                  show_secondary_image: section.settings.show_secondary_image,
-                  show_vendor: section.settings.show_vendor,
-                  show_rating: section.settings.show_rating
-                %}
-              </li>
-            {%- endfor -%}
-            
-          </ul>
-        </div>
-      </div>
-    {%- endif -%}
-  {%- endfor -%}
+  </div>
 </div>
 
 {% schema %}
 {
-  "name": "Categorized Bikes Grid",
+  "name": "Categorized Product Grid",
+  "tag": "section",
   "class": "section",
   "settings": [
     {
-      "type": "header",
-      "content": "Page Header Content"
-    },
-    {
-      "type": "text",
-      "id": "review_text",
-      "label": "Review Text",
-      "default": "5.0 / 5.0 (Based on 200+)"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "SHOP ALL BIKES"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Explore the complete bike collection — from smart urban e-bikes to powerful fat bikes and everyday commuters."
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "Compare Models ➔"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "Grid Settings"
-    },
-    {
-      "type": "range",
-      "id": "products_per_collection",
-      "min": 3,
-      "max": 12,
-      "step": 3,
-      "default": 3,
-      "label": "Products to show per category"
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "default": 3,
-      "label": "Columns on desktop"
-    },
-    {
-      "type": "select",
-      "id": "columns_mobile",
-      "options": [
-        {
-          "value": "1",
-          "label": "1 column"
-        },
-        {
-          "value": "2",
-          "label": "2 columns"
-        }
-      ],
-      "default": "1",
-      "label": "Columns on mobile"
+      "content": "Product Card Settings"
     },
     {
       "type": "select",
       "id": "image_ratio",
       "options": [
-        {
-          "value": "adapt",
-          "label": "Adapt to image"
-        },
-        {
-          "value": "portrait",
-          "label": "Portrait"
-        },
-        {
-          "value": "square",
-          "label": "Square"
-        }
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
       ],
       "default": "adapt",
       "label": "Image ratio"
@@ -228,6 +114,67 @@
       "id": "show_rating",
       "default": false,
       "label": "Show product rating"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Header Title",
+          "default": "CITY BIKES"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection to Display"
+        },
+        {
+          "type": "range",
+          "id": "products_to_show",
+          "min": 2,
+          "max": 12,
+          "step": 1,
+          "default": 3,
+          "label": "Maximum products to show in this category"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Categorized Product Grid",
+      "blocks": [
+        { "type": "category", "settings": { "title": "CITY BIKES" } },
+        { "type": "category", "settings": { "title": "FAT BIKES" } }
+      ]
     }
   ]
 }
