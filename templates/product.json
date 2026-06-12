@@ -12,6 +12,15 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {
+            "save_badge_bg": "#b3191f",
+            "save_badge_text": "#ffffff",
+            "klarna_pill_bg": "#f8f8f8",
+            "klarna_pill_text": "#555555"
+          }
+        },
         "payment_installments_86AEcB": {
           "type": "payment_installments",
           "settings": {
@@ -27,15 +36,6 @@
         "title": {
           "type": "title",
           "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "save_badge_bg": "#b3191f",
-            "save_badge_text": "#ffffff",
-            "klarna_pill_bg": "#f8f8f8",
-            "klarna_pill_text": "#555555"
-          }
         },
         "text_YJpJae": {
           "type": "text",
@@ -238,9 +238,9 @@
         }
       },
       "block_order": [
+        "price",
         "payment_installments_86AEcB",
         "title",
-        "price",
         "text_YJpJae",
         "shipping_info_UmQ3xw",
         "variant_picker",
