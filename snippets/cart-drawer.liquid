@@ -221,10 +221,10 @@
                                   <div class="cart-item__price-wrapper">
                                     {%- if item.variant.compare_at_price > item.variant.price -%}
                                       <div class="cart-item__discounted-prices">
-                                        <span class="price" style="font-weight: 700; color: #000; margin-right: 5px;">
+                                        <span class="price">
                                           {{ item.variant.price | money }}
                                         </span>
-                                        <s class="cart-item__old-price price" style="color: #999; font-size: 0.9em;">
+                                        <s class="cart-item__old-price price">
                                           {{ item.variant.compare_at_price | money }}
                                         </s>
                                       </div>
@@ -233,13 +233,13 @@
                                         <span class="visually-hidden">
                                           {{ 'products.product.price.regular_price' | t }}
                                         </span>
-                                        <s class="cart-item__old-price price" style="color: #999; font-size: 0.9em;">
+                                        <s class="cart-item__old-price price">
                                           {{ item.original_line_price | money }}
                                         </s>
                                         <span class="visually-hidden">
                                           {{ 'products.product.price.sale_price' | t }}
                                         </span>
-                                        <span class="price" style="font-weight: 700; color: #000; margin-right: 5px;">
+                                        <span class="price">
                                           {{ item.final_line_price | money }}
                                         </span>
                                       </div>
