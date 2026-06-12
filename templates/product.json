@@ -447,6 +447,47 @@
         "padding_bottom": 60
       }
     },
+    "image_with_hotspots_rJkiKJ": {
+      "type": "image-with-hotspots",
+      "blocks": {
+        "hotspot_tWXmP9": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 25,
+            "pos_y": 70,
+            "tooltip_position": "right",
+            "title": "Feature name",
+            "subtitle": "28 inch Cst Fly safely through the road bends",
+            "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
+          }
+        },
+        "hotspot_Kne3by": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 75,
+            "pos_y": 60,
+            "tooltip_position": "right",
+            "title": "Feature name",
+            "subtitle": "28 inch Cst Fly safely through the road bends",
+            "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_tWXmP9",
+        "hotspot_Kne3by"
+      ],
+      "name": "Image with Hotspots",
+      "settings": {
+        "heading": "MINIMAL DESIGN. MAXIMUM IMPACT.",
+        "text": "<p>A sleek, integrated frame that turns heads — without compromising function. Built with precision and high-quality materials, the Joieem X blends aesthetics with durability, making it as stylish as it is reliable.</p>",
+        "image": "shopify://shop_images/size-fit-bike.png",
+        "image_radius": 0,
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "video_testimonials_gallery_AChKUk": {
       "type": "video-testimonials-gallery",
       "blocks": {
@@ -496,47 +537,6 @@
         "card_corner_radius": 16,
         "padding_top": 40,
         "padding_bottom": 40
-      }
-    },
-    "image_with_hotspots_rJkiKJ": {
-      "type": "image-with-hotspots",
-      "blocks": {
-        "hotspot_tWXmP9": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 25,
-            "pos_y": 70,
-            "tooltip_position": "right",
-            "title": "Feature name",
-            "subtitle": "28 inch Cst Fly safely through the road bends",
-            "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
-          }
-        },
-        "hotspot_Kne3by": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 75,
-            "pos_y": 60,
-            "tooltip_position": "right",
-            "title": "Feature name",
-            "subtitle": "28 inch Cst Fly safely through the road bends",
-            "content": "<p>Explain the feature in detail here. High quality materials ensure durability.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "hotspot_tWXmP9",
-        "hotspot_Kne3by"
-      ],
-      "name": "Image with Hotspots",
-      "settings": {
-        "heading": "MINIMAL DESIGN. MAXIMUM IMPACT.",
-        "text": "<p>A sleek, integrated frame that turns heads — without compromising function. Built with precision and high-quality materials, the Joieem X blends aesthetics with durability, making it as stylish as it is reliable.</p>",
-        "image": "shopify://shop_images/size-fit-bike.png",
-        "image_radius": 0,
-        "color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 60
       }
     },
     "app_features_section_gVYMpE": {
@@ -1383,8 +1383,8 @@
     "hero_features_banner_UXYq4t",
     "related-products",
     "quick_features_slider_GB9B7z",
-    "video_testimonials_gallery_AChKUk",
     "image_with_hotspots_rJkiKJ",
+    "video_testimonials_gallery_AChKUk",
     "app_features_section_gVYMpE",
     "specifications_section_k6Pnef",
     "image_with_features_protect_VmjEyF",
