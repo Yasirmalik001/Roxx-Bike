@@ -141,7 +141,8 @@
             "value_2": "25 km/h",
             "icon_3": "shopify://shop_images/Group_22.svg",
             "label_3": "Max Range",
-            "value_3": "80-100 km"
+            "value_3": "80-100 km",
+            "margin_top_desktop": 20
           }
         },
         "divider_pfUTYa": {
@@ -163,14 +164,19 @@
             "video_margin_bottom": 20,
             "use_metafields": false,
             "video_1": "shopify://files/videos/joieemcomm-ezgif.com-mute-video (1).mp4",
+            "thumb_1": "shopify://shop_images/0ee938a277b9ab001fc789b803ffc363406ee972_1.jpg",
             "video_text_1": "",
             "video_2": "shopify://files/videos/Gordonroxxbreed-ezgif.com-mute-video.mp4",
+            "thumb_2": "shopify://shop_images/4ef9f487ec0c181a09d8c8bf7479d39f661bb23b.png",
             "video_text_2": "",
             "video_3": "shopify://files/videos/1.RijRoxx-16x9-ezgif.com-mute-video.mp4",
+            "thumb_3": "shopify://shop_images/0ee938a277b9ab001fc789b803ffc363406ee972_1.jpg",
             "video_text_3": "",
             "video_4": "shopify://files/videos/Snijder Story.mov",
+            "thumb_4": "shopify://shop_images/297b810a9ffc8695f319d8ce4a0183c30a3a5834.png",
             "video_text_4": "",
             "video_5": "shopify://files/videos/Trobionthebeat.mp4",
+            "thumb_5": "shopify://shop_images/763a222d39b3d17c6aac1ce5cbd594523d391318_1.png",
             "video_text_5": ""
           }
         },
