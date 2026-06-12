@@ -1265,6 +1265,57 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "footer_cta_banner_BtgHyb": {
+      "type": "footer-cta-banner",
+      "blocks": {
+        "heading_ieFzj8": {
+          "type": "heading",
+          "settings": {
+            "heading": "READY TO RIDE SMARTER?",
+            "font_size": 48
+          }
+        },
+        "text_nkQFjY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Upgrade your everyday commute with the Roxx Joleem X.</p>"
+          }
+        },
+        "button_B8k77e": {
+          "type": "button",
+          "settings": {
+            "button_label": "BOOK A TEST RIDE",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_ieFzj8",
+        "text_nkQFjY",
+        "button_B8k77e"
+      ],
+      "name": "Footer CTA Banner",
+      "settings": {
+        "image": "shopify://shop_images/2a0cead0c5f23e14d221a950313564bf4355965d.jpg",
+        "top_gradient_height": 30,
+        "bottom_gradient_height": 50,
+        "mobile_top_gradient_height": 60,
+        "mobile_solid_black_top": 30,
+        "mobile_bottom_gradient_height": 40,
+        "desktop_height": 600,
+        "desktop_align_y": "center",
+        "desktop_align_x": "center",
+        "desktop_text_align": "center",
+        "desktop_flex_align": "center",
+        "mobile_height": 500,
+        "mobile_align_y": "flex-start",
+        "mobile_align_x": "center",
+        "mobile_text_align": "center",
+        "mobile_flex_align": "center",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -1283,6 +1334,7 @@
     "masonary_gallery_3z9FME",
     "feature_alternating_XKMVfA",
     "faq_ekQccb",
-    "promo_cards_section_Y4dTtA"
+    "promo_cards_section_Y4dTtA",
+    "footer_cta_banner_BtgHyb"
   ]
 }
