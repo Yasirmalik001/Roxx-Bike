@@ -664,6 +664,9 @@
 }
 
 @media screen and (max-width: 749px) {
+  ..footer__bottom-trustpilot{
+    display: none;
+  }
   .roxx-footer-country-trustpilot {
     flex-direction: row;
     justify-content: space-between;
