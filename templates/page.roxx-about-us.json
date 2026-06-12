@@ -41,7 +41,7 @@
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "image": "shopify://shop_images/persons-of-cycles.png",
-        "overlay_opacity": 40,
+        "overlay_opacity": 0,
         "desktop_height": 600,
         "desktop_align_y": "center",
         "desktop_align_x": "flex-start",
@@ -199,8 +199,11 @@
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "image": "shopify://shop_images/763a222d39b3d17c6aac1ce5cbd594523d391318.png",
+        "desktop_height": 80,
+        "mobile_height": 80,
         "overlay_color": "#000000",
         "overlay_opacity": 80,
+        "overlay_solid_height": 40,
         "heading": "KEEP DISCOVERING",
         "heading_size": "h1",
         "padding_top": 36,
