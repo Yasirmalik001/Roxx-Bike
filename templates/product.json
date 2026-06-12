@@ -1358,8 +1358,8 @@
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "image": "shopify://shop_images/2a0cead0c5f23e14d221a950313564bf4355965d.jpg",
-        "top_gradient_height": 30,
-        "bottom_gradient_height": 50,
+        "top_gradient_height": 0,
+        "bottom_gradient_height": 100,
         "mobile_top_gradient_height": 60,
         "mobile_solid_black_top": 30,
         "mobile_bottom_gradient_height": 40,
