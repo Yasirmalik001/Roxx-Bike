@@ -1,4 +1,4 @@
-{{ 'section-hero-overlay.css' | asset_url | stylesheet_tag }}
+
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -17,7 +17,6 @@
     position: relative;
     display: flex;
     min-height: {{ section.settings.mobile_height }}px;
-    background-color: #000000;
     
     /* Mobile Alignment */
     align-items: {{ section.settings.mobile_align_y }};
@@ -43,14 +42,14 @@
     z-index: 1;
   }
 
-  /* Different Overlay logic: Top and Bottom Gradients */
+  /* Overlay logic using theme background color variables */
   .footer-cta-{{ section.id }} .hero-overlay-top {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: {{ section.settings.top_gradient_height }}%;
-    background: linear-gradient(to bottom, #000000 0%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(var(--color-background), 1) 0%, rgba(var(--color-background), 0) 100%);
     z-index: 2;
   }
 
@@ -60,7 +59,7 @@
     left: 0;
     width: 100%;
     height: {{ section.settings.bottom_gradient_height }}%;
-    background: linear-gradient(to top, #000000 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(var(--color-background), 1) 0%, rgba(var(--color-background), 0) 100%);
     z-index: 2;
   }
 
@@ -71,7 +70,6 @@
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
-    color: #ffffff;
     text-align: {{ section.settings.mobile_text_align }};
     align-items: {{ section.settings.mobile_flex_align }};
   }
@@ -83,13 +81,14 @@
       align-items: {{ section.settings.desktop_flex_align }};
     }
   }
+  
   @media screen and (max-width: 750px) {
       .footer-cta-{{ section.id }} .hero-background-image {
          object-position: 50% 100%;
       }
       .footer-cta-{{ section.id }} .hero-overlay-top {
          height: {{ section.settings.mobile_top_gradient_height }}%;
-         background: linear-gradient(to bottom, #000000 0%, #000000 {{ section.settings.mobile_solid_black_top }}%, transparent 100%);
+         background: linear-gradient(to bottom, rgba(var(--color-background), 1) 0%, rgba(var(--color-background), 1) {{ section.settings.mobile_solid_black_top }}%, rgba(var(--color-background), 0) 100%);
       }
       .footer-cta-{{ section.id }} .hero-overlay-bottom {
          height: {{ section.settings.mobile_bottom_gradient_height }}%;
@@ -97,7 +96,7 @@
   }
 {%- endstyle -%}
 
-<div class="footer-cta-{{ section.id }} section-{{ section.id }}-padding">
+<div class="footer-cta-{{ section.id }} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   {%- if section.settings.image != blank -%}
     {{
       section.settings.image
@@ -129,7 +128,7 @@
 
         {%- when 'button' -%}
           {%- if block.settings.button_label != blank -%}
-            <a href="{{ block.settings.button_link }}" class="hero-block-button-pill-yellow" {{ block.shopify_attributes }}>
+            <a href="{{ block.settings.button_link }}" class="hero-block-button-pill" {{ block.shopify_attributes }}>
               {{ block.settings.button_label | escape }}
               <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-arrow" viewBox="0 0 14 10" style="margin-left: 8px; width: 14px; height: 10px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path></svg>
             </a>
@@ -143,7 +142,7 @@
 <style>
   /* Base Scoped Styles */
   .footer-cta-{{ section.id }} .hero-content-wrapper * {
-    margin: 0
+    margin: 0;
   }
 
   .footer-cta-{{ section.id }} .hero-block-text {
@@ -153,14 +152,14 @@
     font-weight: 400;
   }
   
-  .hero-block-button-pill-yellow {
+  .hero-block-button-pill {
     margin-top: 10px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 1.4rem 3.6rem;
-    background-color: #ffd800;
-    color: #000000;
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
     border-radius: 50px; 
     font-weight: 800;
     font-size: 14px;
@@ -171,9 +170,9 @@
     transition: all 0.3s ease;
   }
   
-  .hero-block-button-pill-yellow:hover {
-    background-color: #e6c200;
+  .hero-block-button-pill:hover {
     transform: translateY(-2px);
+    opacity: 0.85;
   }
 
   @media screen and (max-width: 749px) {
@@ -183,7 +182,7 @@
     .footer-cta-{{ section.id }} .hero-block-text {
       font-size: 14px !important;
     }
-    .hero-block-button-pill-yellow {
+    .hero-block-button-pill {
       padding: 1.2rem 2.8rem;
       min-width: 100%;
     }
@@ -196,6 +195,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
     {
       "type": "image_picker",
       "id": "image",
@@ -246,7 +251,7 @@
       "max": 100,
       "step": 5,
       "unit": "%",
-      "label": "Solid Black Top Area",
+      "label": "Solid Overlay Top Area",
       "default": 30
     },
     {
