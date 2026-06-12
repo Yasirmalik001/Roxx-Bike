@@ -220,8 +220,8 @@
                     <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                   </svg>
                 </div>
-                <p class="infinite-scroll-last">All products loaded</p>
-                <p class="infinite-scroll-error">No more pages to load</p>
+                <p class="infinite-scroll-last" style="display: none !important;"></p>
+                <p class="infinite-scroll-error" style="display: none !important;"></p>
               </div>
             {% endif %}
 
@@ -257,7 +257,7 @@
           }
           return window.location.pathname + '?page=' + nextPage;
         },
-        append: '.grid__item',
+        append: '.collection-grid-item',
         hideNav: '.pagination',
         status: '.page-load-status',
         {% if section.settings.infinite_btn %}
@@ -270,7 +270,7 @@
       {% if section.settings.infinite_progressbar %}
       var totalItems = parseInt(document.getElementById('collection-total-count').value);
       function updateProgress() {
-          var currentItems = document.querySelectorAll('.grid__item').length;
+          var currentItems = document.querySelectorAll('.collection-grid-item').length;
           // Ensure we don't show more than 100%
           var percent = Math.min((currentItems / totalItems) * 100, 100);
           var bar = document.querySelector('#progress-bar-fill');
