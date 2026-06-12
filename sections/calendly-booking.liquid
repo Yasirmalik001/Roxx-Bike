@@ -51,15 +51,10 @@
     flex-shrink: 0;
   }
 
-  .calendly-inline-widget {
+  /* Ensures the pasted Calendly widget fits nicely */
+  .calendly-inline-widget,
+  .calendly-booking-widget iframe {
     min-width: 100% !important; 
-    height: 700px;
-    border-radius: var(--popup-corner-radius);
-    overflow: hidden;
-  }
-
-  .calendly-html-embed {
-    width: 100%;
     border-radius: var(--popup-corner-radius);
     overflow: hidden;
   }
@@ -108,29 +103,13 @@
       </div>
 
       <div class="calendly-booking-widget">
-        
-        {%- if section.settings.widget_type == 'url' -%}
-          {%- if section.settings.calendly_url != blank -%}
-            <div class="calendly-inline-widget" data-url="{{ section.settings.calendly_url }}?hide_event_type_details=1&hide_gdpr_banner=1"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            {%- else -%}
-            <div class="placeholder-background" style="height: 700px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.05);">
-              <p>Please enter a Calendly URL in the section settings.</p>
-            </div>
-          {%- endif -%}
-        
-        {%- elsif section.settings.widget_type == 'html' -%}
-          {%- if section.settings.calendly_html != blank -%}
-             <div class="calendly-html-embed">
-                {{ section.settings.calendly_html }}
-             </div>
-          {%- else -%}
-            <div class="placeholder-background" style="height: 700px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.05);">
-              <p>Please paste your Calendly HTML Embed code in the section settings.</p>
-            </div>
-          {%- endif -%}
+        {%- if section.settings.calendly_html != blank -%}
+          {{ section.settings.calendly_html }}
+        {%- else -%}
+          <div class="placeholder-background" style="height: 700px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.05); border-radius: 8px;">
+            <p style="padding: 2rem; text-align: center;">Please paste your Calendly HTML embed code in the section settings.</p>
+          </div>
         {%- endif -%}
-
       </div>
 
     </div>
@@ -188,36 +167,10 @@
       "default": "<p><strong>Openingstijden:</strong> Dinsdag tot Zaterdag van 10:30 tot 17:00</p><p><strong>Testritlocatie:</strong><br>Supremebike store <br>Commelinstraat 55H<br>1093TK Amsterdam</p>"
     },
     {
-      "type": "header",
-      "content": "Calendly Integration Settings"
-    },
-    {
-      "type": "select",
-      "id": "widget_type",
-      "label": "How do you want to embed Calendly?",
-      "options": [
-        {
-          "value": "url",
-          "label": "Paste a URL Link"
-        },
-        {
-          "value": "html",
-          "label": "Paste Custom HTML Embed Code"
-        }
-      ],
-      "default": "url"
-    },
-    {
-      "type": "url",
-      "id": "calendly_url",
-      "label": "Calendly Link URL",
-      "info": "Paste your Calendly booking link here (Used if 'Paste a URL Link' is selected above)."
-    },
-    {
       "type": "html",
       "id": "calendly_html",
-      "label": "Calendly HTML Code",
-      "info": "Paste the embed code provided by Calendly here (Used if 'Paste Custom HTML Embed Code' is selected above)."
+      "label": "Calendly Embed Code",
+      "info": "Paste your full Calendly HTML embed code here (including the <div> and <script> tags)."
     },
     {
       "type": "color_scheme",
