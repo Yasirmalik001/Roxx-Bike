@@ -2416,3 +2416,7 @@ sticky-header::after {
 background: none;
     
 }
+
+.hero-features__button.button--primary {
+    font-weight: 600;
+}
