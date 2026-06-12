@@ -379,7 +379,7 @@
 
         <!-- Button -->
         {%- if section.settings.btn_label != blank -%}
-          <a {% if section.settings.btn_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.btn_link }}"{% endif %} class="protect-button">
+          <a {% if section.settings.btn_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.btn_link }}"{% endif %} class="button button-primary">
             {{ section.settings.btn_label | escape }}
             <svg viewBox="0 0 24 24">
               <line x1="7" y1="17" x2="17" y2="7"></line>
