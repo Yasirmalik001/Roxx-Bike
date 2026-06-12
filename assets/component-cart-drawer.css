@@ -1804,7 +1804,23 @@ cart-drawer .drawer__inner {
   margin-bottom: 20px !important;
   cursor: pointer !important;
 }
+.cart-item__save-badge{
+      background-color: #b31b26;
+    color: #fff;
+    padding:  10px;
+    border-radius: 20px;
+font-family: Suisse Intl Trial;
+font-weight: 500;
+font-style: Medium;
+font-size: 12px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
 
+    white-space: nowrap;
+    margin-top: 2px;
+}
 /* Payment Row */
 .roxx-payments-row {
   display: flex;
