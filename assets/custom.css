@@ -2405,3 +2405,13 @@ sticky-header::after {
     display: none;
   }
 }
+
+.card-product-1 .card__information{
+    padding: 0;
+    
+}
+
+.card-product-1 .card__content{
+background: none;
+    
+}
