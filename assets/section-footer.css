@@ -337,18 +337,7 @@
   }
 }
 
-@media screen and (max-width: 989px) {
-  .footer-block__details-content .list-menu__item--link {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-.roxx-footer-bottom-inner {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 3rem;
-    justify-content: space-between;
-}
-}
+
 
 @media screen and (min-width: 750px) {
   .footer-block__details-content .list-menu__item--link {
@@ -1378,4 +1367,18 @@
   .roxx-footer-country-trustpilot {
     order: 1; /* Put country/trustpilot above logo */
   }
+}
+
+
+@media screen and (max-width: 989px) {
+  .footer-block__details-content .list-menu__item--link {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+.roxx-footer-bottom-inner {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 3rem;
+    justify-content: space-between;
+}
 }
