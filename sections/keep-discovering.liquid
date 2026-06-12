@@ -14,10 +14,16 @@
   .keep-discovering-wrapper {
     position: relative;
     width: 100%;
-    min-height: 80vh;
+    min-height: {{ section.settings.mobile_height }}vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+  }
+
+  @media screen and (min-width: 750px) {
+    .keep-discovering-wrapper {
+      min-height: {{ section.settings.desktop_height }}vh;
+    }
   }
 
   .keep-discovering-bg {
@@ -49,7 +55,6 @@
 
   /* Linear gradient overlay with schema-controlled color and opacity */
   {%- assign overlay_alpha = section.settings.overlay_opacity | divided_by: 100.0 -%}
-  {%- assign overlay_mid_alpha = overlay_alpha | times: 0.6 -%}
   .keep-discovering-bg::after {
     content: '';
     position: absolute;
@@ -59,7 +64,7 @@
     height: 100%;
     background: linear-gradient(to bottom, 
       {{ section.settings.overlay_color | color_modify: 'alpha', overlay_alpha }} 0%, 
-      {{ section.settings.overlay_color | color_modify: 'alpha', overlay_mid_alpha }} 40%, 
+      {{ section.settings.overlay_color | color_modify: 'alpha', overlay_alpha }} {{ section.settings.overlay_solid_height }}%, 
       {{ section.settings.overlay_color | color_modify: 'alpha', 0.0 }} 100%);
     z-index: 2;
     pointer-events: none;
@@ -200,6 +205,30 @@
     },
     {
       "type": "header",
+      "content": "Section Height"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Desktop height",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Mobile height",
+      "default": 80
+    },
+    {
+      "type": "header",
       "content": "Linear Gradient Overlay"
     },
     {
@@ -217,6 +246,16 @@
       "unit": "%",
       "label": "Overlay maximum opacity",
       "default": 80
+    },
+    {
+      "type": "range",
+      "id": "overlay_solid_height",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Solid overlay portion",
+      "default": 40
     },
     {
       "type": "header",
