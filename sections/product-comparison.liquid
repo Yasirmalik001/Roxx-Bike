@@ -20,13 +20,11 @@
     margin-bottom: 2rem;
   }
 
-
   .compare-header__subheading {
     font-size: 1.4rem;
     margin: 0;
   }
 
-  /* Grid Layout for alignment */
   .compare-table {
     display: flex;
     flex-direction: column;
@@ -57,7 +55,6 @@
     text-align: center;
   }
 
-  /* Product Header Cards */
   .compare-product__image {
     width: 100%;
     max-width: 280px;
@@ -67,29 +64,39 @@
   }
 
   .compare-product__title-wrapper {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
     padding: 0.8rem 2.4rem;
     border: 1px solid rgba(var(--color-foreground), 0.15);
     border-radius: 50px;
     margin-bottom: 1.5rem;
-    text-decoration: none;
     color: currentColor;
-    transition: border-color 0.2s ease;
+    background: transparent;
   }
 
-  .compare-product__title-wrapper:hover {
-    border-color: currentColor;
-  }
-
-  .compare-product__title {
+  .compare-product__select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
     font-size: 1.6rem;
-    font-weight: 500;
-    margin: 0;
+    font-weight: 800;
+    color: currentColor;
+    font-family: inherit;
+    cursor: pointer;
+    padding-right: 15px;
+    outline: none;
+    text-transform: uppercase;
+    text-align: center;
   }
 
   .compare-product__chevron {
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
     width: 12px;
     height: 12px;
     fill: none;
@@ -123,7 +130,6 @@
     opacity: 1;
   }
 
-  /* Feature Rows */
   .compare-feature__icon {
     width: 32px;
     height: 32px;
@@ -153,8 +159,33 @@
     line-height: 1.5;
     margin: 0;
     max-width: 180px;
+    white-space: pre-wrap;
   }
 {%- endstyle -%}
+
+{%- assign compare_collection = section.settings.compare_collection -%}
+
+<script type="application/json" id="CompareData-{{ section.id }}">
+{
+  {%- if compare_collection != blank -%}
+    {%- for prod in compare_collection.products -%}
+      "{{ prod.handle }}": {
+        "title": {{ prod.title | json }},
+        "url": {{ prod.url | json }},
+        "image": {{ prod.featured_image | image_url: width: 600 | json }},
+        "price": {{ prod.price | money | json }},
+        "features": {
+          {%- for block in section.blocks -%}
+            {%- assign ns = block.settings.metafield_namespace | default: 'custom' -%}
+            {%- assign key = block.settings.metafield_key -%}
+            "{{ block.id }}": {{ prod.metafields[ns][key] | json }}{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        }
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+}
+</script>
 
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="compare-section page-width page-width--narrow">
@@ -171,56 +202,54 @@
   </div>
 
   <div class="compare-table">
-    
     <div class="compare-row compare-row--header">
       
       <div class="compare-col">
-        {%- assign product_1 = section.settings.product_1 -%}
-        {%- if product_1 != blank -%}
-          {{ product_1.featured_image | image_url: width: 600 | image_tag: class: 'compare-product__image', loading: 'lazy' }}
+        {%- if compare_collection != blank and compare_collection.products.size > 0 -%}
+          <img class="compare-product__image" id="CompareImage1-{{ section.id }}" src="{{ compare_collection.products.first.featured_image | image_url: width: 600 }}" loading="lazy">
           
-          <a href="{{ product_1.url }}" class="compare-product__title-wrapper">
-            <h3 class="compare-product__title">{{ section.settings.custom_title_1 | default: product_1.title }}</h3>
+          <div class="compare-product__title-wrapper">
+            <select id="CompareSelect1-{{ section.id }}" class="compare-product__select">
+              {%- for prod in compare_collection.products -%}
+                <option value="{{ prod.handle }}" {% if prod.handle == product.handle %}selected{% endif %}>{{ prod.title }}</option>
+              {%- endfor -%}
+            </select>
             <svg class="compare-product__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </div>
           
           <p class="compare-product__desc">{{ section.settings.desc_1 }}</p>
-          <p class="compare-product__price">{{ product_1.price | money }}</p>
-          <a href="{{ product_1.url }}" class="compare-product__link">{{ section.settings.link_label }}</a>
+          <p class="compare-product__price" id="ComparePrice1-{{ section.id }}">{{ compare_collection.products.first.price | money }}</p>
+          <a href="{{ compare_collection.products.first.url }}" id="CompareLink1-{{ section.id }}" class="compare-product__link">{{ section.settings.link_label }}</a>
         {%- else -%}
           {{ 'product-1' | placeholder_svg_tag: 'compare-product__image placeholder-svg' }}
           <div class="compare-product__title-wrapper">
-            <h3 class="compare-product__title">{{ section.settings.custom_title_1 | default: 'Roxx JX' }}</h3>
-            <svg class="compare-product__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <h3 class="compare-product__title">No Collection</h3>
           </div>
-          <p class="compare-product__desc">{{ section.settings.desc_1 }}</p>
-          <p class="compare-product__price">€1,599.00</p>
-          <span class="compare-product__link">{{ section.settings.link_label }}</span>
         {%- endif -%}
       </div>
 
       <div class="compare-col">
-        {%- assign product_2 = section.settings.product_2 -%}
-        {%- if product_2 != blank -%}
-          {{ product_2.featured_image | image_url: width: 600 | image_tag: class: 'compare-product__image', loading: 'lazy' }}
+        {%- if compare_collection != blank and compare_collection.products.size > 0 -%}
+          {%- assign second_product = compare_collection.products[1] | default: compare_collection.products.first -%}
+          <img class="compare-product__image" id="CompareImage2-{{ section.id }}" src="{{ second_product.featured_image | image_url: width: 600 }}" loading="lazy">
           
-          <a href="{{ product_2.url }}" class="compare-product__title-wrapper">
-            <h3 class="compare-product__title">{{ section.settings.custom_title_2 | default: product_2.title }}</h3>
+          <div class="compare-product__title-wrapper">
+            <select id="CompareSelect2-{{ section.id }}" class="compare-product__select">
+              {%- for prod in compare_collection.products -%}
+                <option value="{{ prod.handle }}" {% if second_product.handle == prod.handle %}selected{% endif %}>{{ prod.title }}</option>
+              {%- endfor -%}
+            </select>
             <svg class="compare-product__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </div>
           
           <p class="compare-product__desc">{{ section.settings.desc_2 }}</p>
-          <p class="compare-product__price">{{ product_2.price | money }}</p>
-          <a href="{{ product_2.url }}" class="compare-product__link">{{ section.settings.link_label }}</a>
+          <p class="compare-product__price" id="ComparePrice2-{{ section.id }}">{{ second_product.price | money }}</p>
+          <a href="{{ second_product.url }}" id="CompareLink2-{{ section.id }}" class="compare-product__link">{{ section.settings.link_label }}</a>
         {%- else -%}
           {{ 'product-2' | placeholder_svg_tag: 'compare-product__image placeholder-svg' }}
           <div class="compare-product__title-wrapper">
-            <h3 class="compare-product__title">{{ section.settings.custom_title_2 | default: 'Roxx SL5' }}</h3>
-            <svg class="compare-product__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <h3 class="compare-product__title">No Collection</h3>
           </div>
-          <p class="compare-product__desc">{{ section.settings.desc_2 }}</p>
-          <p class="compare-product__price">€1,699.00</p>
-          <span class="compare-product__link">{{ section.settings.link_label }}</span>
         {%- endif -%}
       </div>
 
@@ -248,7 +277,7 @@
               {%- endcase -%}
             {%- endif -%}
           </div>
-          <p class="compare-feature__text">{{ block.settings.text_1 }}</p>
+          <p class="compare-feature__text" id="CompareFeature1-{{ section.id }}-{{ block.id }}"></p>
         </div>
 
         <div class="compare-col">
@@ -270,7 +299,7 @@
               {%- endcase -%}
             {%- endif -%}
           </div>
-          <p class="compare-feature__text">{{ block.settings.text_2 }}</p>
+          <p class="compare-feature__text" id="CompareFeature2-{{ section.id }}-{{ block.id }}"></p>
         </div>
 
       </div>
@@ -279,6 +308,60 @@
   </div>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dataEl = document.getElementById('CompareData-{{ section.id }}');
+  if (!dataEl) return;
+  
+  let productData = {};
+  try {
+    productData = JSON.parse(dataEl.textContent);
+  } catch (e) {
+    console.error('Failed to parse compare data', e);
+    return;
+  }
+  
+  const select1 = document.getElementById('CompareSelect1-{{ section.id }}');
+  const select2 = document.getElementById('CompareSelect2-{{ section.id }}');
+  
+  function updateCompareColumn(colNum, handle) {
+    const data = productData[handle];
+    if (!data) return;
+    
+    const imgEl = document.getElementById(`CompareImage${colNum}-{{ section.id }}`);
+    if (imgEl && data.image) imgEl.src = data.image;
+    
+    const priceEl = document.getElementById(`ComparePrice${colNum}-{{ section.id }}`);
+    if (priceEl && data.price) priceEl.innerHTML = data.price;
+    
+    const linkEl = document.getElementById(`CompareLink${colNum}-{{ section.id }}`);
+    if (linkEl && data.url) linkEl.href = data.url;
+    
+    // Update features
+    if (data.features) {
+      const featureKeys = Object.keys(data.features);
+      featureKeys.forEach(key => {
+        const el = document.getElementById(`CompareFeature${colNum}-{{ section.id }}-${key}`);
+        if (el) {
+          // If value is missing or empty, show a fallback like '-'
+          el.innerHTML = data.features[key] || '-';
+        }
+      });
+    }
+  }
+
+  if (select1) {
+    select1.addEventListener('change', (e) => updateCompareColumn(1, e.target.value));
+    updateCompareColumn(1, select1.value);
+  }
+  
+  if (select2) {
+    select2.addEventListener('change', (e) => updateCompareColumn(2, e.target.value));
+    updateCompareColumn(2, select2.value);
+  }
+});
+</script>
 
 {% schema %}
 {
@@ -326,44 +409,23 @@
     },
     {
       "type": "header",
-      "content": "Product 1 (Left)"
+      "content": "Comparison Data"
     },
     {
-      "type": "product",
-      "id": "product_1",
-      "label": "Select Product 1"
-    },
-    {
-      "type": "text",
-      "id": "custom_title_1",
-      "label": "Custom Title Override",
-      "info": "Leave blank to use the product's actual title."
+      "type": "collection",
+      "id": "compare_collection",
+      "label": "Collection of bikes to compare"
     },
     {
       "type": "text",
       "id": "desc_1",
-      "label": "Short Description",
+      "label": "Left Product Subtitle",
       "default": "Lorem ipsum dolor sit amet consectetur."
-    },
-    {
-      "type": "header",
-      "content": "Product 2 (Right)"
-    },
-    {
-      "type": "product",
-      "id": "product_2",
-      "label": "Select Product 2"
-    },
-    {
-      "type": "text",
-      "id": "custom_title_2",
-      "label": "Custom Title Override",
-      "info": "Leave blank to use the product's actual title."
     },
     {
       "type": "text",
       "id": "desc_2",
-      "label": "Short Description",
+      "label": "Right Product Subtitle",
       "default": "Lorem ipsum dolor sit amet consectetur."
     },
     {
@@ -426,16 +488,16 @@
           "default": "rider_height"
         },
         {
-          "type": "textarea",
-          "id": "text_1",
-          "label": "Product 1 Feature Text",
-          "default": "Suitable for cyclists from 165-190 cm"
+          "type": "text",
+          "id": "metafield_namespace",
+          "label": "Metafield Namespace",
+          "default": "custom"
         },
         {
-          "type": "textarea",
-          "id": "text_2",
-          "label": "Product 2 Feature Text",
-          "default": "Suitable for cyclists from 155-195 cm"
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield Key",
+          "default": "range"
         }
       ]
     }
@@ -448,40 +510,35 @@
           "type": "feature_row",
           "settings": {
             "fallback_icon": "rider_height",
-            "text_1": "Suitable for cyclists\nfrom 165-190 cm",
-            "text_2": "Suitable for cyclists\nfrom 155-195 cm"
+            "metafield_key": "rider_height"
           }
         },
         {
           "type": "feature_row",
           "settings": {
             "fallback_icon": "range_dots",
-            "text_1": "Range upto 80-100 km",
-            "text_2": "Range upto 60-80 km"
+            "metafield_key": "range"
           }
         },
         {
           "type": "feature_row",
           "settings": {
             "fallback_icon": "speedometer",
-            "text_1": "Max speed 25 km/h",
-            "text_2": "Max speed 25 km/h"
+            "metafield_key": "speed"
           }
         },
         {
           "type": "feature_row",
           "settings": {
             "fallback_icon": "gps_pin",
-            "text_1": "Advanced (GPS\ntracking & alarm)",
-            "text_2": "Standard lock support"
+            "metafield_key": "features"
           }
         },
         {
           "type": "feature_row",
           "settings": {
             "fallback_icon": "drive_belt",
-            "text_1": "Carbon belt drive",
-            "text_2": "Chain drive"
+            "metafield_key": "drive"
           }
         }
       ]
