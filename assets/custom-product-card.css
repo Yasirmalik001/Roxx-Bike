@@ -1,161 +1,29 @@
-.product__info-container {
-  background-color: #ffffff;
-  border-radius: 24px 0px 24px 24px;
-  border: 1px solid #D4D4D4;
-  box-shadow: 0px 2px 23.1px 0px #0000000D;
-  padding: 30px 24px;
-  position: relative;
-  text-align: center;
-}
-
-.product__info-container .product__title {
-  font-size: 32px;
-}
-
-.product__info-container .product__text {
-  text-align: center;
-  color: #888888;
-  font-size: 1.4rem;
-  margin: 1.5rem auto;
-  max-width: 90%;
-}
-
-.product__info-container .product-stock-status {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  margin: 1.5rem 0;
-  gap: 8px;
-}
-
-.product-stock-status .stock-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.product-stock-status .stock-dot--green {
-  background-color: #00d282;
-}
-
-.product-stock-status .stock-text {
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: #333333;
-}
-
-.product__info-container .product-save-badge {
-  position: absolute;
-  top: -34px;
-  right: 0px;
-  background-color: #AE1C28;
-  color: #ffffff;
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 6px 6px 0 0;
-  z-index: 10;
-}
-
-/* Custom Price Centering */
-.custom-price-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.custom-price-current {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #000000;
-}
-
-.custom-price-compare {
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: #999999;
-  text-decoration: line-through;
-}
-
-/* Klarna Pill Wrapper */
-.product-klarna-installment-pill {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f8f8f8;
-  border-radius: 20px;
-  padding: 6px 12px;
-  margin: 0 auto 1.5rem auto;
-  gap: 8px;
-}
-
-.product-klarna-installment-pill .installment-text {
-  font-size: 1.2rem;
-  color: #333333;
-}
-
-/* Buy Buttons Styling */
-.product-form__buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-top: 2rem;
-}
-
-#ProductSubmitButton-{{ section_id }}, 
-[id^="ProductSubmitButton"] {
-  background-color: #ffd000 !important;
-  color: #000000 !important;
-  border-radius: 30px !important;
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: 0.5px;
-  border: none;
-  min-height: 54px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.book-test-ride-button,
-[class*="book-test-ride-button"] {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  border: 2px solid #ffd000 !important;
-  border-radius: 30px !important;
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: 0.5px;
-  min-height: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-
-.book-test-ride-button:hover,
-[class*="book-test-ride-button"]:hover {
-  background-color: #fef8cc !important;
-}
-
-.multi-icon-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
-}
+.product__info-container { background-color: #ffffff; border-radius: 24px 0px 24px 24px; border: 1px solid #D4D4D4; box-shadow: 0px 2px 23.1px 0px #0000000D; padding: 30px 24px; position: relative; text-align: center; }
+.product__info-container .product__title { font-size: 32px; }
+.product__info-container .product__text { text-align: center; color: #888888; font-size: 1.4rem; margin: 1.5rem auto; max-width: 90%; }
+.product__info-container .product-stock-status { justify-content: center; display: flex; align-items: center; margin: 1.5rem 0; gap: 8px; }
+.product-stock-status .stock-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.product-stock-status .stock-dot--green { background-color: #00d282; }
+.product-stock-status .stock-text { font-size: 1.3rem; font-weight: 500; color: #333333; }
+.product__info-container .product-save-badge { position: absolute; top: -34px; right: 0px; background-color: #AE1C28; color: #ffffff; font-size: 1.2rem; font-weight: 700; padding: 6px 12px; border-radius: 6px 6px 0 0; z-index: 10; }
+.custom-price-wrapper { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.custom-price-current { font-size: 2.2rem; font-weight: 800; color: #000000; }
+.custom-price-compare { font-size: 1.6rem; font-weight: 500; color: #999999; text-decoration: line-through; }
+.product-klarna-installment-pill { display: inline-flex; justify-content: center; align-items: center; background-color: #f8f8f8; border-radius: 20px; padding: 6px 12px; margin: 0 auto 1.5rem auto; gap: 8px; }
+.product-klarna-installment-pill .installment-text { font-size: 1.2rem; color: #333333; }
+.product-form__buttons { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
+#ProductSubmitButton-{{ section_id }}, [id^="ProductSubmitButton"] { background-color: #ffd000 !important; color: #000000 !important; border-radius: 30px !important; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.5px; border: none; min-height: 54px; display: flex; justify-content: center; align-items: center; }
+.book-test-ride-button, [class*="book-test-ride-button"] { background-color: #ffffff !important; color: #000000 !important; border: 2px solid #ffd000 !important; border-radius: 30px !important; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.5px; min-height: 54px; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+.book-test-ride-button:hover, [class*="book-test-ride-button"]:hover { background-color: #fef8cc !important; }
+.multi-icon-wrapper { display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; }
 
 @media screen and (min-width: 750px) {
-  .product__info-container {
-    padding: 40px 32px;
-  }
+  .product__info-container { padding: 40px 32px; }
 }
 
+/* ========================================
+   ALL MOBILE CSS
+   ======================================== */
 @media screen and (max-width: 750px) {
-  .product__info-container {
-  border-radius: 24px;
-  }
+  .product__info-container { border-radius: 24px; }
 }
