@@ -207,44 +207,64 @@
                           </td>
 
                           <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
-                            {%- if settings.show_vendor -%}
-                              <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
-                            {%- endif -%}
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; width: 100%;">
+                              <div>
+                                {%- if settings.show_vendor -%}
+                                  <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
+                                {%- endif -%}
 
-                            <a href="{{ item.url }}" class="cart-item__name card__heading h5 full-unstyled-link break">
-                              {{- item.product.title | escape -}}
-                            </a>
-                            <div class="cart-item__totals" role="cell" headers="CartDrawer-ColumnTotal">
-                              {%- render 'loading-spinner' -%}
-                              <div class="cart-item__price-wrapper">
-                                {%- if item.original_line_price != item.final_line_price -%}
-                                  <div class="cart-item__discounted-prices">
-                                    <span class="visually-hidden">
-                                      {{ 'products.product.price.regular_price' | t }}
-                                    </span>
-                                    <s class="cart-item__old-price price">
-                                      {{ item.original_line_price | money }}
-                                    </s>
-                                    <span class="visually-hidden">
-                                      {{ 'products.product.price.sale_price' | t }}
-                                    </span>
-                                    <span class="price">
-                                      {{ item.final_line_price | money }}
-                                    </span>
+                                <a href="{{ item.url }}" class="cart-item__name card__heading h5 full-unstyled-link break" style="font-weight: 700; margin-bottom: 5px; display: block;">
+                                  {{- item.product.title | escape -}}
+                                </a>
+                                <div class="cart-item__totals" role="cell" headers="CartDrawer-ColumnTotal">
+                                  {%- render 'loading-spinner' -%}
+                                  <div class="cart-item__price-wrapper">
+                                    {%- if item.variant.compare_at_price > item.variant.price -%}
+                                      <div class="cart-item__discounted-prices">
+                                        <span class="price" style="font-weight: 700; color: #000; margin-right: 5px;">
+                                          {{ item.variant.price | money }}
+                                        </span>
+                                        <s class="cart-item__old-price price" style="color: #999; font-size: 0.9em;">
+                                          {{ item.variant.compare_at_price | money }}
+                                        </s>
+                                      </div>
+                                    {%- elsif item.original_line_price != item.final_line_price -%}
+                                      <div class="cart-item__discounted-prices">
+                                        <span class="visually-hidden">
+                                          {{ 'products.product.price.regular_price' | t }}
+                                        </span>
+                                        <s class="cart-item__old-price price" style="color: #999; font-size: 0.9em;">
+                                          {{ item.original_line_price | money }}
+                                        </s>
+                                        <span class="visually-hidden">
+                                          {{ 'products.product.price.sale_price' | t }}
+                                        </span>
+                                        <span class="price" style="font-weight: 700; color: #000; margin-right: 5px;">
+                                          {{ item.final_line_price | money }}
+                                        </span>
+                                      </div>
+                                    {%- else -%}
+                                      <span class="price" style="font-weight: 700;">
+                                        {{ item.original_line_price | money }}
+                                      </span>
+                                    {%- endif -%}
+
+                                    {%- if item.variant.available and item.unit_price_measurement -%}
+                                      {% render 'unit-price',
+                                        price: item.unit_price,
+                                        measurement: item.unit_price_measurement
+                                      %}
+                                    {%- endif -%}
                                   </div>
-                                {%- else -%}
-                                  <span class="price">
-                                    {{ item.original_line_price | money }}
-                                  </span>
-                                {%- endif -%}
-
-                                {%- if item.variant.available and item.unit_price_measurement -%}
-                                  {% render 'unit-price',
-                                    price: item.unit_price,
-                                    measurement: item.unit_price_measurement
-                                  %}
-                                {%- endif -%}
+                                </div>
                               </div>
+                              
+                              {%- if item.variant.compare_at_price > item.variant.price -%}
+                                {%- assign saving = item.variant.compare_at_price | minus: item.variant.price | times: item.quantity -%}
+                                <div class="cart-item__save-badge" style="background-color: #b31b26; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap; margin-top: 2px;">
+                                  Save {{ saving | money }}
+                                </div>
+                              {%- endif -%}
                             </div>
 
                             {%- if item.product.has_only_default_variant == false
