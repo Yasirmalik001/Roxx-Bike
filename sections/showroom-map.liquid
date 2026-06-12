@@ -32,7 +32,24 @@
     background-color: #f3f3f3;
   }
 
-  /* NEW: Map Pin Styling */
+  /* NEW: Embed Map Styling */
+  .showroom-embed-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .showroom-embed-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* Map Pin Styling */
   .showroom-map-pin {
     position: absolute;
     z-index: 2;
@@ -56,16 +73,18 @@
     width: 100%;
     padding-top: 32px;
     padding-bottom: 32px;
-  }
-
-  .showroom-heading.h2 {
-    margin: 0;
+    pointer-events: none; /* Allows interacting with the map behind the wrapper */
   }
 
   .showroom-card {
     border-radius: 12px;
     padding: 28px 24px;
     max-width: 460px;
+    pointer-events: auto; /* Re-enables clicking inside the card */
+  }
+
+  .showroom-heading.h2 {
+    margin: 0;
   }
 
   .showroom-address {
@@ -153,7 +172,6 @@
       width: 100%;
     }
     
-    /* Optional: hide or reposition pin on mobile if needed */
     .showroom-map-pin {
       transform: translate(-50%, -100%) scale(0.8);
     }
@@ -161,24 +179,37 @@
 </style>
 
 <section class="custom-showroom-map">
-  <div class="showroom-bg-image">
-    {% if section.settings.map_image != blank %}
-      {{ section.settings.map_image | image_url: width: 2000 | image_tag: loading: 'lazy', sizes: '100vw' }}
-    {% else %}
-      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-    {% endif %}
-  </div>
+  
+  {% if section.settings.map_type == 'image' %}
+    <div class="showroom-bg-image">
+      {% if section.settings.map_image != blank %}
+        {{ section.settings.map_image | image_url: width: 2000 | image_tag: loading: 'lazy', sizes: '100vw' }}
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
 
-  <div class="showroom-map-pin" style="top: {{ section.settings.pin_top }}%; left: {{ section.settings.pin_left }}%;">
-    {% if section.settings.pin_image != blank %}
-      {{ section.settings.pin_image | image_url: width: 120 | image_tag: loading: 'lazy' }}
-    {% else %}
-      <svg width="60" height="89" viewBox="0 0 60 89" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 1C14 1 1 14 1 30C1 48 30 87 30 87C30 87 59 48 59 30C59 14 46 1 30 1Z" fill="white" stroke="black" stroke-width="1.5"/>
-        <text x="30" y="34" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="14" text-anchor="middle" fill="#FFD100">ROXX</text>
-      </svg>
-    {% endif %}
-  </div>
+    <div class="showroom-map-pin" style="top: {{ section.settings.pin_top }}%; left: {{ section.settings.pin_left }}%;">
+      {% if section.settings.pin_image != blank %}
+        {{ section.settings.pin_image | image_url: width: 120 | image_tag: loading: 'lazy' }}
+      {% else %}
+        <svg width="60" height="89" viewBox="0 0 60 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 1C14 1 1 14 1 30C1 48 30 87 30 87C30 87 59 48 59 30C59 14 46 1 30 1Z" fill="white" stroke="black" stroke-width="1.5"/>
+          <text x="30" y="34" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="14" text-anchor="middle" fill="#FFD100">ROXX</text>
+        </svg>
+      {% endif %}
+    </div>
+  {% else %}
+    <div class="showroom-embed-map">
+      {% if section.settings.embed_html != blank %}
+        {{ section.settings.embed_html }}
+      {% else %}
+        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #eee;">
+          <p>Please paste your map iframe code in the section settings.</p>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
 
   <div class="showroom-content-wrapper page-width">
     <div class="showroom-card color-{{ section.settings.color_scheme }} gradient">
@@ -221,16 +252,33 @@
   "settings": [
     {
       "type": "header",
-      "content": "Map Background"
+      "content": "Map Background Settings"
+    },
+    {
+      "type": "select",
+      "id": "map_type",
+      "label": "Map Display Type",
+      "options": [
+        { "value": "image", "label": "Image Map with Pin" },
+        { "value": "embed", "label": "Embedded HTML Map (e.g. Google Maps)" }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "html",
+      "id": "embed_html",
+      "label": "Embed HTML Map",
+      "info": "Paste your <iframe> code here (e.g., from Google Maps). It will automatically expand to fill the background."
     },
     {
       "type": "image_picker",
       "id": "map_image",
-      "label": "Background Map Image"
+      "label": "Background Map Image",
+      "info": "Only visible if 'Image Map with Pin' is selected."
     },
     {
       "type": "header",
-      "content": "Map Pin Settings"
+      "content": "Map Pin Settings (Image Type Only)"
     },
     {
       "type": "image_picker",
