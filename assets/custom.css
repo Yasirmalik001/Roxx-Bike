@@ -281,7 +281,9 @@ a.custom-discover-btn { background-color: #FFFFFF !important; color: #000000 !im
 .hero-features__button.button--primary { font-weight: 600; }
 .media img, .card__media img, .image-with-text__media img, .collection-hero__image-container img { transition: transform 0.4s ease-in-out !important; }
 .media:hover img, .card:hover .card__media img, .image-with-text__media:hover img { transform: scale(1.05) !important; }
-
+.hero-features__heading {
+    max-width: 450px;
+}
 @media screen and (min-width: 990px) {
   .product__media-wrapper { max-width: 100%; width: 100%; }
   .product__info-wrapper { max-width: 100%; width: 100%; position: sticky; top: 4rem; }
@@ -345,3 +347,5 @@ a.custom-discover-btn { background-color: #FFFFFF !important; color: #000000 !im
   .footer__bottom-main-row { flex-direction: column; align-items: flex-start; gap: 3rem; }
   .footer__bottom-bar { flex-direction: column; gap: 1.5rem; align-items: center; text-align: center; }
 }
+
+
