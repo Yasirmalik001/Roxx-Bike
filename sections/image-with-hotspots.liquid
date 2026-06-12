@@ -7,12 +7,12 @@
 .hotspot-header { max-width: 800px; margin: 0 auto 5rem auto; padding: 0 2rem; }
 .hotspot-header .rte { font-size: 1.4rem; color: #555555; line-height: 1.6; max-width: 650px; margin: 0 auto; }
 .hotspot-image-wrapper { position: relative; margin: 0 auto; display: inline-block; max-width: 100%; }
-.hotspot-image-wrapper img, .hotspot-image-wrapper svg { width: 100%; height: auto; max-height: 700px; min-height: 700px; display: block; border-radius: {{ section.settings.image_radius }}px; object-fit: cover; }
+.hotspot-image-wrapper img, .hotspot-image-wrapper svg { width: 100%; height: auto; max-height: 700px; min-height: 700px; display: block; border-radius: {{ section.settings.image_radius }}px; object-fit: contain; }
 .hotspot-point { position: absolute; transform: translate(-50%, -50%); z-index: 2; }
 .hotspot-wrapper { position: relative; z-index: 3; }
 .hotspot-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); width: 85px; height: 85px; background: radial-gradient(circle, rgba(255, 209, 0, 0.6) 0%, rgba(255, 209, 0, 0) 65%); border-radius: 50%; pointer-events: none; z-index: 1; opacity: 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease; }
 .hotspot-point:hover .hotspot-glow, .hotspot-wrapper.is-open ~ .hotspot-glow { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-.hotspot-btn { width: 40px; height: 40px; background-color: #FFD100; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; list-style: none; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); color: #111111; position: relative; z-index: 2; padding: 0; }
+.hotspot-btn { width: 40px; height: 40px; background-color: #FFD100; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; list-style: none; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); color: #2c2c2c; position: relative; z-index: 2; padding: 0; }
 .hotspot-btn:hover, .hotspot-wrapper.is-open .hotspot-btn { transform: scale(1.15); }
 .hotspot-btn svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2px; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1); }
 .hotspot-wrapper.is-open .hotspot-btn svg { transform: rotate(45deg); }
@@ -20,7 +20,7 @@
 .hotspot-wrapper.is-open .hotspot-tooltip { opacity: 1; visibility: visible; pointer-events: auto; }
 .hotspot-tooltip__header { display: flex; align-items: center; gap: 8px; margin-bottom: 1.2rem; }
 .hotspot-tooltip__header img { width: 20px; height: 20px; object-fit: contain; }
-.hotspot-tooltip__header h4 { margin: 0; font-size: 1.4rem; font-weight: 700; color: #111111; }
+.hotspot-tooltip__header h4 { margin: 0; font-size: 1.4rem; font-weight: 700; color: #2c2c2c; }
 .hotspot-tooltip__subtitle { font-size: 1.35rem; font-weight: 600; color: #333333; line-height: 1.4; margin: 0 0 0.8rem 0; }
 .hotspot-tooltip .rte { font-size: 1.25rem; line-height: 1.5; color: #777777; margin: 0; }
 .hotspot-tooltip .rte p { margin: 0; }
