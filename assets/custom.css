@@ -2434,3 +2434,18 @@ background: none;
 .media:hover img, .card:hover .card__media img, .image-with-text__media:hover img {
   transform: scale(1.05) !important;
 }
+
+/* 1. Tell the direct parent of ANY hovered image to hide the overflow */
+*:has(> img:hover) {
+  overflow: hidden !important;
+}
+
+/* 2. Add the smooth transition to all images */
+img {
+  transition: transform 0.4s ease-in-out !important;
+}
+
+/* 3. Scale the image up on hover */
+img:hover {
+  transform: scale(1.05) !important;
+}
