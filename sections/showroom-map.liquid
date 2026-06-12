@@ -32,21 +32,42 @@
     background-color: #f3f3f3;
   }
 
+  /* NEW: Map Pin Styling */
+  .showroom-map-pin {
+    position: absolute;
+    z-index: 2;
+    transform: translate(-50%, -100%); /* Centers the point of the pin exactly on the coordinates */
+    width: 60px; /* Matches your Figma dimensions */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .showroom-map-pin img, 
+  .showroom-map-pin svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   .showroom-content-wrapper {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     padding-top: 32px;
     padding-bottom: 32px;
   }
-.showroom-heading.h2 {
+
+  .showroom-heading.h2 {
     margin: 0;
-}
+  }
+
   .showroom-card {
     border-radius: 12px;
     padding: 28px 24px;
     max-width: 460px;
   }
+
   .showroom-address {
     font-size: 16px;
     line-height: 1.5;
@@ -131,6 +152,11 @@
     .showroom-btn {
       width: 100%;
     }
+    
+    /* Optional: hide or reposition pin on mobile if needed */
+    .showroom-map-pin {
+      transform: translate(-50%, -100%) scale(0.8);
+    }
   }
 </style>
 
@@ -140,6 +166,17 @@
       {{ section.settings.map_image | image_url: width: 2000 | image_tag: loading: 'lazy', sizes: '100vw' }}
     {% else %}
       {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+
+  <div class="showroom-map-pin" style="top: {{ section.settings.pin_top }}%; left: {{ section.settings.pin_left }}%;">
+    {% if section.settings.pin_image != blank %}
+      {{ section.settings.pin_image | image_url: width: 120 | image_tag: loading: 'lazy' }}
+    {% else %}
+      <svg width="60" height="89" viewBox="0 0 60 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 1C14 1 1 14 1 30C1 48 30 87 30 87C30 87 59 48 59 30C59 14 46 1 30 1Z" fill="white" stroke="black" stroke-width="1.5"/>
+        <text x="30" y="34" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="14" text-anchor="middle" fill="#FFD100">ROXX</text>
+      </svg>
     {% endif %}
   </div>
 
@@ -183,6 +220,49 @@
   "name": "Showroom Map",
   "settings": [
     {
+      "type": "header",
+      "content": "Map Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Background Map Image"
+    },
+    {
+      "type": "header",
+      "content": "Map Pin Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "pin_image",
+      "label": "Custom Map Pin / Logo",
+      "info": "Upload a custom pin (SVG or transparent PNG). If left blank, the default ROXX pin will show."
+    },
+    {
+      "type": "range",
+      "id": "pin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Pin Vertical Position (Top)",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "pin_left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Pin Horizontal Position (Left)",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Card Content"
+    },
+    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color scheme",
@@ -200,11 +280,6 @@
       ],
       "default": "h1",
       "label": "Heading Size"
-    },
-    {
-      "type": "image_picker",
-      "id": "map_image",
-      "label": "Background Map Image"
     },
     {
       "type": "text",
