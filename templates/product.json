@@ -739,18 +739,21 @@
         "feature_xcJ6Nm": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_6.svg",
             "title": "Integrated GPS tracking"
           }
         },
         "feature_LKhykn": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_41.svg",
             "title": "Smart alarm system"
           }
         },
         "feature_xVDHzY": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_9.svg",
             "title": "Real-time location monitoring"
           }
         }
