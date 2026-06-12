@@ -894,7 +894,7 @@
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a_3.jpg",
-        "overlay_opacity": 100,
+        "overlay_opacity": 20,
         "desktop_height": 600,
         "desktop_align_y": "center",
         "desktop_align_x": "center",
@@ -1265,56 +1265,6 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
-    },
-    "footer_cta_banner_new": {
-      "type": "footer-cta-banner",
-      "blocks": {
-        "heading_new": {
-          "type": "heading",
-          "settings": {
-            "heading": "READY TO RIDE SMARTER?",
-            "font_size": 48
-          }
-        },
-        "text_new": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Upgrade your everyday commute with the Roxx Joleem X.</p>"
-          }
-        },
-        "button_new": {
-          "type": "button",
-          "settings": {
-            "button_label": "BOOK A TEST RIDE",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_new",
-        "text_new",
-        "button_new"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/1691238634865-ebike-speed-limit.jpg",
-        "top_gradient_height": 20,
-        "bottom_gradient_height": 30,
-        "mobile_top_gradient_height": 55,
-        "mobile_solid_black_top": 25,
-        "mobile_bottom_gradient_height": 30,
-        "desktop_height": 600,
-        "desktop_align_y": "center",
-        "desktop_align_x": "center",
-        "desktop_text_align": "center",
-        "desktop_flex_align": "center",
-        "mobile_height": 500,
-        "mobile_align_y": "flex-start",
-        "mobile_align_x": "center",
-        "mobile_text_align": "center",
-        "mobile_flex_align": "center",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
@@ -1333,7 +1283,6 @@
     "masonary_gallery_3z9FME",
     "feature_alternating_XKMVfA",
     "faq_ekQccb",
-    "promo_cards_section_Y4dTtA",
-    "footer_cta_banner_new"
+    "promo_cards_section_Y4dTtA"
   ]
 }
