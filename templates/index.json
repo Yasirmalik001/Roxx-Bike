@@ -64,7 +64,7 @@
         "adapt_height_mobile": false,
         "show_mobile_content_below": false,
         "text_position_top": 50,
-        "text_position_left": 50,
+        "text_position_left": 78,
         "text_alignment": "center"
       }
     },
@@ -966,8 +966,11 @@
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "image": "shopify://shop_images/6ed4abd66405451c8ee7c4cf68b6a2d3d4548846.png",
+        "desktop_height": 80,
+        "mobile_height": 80,
         "overlay_color": "#000000",
         "overlay_opacity": 100,
+        "overlay_solid_height": 40,
         "heading": "KEEP DISCOVERING",
         "heading_size": "h1",
         "padding_top": 0,
