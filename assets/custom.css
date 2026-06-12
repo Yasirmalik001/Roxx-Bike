@@ -14,16 +14,12 @@ p {
   font-size: 16px;
   line-height: 130%;
 }
-.button, 
-.button--primary, 
-.button--secondary,
-.custom-discover-btn {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: color 0.3s ease, border-color 0.3s ease;
-  /* Fix border bleeding in webkit */
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
+.button, .button--primary, .button--secondary, .custom-discover-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color .3s ease,border-color .3s ease;
+    font-family: 'INTEGRAL CF';
 }
 .button::before, 
 .button--primary::before, 
