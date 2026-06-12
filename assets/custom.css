@@ -1852,12 +1852,6 @@ background: #C2C2C21C;
 
 .product__title {
   font-size: 3.2rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: #000000;
-  text-align: center;
-  margin-bottom: 0.5rem;
 }
 
 .custom-price-wrapper {
