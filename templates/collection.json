@@ -131,10 +131,60 @@
         "padding_bottom": 60
       }
     },
+        "trust_badges_NAabnt": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_ELpAf4": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Vector_24.svg",
+            "text": "Free and Fast delivery"
+          }
+        },
+        "badge_mAphhp": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Vector_25.svg",
+            "text": "Secure payment"
+          }
+        },
+        "badge_nmcpwP": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Vector_26.svg",
+            "text": "Strong customer service"
+          }
+        },
+        "badge_XEyVEC": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Vector_27.svg",
+            "text": "2-years warranty"
+          }
+        }
+      },
+      "block_order": [
+        "badge_ELpAf4",
+        "badge_mAphhp",
+        "badge_nmcpwP",
+        "badge_XEyVEC"
+      ],
+      "name": "Trust Badges",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
   },
   "order": [
     "banner",
     "product-grid",
         "partner_testimonials_TYE8nf",
+            "trust_badges_NAabnt",
   ]
 }
