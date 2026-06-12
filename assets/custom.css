@@ -191,21 +191,7 @@ header:not(.header-transparent-active) .icon-close path {
   white-space: nowrap;
 }
 
-.card-overlay-droplet-c {
-  background: var(--sl-brand-primary-light);
-  color: var(--sl-brand-primary);
-  padding: 8px 12px;
-  border-radius: 30px;
-  font-family: var(--font-body-family);
-  font-weight: 500;
-  font-size: 12px;
-  white-space: nowrap;
-  line-height: 0;
-}
 
-.rich-text__text {
-  line-height: 130%;
-}
 
 @media (max-width: 768px) {
   .drawer__upsell-container-mobile.upsell-pdp .card__inner {
