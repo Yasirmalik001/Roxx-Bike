@@ -26,7 +26,7 @@
       "settings": {
         "products_per_page": 36,
         "columns_desktop": 3,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "color_scheme": "scheme-1",
         "infinite": "infinite",
         "infinite_btn": false,
@@ -44,7 +44,7 @@
         "padding_bottom": 36
       }
     },
-        "partner_testimonials_TYE8nf": {
+    "partner_testimonials_TYE8nf": {
       "type": "partner-testimonials",
       "blocks": {
         "testimonial_GrQJgj": {
@@ -131,56 +131,7 @@
         "padding_bottom": 60
       }
     },
-        "trust_badges_NAabnt": {
-      "type": "trust-badges",
-      "blocks": {
-        "badge_ELpAf4": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "image": "shopify://shop_images/Vector_24.svg",
-            "text": "Free and Fast delivery"
-          }
-        },
-        "badge_mAphhp": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "image": "shopify://shop_images/Vector_25.svg",
-            "text": "Secure payment"
-          }
-        },
-        "badge_nmcpwP": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "image": "shopify://shop_images/Vector_26.svg",
-            "text": "Strong customer service"
-          }
-        },
-        "badge_XEyVEC": {
-          "type": "badge",
-          "settings": {
-            "custom_svg": "",
-            "image": "shopify://shop_images/Vector_27.svg",
-            "text": "2-years warranty"
-          }
-        }
-      },
-      "block_order": [
-        "badge_ELpAf4",
-        "badge_mAphhp",
-        "badge_nmcpwP",
-        "badge_XEyVEC"
-      ],
-      "name": "Trust Badges",
-      "settings": {
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-        "product_comparison_WqKGJh": {
+    "product_comparison_WqKGJh": {
       "type": "product-comparison",
       "blocks": {
         "feature_row_e47jF7": {
@@ -252,7 +203,7 @@
         "padding_bottom": 60
       }
     },
-        "faq_x9aGnf": {
+    "faq_x9aGnf": {
       "type": "faq",
       "blocks": {
         "faq_KrNrF3": {
@@ -323,13 +274,62 @@
         "padding_bottom": 80
       }
     },
+    "trust_badges_NAabnt": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_ELpAf4": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Vector_24.svg",
+            "text": "Free and Fast delivery"
+          }
+        },
+        "badge_mAphhp": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Vector_25.svg",
+            "text": "Secure payment"
+          }
+        },
+        "badge_nmcpwP": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Vector_26.svg",
+            "text": "Strong customer service"
+          }
+        },
+        "badge_XEyVEC": {
+          "type": "badge",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Vector_27.svg",
+            "text": "2-years warranty"
+          }
+        }
+      },
+      "block_order": [
+        "badge_ELpAf4",
+        "badge_mAphhp",
+        "badge_nmcpwP",
+        "badge_XEyVEC"
+      ],
+      "name": "Trust Badges",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
   },
   "order": [
     "banner",
     "product-grid",
-        "partner_testimonials_TYE8nf",
-           "product_comparison_WqKGJh",
-           "faq_x9aGnf",
-            "trust_badges_NAabnt",
+    "partner_testimonials_TYE8nf",
+    "product_comparison_WqKGJh",
+    "faq_x9aGnf",
+    "trust_badges_NAabnt"
   ]
 }
