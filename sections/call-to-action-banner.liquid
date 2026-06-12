@@ -70,6 +70,16 @@
       align-items: {{ section.settings.desktop_flex_align }};
     }
   }
+  @media screen and (min-width: 750px) {
+      .custom-hero-{{ section.id }} .hero-background-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  }
 {%- endstyle -%}
 
 <div class="custom-hero-{{ section.id }} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
