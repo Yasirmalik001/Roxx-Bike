@@ -62,6 +62,57 @@
         "padding_bottom": 36
       }
     },
+        "feature_alternating_Y3DYDF": {
+      "type": "feature-alternating",
+      "blocks": {
+        "feature_block_nUaiFE": {
+          "type": "feature_block",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/b53dba1553b2351ae4f7acb4fd7f6cd2327df0fc_1.jpg",
+            "layout": "left",
+            "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
+            "heading_size": "h1",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        },
+        "feature_block_CNymqe": {
+          "type": "feature_block",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a_1.jpg",
+            "layout": "right",
+            "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
+            "heading_size": "h1",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_block_nUaiFE",
+        "feature_block_CNymqe"
+      ],
+      "name": "Alternating Features",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "partner_testimonials_TYE8nf": {
       "type": "partner-testimonials",
       "blocks": {
@@ -331,6 +382,7 @@
   "order": [
     "custom_collection_hero_f3NpfE",
     "main_list_collections_c3mhY6",
+        "feature_alternating_Y3DYDF",
     "partner_testimonials_TYE8nf",
     "product_comparison_WqKGJh",
     "faq_x9aGnf",
