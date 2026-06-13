@@ -44,6 +44,57 @@
         "padding_bottom": 36
       }
     },
+    "feature_alternating_Y3DYDF": {
+      "type": "feature-alternating",
+      "blocks": {
+        "feature_block_nUaiFE": {
+          "type": "feature_block",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/b53dba1553b2351ae4f7acb4fd7f6cd2327df0fc_1.jpg",
+            "layout": "left",
+            "heading": "SMART PROTECTION FOR A SMARTER RIDE.",
+            "heading_size": "h1",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        },
+        "feature_block_CNymqe": {
+          "type": "feature_block",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/cbb0735e1e426a4cb22b69b2773057ed2c17246a_1.jpg",
+            "layout": "right",
+            "heading": "KEEP YOUR RIDE PERFORMING LIKE NEW",
+            "heading_size": "h1",
+            "text": "<p>Your bike is more than just a ride — it's part of your everyday life. With Roxx insurance, you're protected against the unexpected.</p>",
+            "list_heading": "What's covered:",
+            "list_item_1": "Theft protection",
+            "list_item_2": "Damage & accident coverage",
+            "list_item_3": "Peace of mind, wherever you park",
+            "list_item_4": "",
+            "button_label": "EXPLORE INSURANCE",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_block_nUaiFE",
+        "feature_block_CNymqe"
+      ],
+      "name": "Alternating Features",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "partner_testimonials_TYE8nf": {
       "type": "partner-testimonials",
       "blocks": {
@@ -137,45 +188,35 @@
         "feature_row_e47jF7": {
           "type": "feature_row",
           "settings": {
-            "fallback_icon": "rider_height",
-            "text_1": "Suitable for cyclists\nfrom 165-190 cm",
-            "text_2": "Suitable for cyclists\nfrom 155-195 cm"
+            "fallback_icon": "rider_height"
           }
         },
         "feature_row_qzbajJ": {
           "type": "feature_row",
           "settings": {
             "custom_icon": "shopify://shop_images/Group_22_a402139a-f8b1-4606-b6e2-9b0dab69426c.svg",
-            "fallback_icon": "range_dots",
-            "text_1": "Range upto 80-100 km",
-            "text_2": "Range upto 60-80 km"
+            "fallback_icon": "range_dots"
           }
         },
         "feature_row_VjzrHf": {
           "type": "feature_row",
           "settings": {
             "custom_icon": "shopify://shop_images/Group_5_8cc8a4e4-6b50-4776-a0ed-d8755b4e5104.svg",
-            "fallback_icon": "speedometer",
-            "text_1": "Max speed 25 km/h",
-            "text_2": "Max speed 25 km/h"
+            "fallback_icon": "speedometer"
           }
         },
         "feature_row_W6t6WY": {
           "type": "feature_row",
           "settings": {
             "custom_icon": "shopify://shop_images/Group_6.svg",
-            "fallback_icon": "gps_pin",
-            "text_1": "Advanced (GPS\ntracking & alarm)",
-            "text_2": "Standard lock support"
+            "fallback_icon": "gps_pin"
           }
         },
         "feature_row_hEHRbt": {
           "type": "feature_row",
           "settings": {
             "custom_icon": "shopify://shop_images/Vector_13.svg",
-            "fallback_icon": "drive_belt",
-            "text_1": "Carbon belt drive",
-            "text_2": "Chain drive"
+            "fallback_icon": "drive_belt"
           }
         }
       },
@@ -192,11 +233,7 @@
         "heading": "NOT SURE WHICH BIKE SUITS YOU?",
         "heading_size": "h1",
         "subheading": "check out the handy comparison table below.",
-        "product_1": "roxx-joieem-x",
-        "custom_title_1": "",
         "desc_1": "Lorem ipsum dolor sit amet consectetur.",
-        "product_2": "sl5",
-        "custom_title_2": "",
         "desc_2": "Lorem ipsum dolor sit amet consectetur.",
         "link_label": "More info",
         "padding_top": 60,
@@ -327,6 +364,7 @@
   "order": [
     "banner",
     "product-grid",
+    "feature_alternating_Y3DYDF",
     "partner_testimonials_TYE8nf",
     "product_comparison_WqKGJh",
     "faq_x9aGnf",
