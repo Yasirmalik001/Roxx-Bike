@@ -1026,6 +1026,10 @@ header:not(.header-transparent-active) .icon-close path {
   letter-spacing: 0%;
 }
 
+.collection__description {
+  max-width: 500px;
+}
+
 .price .price-item--sale {
   font-size: 2.2rem;
   font-weight: 800;
