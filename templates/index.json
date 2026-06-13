@@ -551,7 +551,7 @@
         "desktop_text_align": "center",
         "desktop_flex_align": "center",
         "mobile_height": 500,
-        "mobile_align_y": "center",
+        "mobile_align_y": "flex-start",
         "mobile_align_x": "center",
         "mobile_text_align": "center",
         "mobile_flex_align": "center",
