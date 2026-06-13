@@ -96,7 +96,17 @@
         {%- endif -%}
       </div>
 
-
+      {%- if section.settings.show_view_all and section.settings.collection != blank -%}
+        <div class="collection__view-all-top small-hide">
+          <a
+            href="{{ section.settings.collection.url }}"
+            class="custom-discover-btn"
+            aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
+          >
+            DISCOVER {{ section.settings.collection.title | upcase }} &rarr;
+          </a>
+        </div>
+      {%- endif -%}
     </div>
 
     <slider-component class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -230,7 +240,7 @@
     </slider-component>
 
     {%- if section.settings.show_view_all and section.settings.collection != blank -%}
-      <div class="center collection__view-all small-hide" style="margin-top: 40px; display: flex; justify-content: center;">
+      <div class="center collection__view-all medium-hide large-up-hide" style="margin-top: 40px; display: flex; justify-content: center;">
         <a
           href="{{ section.settings.collection.url }}"
           class="custom-discover-btn"
