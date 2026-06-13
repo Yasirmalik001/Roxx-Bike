@@ -351,7 +351,13 @@ a.custom-discover-btn { background-color: #FFFFFF !important; color: #000000 !im
     gap: 15px;
     justify-content: center;
 }
-  .collection__header-wrapper .collection__title { max-width: 100%; }
+.collection__header-wrapper .collection__title {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
   .custom-save-badge { display: none; }
   .footer .footer-block--newsletter { width: 100%; max-width: 100%; }
   .footer__bottom-main-row { flex-direction: column; align-items: flex-start; gap: 3rem; }
