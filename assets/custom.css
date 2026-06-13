@@ -294,6 +294,11 @@ a.custom-discover-btn { background-color: #FFFFFF !important; color: #000000 !im
 }
 
 @media screen and (max-width: 768px) {
+  .collection-tabs .collection-tabs__header-wrap{
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+}
   .drawer__upsell-container-mobile.upsell-pdp .card__inner { width: 100%; height: 236px; }
   .product__custom-badge { position: absolute; right: 0; top: 0; }
   .desktop-show { display: none; }
