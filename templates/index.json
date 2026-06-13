@@ -53,7 +53,7 @@
         "color_scheme": "scheme-50fbb05c-7b9a-4819-9253-c47230788d8a",
         "media_type": "video",
         "video": "shopify://files/videos/1.RijRoxx-16x9-ezgif.com-mute-video.mp4",
-        "overlay_opacity": 0,
+        "overlay_opacity": 40,
         "heading_size_desktop": 56,
         "subheading_size_desktop": 18,
         "content_width": 850,
