@@ -14,7 +14,7 @@
   .keep-discovering-wrapper {
     position: relative;
     width: 100%;
-    min-height: {{ section.settings.mobile_height }}vh;
+    min-height: clamp(300px, {{ section.settings.mobile_height }}vh, 500px);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -22,7 +22,7 @@
 
   @media screen and (min-width: 750px) {
     .keep-discovering-wrapper {
-      min-height: {{ section.settings.desktop_height }}vh;
+      min-height: clamp(400px, {{ section.settings.desktop_height }}vh, 600px);
     }
   }
 
