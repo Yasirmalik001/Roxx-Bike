@@ -351,6 +351,9 @@ a.custom-discover-btn { background-color: #FFFFFF !important; color: #000000 !im
     gap: 15px;
     justify-content: center;
 }
+.collection__description{
+    text-align: center;
+}
 .collection__header-wrapper .collection__title {
     max-width: 100%;
     display: flex;
