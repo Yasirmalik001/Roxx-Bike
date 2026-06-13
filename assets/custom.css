@@ -345,7 +345,12 @@ a.custom-discover-btn { background-color: #FFFFFF !important; color: #000000 !im
   .footer .footer__blocks-wrapper { flex-wrap: wrap; gap: 2rem; }
   .show-dektop { display: none; }
   .thumbnail-scroll-down-arrow { display: none; }
-  .collection__header-wrapper { flex-direction: column; align-items: flex-start; gap: 15px; }
+.collection__header-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
   .collection__header-wrapper .collection__title { max-width: 100%; }
   .custom-save-badge { display: none; }
   .footer .footer-block--newsletter { width: 100%; max-width: 100%; }
