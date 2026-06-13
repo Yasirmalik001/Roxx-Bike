@@ -218,7 +218,7 @@
         "desktop_height": 750,
         "mobile_height": 650,
         "padding_top": 36,
-        "padding_bottom": 60
+        "padding_bottom": 0
       }
     },
     "featured_collection_qTdATG": {
