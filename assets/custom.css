@@ -181,7 +181,17 @@ header:not(.header-transparent-active) .icon-hamburger, header:not(.header-trans
 .footer-block__newsletter .newsletter-form__field-wrapper .field { position: relative; }
 .footer-block__newsletter .newsletter-form__field-wrapper .field__input { background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.3); border-radius: 0; box-shadow: none; padding: 1rem 0; color: #fff; }
 .footer-block__newsletter .newsletter-form__field-wrapper .field__input:focus { border-bottom-color: #fff; box-shadow: none; outline: none; }
-.footer-block__newsletter .newsletter-form__field-wrapper .field__label { display: none; }
+.newsletter-form__field-wrapper .field__label {
+    /* display: none!important; */
+    font-family: Suisse Intl Trial;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFFFFF63;
+}
 .footer-block__newsletter .newsletter-form__button { background: transparent; border: none; color: #fff; position: absolute; right: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; padding: 0; width: auto; cursor: pointer; }
 .footer-block__newsletter .newsletter-form__button:hover { opacity: 0.8; }
 .footer__content-top { display: flex; justify-content: space-between; gap: 4rem; padding-bottom: 4rem; }

@@ -42,7 +42,6 @@
 .newsletter-form__field-wrapper .field { position: relative; display: flex; align-items: center; }
 .newsletter-form__field-wrapper .field__input { background: transparent !important; border: none !important; border-bottom: 1px solid #333 !important; border-radius: 0 !important; color: #fff !important; padding-left: 0 !important; font-size: 13px !important; box-shadow: none !important; padding-right: 90px !important; }
 .newsletter-form__field-wrapper .field__input:focus { border-bottom: 1px solid #ffcc00 !important; }
-.newsletter-form__field-wrapper .field__label { display: none !important; }
 .newsletter-form__button { position: absolute !important; right: 0; top: 50%; transform: translateY(-50%); background: transparent !important; color: #fff !important; border: none !important; width: auto !important; padding: 0 !important; display: flex; align-items: center; }
 .newsletter-form__button:hover { color: #ffcc00 !important; }
 .roxx-custom-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-block: 3rem !important; margin-top: 4rem; }
